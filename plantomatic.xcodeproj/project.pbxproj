@@ -25,6 +25,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4147B72018BD062F00B111B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = Proj4;
+		};
+		4147B72218BD063F00B111B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = Proj4;
+		};
 		F7663598189DA10400B0A594 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F766356A189DA10300B0A594 /* Project object */;
@@ -35,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Proj4.xcodeproj; path = Proj4/Proj4.xcodeproj; sourceTree = "<group>"; };
 		F7663572189DA10300B0A594 /* plantomatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plantomatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7663575189DA10300B0A594 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7663577189DA10300B0A594 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,9 +97,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4147B71D18BD062F00B111B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4147B72118BD062F00B111B9 /* libProj4.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F7663569189DA10300B0A594 = {
 			isa = PBXGroup;
 			children = (
+				4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */,
 				F766357B189DA10300B0A594 /* plantomatic */,
 				F766359A189DA10400B0A594 /* plantomaticTests */,
 				F7663574189DA10300B0A594 /* Frameworks */,
@@ -170,6 +194,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4147B72318BD063F00B111B9 /* PBXTargetDependency */,
 			);
 			name = plantomatic;
 			productName = plantomatic;
@@ -222,6 +247,12 @@
 			mainGroup = F7663569189DA10300B0A594;
 			productRefGroup = F7663573189DA10300B0A594 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4147B71D18BD062F00B111B9 /* Products */;
+					ProjectRef = 4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F7663571189DA10300B0A594 /* plantomatic */,
@@ -229,6 +260,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4147B72118BD062F00B111B9 /* libProj4.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libProj4.a;
+			remoteRef = 4147B72018BD062F00B111B9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F7663570189DA10300B0A594 /* Resources */ = {
@@ -273,6 +314,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4147B72318BD063F00B111B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Proj4;
+			targetProxy = 4147B72218BD063F00B111B9 /* PBXContainerItemProxy */;
+		};
 		F7663599189DA10400B0A594 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F7663571189DA10300B0A594 /* plantomatic */;
@@ -341,8 +387,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -374,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -390,6 +436,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "plantomatic/plantomatic-Prefix.pch";
 				INFOPLIST_FILE = "plantomatic/plantomatic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "33D1D9D1-B0AB-48EF-AC9E-305A64923112";
 				WRAPPER_EXTENSION = app;
@@ -406,6 +454,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "plantomatic/plantomatic-Prefix.pch";
 				INFOPLIST_FILE = "plantomatic/plantomatic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "33D1D9D1-B0AB-48EF-AC9E-305A64923112";
 				WRAPPER_EXTENSION = app;
