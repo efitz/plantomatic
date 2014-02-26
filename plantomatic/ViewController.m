@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "constants.h"
 #include "proj_api.h"
 
 @interface ViewController ()
@@ -14,12 +15,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *latitudeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *longitudeTxtField;
 @property (strong, nonatomic) IBOutlet UILabel *xyLbl;
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI));
 
 - (IBAction)convertIntoXY:(id)sender;
 
 @end
 
 @implementation ViewController
+
 
 - (void)viewDidLoad
 {
@@ -74,27 +77,24 @@
     
     
     //Here is what we want to accomplish
+	
+	double lat=0, lon=0;
+	lat = [self.latitudeTxtField.text doubleValue];
+	lon = [self.longitudeTxtField.text doubleValue];
+	//Need to convert the input coordinates into radians
+	lat = DEGREES_TO_RADIANS(lat);
+	lon = DEGREES_TO_RADIANS(lon);
     
-    
-    //To initiate the  Lambert Equal Area projection
-//    projPJ dst_prj = pj_init_plus("+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs");
-
-    NSString* str= [NSString stringWithFormat:@"+proj=laea +lat_0=%@ +lon_0=%@ +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs", self.latitudeTxtField.text, self.longitudeTxtField.text];
-    
-    const char *cStr=[str UTF8String];
-    
-    projPJ dst_prj = pj_init_plus(cStr);
-
+    //Initiate the destination projection using the  Lambert Equal Area projection with proper offsets
+	projPJ dst_prj = pj_init_plus("+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs");
     
     //Initiate the source projection
     projPJ src_prj = pj_init_plus("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs");
     
     //To transform the data
-    double x=0, y=0;
+    pj_transform(src_prj, dst_prj, 1, 1, &lon, &lat, NULL);
     
-    pj_transform(src_prj, dst_prj, 1, 1, &x, &y, NULL);
-    
-    self.xyLbl.text=[NSString stringWithFormat:@"Y=%.2f, X=%.2f", y, x];
+    self.xyLbl.text=[NSString stringWithFormat:@"Y=%.0f, X=%.0f", lat, lon];
     
     pj_free(src_prj);
     pj_free(dst_prj);

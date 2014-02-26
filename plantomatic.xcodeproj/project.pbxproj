@@ -51,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Proj4.xcodeproj; path = Proj4/Proj4.xcodeproj; sourceTree = "<group>"; };
+		F726E16518BE6FDC001751DD /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		F7663572189DA10300B0A594 /* plantomatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plantomatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7663575189DA10300B0A594 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7663577189DA10300B0A594 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,6 +148,7 @@
 				F7663587189DA10300B0A594 /* Main.storyboard */,
 				F766358A189DA10300B0A594 /* ViewController.h */,
 				F766358B189DA10300B0A594 /* ViewController.m */,
+				F726E16518BE6FDC001751DD /* constants.h */,
 				F766358D189DA10300B0A594 /* Images.xcassets */,
 				F766357C189DA10300B0A594 /* Supporting Files */,
 			);
