@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Ocotea Technologies, LLC. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ConversionTestViewController.h"
 #import "constants.h"
 #include "proj_api.h"
 
-@interface ViewController ()
+@interface ConversionTestViewController ()
 
 @property (strong, nonatomic) IBOutlet UITextField *latitudeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *longitudeTxtField;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ViewController
+@implementation ConversionTestViewController
 
 
 - (void)viewDidLoad
