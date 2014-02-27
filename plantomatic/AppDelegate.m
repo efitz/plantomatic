@@ -7,6 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "GPSManager.h"
+
+@interface AppDelegate()
+
+-(void) getLocationUpdates;
+
+@end
 
 @implementation AppDelegate
 @synthesize databaseName,databasePath;
@@ -23,6 +30,8 @@
 //    self.databasePath = [documentDir stringByAppendingPathComponent:self.databaseName];
 //    
 //    [self createAndCheckDatabase];
+    
+    [self getLocationUpdates];
     
     return YES;
 }
@@ -67,5 +76,30 @@
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark -
+#pragma mark GetLocalEvents Methods
+
+-(void) getLocationUpdates
+{
+    [[GPSManager getInstance] registerForCurrentLocationUpdatesWithDelegate:self completionCallSelector:@selector(currentLocationUpdate:) failureCallselector:@selector(unableToGetCurrentLocation:)];
+}
+
+
+-(void) currentLocationUpdate:(CLLocation*)currentLocation
+{
+    [[GPSManager getInstance] unregisterForCurrentLocationUpdates];
+    self.currentLocation=currentLocation;
+}
+
+-(void) unableToGetCurrentLocation:(NSString*)errorMessage
+{
+    //[[GPSManager getInstance] unregisterForCurrentLocationUpdates];
+    //[self.delegate myEventServiceLocalEventsFailedWithReason:errorMessage];
+}
+
+
+
 
 @end

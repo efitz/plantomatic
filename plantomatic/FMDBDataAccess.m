@@ -16,6 +16,8 @@
 
 -(NSMutableArray *) getPlantsForY:(int)y
                              andX:(int)x
+                 andFilterByValue:(enum FilterByValue)filterByValue
+               isInAscendingOrder:(BOOL)isInAscendingOrder
 {
     NSMutableArray *SpeciesFamilies = [NSMutableArray array];
     
@@ -23,11 +25,38 @@
     
     [db open];
     
+    NSMutableString* queryString=[NSMutableString stringWithString:@"SELECT * FROM SpeciesFamily where SpId in (select SpId from Presence where Y=? and X=?)"];
+    
+    switch (filterByValue) {
+        case FilterByValueFamily:
+            [queryString appendString:@" order by Family"];
+            break;
+        case FilterByValueGenus:
+            [queryString appendString:@" order by Genus"];
+            break;
+        case FilterByValueSpecies:
+            [queryString appendString:@" order by Species"];
+            break;
+            
+        default:
+            [queryString appendString:@" order by Family"];
+            break;
+    }
+    
+    if (isInAscendingOrder) {
+        [queryString appendString:@" asc"];
+    }
+    else
+    {
+        [queryString appendString:@" desc"];
+    }
     
     
-    //FMResultSet *results = [db executeQuery:@"SELECT * FROM SpeciesFamily where SpId in (select SpId from Presence where Y=? and X=?)", [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];
+    FMResultSet *results = [db executeQuery:queryString, [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];
     
-    FMResultSet *results = [db executeQuery:@"SELECT * FROM SpeciesFamily where SpId in (select SpId from Presence where Y=79 and X=53)"];
+    //SELECT * FROM SpeciesFamily where SpId in (select SpId from Presence where Y=79 and X=53) order by Family desc
+
+    //FMResultSet *results = [db executeQuery:@"SELECT * FROM SpeciesFamily where SpId in (select SpId from Presence where Y=79 and X=53)"];
 
     
     while([results next])

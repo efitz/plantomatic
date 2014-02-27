@@ -25,6 +25,14 @@
 //    return databasePath;
 }
 
+
++(CLLocation *) getCurrentLocation
+{
+    CLLocation* currentLocation=[(AppDelegate *)[[UIApplication sharedApplication] delegate] currentLocation];
+    return currentLocation;
+}
+
+
 +(void) showAlert:(NSString *)title message:(NSString *)msg
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];

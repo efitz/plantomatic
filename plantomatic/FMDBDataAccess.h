@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "constants.h"
 
 @interface FMDBDataAccess : NSObject
 
 
 -(NSMutableArray *) getPlantsForY:(int)y
-                             andX:(int)x;
+                             andX:(int)x
+                 andFilterByValue:(enum FilterByValue)filterByValue
+               isInAscendingOrder:(BOOL)isInAscendingOrder;
 
 @end

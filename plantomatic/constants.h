@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+
+enum FilterByValue {
+    FilterByValueFamily,
+    FilterByValueGenus,
+    FilterByValueSpecies
+};
+
 @interface constants : NSObject
 
 

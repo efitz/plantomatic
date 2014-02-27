@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Utility : NSObject
 
 
 +(NSString *) getDatabasePath;
++(CLLocation *) getCurrentLocation;
 +(void) showAlert:(NSString *) title message:(NSString *) msg;
 
 @end

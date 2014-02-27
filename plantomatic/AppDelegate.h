@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ConversionTestViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,6 +18,7 @@
 @property (nonatomic,strong) NSString *databaseName;
 @property (nonatomic,strong) NSString *databasePath;
 
+@property (nonatomic,strong)CLLocation* currentLocation;
 
 -(void) createAndCheckDatabase;
 
