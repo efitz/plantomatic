@@ -83,13 +83,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BIEN Plant-O-Matic " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzB-cX-6EB">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BIEN Plant-O-Matic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzB-cX-6EB">
                                         <rect key="frame" x="20" y="54" width="220" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This application generates a list of the plant species that may occur in your location. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-y5-S82">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This app uses your location to find the plants that may occur in your area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-y5-S82">
                                         <rect key="frame" x="20" y="118" width="220" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -155,7 +155,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Abi-Vm-VEC">
                                                     <rect key="frame" x="15" y="16" width="34" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -206,33 +206,33 @@
                                             <action selector="showSortOptions:" destination="8fC-6X-Nhh" eventType="touchUpInside" id="649-NS-FkX"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpZ-uR-yYt" customClass="UIControl">
-                                        <rect key="frame" x="0.0" y="-62" width="320" height="568"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPH-MT-PFD">
-                                                <rect key="frame" x="0.0" y="359" width="320" height="162"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXX-pu-ccs">
-                                                <rect key="frame" x="0.0" y="359" width="320" height="162"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="8fC-6X-Nhh" id="8IE-R3-uon"/>
-                                                    <outlet property="delegate" destination="8fC-6X-Nhh" id="d0K-FB-nG5"/>
-                                                </connections>
-                                            </pickerView>
-                                        </subviews>
-                                        <connections>
-                                            <action selector="hidePickerAction:" destination="8fC-6X-Nhh" eventType="touchUpInside" id="T8K-zp-oPI"/>
-                                        </connections>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.7568628191947937" green="0.85490202903747559" blue="0.93725496530532837" alpha="1" colorSpace="deviceRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpZ-uR-yYt" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPH-MT-PFD">
+                                        <rect key="frame" x="0.0" y="171" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXX-pu-ccs">
+                                        <rect key="frame" x="0.0" y="171" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="8fC-6X-Nhh" id="8IE-R3-uon"/>
+                                            <outlet property="delegate" destination="8fC-6X-Nhh" id="d0K-FB-nG5"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <connections>
+                                    <action selector="hidePickerAction:" destination="8fC-6X-Nhh" eventType="touchUpInside" id="T8K-zp-oPI"/>
+                                </connections>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NIb-dn-aR1">
-                                <rect key="frame" x="0.0" y="316" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="128" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bV9-Uo-tdJ"/>
@@ -335,21 +335,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="oxy-zx-J4h">
-                                <rect key="frame" x="20" y="137" width="280" height="191"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Data and Methods
-
-Source: 
-
-Credits:
-
-Version Notes:
-
-V1.0</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbC-If-XeV">
                                 <rect key="frame" x="50" y="495" width="220" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -388,6 +373,36 @@ V1.0</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFA-uI-bcT">
+                                <rect key="frame" x="14" y="111" width="293" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">About: 
+The BIEN Plant-O-Matic application generates a list of species in the user’s 
+location at 100 km2 resolution for any location in the Americas based on over 
+3,000,000 plant observations. Some geographic areas are better represented than 
+others. The application is intended as a general reference; all data is provided “as 
+is,” BIEN, Ocotea Technologies and their affiliates take no responsibility for the 
+accuracy of the output. Additional details regarding the data and the analysis can be 
+found at http://bien.nceas.ucsb.edu/bien/. 
+ 
+ 
+Credits: Plant-O-Matic is powered by the Botanical Information and Ecology 
+Network (BIEN) working group, led by B.J. Enquist, B. Boyle, R. Condit, and R.K. Peet. 
+The work is supported by the National Center for Ecological Analysis and Synthesis, 
+a center funded by the National Science Foundation, the University of California, 
+Santa Barbara, and the State of California. BIEN is also supported by The iPlant 
+Collaborative with funding from the National Science Foundation. We thank all 
+those who have contributed to data and analysis to the project, including New York 
+Botanical Garden, Missouri Botanical Garden, Utrecht Herbarium, the UNC 
+Herbarium, GBIF, REMIB, SpeciesLink and the Texas Advanced Computing Center at 
+the University of Texas. A full list of contributors can be found at: 
+http://bien.nceas.ucsb.edu/bien/. 
+ 
+Version: v1.0 (March 2014)</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.81568634510040283" green="0.83137261867523193" blue="0.82352948188781738" alpha="1" colorSpace="deviceRGB"/>
                     </view>
