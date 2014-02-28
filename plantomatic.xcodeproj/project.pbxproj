@@ -43,6 +43,7 @@
 		F766359F189DA10400B0A594 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F766359D189DA10400B0A594 /* InfoPlist.strings */; };
 		F76635A1189DA10400B0A594 /* plantomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76635A0189DA10400B0A594 /* plantomaticTests.m */; };
 		F76635AB189DA28600B0A594 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76635AA189DA28600B0A594 /* CoreLocation.framework */; };
+		F79E7F9618C03822004DDC07 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = F79E7F9518C03822004DDC07 /* splash_screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		F766359E189DA10400B0A594 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F76635A0189DA10400B0A594 /* plantomaticTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plantomaticTests.m; sourceTree = "<group>"; };
 		F76635AA189DA28600B0A594 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F79E7F9518C03822004DDC07 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 				41B9EE2118BF6A8B00F7B9A1 /* reload@2x.png */,
 				41B9EE2418BF6CA700F7B9A1 /* up.png */,
 				41B9EE2518BF6CA700F7B9A1 /* up@2x.png */,
+				F79E7F9518C03822004DDC07 /* splash_screen.png */,
 				41B9EE2818BF6CC200F7B9A1 /* down.png */,
 				41B9EE2918BF6CC200F7B9A1 /* down@2x.png */,
 				41B9EE0D18BF482400F7B9A1 /* PlantoMaticDB.sqlite */,
@@ -411,6 +414,7 @@
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
+				F79E7F9618C03822004DDC07 /* splash_screen.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
 				41B9EE2218BF6A8B00F7B9A1 /* reload.png in Resources */,
 			);

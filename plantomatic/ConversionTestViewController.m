@@ -56,45 +56,34 @@
 
 - (IBAction)convertIntoXY:(id)sender {
     
-   
-    /*
-     //// **************************************************************************
-     //example code copied from: http://trac.osgeo.org/proj/wiki/ProjAPI
-     
-     projPJ pj_merc, pj_latlong;
-     double x =-16 , y=20.25;
-     
-     if (!(pj_merc = pj_init_plus("+proj=merc +ellps=clrk66 +lat_ts=33")) )
-     exit(1);
-     if (!(pj_latlong = pj_init_plus("+proj=latlong +ellps=clrk66")) )
-     exit(1);
-     x *= DEG_TO_RAD;
-     y *= DEG_TO_RAD;
-     pj_transform(pj_latlong, pj_merc, 1, 1, &x, &y, NULL );
-     printf("%.2f\t%.2f\n", x, y);
-     //// **************************************************************************
-    */
-    
-    
-    //Here is what we want to accomplish
+	/*
+	 Here is test data with example input and output
+	 1) 42.337302, -71.227067 column 61, row 42, 2117
+	 2) 43.478256, -110.763924 column 28, row 38, 2263 species
+	 3) 26.363909, -80.131706 column 53, row 60, 1087
+	 4) 32.243065, -110.927750 column 24, row 50, 3704 species
+	 */
 	
-	double lat=0, lon=0;
-	lat = [self.latitudeTxtField.text doubleValue];
-	lon = [self.longitudeTxtField.text doubleValue];
+	double lat=43.478256, lon=-110.763924;
+	//lat = [self.latitudeTxtField.text doubleValue];
+	//lon = [self.longitudeTxtField.text doubleValue];
 	//Need to convert the input coordinates into radians
 	lat = DEGREES_TO_RADIANS(lat);
 	lon = DEGREES_TO_RADIANS(lon);
     
-    //Initiate the destination projection using the  Lambert Equal Area projection with proper offsets
-	projPJ dst_prj = pj_init_plus("+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs");
-    
-    //Initiate the source projection
+	//Initiate the source projection
     projPJ src_prj = pj_init_plus("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs");
+
+    //Initiate the destination projection using the Lambert Equal Area projection with proper offsets
+	projPJ dst_prj = pj_init_plus("+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs");
     
     //To transform the data
     pj_transform(src_prj, dst_prj, 1, 1, &lon, &lat, NULL);
+	double X=0,Y=0;
+	X = lon/100000; //units are in meters so we need to convert output 100kM grid
+	Y = lat/100000;
     
-    self.xyLbl.text=[NSString stringWithFormat:@"Y=%.0f, X=%.0f", lat, lon];
+    self.xyLbl.text=[NSString stringWithFormat:@"Y=%.0f, X=%.0f", X, Y];
     
     pj_free(src_prj);
     pj_free(dst_prj);
