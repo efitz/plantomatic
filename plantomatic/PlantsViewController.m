@@ -157,7 +157,11 @@
     
     //To transform the data
     pj_transform(src_prj, dst_prj, 1, 1, &lon, &lat, NULL);
-    
+    double X=0,Y=0;
+
+    X = lon/100000; //units are in meters so we need to convert output 100kM grid
+	Y = lat/100000;
+
     
     
     NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
@@ -165,6 +169,7 @@
     
     
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
+    //Y=50, X=24
     self.plants = [db getPlantsForY:50 andX:24 andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);

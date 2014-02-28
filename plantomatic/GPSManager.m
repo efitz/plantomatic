@@ -140,6 +140,15 @@ static GPSManager *gpsManagerInstance = nil;
     [self callTarget:self.delegate Selector:self.selCallFailure WithObject:[error description]];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status==kCLAuthorizationStatusAuthorized) {
+        //app is authoried to use location, go ahead
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"GoAHeadToUseLocationsNotification" object:nil];
+    }
+}
+
+
 -(BOOL) isUserDisabledLocationTracking
 {
     return self.isLocationTrackingDisabled;
@@ -151,7 +160,7 @@ static GPSManager *gpsManagerInstance = nil;
 
 -(void) callTarget:(id)target Selector:(SEL)selector WithObject:(id)object
 {
-	NSLog(@"Call completed .... (TaskGroupsAPI)");
+	NSLog(@"Call completed .... ");
 	if(target != nil && selector != nil)
 	{
 		if([target respondsToSelector:selector])

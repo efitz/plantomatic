@@ -31,7 +31,53 @@
 //    
 //    [self createAndCheckDatabase];
     
-    [self getLocationUpdates];
+    
+    self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    NSNumber *isNeedToShowWelcome = [[NSUserDefaults standardUserDefaults]
+                                     valueForKey:@"isNeedToShowWelcome"];
+    
+    
+    NSString* storyBoardName=@"Main";
+    
+    if (isNeedToShowWelcome==nil) {
+        storyBoardName=@"Main";
+    }
+    else
+    {
+        if (isNeedToShowWelcome.boolValue) {
+            
+            //show storyboard that have welcome screen
+            storyBoardName=@"Main";
+        }
+        else
+        {
+            //show storyboard that dont have welcome screen
+            storyBoardName=@"StoryboardWithoutWelcome";
+        }
+        
+    }
+    
+    [[NSUserDefaults standardUserDefaults]
+     setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle: nil];
+    UINavigationController *navController = (UINavigationController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"MyNavigationController"];
+//    self.navController=navController;
+    self.window.rootViewController = navController;
+    
+    [self.window makeKeyAndVisible];
+    
+    
+
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)
+    {
+        [self getLocationUpdates];
+    }
+    
+
     
     return YES;
 }
@@ -89,7 +135,7 @@
 
 -(void) currentLocationUpdate:(CLLocation*)currentLocation
 {
-    [[GPSManager getInstance] unregisterForCurrentLocationUpdates];
+    //[[GPSManager getInstance] unregisterForCurrentLocationUpdates];
     self.currentLocation=currentLocation;
 }
 

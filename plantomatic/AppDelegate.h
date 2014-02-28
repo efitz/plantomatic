@@ -13,7 +13,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) UINavigationController *navController;
 
 @property (nonatomic,strong) NSString *databaseName;
 @property (nonatomic,strong) NSString *databasePath;
@@ -21,5 +21,6 @@
 @property (nonatomic,strong)CLLocation* currentLocation;
 
 -(void) createAndCheckDatabase;
+-(void) getLocationUpdates;
 
 @end

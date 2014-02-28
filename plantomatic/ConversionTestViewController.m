@@ -63,8 +63,10 @@
 	 3) 26.363909, -80.131706 column 53, row 60, 1087
 	 4) 32.243065, -110.927750 column 24, row 50, 3704 species
 	 */
-	
-	double lat=43.478256, lon=-110.763924;
+
+    double lat=43.478256, lon=-110.763924;
+
+//	double lat=43.478256, lon=-110.763924;
 	//lat = [self.latitudeTxtField.text doubleValue];
 	//lon = [self.longitudeTxtField.text doubleValue];
 	//Need to convert the input coordinates into radians
