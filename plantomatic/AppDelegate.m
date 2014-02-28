@@ -10,6 +10,7 @@
 #import "GPSManager.h"
 
 @interface AppDelegate()
+@property (nonatomic, strong) UIImageView* splashView;
 
 -(void) getLocationUpdates;
 
@@ -79,7 +80,24 @@
     
 
     
+    UIImageView* splashView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    splashView.image = [UIImage imageNamed:@"splash_screen.png"];
+    self.splashView=splashView;
+    [self.window addSubview:self.splashView];
+    [self.window bringSubviewToFront:self.splashView];
+
+    // Do your time consuming setup
+    [self performSelector:@selector(removeSplashScreen) withObject:nil afterDelay:3.0];
+    
+    
+    
     return YES;
+}
+
+-(void) removeSplashScreen
+{
+    [self.splashView removeFromSuperview];
+    self.splashView=nil;
 }
 
 -(void) createAndCheckDatabase

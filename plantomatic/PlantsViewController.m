@@ -27,6 +27,8 @@
 
 @property (nonatomic, readwrite) int pickerViewSelectedIndex;
 
+@property (nonatomic,strong) NSMutableArray* plantsSearchResultArray;
+
 @end
 
 @implementation PlantsViewController
@@ -46,6 +48,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.plantsSearchResultArray=[NSMutableArray array];
+    
     [self.navigationController.navigationBar setHidden:NO];
     self.navigationItem.hidesBackButton = YES;
     
@@ -186,7 +191,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    self.navigationController.navigationBar.topItem.title = @"Plant-o-matic";
+    self.navigationController.navigationBar.topItem.title = @"Plant-O-Matic";
 }
 
 - (void)didReceiveMemoryWarning
@@ -207,16 +212,37 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.plants count];
+    int rows=0;
+    
+    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+        rows=(int)[self.plantsSearchResultArray count];
+    }
+    else
+    {
+        rows=(int)[self.plants count];
+    }
+    
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"PlantCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    SpeciesFamily *plant = [self.plants objectAtIndex:[indexPath row]];
+    SpeciesFamily *plant = nil;
+    
+    
+    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+        plant = [self.plantsSearchResultArray objectAtIndex:[indexPath row]];
+    }
+    else
+    {
+        plant = [self.plants objectAtIndex:[indexPath row]];
+    }
+
+    
     
     [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
     [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
@@ -270,7 +296,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 3;
+    return 2;
 }
 
 #pragma mark - UIPickerView Delegate
@@ -340,5 +366,94 @@
     
     [self populatePlants];
 }
+
+
+#pragma mark -
+#pragma mark UISearchDisplayController Delegate Methods
+- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+//    self.isSearchOn=YES;
+    [self.tableView reloadData];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self handleSearchForTerm:searchString];
+    
+    return YES;
+}
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
+{
+//    self.isSearchOn=NO;
+    
+    [self.tableView reloadData];
+}
+
+
+#pragma mark -
+#pragma mark Search Method
+
+- (void) handleSearchForTerm:(NSString *) searchString {
+    
+    //First get all the objects which fulfill the criteria
+    //Then update regarding dictionary
+    
+    NSString *trimmedsearchString = [searchString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    
+    [[self plantsSearchResultArray] removeAllObjects];
+    for (SpeciesFamily *plant in [self plants])
+    {
+        
+        switch (self.pickerViewSelectedIndex)
+        {
+            case FilterByValueFamily:
+                //Search in Family
+                if ([trimmedsearchString length]>0) {
+                    
+                    if ([[plant family] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+                    {
+                        //add plant
+                        [self.plantsSearchResultArray addObject:plant];
+                    }
+                }
+                break;
+                
+            case FilterByValueGenus:
+                //Search in Genus
+                if ([trimmedsearchString length]>0) {
+                    
+                    if ([[plant genus] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+                    {
+                        //add plant
+                        [self.plantsSearchResultArray addObject:plant];
+                    }
+                }
+                break;
+                
+            case FilterByValueSpecies:
+                //Search in Species
+                if ([trimmedsearchString length]>0) {
+                    
+                    if ([[plant species] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+                    {
+                        //add plant
+                        [self.plantsSearchResultArray addObject:plant];
+                    }
+                }
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    
+    
+}
+
+
+
 
 @end

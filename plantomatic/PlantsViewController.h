@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlantsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface PlantsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,UISearchDisplayDelegate, UISearchBarDelegate>
 
 
 @property (nonatomic,strong) NSMutableArray *plants;

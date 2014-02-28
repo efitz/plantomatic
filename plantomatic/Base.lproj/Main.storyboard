@@ -77,19 +77,19 @@
                                 <rect key="frame" x="30" y="98" width="260" height="308"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6q-np-tLe">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6q-np-tLe">
                                         <rect key="frame" x="20" y="25" width="220" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BIEN PLANT-O-MATIC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzB-cX-6EB">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BIEN Plant-O-Matic " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzB-cX-6EB">
                                         <rect key="frame" x="20" y="54" width="220" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This app uses your location to find the plants that may occur in your area." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-y5-S82">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This application generates a list of the plant species that may occur in your location. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-y5-S82">
                                         <rect key="frame" x="20" y="118" width="220" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -99,7 +99,7 @@
                                         <rect key="frame" x="57" y="238" width="147" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Find Plants Now!">
+                                        <state key="normal" title="Get Plants!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="-286" y="-45"/>
         </scene>
-        <!--Plants View Controller - Plant-o-matic-->
+        <!--Plants View Controller - Plant-O-Matic-->
         <scene sceneID="HT7-Lr-Gkh">
             <objects>
                 <viewController id="8fC-6X-Nhh" customClass="PlantsViewController" sceneMemberID="viewController">
@@ -136,9 +136,17 @@
                                 <rect key="frame" x="0.0" y="67" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="zZ0-0v-VNB">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="8fC-6X-Nhh" id="BAL-aZ-KOW"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlantCell" textLabel="Abi-Vm-VEC" detailTextLabel="Re1-CP-jgr" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="JzI-sc-83Y">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JzI-sc-83Y" id="qdd-L1-xP8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -147,7 +155,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Abi-Vm-VEC">
                                                     <rect key="frame" x="15" y="16" width="34" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -198,30 +206,30 @@
                                             <action selector="showSortOptions:" destination="8fC-6X-Nhh" eventType="touchUpInside" id="649-NS-FkX"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpZ-uR-yYt" customClass="UIControl">
+                                        <rect key="frame" x="0.0" y="-62" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPH-MT-PFD">
+                                                <rect key="frame" x="0.0" y="359" width="320" height="162"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXX-pu-ccs">
+                                                <rect key="frame" x="0.0" y="359" width="320" height="162"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="8fC-6X-Nhh" id="8IE-R3-uon"/>
+                                                    <outlet property="delegate" destination="8fC-6X-Nhh" id="d0K-FB-nG5"/>
+                                                </connections>
+                                            </pickerView>
+                                        </subviews>
+                                        <connections>
+                                            <action selector="hidePickerAction:" destination="8fC-6X-Nhh" eventType="touchUpInside" id="T8K-zp-oPI"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.7568628191947937" green="0.85490202903747559" blue="0.93725496530532837" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpZ-uR-yYt" customClass="UIControl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPH-MT-PFD">
-                                        <rect key="frame" x="0.0" y="359" width="320" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXX-pu-ccs">
-                                        <rect key="frame" x="0.0" y="359" width="320" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="8fC-6X-Nhh" id="8IE-R3-uon"/>
-                                            <outlet property="delegate" destination="8fC-6X-Nhh" id="d0K-FB-nG5"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <connections>
-                                    <action selector="hidePickerAction:" destination="8fC-6X-Nhh" eventType="touchUpInside" id="T8K-zp-oPI"/>
-                                </connections>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NIb-dn-aR1">
                                 <rect key="frame" x="0.0" y="316" width="320" height="44"/>
@@ -263,7 +271,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Plant-o-matic" id="2UC-dD-Mkv">
+                    <navigationItem key="navigationItem" title="Plant-O-Matic" id="2UC-dD-Mkv">
                         <barButtonItem key="rightBarButtonItem" image="info.png" id="jaU-7X-2J4">
                             <connections>
                                 <segue destination="BpL-3s-cwa" kind="push" identifier="" id="ymS-Ps-fpQ"/>
@@ -276,12 +284,22 @@
                         <outlet property="pickerControl" destination="RpZ-uR-yYt" id="iIe-fH-Olg"/>
                         <outlet property="pickerView" destination="AXX-pu-ccs" id="jcH-EZ-dUs"/>
                         <outlet property="plantsCountLbl" destination="S1O-9H-DM6" id="u0h-TU-1lH"/>
+                        <outlet property="searchDisplayController" destination="rU4-FF-UeR" id="J4d-Ah-hg3"/>
                         <outlet property="sortOrderBtn" destination="6bF-nD-EtV" id="1Av-Ss-45q"/>
                         <outlet property="tableView" destination="83X-H1-dDk" id="rGL-Ag-on4"/>
                         <outlet property="toolbar" destination="NIb-dn-aR1" id="jll-hA-zxH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBm-DH-aCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="rU4-FF-UeR">
+                    <connections>
+                        <outlet property="delegate" destination="8fC-6X-Nhh" id="kh9-t1-PEG"/>
+                        <outlet property="searchBar" destination="zZ0-0v-VNB" id="7hg-Lk-ZtE"/>
+                        <outlet property="searchContentsController" destination="8fC-6X-Nhh" id="Sa7-p8-6s0"/>
+                        <outlet property="searchResultsDataSource" destination="8fC-6X-Nhh" id="6B6-8o-uG7"/>
+                        <outlet property="searchResultsDelegate" destination="8fC-6X-Nhh" id="3N9-Qe-LuO"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="189" y="-45"/>
         </scene>
@@ -350,8 +368,8 @@ V1.0</string>
                                 <rect key="frame" x="66" y="436" width="173" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLANT-O-MATIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHR-mU-Xd3">
-                                <rect key="frame" x="66" y="387" width="173" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant-O-Matic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHR-mU-Xd3">
+                                <rect key="frame" x="66" y="387" width="173" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.058823533356189728" green="0.65098041296005249" blue="0.83137261867523193" alpha="1" colorSpace="deviceRGB"/>

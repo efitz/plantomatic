@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="1169" y="-68"/>
         </scene>
-        <!--Plants View Controller - Plant-o-matic-->
+        <!--Plants View Controller - Plant-O-Matic-->
         <scene sceneID="3Hx-nB-gyv">
             <objects>
                 <viewController id="a9x-1y-1Re" customClass="PlantsViewController" sceneMemberID="viewController">
@@ -78,9 +78,17 @@
                                 <rect key="frame" x="0.0" y="67" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="teP-uk-N2j">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="a9x-1y-1Re" id="xvW-r7-rrc"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlantCell" textLabel="Ing-8H-jl9" detailTextLabel="DnT-2w-DpW" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="ajZ-cd-QrU">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ajZ-cd-QrU" id="WxG-8d-bUc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -89,7 +97,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ing-8H-jl9">
                                                     <rect key="frame" x="15" y="16" width="34" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -207,7 +215,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Plant-o-matic" id="hdO-rp-NuG">
+                    <navigationItem key="navigationItem" title="Plant-O-Matic" id="hdO-rp-NuG">
                         <barButtonItem key="rightBarButtonItem" image="info.png" id="Nax-fs-am6">
                             <connections>
                                 <segue destination="ehT-DW-Kmt" kind="push" identifier="" id="DdD-AL-S5I"/>
@@ -220,12 +228,22 @@
                         <outlet property="pickerControl" destination="kb8-Lg-h11" id="dqy-aM-3M0"/>
                         <outlet property="pickerView" destination="ZSZ-zT-LDb" id="wK7-B5-tvD"/>
                         <outlet property="plantsCountLbl" destination="KT8-36-CDz" id="MYM-TX-EUf"/>
+                        <outlet property="searchDisplayController" destination="5x3-B7-gfI" id="f8f-sb-qYs"/>
                         <outlet property="sortOrderBtn" destination="9ix-qY-jY7" id="411-Js-Qge"/>
                         <outlet property="tableView" destination="DtW-bo-i2G" id="qX2-EC-ciU"/>
                         <outlet property="toolbar" destination="rR1-cX-tvs" id="iDH-ie-GZ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t0h-n8-EjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="5x3-B7-gfI">
+                    <connections>
+                        <outlet property="delegate" destination="a9x-1y-1Re" id="8dt-fR-ZO5"/>
+                        <outlet property="searchBar" destination="teP-uk-N2j" id="tb4-2f-njn"/>
+                        <outlet property="searchContentsController" destination="a9x-1y-1Re" id="zRc-ui-bPR"/>
+                        <outlet property="searchResultsDataSource" destination="a9x-1y-1Re" id="yad-2V-6hl"/>
+                        <outlet property="searchResultsDelegate" destination="a9x-1y-1Re" id="Mb1-Om-pZG"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="189" y="-45"/>
         </scene>
@@ -295,7 +313,7 @@ V1.0</string>
                                 <rect key="frame" x="66" y="436" width="173" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLANT-O-MATIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8F-Je-WCt">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant-O-Matic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8F-Je-WCt">
                                 <rect key="frame" x="66" y="387" width="173" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
