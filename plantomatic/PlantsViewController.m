@@ -167,7 +167,7 @@
     double X=0,Y=0,resolution=100000, corner_x=-5261554, corner_y=7165012;
 	
     X = round((lon - corner_x)/resolution + 1); //units are in meters so we need to convert output 100kM grid
-	Y = round(((lat - corner_y)/resolution * -1) + 1);
+	Y = round(((lat - corner_y)/resolution * -1) + 1); //Needed to add a sign change here to match Brody. Not sure why this is happening.
 	
 	/*
 	 Here is test data with example input and output
@@ -185,7 +185,7 @@
     
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
     //Y=50, X=24
-    self.plants = [db getPlantsForY:Y andX:X andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
+    self.plants = [db getPlantsForY:50 andX:24 andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
     pj_free(dst_prj);
