@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AEF48418C4C1B600D68062 /* CoreText.framework */; };
 		41B9EDF718BE4DF200F7B9A1 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4147B72118BD062F00B111B9 /* libProj4.a */; };
 		41B9EDFE18BF456B00F7B9A1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EDFB18BF456B00F7B9A1 /* FMDatabase.m */; };
 		41B9EDFF18BF456B00F7B9A1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EDFD18BF456B00F7B9A1 /* FMResultSet.m */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Proj4.xcodeproj; path = Proj4/Proj4.xcodeproj; sourceTree = "<group>"; };
+		41AEF48418C4C1B600D68062 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		41B9EDFA18BF456B00F7B9A1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		41B9EDFB18BF456B00F7B9A1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		41B9EDFC18BF456B00F7B9A1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */,
 				41B9EE0418BF45CE00F7B9A1 /* libsqlite3.dylib in Frameworks */,
 				41B9EDF718BE4DF200F7B9A1 /* libProj4.a in Frameworks */,
 				F76635AB189DA28600B0A594 /* CoreLocation.framework in Frameworks */,
@@ -236,6 +239,7 @@
 		F7663574189DA10300B0A594 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41AEF48418C4C1B600D68062 /* CoreText.framework */,
 				41B9EE0318BF45CE00F7B9A1 /* libsqlite3.dylib */,
 				4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */,
 				F76635AA189DA28600B0A594 /* CoreLocation.framework */,
