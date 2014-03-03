@@ -28,7 +28,6 @@
 		41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B9EE2818BF6CC200F7B9A1 /* down.png */; };
 		41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B9EE2918BF6CC200F7B9A1 /* down@2x.png */; };
 		41B9EE2F18BF875D00F7B9A1 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EE2E18BF875D00F7B9A1 /* GPSManager.m */; };
-		41D0BB8518C089B000E4CF3E /* StoryboardWithoutWelcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8418C089B000E4CF3E /* StoryboardWithoutWelcome.storyboard */; };
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
 		41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */; };
 		F7663576189DA10300B0A594 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7663575189DA10300B0A594 /* Foundation.framework */; };
@@ -105,7 +104,6 @@
 		41B9EE2918BF6CC200F7B9A1 /* down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down@2x.png"; sourceTree = "<group>"; };
 		41B9EE2D18BF875D00F7B9A1 /* GPSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSManager.h; sourceTree = "<group>"; };
 		41B9EE2E18BF875D00F7B9A1 /* GPSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSManager.m; sourceTree = "<group>"; };
-		41D0BB8418C089B000E4CF3E /* StoryboardWithoutWelcome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardWithoutWelcome.storyboard; sourceTree = "<group>"; };
 		41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBIENLogoNoText_highres.png; sourceTree = "<group>"; };
 		41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iplant_logo_300.jpg; sourceTree = "<group>"; };
 		F726E16518BE6FDC001751DD /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 				F7663584189DA10300B0A594 /* AppDelegate.h */,
 				F7663585189DA10300B0A594 /* AppDelegate.m */,
 				F7663587189DA10300B0A594 /* Main.storyboard */,
-				41D0BB8418C089B000E4CF3E /* StoryboardWithoutWelcome.storyboard */,
 				41B9EE1218BF52AD00F7B9A1 /* WelcomeViewController.h */,
 				41B9EE1318BF52AD00F7B9A1 /* WelcomeViewController.m */,
 				41B9EE1518BF56EB00F7B9A1 /* PlantsViewController.h */,
@@ -424,7 +421,6 @@
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
 				F79E7F9618C03822004DDC07 /* splash_screen.png in Resources */,
-				41D0BB8518C089B000E4CF3E /* StoryboardWithoutWelcome.storyboard in Resources */,
 				41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,

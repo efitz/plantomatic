@@ -103,9 +103,6 @@
             case FilterByValueGenus:
                 self.criteriaLbl.text=@"Genus";
                 break;
-            case FilterByValueSpecies:
-                self.criteriaLbl.text=@"Species";
-                break;
                 
             default:
                 break;
@@ -311,9 +308,6 @@
         case FilterByValueGenus:
             pickerValueString=@"Genus";
             break;
-        case FilterByValueSpecies:
-            pickerValueString=@"Species";
-            break;
             
         default:
             pickerValueString=@"Family";
@@ -354,9 +348,6 @@
             break;
         case FilterByValueGenus:
             self.criteriaLbl.text=@"Genus";
-            break;
-        case FilterByValueSpecies:
-            self.criteriaLbl.text=@"Species";
             break;
             
         default:
@@ -432,17 +423,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
                 }
                 break;
                 
-            case FilterByValueSpecies:
-                //Search in Species
-                if ([trimmedsearchString length]>0) {
-                    
-                    if ([[plant species] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
-                    {
-                        //add plant
-                        [self.plantsSearchResultArray addObject:plant];
-                    }
-                }
-                break;
                 
             default:
                 break;

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "GPSManager.h"
+#import "PlantsViewController.h"
+
 
 @interface AppDelegate()
 @property (nonatomic, strong) UIImageView* splashView;
@@ -40,22 +42,22 @@
                                      valueForKey:@"isNeedToShowWelcome"];
     
     
-    NSString* storyBoardName=@"Main";
+    BOOL isNeedToStartWithWelcomeScreen=YES;
     
     if (isNeedToShowWelcome==nil) {
-        storyBoardName=@"Main";
+        isNeedToStartWithWelcomeScreen=YES;
     }
     else
     {
         if (isNeedToShowWelcome.boolValue) {
             
             //show storyboard that have welcome screen
-            storyBoardName=@"Main";
+            isNeedToStartWithWelcomeScreen=YES;
         }
         else
         {
             //show storyboard that dont have welcome screen
-            storyBoardName=@"StoryboardWithoutWelcome";
+            isNeedToStartWithWelcomeScreen=NO;
         }
         
     }
@@ -64,9 +66,17 @@
      setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle: nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     UINavigationController *navController = (UINavigationController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"MyNavigationController"];
-//    self.navController=navController;
+    
+    if (isNeedToStartWithWelcomeScreen==NO) {
+        
+         PlantsViewController *plantsViewController = (PlantsViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"PlantsStoryBoardID"];
+        
+        navController=[navController initWithRootViewController:plantsViewController];
+    }
+    
+    
     self.window.rootViewController = navController;
     
     [self.window makeKeyAndVisible];

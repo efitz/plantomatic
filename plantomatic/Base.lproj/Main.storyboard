@@ -123,7 +123,7 @@
         <!--Plants View Controller - Plant-O-Matic-->
         <scene sceneID="HT7-Lr-Gkh">
             <objects>
-                <viewController id="8fC-6X-Nhh" customClass="PlantsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlantsStoryBoardID" id="8fC-6X-Nhh" customClass="PlantsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nT7-8U-5jB"/>
                         <viewControllerLayoutGuide type="bottom" id="C3p-Mc-OSe"/>
@@ -377,7 +377,7 @@
                                 <rect key="frame" x="14" y="111" width="293" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">About: 
+                                <string key="text">About: 
 The BIEN Plant-O-Matic application generates a list of species in the user’s 
 location at 100 km2 resolution for any location in the Americas based on over 
 3,000,000 plant observations. Some geographic areas are better represented than 
@@ -399,7 +399,7 @@ Herbarium, GBIF, REMIB, SpeciesLink and the Texas Advanced Computing Center at
 the University of Texas. A full list of contributors can be found at: 
 http://bien.nceas.ucsb.edu/bien/. 
  
-Version: v1.0 (March 2014)</mutableString>
+Version: v1.0 (March 2014)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

@@ -111,6 +111,13 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
 
         }
+        else
+        {
+            [[NSUserDefaults standardUserDefaults]
+             setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+
+        }
     }
     
     return returnValue;
