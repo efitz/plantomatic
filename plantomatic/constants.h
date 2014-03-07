@@ -12,7 +12,7 @@
 enum FilterByValue {
     FilterByValueFamily,
     FilterByValueGenus,
-    FilterByValueSpecies
+    FilterByValueClassification
 };
 
 @interface constants : NSObject

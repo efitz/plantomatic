@@ -12,6 +12,7 @@
 #import "Utility.h"
 #import "constants.h"   
 #include "proj_api.h"
+#import "PlantCell.h"
 
 
 @interface PlantsViewController ()
@@ -22,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) IBOutlet UIControl *pickerControl;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (strong, nonatomic) IBOutlet UILabel *criteriaLbl;
+@property (strong, nonatomic) IBOutlet UIButton *criteriaSortBtn;
 
 
 @property (nonatomic, readwrite) int pickerViewSelectedIndex;
@@ -88,7 +89,8 @@
         [[NSUserDefaults standardUserDefaults]
          setObject:[NSNumber numberWithInteger:0] forKey:@"sortCriteria"];
         
-        self.criteriaLbl.text=@"Family";
+        [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
+        
         [self.sortOrderBtn setImage:[UIImage imageNamed:@"up.png"] forState:UIControlStateNormal];
         
         self.pickerViewSelectedIndex=0;
@@ -98,11 +100,17 @@
         
         switch (sortCriteria.integerValue) {
             case FilterByValueFamily:
-                self.criteriaLbl.text=@"Family";
+                [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
                 break;
+                
             case FilterByValueGenus:
-                self.criteriaLbl.text=@"Genus";
+                [self.criteriaSortBtn setTitle:@"Genus" forState:UIControlStateNormal];
                 break;
+                
+            case FilterByValueClassification:
+                [self.criteriaSortBtn setTitle:@"Classification" forState:UIControlStateNormal];
+                break;
+
                 
             default:
                 break;
@@ -179,7 +187,8 @@
     
     
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
-    //Y=50, X=24
+//    Y=60;
+//    X=53;
     self.plants = [db getPlantsForY:Y andX:X andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
@@ -234,7 +243,7 @@
 {
     static NSString *CellIdentifier = @"PlantCell";
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PlantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     SpeciesFamily *plant = nil;
     
@@ -247,11 +256,17 @@
         plant = [self.plants objectAtIndex:[indexPath row]];
     }
 
+//    [cell setNeedsUpdateConstraints];
+//    [cell updateConstraintsIfNeeded];
     
-    
-    [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
+    [[cell titleLbl] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
+    [[cell familyLbl] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
+    [[cell classificationLbl] setText:[NSString stringWithFormat:@"%@ ",plant.classification]];
 
+    
+    NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
+    [cell.imageView setImage:[UIImage imageNamed:imageName]];
+    cell.imageView.contentMode=UIViewContentModeScaleAspectFit;
     
     return cell;
 }
@@ -301,8 +316,10 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 2;
+    return 3;
 }
+
+//97 height
 
 #pragma mark - UIPickerView Delegate
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -315,6 +332,9 @@
             break;
         case FilterByValueGenus:
             pickerValueString=@"Genus";
+            break;
+        case FilterByValueClassification:
+            pickerValueString=@"Classification";
             break;
             
         default:
@@ -352,11 +372,16 @@
     
     switch (self.pickerViewSelectedIndex) {
         case FilterByValueFamily:
-            self.criteriaLbl.text=@"Family";
+            [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
+
             break;
         case FilterByValueGenus:
-            self.criteriaLbl.text=@"Genus";
+            [self.criteriaSortBtn setTitle:@"Genus" forState:UIControlStateNormal];
             break;
+        case FilterByValueClassification:
+            [self.criteriaSortBtn setTitle:@"Classification" forState:UIControlStateNormal];
+            break;
+
             
         default:
             break;
@@ -387,6 +412,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
 //    self.isSearchOn=NO;
     
     [self.tableView reloadData];
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
+{
+    tableView.rowHeight = 97.0f; // or some other height
 }
 
 

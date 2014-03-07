@@ -29,6 +29,15 @@
 		41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B9EE2818BF6CC200F7B9A1 /* down.png */; };
 		41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B9EE2918BF6CC200F7B9A1 /* down@2x.png */; };
 		41B9EE2F18BF875D00F7B9A1 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EE2E18BF875D00F7B9A1 /* GPSManager.m */; };
+		41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E7718C9ED9900C34D8F /* Angiosperms_classification.png */; };
+		41BA4E7C18C9ED9900C34D8F /* Bryophytes_classification.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E7818C9ED9900C34D8F /* Bryophytes_classification.png */; };
+		41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E7918C9ED9900C34D8F /* Ferns_classification.png */; };
+		41BA4E7E18C9ED9900C34D8F /* Gymnosperms_classification.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E7A18C9ED9900C34D8F /* Gymnosperms_classification.png */; };
+		41BA4E8118C9F04000C34D8F /* PlantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BA4E8018C9F04000C34D8F /* PlantCell.m */; };
+		41BA4E8618CA242400C34D8F /* Angiosperms_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8218CA242400C34D8F /* Angiosperms_classification@2x.png */; };
+		41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */; };
+		41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */; };
+		41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */; };
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
 		41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */; };
 		F7663576189DA10300B0A594 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7663575189DA10300B0A594 /* Foundation.framework */; };
@@ -106,6 +115,16 @@
 		41B9EE2918BF6CC200F7B9A1 /* down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down@2x.png"; sourceTree = "<group>"; };
 		41B9EE2D18BF875D00F7B9A1 /* GPSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSManager.h; sourceTree = "<group>"; };
 		41B9EE2E18BF875D00F7B9A1 /* GPSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSManager.m; sourceTree = "<group>"; };
+		41BA4E7718C9ED9900C34D8F /* Angiosperms_classification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Angiosperms_classification.png; sourceTree = "<group>"; };
+		41BA4E7818C9ED9900C34D8F /* Bryophytes_classification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bryophytes_classification.png; sourceTree = "<group>"; };
+		41BA4E7918C9ED9900C34D8F /* Ferns_classification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ferns_classification.png; sourceTree = "<group>"; };
+		41BA4E7A18C9ED9900C34D8F /* Gymnosperms_classification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gymnosperms_classification.png; sourceTree = "<group>"; };
+		41BA4E7F18C9F04000C34D8F /* PlantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantCell.h; sourceTree = "<group>"; };
+		41BA4E8018C9F04000C34D8F /* PlantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantCell.m; sourceTree = "<group>"; };
+		41BA4E8218CA242400C34D8F /* Angiosperms_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Angiosperms_classification@2x.png"; sourceTree = "<group>"; };
+		41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophytes_classification@2x.png"; sourceTree = "<group>"; };
+		41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ferns_classification@2x.png"; sourceTree = "<group>"; };
+		41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gymnosperms_classification@2x.png"; sourceTree = "<group>"; };
 		41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBIENLogoNoText_highres.png; sourceTree = "<group>"; };
 		41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iplant_logo_300.jpg; sourceTree = "<group>"; };
 		F726E16518BE6FDC001751DD /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -261,6 +280,8 @@
 				41B9EE1318BF52AD00F7B9A1 /* WelcomeViewController.m */,
 				41B9EE1518BF56EB00F7B9A1 /* PlantsViewController.h */,
 				41B9EE1618BF56EB00F7B9A1 /* PlantsViewController.m */,
+				41BA4E7F18C9F04000C34D8F /* PlantCell.h */,
+				41BA4E8018C9F04000C34D8F /* PlantCell.m */,
 				41B9EE1C18BF5B1B00F7B9A1 /* InfoViewController.h */,
 				41B9EE1D18BF5B1B00F7B9A1 /* InfoViewController.m */,
 				F766358A189DA10300B0A594 /* ConversionTestViewController.h */,
@@ -280,6 +301,14 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41BA4E8218CA242400C34D8F /* Angiosperms_classification@2x.png */,
+				41BA4E7718C9ED9900C34D8F /* Angiosperms_classification.png */,
+				41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */,
+				41BA4E7818C9ED9900C34D8F /* Bryophytes_classification.png */,
+				41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */,
+				41BA4E7918C9ED9900C34D8F /* Ferns_classification.png */,
+				41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */,
+				41BA4E7A18C9ED9900C34D8F /* Gymnosperms_classification.png */,
 				41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */,
 				41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */,
 				41B9EE1818BF582E00F7B9A1 /* info.png */,
@@ -414,19 +443,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BA4E7C18C9ED9900C34D8F /* Bryophytes_classification.png in Resources */,
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
 				41B9EE2318BF6A8B00F7B9A1 /* reload@2x.png in Resources */,
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
+				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
+				41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */,
+				41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */,
 				41B9EE1B18BF582E00F7B9A1 /* info@2x.png in Resources */,
 				41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
+				41BA4E8618CA242400C34D8F /* Angiosperms_classification@2x.png in Resources */,
+				41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */,
+				41BA4E7E18C9ED9900C34D8F /* Gymnosperms_classification.png in Resources */,
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
 				F79E7F9618C03822004DDC07 /* splash_screen.png in Resources */,
 				41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
+				41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
 				41B9EE2218BF6A8B00F7B9A1 /* reload.png in Resources */,
 			);
@@ -454,6 +491,7 @@
 				41B9EE0218BF459A00F7B9A1 /* FMDatabasePool.m in Sources */,
 				41B9EE2F18BF875D00F7B9A1 /* GPSManager.m in Sources */,
 				F7663586189DA10300B0A594 /* AppDelegate.m in Sources */,
+				41BA4E8118C9F04000C34D8F /* PlantCell.m in Sources */,
 				F7663582189DA10300B0A594 /* main.m in Sources */,
 				41B9EE1418BF52AD00F7B9A1 /* WelcomeViewController.m in Sources */,
 				41B9EE0818BF465F00F7B9A1 /* FMDBDataAccess.m in Sources */,

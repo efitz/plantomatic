@@ -14,6 +14,6 @@
 @property (nonatomic,retain) NSString *family;
 @property (nonatomic,strong) NSString *genus;
 @property (nonatomic,strong) NSString *species;
-
+@property (nonatomic,strong) NSString *classification;
 
 @end

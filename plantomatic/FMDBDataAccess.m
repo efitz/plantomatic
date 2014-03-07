@@ -34,8 +34,8 @@
         case FilterByValueGenus:
             [queryString appendString:@" order by Genus"];
             break;
-        case FilterByValueSpecies:
-            [queryString appendString:@" order by Species"];
+        case FilterByValueClassification:
+            [queryString appendString:@" order by Classification"];
             break;
             
         default:
@@ -59,6 +59,29 @@
     //FMResultSet *results = [db executeQuery:@"SELECT * FROM SpeciesFamily where SpId in (select SpId from Presence where Y=79 and X=53)"];
 
     
+    /*
+     replace into SpeciesFamily
+     (SpID,  Classification)
+     (select SpeciesFamily.SpID, Classification.Classification
+     from Classification
+     inner join SpeciesFamily on SpeciesFamily.Family = Classification.Family)
+     
+     
+     
+     replace into SpeciesFamily
+     (SpID, Family, Genus, Species, Classification)
+     select SpeciesFamily.SpID, SpeciesFamily.Family, SpeciesFamily.Genus, SpeciesFamily.Species, Classification.Classification
+     from Classification
+     inner join SpeciesFamily on SpeciesFamily.Family = Classification.Family
+     
+     
+     Update SpeciesFamily Set
+     Classification = (select Classification.Classification
+     from Classification
+     inner join SpeciesFamily on SpeciesFamily.Family = Classification.Family)
+     */
+    
+    
     while([results next])
     {
         SpeciesFamily *speciesFamily = [[SpeciesFamily alloc] init];
@@ -67,6 +90,7 @@
         speciesFamily.family = [results stringForColumn:@"Family"];
         speciesFamily.genus = [results stringForColumn:@"Genus"];
         speciesFamily.species = [results stringForColumn:@"Species"];
+        speciesFamily.classification = [results stringForColumn:@"Classification"];
         
         [SpeciesFamilies addObject:speciesFamily];
         
