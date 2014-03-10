@@ -189,7 +189,7 @@
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
 //    Y=60;
 //    X=53;
-    self.plants = [db getPlantsForY:Y andX:X andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
+    self.plants = [db getPlantsForY:50 andX:24 andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
     pj_free(dst_prj);
