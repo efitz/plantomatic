@@ -13,6 +13,8 @@
 #import "constants.h"   
 #include "proj_api.h"
 #import "PlantCell.h"
+#import "MBProgressHUD.h"
+#import "AppDelegate.h"
 
 
 @interface PlantsViewController ()
@@ -33,6 +35,7 @@
 
 @property (nonatomic,strong) NSMutableArray *plants;
 @property (nonatomic, retain) NSMutableDictionary *plantsResultDictionary;
+@property (nonatomic, retain) NSMutableDictionary *plantsIndexKeyDictionary;
 
 
 @property (nonatomic, readwrite) BOOL isSearchOn;
@@ -152,21 +155,52 @@
     
     //[self hideSearchBar];
 
-    if (self.pickerViewSelectedIndex==FilterByValueClassification) {
-        self.searchDisplayController.searchBar.userInteractionEnabled=NO;
-        self.searchDisplayController.searchBar.placeholder=@"Search Not Allowed.";
-    }
-    else
-    {
-        self.searchDisplayController.searchBar.userInteractionEnabled=YES;
-        self.searchDisplayController.searchBar.placeholder=@"Search";
-
-    }
+//    if (self.pickerViewSelectedIndex==FilterByValueClassification) {
+//        self.searchDisplayController.searchBar.userInteractionEnabled=NO;
+//        self.searchDisplayController.searchBar.placeholder=@"Search Not Allowed.";
+//    }
+//    else
+//    {
+//        self.searchDisplayController.searchBar.userInteractionEnabled=YES;
+//        self.searchDisplayController.searchBar.placeholder=@"Search";
+//
+//    }
 }
 
 
 -(void) populatePlants
 {
+    
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC);
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        // Do something...
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//    });
+    
+    
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"Loading...";
+    hud.tag=6666;
+    
+    AppDelegate* appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [appDelegate.window addSubview:hud];
+    [hud show:YES];
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        // Do something...
+        AppDelegate* appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+        UIView *removeView  = [appDelegate.window viewWithTag:6666];
+        [removeView removeFromSuperview];
+    });
+    
+
+    
+    
     NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
                            valueForKey:@"sortOrder"];
     
@@ -234,20 +268,24 @@
             case FilterByValueFamily:
                 //Family
                 // get the element's initial letter
-                firstLetter = [plant.family substringToIndex:1];
-
+                //firstLetter = [plant.family substringToIndex:1];
+                firstLetter=plant.family;
+                
                 break;
             case FilterByValueGenus:
                 //Genus
                 // get the element's initial letter
-                firstLetter = [plant.genus substringToIndex:1];
+                //firstLetter = [plant.genus substringToIndex:1];
+                firstLetter=plant.genus;
 
                 
                 break;
             case FilterByValueClassification:
                 //Classification
-                firstLetter = [plant.classification substringToIndex:1];
-
+                //firstLetter = [plant.classification substringToIndex:1];
+                firstLetter=plant.classification;
+              
+                
                 break;
                 
             default:
@@ -280,6 +318,44 @@
 		}
 	}
 
+    
+    self.plantsIndexKeyDictionary=[NSMutableDictionary dictionary];
+    
+    
+    
+
+    
+    NSArray* sortedKeysArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    for (NSString* key in sortedKeysArray) {
+        
+        NSString *firstLetter =[key substringToIndex:1];
+
+        
+        NSMutableArray *existingArray;
+		
+        
+        if ([Utility isNumeric:firstLetter]) {
+            firstLetter=@"Z#";
+        }
+        
+        
+		// if an array already exists in the name index dictionary
+		// simply add the element to it, otherwise create an array
+		// and add it to the name index dictionary with the letter as the key
+		if ((existingArray = [self.plantsIndexKeyDictionary valueForKey:[firstLetter uppercaseString]]))
+		{
+            [existingArray addObject:key];
+		} else {
+			NSMutableArray *tempArray = [NSMutableArray array];
+			[self.plantsIndexKeyDictionary setObject:tempArray forKey:[firstLetter uppercaseString]];
+			[tempArray addObject:key];
+		}
+
+    }
+    
+    
+    
     
     self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu",(unsigned long)self.plants.count];
     
@@ -318,7 +394,12 @@
         sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
         if ([sortedNamesArray count]>0) {
-            sortedNamesArray=[NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z",@"#", nil];
+            
+            //return unique
+            
+             sortedNamesArray = [[self.plantsIndexKeyDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+            
+            //sortedNamesArray=[NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z",@"#", nil];
         }
         else
         {
@@ -386,6 +467,45 @@
     }
     
     return [indexKeyArray count];;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index  // tell table which section corresponds to section title/index (e.g. "B",1))
+{
+    
+   // NSArray* sortedNamesArray = [[self.plantsIndexKeyDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+    
+    //e.g clicked on "B"
+    
+    //1. get all sorted keys for index "B"
+    NSArray* sortedNamesArray=[self.plantsIndexKeyDictionary valueForKey:title];
+
+    //2. get first index key i.e sectionTitle
+    NSString* sectionTitle =[sortedNamesArray objectAtIndex:0u];
+    
+    //3. find that key in All sorted keys and get its index
+    
+     NSArray* sortedSectionNamesArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//    [self.plantsResultDictionary valueForKey:sectionTitle];
+    
+    int indexToReturn=0;
+    
+    for (; indexToReturn<[sortedSectionNamesArray count]; indexToReturn++) {
+        
+        NSString* key=[sortedSectionNamesArray objectAtIndex:indexToReturn];
+        
+        
+        if( [key caseInsensitiveCompare:sectionTitle] == NSOrderedSame ) {
+            // strings are equal except for possibly case
+            break;
+
+        }
+    }
+
+    
+    //4. return that index
+    return indexToReturn;
 }
 
 
@@ -695,6 +815,20 @@ shouldReloadTableForSearchString:(NSString *)searchString
                     }
                 }
                 break;
+
+                
+            case FilterByValueClassification:
+                //Search in Genus
+                if ([trimmedsearchString length]>0) {
+                    
+                    if ([[plant classification] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+                    {
+                        //add plant
+                        [self.plantsSearchResultArray addObject:plant];
+                    }
+                }
+                break;
+
                 
                 
             default:
@@ -719,20 +853,24 @@ shouldReloadTableForSearchString:(NSString *)searchString
             case FilterByValueFamily:
                 //Family
                 // get the element's initial letter
-                firstLetter = [plant.family substringToIndex:1];
+                //firstLetter = [plant.family substringToIndex:1];
+                firstLetter=plant.family;
+
                 
                 break;
             case FilterByValueGenus:
                 //Genus
                 // get the element's initial letter
-                firstLetter = [plant.genus substringToIndex:1];
-                
+                //firstLetter = [plant.genus substringToIndex:1];
+                firstLetter=plant.genus;
+
                 
                 break;
             case FilterByValueClassification:
                 //Classification
-                firstLetter = [plant.classification substringToIndex:1];
-                
+                //firstLetter = [plant.classification substringToIndex:1];
+                firstLetter=plant.classification;
+
                 break;
                 
             default:
