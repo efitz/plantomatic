@@ -132,7 +132,7 @@
 
     
     
-    [self populatePlants];
+    [self populatePlantsWrapper];
     
     [self hidePicker];
 }
@@ -170,37 +170,6 @@
 
 -(void) populatePlants
 {
-    
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC);
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        // Do something...
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//    });
-    
-    
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Loading...";
-    hud.tag=6666;
-    
-    AppDelegate* appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    [appDelegate.window addSubview:hud];
-    [hud show:YES];
-    
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        // Do something...
-        AppDelegate* appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
-        UIView *removeView  = [appDelegate.window viewWithTag:6666];
-        [removeView removeFromSuperview];
-    });
-    
-
-    
-    
     NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
                            valueForKey:@"sortOrder"];
     
@@ -250,14 +219,10 @@
     pj_free(src_prj);
     pj_free(dst_prj);
 
-    
-    
     NSLog(@"Plants count = %lu",(unsigned long)self.plants.count);
     
     self.plantsResultDictionary=[NSMutableDictionary dictionary];
 
-    
-    
     // iterate over the values in the raw elements dictionary
 	for (SpeciesFamily *plant in self.plants)
 	{
@@ -294,17 +259,12 @@
                 break;
         }
 
-        
-        
-		
         NSMutableArray *existingArray;
-		
         
         if ([Utility isNumeric:firstLetter]) {
             firstLetter=@"Z#";
         }
-        
-        
+
 		// if an array already exists in the name index dictionary
 		// simply add the element to it, otherwise create an array
 		// and add it to the name index dictionary with the letter as the key
@@ -320,10 +280,6 @@
 
     
     self.plantsIndexKeyDictionary=[NSMutableDictionary dictionary];
-    
-    
-    
-
     
     NSArray* sortedKeysArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
@@ -354,12 +310,14 @@
 
     }
     
-    
-    
-    
     self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu",(unsigned long)self.plants.count];
     
-    [self.tableView reloadData];
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    
+    //To make sure the use sees the loading indicator where query taken very short time
+    NSDate *future = [NSDate dateWithTimeIntervalSinceNow: 1.0 ];
+    [NSThread sleepUntilDate:future];
+
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -644,11 +602,40 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [self populatePlants];
+   
+
+    [self populatePlantsWrapper];
+}
+
+
+-(void)populatePlantsWrapper
+{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeIndeterminate;
+        hud.labelText = @"Loading...";
+        hud.tag=6666;
+        
+        
+        AppDelegate* appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        [appDelegate.window addSubview:hud];
+        [hud showWhileExecuting:@selector(populatePlants) onTarget:self withObject:nil animated:NO];
+        
+    });
+}
+    
+
+- (void)hudWasHidden {
+    // Remove HUD from screen
+    
+    // add here the code you may need
+    
 }
 
 - (IBAction)refreshResults:(id)sender {
-    [self populatePlants];
+    [self populatePlantsWrapper];
 }
 
 
@@ -731,7 +718,7 @@
     }
 
     
-    [self populatePlants];
+    [self populatePlantsWrapper];
 }
 
 
