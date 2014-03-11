@@ -130,7 +130,7 @@
 
     self.pickerViewSelectedIndex=sortCriteria.integerValue;
 
-    
+    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor lightGrayColor]];
     
     [self populatePlantsWrapper];
     
