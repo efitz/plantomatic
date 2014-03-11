@@ -35,7 +35,6 @@
 
 @property (nonatomic,strong) NSMutableArray *plants;
 @property (nonatomic, retain) NSMutableDictionary *plantsResultDictionary;
-@property (nonatomic, retain) NSMutableDictionary *plantsIndexKeyDictionary;
 
 
 @property (nonatomic, readwrite) BOOL isSearchOn;
@@ -142,8 +141,6 @@
 {
     self.pickerControl.hidden=NO;
     self.toolbar.hidden=NO;
-
-    
     [self.pickerView selectRow:self.pickerViewSelectedIndex inComponent:0 animated:YES];
 }
 
@@ -233,23 +230,19 @@
             case FilterByValueFamily:
                 //Family
                 // get the element's initial letter
-                //firstLetter = [plant.family substringToIndex:1];
-                firstLetter=plant.family;
+                firstLetter = [plant.family substringToIndex:1];
                 
                 break;
             case FilterByValueGenus:
                 //Genus
                 // get the element's initial letter
-                //firstLetter = [plant.genus substringToIndex:1];
-                firstLetter=plant.genus;
-
+                firstLetter = [plant.genus substringToIndex:1];
                 
                 break;
             case FilterByValueClassification:
                 //Classification
-                //firstLetter = [plant.classification substringToIndex:1];
-                firstLetter=plant.classification;
-              
+                firstLetter = [plant.classification substringToIndex:1];
+                
                 
                 break;
                 
@@ -278,38 +271,6 @@
 		}
 	}
 
-    
-    self.plantsIndexKeyDictionary=[NSMutableDictionary dictionary];
-    
-    NSArray* sortedKeysArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    
-    for (NSString* key in sortedKeysArray) {
-        
-        NSString *firstLetter =[key substringToIndex:1];
-
-        
-        NSMutableArray *existingArray;
-		
-        
-        if ([Utility isNumeric:firstLetter]) {
-            firstLetter=@"Z#";
-        }
-        
-        
-		// if an array already exists in the name index dictionary
-		// simply add the element to it, otherwise create an array
-		// and add it to the name index dictionary with the letter as the key
-		if ((existingArray = [self.plantsIndexKeyDictionary valueForKey:[firstLetter uppercaseString]]))
-		{
-            [existingArray addObject:key];
-		} else {
-			NSMutableArray *tempArray = [NSMutableArray array];
-			[self.plantsIndexKeyDictionary setObject:tempArray forKey:[firstLetter uppercaseString]];
-			[tempArray addObject:key];
-		}
-
-    }
-    
     self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu",(unsigned long)self.plants.count];
     
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
@@ -350,19 +311,6 @@
     
     if (!self.isSearchOn) {
         sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        
-        if ([sortedNamesArray count]>0) {
-            
-            //return unique
-            
-             sortedNamesArray = [[self.plantsIndexKeyDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-            
-            //sortedNamesArray=[NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z",@"#", nil];
-        }
-        else
-        {
-            sortedNamesArray=nil;
-        }
     }
     else{
     }
@@ -428,43 +376,6 @@
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index  // tell table which section corresponds to section title/index (e.g. "B",1))
-{
-    
-   // NSArray* sortedNamesArray = [[self.plantsIndexKeyDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-
-    
-    //e.g clicked on "B"
-    
-    //1. get all sorted keys for index "B"
-    NSArray* sortedNamesArray=[self.plantsIndexKeyDictionary valueForKey:title];
-
-    //2. get first index key i.e sectionTitle
-    NSString* sectionTitle =[sortedNamesArray objectAtIndex:0u];
-    
-    //3. find that key in All sorted keys and get its index
-    
-     NSArray* sortedSectionNamesArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-//    [self.plantsResultDictionary valueForKey:sectionTitle];
-    
-    int indexToReturn=0;
-    
-    for (; indexToReturn<[sortedSectionNamesArray count]; indexToReturn++) {
-        
-        NSString* key=[sortedSectionNamesArray objectAtIndex:indexToReturn];
-        
-        
-        if( [key caseInsensitiveCompare:sectionTitle] == NSOrderedSame ) {
-            // strings are equal except for possibly case
-            break;
-
-        }
-    }
-
-    
-    //4. return that index
-    return indexToReturn;
-}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -526,7 +437,6 @@
         
     }
 
-    
     SpeciesFamily *plant = nil;
     
     NSArray* sortedNamesArray= nil;
