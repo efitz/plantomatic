@@ -65,9 +65,9 @@
     if (!self.isPreviouslyAuthorized) {
         [self performSegueWithIdentifier:@"showDetail" sender:self];
         
-        [[NSUserDefaults standardUserDefaults]
-         setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+//        [[NSUserDefaults standardUserDefaults]
+//         setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
@@ -91,9 +91,9 @@
             [appDelegate getLocationUpdates];
             returnValue=NO;
             
-            [[NSUserDefaults standardUserDefaults]
-             setObject:[NSNumber numberWithBool:YES] forKey:@"isNeedToShowWelcome"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+//            [[NSUserDefaults standardUserDefaults]
+//             setObject:[NSNumber numberWithBool:YES] forKey:@"isNeedToShowWelcome"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
         }
         else if([CLLocationManager locationServicesEnabled]==NO ||
            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
@@ -106,16 +106,16 @@
             [Utility showAlert:@"" message:@"Plantomatic will not work with out Location Services. To use this app, please go to Settings and enabled Location Services"];
             returnValue=NO;
             
-            [[NSUserDefaults standardUserDefaults]
-             setObject:[NSNumber numberWithBool:YES] forKey:@"isNeedToShowWelcome"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+//            [[NSUserDefaults standardUserDefaults]
+//             setObject:[NSNumber numberWithBool:YES] forKey:@"isNeedToShowWelcome"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
 
         }
         else
         {
-            [[NSUserDefaults standardUserDefaults]
-             setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+//            [[NSUserDefaults standardUserDefaults]
+//             setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
 
         }
     }

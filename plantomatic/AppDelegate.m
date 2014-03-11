@@ -46,6 +46,10 @@
     
     if (isNeedToShowWelcome==nil) {
         isNeedToStartWithWelcomeScreen=YES;
+        
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithBool:YES] forKey:@"isNeedToShowWelcome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     else
     {
@@ -62,9 +66,6 @@
         
     }
     
-    [[NSUserDefaults standardUserDefaults]
-     setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     UINavigationController *navController = (UINavigationController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"MyNavigationController"];

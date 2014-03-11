@@ -129,8 +129,9 @@
 
     
     
-    
     [self populatePlants];
+    
+    [self hidePicker];
 }
 
 
@@ -148,6 +149,19 @@
 {
     self.pickerControl.hidden=YES;
     self.toolbar.hidden=YES;
+    
+    //[self hideSearchBar];
+
+    if (self.pickerViewSelectedIndex==FilterByValueClassification) {
+        self.searchDisplayController.searchBar.userInteractionEnabled=NO;
+        self.searchDisplayController.searchBar.placeholder=@"Search Not Allowed.";
+    }
+    else
+    {
+        self.searchDisplayController.searchBar.userInteractionEnabled=YES;
+        self.searchDisplayController.searchBar.placeholder=@"Search";
+
+    }
 }
 
 
@@ -600,6 +614,18 @@
     [self populatePlants];
 }
 
+
+- (void)hideSearchBar {
+    
+    // scroll search bar out of sight
+    CGRect newBounds = self.tableView.bounds;
+    if (self.tableView.bounds.origin.y < 44) {
+        newBounds.origin.y = newBounds.origin.y + self.searchDisplayController.searchBar.bounds.size.height;
+        self.tableView.bounds = newBounds;
+    }
+    // new for iOS 7
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:0 animated:YES];
+}
 
 #pragma mark -
 #pragma mark UISearchDisplayController Delegate Methods
