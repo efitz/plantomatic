@@ -29,6 +29,14 @@
 @property (nonatomic, readwrite) int pickerViewSelectedIndex;
 
 @property (nonatomic,strong) NSMutableArray* plantsSearchResultArray;
+@property (nonatomic, retain) NSMutableDictionary *plantsSearchResultDictionary;
+
+@property (nonatomic,strong) NSMutableArray *plants;
+@property (nonatomic, retain) NSMutableDictionary *plantsResultDictionary;
+
+
+@property (nonatomic, readwrite) BOOL isSearchOn;
+
 
 @end
 
@@ -49,7 +57,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    self.isSearchOn=NO;
     self.plantsSearchResultArray=[NSMutableArray array];
     
     [self.navigationController.navigationBar setHidden:NO];
@@ -198,6 +206,67 @@
     
     NSLog(@"Plants count = %lu",(unsigned long)self.plants.count);
     
+    self.plantsResultDictionary=[NSMutableDictionary dictionary];
+
+    
+    
+    // iterate over the values in the raw elements dictionary
+	for (SpeciesFamily *plant in self.plants)
+	{
+        
+        NSString *firstLetter =@"";
+        
+        switch (sortCriteria.integerValue) {
+            case FilterByValueFamily:
+                //Family
+                // get the element's initial letter
+                firstLetter = [plant.family substringToIndex:1];
+
+                break;
+            case FilterByValueGenus:
+                //Genus
+                // get the element's initial letter
+                firstLetter = [plant.genus substringToIndex:1];
+
+                
+                break;
+            case FilterByValueClassification:
+                //Classification
+                firstLetter = [plant.classification substringToIndex:1];
+
+                break;
+                
+            default:
+                //Family
+                
+                break;
+        }
+
+        
+        
+		
+        NSMutableArray *existingArray;
+		
+        
+        if ([Utility isNumeric:firstLetter]) {
+            firstLetter=@"Z#";
+        }
+        
+        
+		// if an array already exists in the name index dictionary
+		// simply add the element to it, otherwise create an array
+		// and add it to the name index dictionary with the letter as the key
+		if ((existingArray = [self.plantsResultDictionary valueForKey:[firstLetter uppercaseString]]))
+		{
+            [existingArray addObject:plant];
+		} else {
+			NSMutableArray *tempArray = [NSMutableArray array];
+			[self.plantsResultDictionary setObject:tempArray forKey:[firstLetter uppercaseString]];
+			[tempArray addObject:plant];
+		}
+	}
+
+    
     self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu",(unsigned long)self.plants.count];
     
     [self.tableView reloadData];
@@ -206,6 +275,14 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.topItem.title = @"Plant-O-Matic";
+    
+    
+    if ([self.searchDisplayController.searchBar.text length] == 0)
+    {
+        self.plantsSearchResultArray = [NSMutableArray array];
+        self.plantsSearchResultDictionary = [NSMutableDictionary dictionary];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -215,29 +292,88 @@
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    // returns the array of section titles. There is one entry for each unique character that an element begins with
+    // [A,B,C,D,E,F,G,H,I,K,L,M,N,O,P,R,S,T,U,V,X,Y,Z]
     
-    // Return the number of sections.
-    return 1;
+    NSArray* sortedNamesArray=nil;
+    
+    if (!self.isSearchOn) {
+        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        
+        if ([sortedNamesArray count]>0) {
+            sortedNamesArray=[NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z",@"#", nil];
+        }
+        else
+        {
+            sortedNamesArray=nil;
+        }
+    }
+    else{
+    }
+    
+    return sortedNamesArray;
 }
 
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    int rows=0;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	// this table has multiple sections. One for each unique character that an element begins with
+	// [A,B,C,D,E,F,G,H,I,K,L,M,N,O,P,R,S,T,U,V,X,Y,Z]
+	// return the letter that represents the requested section
+	// this is actually a delegate method, but we forward the request to the datasource in the view controller
+    
+    NSArray* sortedNamesArray = nil;
+    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+        sortedNamesArray = [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        
+    } else {
+        sortedNamesArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    }
+    
+    if ([[sortedNamesArray objectAtIndex:section] isEqualToString:@"Z#"]) {
+        return @"#";
+    }
+    
+	
+	return [sortedNamesArray objectAtIndex:section];
+}
+
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    NSInteger numberOfRows = 0;
+    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+        numberOfRows = [[self.plantsSearchResultDictionary allKeys] count];
+        
+    } else {
+        numberOfRows = [[self.plantsResultDictionary allKeys] count];
+    }
+    return numberOfRows;
+}
+
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray* sortedNamesArray= nil;
+    NSArray* indexKeyArray=nil;
     
     if (tableView == [[self searchDisplayController] searchResultsTableView]) {
-        rows=(int)[self.plantsSearchResultArray count];
-    }
-    else
-    {
-        rows=(int)[self.plants count];
+        sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        indexKeyArray=[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:section]];
+        
+    } else {
+        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        indexKeyArray=[self.plantsResultDictionary objectForKey:[sortedNamesArray objectAtIndex:section]];
     }
     
-    return rows;
+    return [indexKeyArray count];;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -245,28 +381,101 @@
     
     PlantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    SpeciesFamily *plant = nil;
+    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
+                              valueForKey:@"sortCriteria"];
     
     
-    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
-        plant = [self.plantsSearchResultArray objectAtIndex:[indexPath row]];
+    NSString* sortKeyName=@"";
+    
+    switch (sortCriteria.integerValue) {
+        case FilterByValueFamily:
+            //Family
+            sortKeyName=@"family";
+            
+            break;
+        case FilterByValueGenus:
+            //Genus
+            sortKeyName=@"genus";
+            
+            
+            break;
+        case FilterByValueClassification:
+            //Classification
+            sortKeyName=@"classification";
+            
+            break;
+            
+        default:
+            //Family
+            sortKeyName=@"family";
+
+            break;
+    }
+
+    
+    
+    NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
+                           valueForKey:@"sortOrder"];
+    
+    BOOL sortOrderAsending=YES;
+    
+    if (sortOrder==nil)
+    {
+        sortOrderAsending=YES;
     }
     else
     {
-        plant = [self.plants objectAtIndex:[indexPath row]];
+        if (sortOrder.boolValue) {
+            sortOrderAsending=YES;        }
+        else
+        {
+            sortOrderAsending=NO;
+        }
+        
     }
 
-//    [cell setNeedsUpdateConstraints];
-//    [cell updateConstraintsIfNeeded];
     
+    SpeciesFamily *plant = nil;
+    
+    NSArray* sortedNamesArray= nil;
+    NSMutableArray* indexKeyArray=nil;
+    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+        sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        indexKeyArray=[[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:indexPath.section]] mutableCopy];
+        
+        //indexKeyArray=[indexKeyArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        
+        NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(caseInsensitiveCompare:)];
+                                              
+        NSArray * descriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
+        NSArray * sortedArray = [indexKeyArray sortedArrayUsingDescriptors:descriptors];
+        
+        
+        plant=[sortedArray objectAtIndex:indexPath.row];
+        
+        
+    } else {
+        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        indexKeyArray=[[self.plantsResultDictionary objectForKey:[sortedNamesArray objectAtIndex:indexPath.section]] mutableCopy];
+        
+        NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(caseInsensitiveCompare:)];
+        
+        NSArray * descriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
+        NSArray * sortedArray = [indexKeyArray sortedArrayUsingDescriptors:descriptors];
+        
+        
+        plant=[sortedArray objectAtIndex:indexPath.row];
+    }
+
     [[cell titleLbl] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
     [[cell familyLbl] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
     [[cell classificationLbl] setText:[NSString stringWithFormat:@"%@ ",plant.classification]];
-
+    
     
     NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
     [cell.imageView setImage:[UIImage imageNamed:imageName]];
     cell.imageView.contentMode=UIViewContentModeScaleAspectFit;
+
     
     return cell;
 }
@@ -395,7 +604,7 @@
 #pragma mark -
 #pragma mark UISearchDisplayController Delegate Methods
 - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
-//    self.isSearchOn=YES;
+    self.isSearchOn=YES;
     [self.tableView reloadData];
 }
 
@@ -409,7 +618,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
-//    self.isSearchOn=NO;
+    self.isSearchOn=NO;
     
     [self.tableView reloadData];
 }
@@ -467,6 +676,69 @@ shouldReloadTableForSearchString:(NSString *)searchString
         }
     }
     
+    
+    
+    
+    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
+                              valueForKey:@"sortCriteria"];
+    
+    
+    self.plantsSearchResultDictionary=[NSMutableDictionary dictionary];
+	for (SpeciesFamily *plant in self.plantsSearchResultArray)
+	{
+        
+        NSString *firstLetter =@"";
+        
+        switch (sortCriteria.integerValue) {
+            case FilterByValueFamily:
+                //Family
+                // get the element's initial letter
+                firstLetter = [plant.family substringToIndex:1];
+                
+                break;
+            case FilterByValueGenus:
+                //Genus
+                // get the element's initial letter
+                firstLetter = [plant.genus substringToIndex:1];
+                
+                
+                break;
+            case FilterByValueClassification:
+                //Classification
+                firstLetter = [plant.classification substringToIndex:1];
+                
+                break;
+                
+            default:
+                //Family
+                
+                break;
+        }
+        
+        NSMutableArray *existingArray;
+        
+        
+        if ([Utility isNumeric:firstLetter]) {
+            firstLetter=@"Z#";
+        }
+        
+        
+        // if an array already exists in the name index dictionary
+        // simply add the element to it, otherwise create an array
+        // and add it to the name index dictionary with the letter as the key
+        if ((existingArray = [self.plantsSearchResultDictionary valueForKey:[firstLetter uppercaseString]]))
+        {
+            [existingArray addObject:plant];
+        } else {
+            NSMutableArray *tempArray = [NSMutableArray array];
+            [self.plantsSearchResultDictionary setObject:tempArray forKey:[firstLetter uppercaseString]];
+            [tempArray addObject:plant];
+        }
+
+        
+
+	}
+
     
     
 }

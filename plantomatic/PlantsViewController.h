@@ -10,9 +10,6 @@
 
 @interface PlantsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,UISearchDisplayDelegate, UISearchBarDelegate>
 
-
-@property (nonatomic,strong) NSMutableArray *plants;
-
 -(void) populatePlants;
 
 

@@ -15,5 +15,6 @@
 +(NSString *) getDatabasePath;
 +(CLLocation *) getCurrentLocation;
 +(void) showAlert:(NSString *) title message:(NSString *) msg;
++(BOOL) isNumeric:(NSString *)s;
 
 @end

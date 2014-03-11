@@ -41,4 +41,22 @@
 }
 
 
+
++(BOOL) isNumeric:(NSString *)s
+{
+    NSScanner *sc = [NSScanner scannerWithString: s];
+    // We can pass NULL because we don't actually need the value to test
+    // for if the string is numeric. This is allowable.
+    if ( [sc scanFloat:NULL] )
+    {
+        // Ensure nothing left in scanner so that "42foo" is not accepted.
+        // ("42" would be consumed by scanFloat above leaving "foo".)
+        return [sc isAtEnd];
+    }
+    // Couldn't even scan a float :(
+    return NO;
+}
+
+
+
 @end
