@@ -98,7 +98,7 @@
     [self.window bringSubviewToFront:self.splashView];
 
     // Do your time consuming setup
-    [self performSelector:@selector(removeSplashScreen) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(removeSplashScreen) withObject:nil afterDelay:2.0];
     
     
     
