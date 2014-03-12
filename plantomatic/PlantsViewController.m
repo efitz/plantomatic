@@ -311,6 +311,7 @@
     
     if (!self.isSearchOn) {
         sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+		
     }
     else{
     }

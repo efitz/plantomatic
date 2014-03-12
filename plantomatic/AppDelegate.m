@@ -92,13 +92,13 @@
 
     
     UIImageView* splashView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    splashView.image = [UIImage imageNamed:@"splash_screen.png"];
+    splashView.image = [UIImage imageNamed:@"splash_screen2.png"];
     self.splashView=splashView;
     [self.window addSubview:self.splashView];
     [self.window bringSubviewToFront:self.splashView];
 
     // Do your time consuming setup
-    [self performSelector:@selector(removeSplashScreen) withObject:nil afterDelay:3.0];
+    [self performSelector:@selector(removeSplashScreen) withObject:nil afterDelay:1.0];
     
     
     

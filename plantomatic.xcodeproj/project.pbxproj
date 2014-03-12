@@ -57,6 +57,7 @@
 		F76635A1189DA10400B0A594 /* plantomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76635A0189DA10400B0A594 /* plantomaticTests.m */; };
 		F76635AB189DA28600B0A594 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76635AA189DA28600B0A594 /* CoreLocation.framework */; };
 		F79E7F9618C03822004DDC07 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = F79E7F9518C03822004DDC07 /* splash_screen.png */; };
+		F7EC11D018CFF934001FD603 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7EC11CF18CFF934001FD603 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		F76635A0189DA10400B0A594 /* plantomaticTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plantomaticTests.m; sourceTree = "<group>"; };
 		F76635AA189DA28600B0A594 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F79E7F9518C03822004DDC07 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_screen.png; sourceTree = "<group>"; };
+		F7EC11CF18CFF934001FD603 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 				F766358A189DA10300B0A594 /* ConversionTestViewController.h */,
 				F766358B189DA10300B0A594 /* ConversionTestViewController.m */,
 				F726E16518BE6FDC001751DD /* constants.h */,
+				F7EC11CF18CFF934001FD603 /* Icon@2x.png */,
 				F766358D189DA10300B0A594 /* Images.xcassets */,
 				41B9EE2C18BF873C00F7B9A1 /* LocationService */,
 				41B9EE0918BF467200F7B9A1 /* Utilities */,
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41BA4E7C18C9ED9900C34D8F /* Bryophytes_classification.png in Resources */,
+				F7EC11D018CFF934001FD603 /* Icon@2x.png in Resources */,
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
 				41B9EE2318BF6A8B00F7B9A1 /* reload@2x.png in Resources */,
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
