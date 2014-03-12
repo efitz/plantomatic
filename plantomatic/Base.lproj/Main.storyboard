@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WYw-tO-goB">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Conversion Test View Controller - Conversion Test -->
@@ -180,7 +180,7 @@
                                         <connections>
                                             <outlet property="classificationLbl" destination="aqH-a3-xl7" id="CEg-jc-7bW"/>
                                             <outlet property="familyLbl" destination="Y1w-FN-wjI" id="BLU-VE-lmh"/>
-                                            <outlet property="imageView" destination="huj-kw-Wy9" id="JV0-eV-rOz"/>
+                                            <outlet property="imgView" destination="huj-kw-Wy9" id="TnK-0X-2wk"/>
                                             <outlet property="titleLbl" destination="2lG-AS-KtJ" id="j9n-FF-Ogz"/>
                                         </connections>
                                     </tableViewCell>

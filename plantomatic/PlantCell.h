@@ -13,7 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLbl;
 @property (strong, nonatomic) IBOutlet UILabel *familyLbl;
 @property (strong, nonatomic) IBOutlet UILabel *classificationLbl;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *imgView;
 
 
 @end

@@ -59,6 +59,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
     self.isSearchOn=NO;
     self.plantsSearchResultArray=[NSMutableArray array];
     
@@ -209,8 +210,8 @@
     
     
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
-//    Y=60;
-//    X=53;
+    Y=60;
+    X=53;
     self.plants = [db getPlantsForY:Y andX:X andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
@@ -275,10 +276,10 @@
     
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     
+    
     //To make sure the use sees the loading indicator where query taken very short time
     NSDate *future = [NSDate dateWithTimeIntervalSinceNow: 1.0 ];
     [NSThread sleepUntilDate:future];
-
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -476,8 +477,8 @@
     
     
     NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
-    [cell.imageView setImage:[UIImage imageNamed:imageName]];
-    cell.imageView.contentMode=UIViewContentModeScaleAspectFit;
+    [cell.imgView setImage:[UIImage imageNamed:imageName]];
+    cell.imgView.contentMode=UIViewContentModeScaleAspectFit;
 
     
     return cell;
@@ -665,7 +666,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     self.isSearchOn=NO;
     
     [self.tableView reloadData];
-}
+ }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
