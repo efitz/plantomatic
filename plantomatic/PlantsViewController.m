@@ -768,24 +768,21 @@ shouldReloadTableForSearchString:(NSString *)searchString
             case FilterByValueFamily:
                 //Family
                 // get the element's initial letter
-                //firstLetter = [plant.family substringToIndex:1];
-                firstLetter=plant.family;
+                firstLetter = [plant.family substringToIndex:1];
 
                 
                 break;
             case FilterByValueGenus:
                 //Genus
                 // get the element's initial letter
-                //firstLetter = [plant.genus substringToIndex:1];
-                firstLetter=plant.genus;
-
+                firstLetter = [plant.genus substringToIndex:1];
+                
                 
                 break;
             case FilterByValueClassification:
                 //Classification
-                //firstLetter = [plant.classification substringToIndex:1];
-                firstLetter=plant.classification;
-
+                firstLetter = [plant.classification substringToIndex:1];
+                
                 break;
                 
             default:
