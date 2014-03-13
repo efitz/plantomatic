@@ -39,6 +39,9 @@
 		41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */; };
 		41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */; };
 		41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */; };
+		41C4BC7418D1B1140043D894 /* NCEAS-full_logo-BLK.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7218D1B1140043D894 /* NCEAS-full_logo-BLK.png */; };
+		41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7318D1B1140043D894 /* UAsci_logo_college.png */; };
+		41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */; };
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
 		41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */; };
 		F7663576189DA10300B0A594 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7663575189DA10300B0A594 /* Foundation.framework */; };
@@ -56,7 +59,6 @@
 		F766359F189DA10400B0A594 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F766359D189DA10400B0A594 /* InfoPlist.strings */; };
 		F76635A1189DA10400B0A594 /* plantomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76635A0189DA10400B0A594 /* plantomaticTests.m */; };
 		F76635AB189DA28600B0A594 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76635AA189DA28600B0A594 /* CoreLocation.framework */; };
-		F79E7F9618C03822004DDC07 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = F79E7F9518C03822004DDC07 /* splash_screen.png */; };
 		F7EC11D018CFF934001FD603 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7EC11CF18CFF934001FD603 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,9 @@
 		41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophytes_classification@2x.png"; sourceTree = "<group>"; };
 		41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ferns_classification@2x.png"; sourceTree = "<group>"; };
 		41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gymnosperms_classification@2x.png"; sourceTree = "<group>"; };
+		41C4BC7218D1B1140043D894 /* NCEAS-full_logo-BLK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NCEAS-full_logo-BLK.png"; sourceTree = "<group>"; };
+		41C4BC7318D1B1140043D894 /* UAsci_logo_college.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UAsci_logo_college.png; sourceTree = "<group>"; };
+		41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ACES_greyscale_1.png; sourceTree = "<group>"; };
 		41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBIENLogoNoText_highres.png; sourceTree = "<group>"; };
 		41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iplant_logo_300.jpg; sourceTree = "<group>"; };
 		F726E16518BE6FDC001751DD /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -152,7 +157,6 @@
 		F766359E189DA10400B0A594 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F76635A0189DA10400B0A594 /* plantomaticTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plantomaticTests.m; sourceTree = "<group>"; };
 		F76635AA189DA28600B0A594 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		F79E7F9518C03822004DDC07 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_screen.png; sourceTree = "<group>"; };
 		F7EC11CF18CFF934001FD603 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,6 +262,56 @@
 			name = LocationService;
 			sourceTree = "<group>";
 		};
+		41C4BC6E18D1B0040043D894 /* Classifications images */ = {
+			isa = PBXGroup;
+			children = (
+				41BA4E8218CA242400C34D8F /* Angiosperms_classification@2x.png */,
+				41BA4E7718C9ED9900C34D8F /* Angiosperms_classification.png */,
+				41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */,
+				41BA4E7818C9ED9900C34D8F /* Bryophytes_classification.png */,
+				41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */,
+				41BA4E7918C9ED9900C34D8F /* Ferns_classification.png */,
+				41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */,
+				41BA4E7A18C9ED9900C34D8F /* Gymnosperms_classification.png */,
+			);
+			name = "Classifications images";
+			sourceTree = "<group>";
+		};
+		41C4BC6F18D1B01B0043D894 /* InfoView images */ = {
+			isa = PBXGroup;
+			children = (
+				41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */,
+				41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */,
+				41C4BC7218D1B1140043D894 /* NCEAS-full_logo-BLK.png */,
+				41C4BC7318D1B1140043D894 /* UAsci_logo_college.png */,
+				41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */,
+			);
+			name = "InfoView images";
+			sourceTree = "<group>";
+		};
+		41C4BC7018D1B03D0043D894 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				41B9EE1818BF582E00F7B9A1 /* info.png */,
+				41B9EE1918BF582E00F7B9A1 /* info@2x.png */,
+				41B9EE2018BF6A8B00F7B9A1 /* reload.png */,
+				41B9EE2118BF6A8B00F7B9A1 /* reload@2x.png */,
+				41B9EE2418BF6CA700F7B9A1 /* up.png */,
+				41B9EE2518BF6CA700F7B9A1 /* up@2x.png */,
+				41B9EE2818BF6CC200F7B9A1 /* down.png */,
+				41B9EE2918BF6CC200F7B9A1 /* down@2x.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		41C4BC7118D1B0A80043D894 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				41B9EE0D18BF482400F7B9A1 /* PlantoMaticDB.sqlite */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		F7663569189DA10300B0A594 = {
 			isa = PBXGroup;
 			children = (
@@ -325,26 +379,10 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				41BA4E8218CA242400C34D8F /* Angiosperms_classification@2x.png */,
-				41BA4E7718C9ED9900C34D8F /* Angiosperms_classification.png */,
-				41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */,
-				41BA4E7818C9ED9900C34D8F /* Bryophytes_classification.png */,
-				41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */,
-				41BA4E7918C9ED9900C34D8F /* Ferns_classification.png */,
-				41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */,
-				41BA4E7A18C9ED9900C34D8F /* Gymnosperms_classification.png */,
-				41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */,
-				41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */,
-				41B9EE1818BF582E00F7B9A1 /* info.png */,
-				41B9EE1918BF582E00F7B9A1 /* info@2x.png */,
-				41B9EE2018BF6A8B00F7B9A1 /* reload.png */,
-				41B9EE2118BF6A8B00F7B9A1 /* reload@2x.png */,
-				41B9EE2418BF6CA700F7B9A1 /* up.png */,
-				41B9EE2518BF6CA700F7B9A1 /* up@2x.png */,
-				F79E7F9518C03822004DDC07 /* splash_screen.png */,
-				41B9EE2818BF6CC200F7B9A1 /* down.png */,
-				41B9EE2918BF6CC200F7B9A1 /* down@2x.png */,
-				41B9EE0D18BF482400F7B9A1 /* PlantoMaticDB.sqlite */,
+				41C4BC7118D1B0A80043D894 /* Database */,
+				41C4BC7018D1B03D0043D894 /* Buttons */,
+				41C4BC6F18D1B01B0043D894 /* InfoView images */,
+				41C4BC6E18D1B0040043D894 /* Classifications images */,
 				F766357D189DA10300B0A594 /* plantomatic-Info.plist */,
 				F766357E189DA10300B0A594 /* InfoPlist.strings */,
 				F7663581189DA10300B0A594 /* main.m */,
@@ -474,18 +512,20 @@
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
+				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
 				41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */,
 				41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */,
 				41B9EE1B18BF582E00F7B9A1 /* info@2x.png in Resources */,
+				41C4BC7418D1B1140043D894 /* NCEAS-full_logo-BLK.png in Resources */,
 				41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
+				41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */,
 				41BA4E8618CA242400C34D8F /* Angiosperms_classification@2x.png in Resources */,
 				41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */,
 				41BA4E7E18C9ED9900C34D8F /* Gymnosperms_classification.png in Resources */,
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
-				F79E7F9618C03822004DDC07 /* splash_screen.png in Resources */,
 				41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
 				41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */,

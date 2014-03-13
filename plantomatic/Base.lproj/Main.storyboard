@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="-68"/>
+            <point key="canvasLocation" x="1171" y="-45"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="K1e-hI-peh">
@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJj-n7-XKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-286" y="-45"/>
+            <point key="canvasLocation" x="-282" y="-45"/>
         </scene>
         <!--Plants View Controller - Plant-O-Matic-->
         <scene sceneID="HT7-Lr-Gkh">
@@ -333,28 +333,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lCD-tc-cut">
-                                <rect key="frame" x="-2" y="0.0" width="325" height="115"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome Screen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCO-LE-7H4">
-                                        <rect key="frame" x="35" y="79" width="151" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eG5-yN-0fc">
-                                        <rect key="frame" x="234" y="74" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="valueChangeForWelcomeScreenAction:" destination="BpL-3s-cwa" eventType="valueChanged" id="Tkx-jg-Cr6"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbC-If-XeV">
-                                <rect key="frame" x="50" y="495" width="220" height="30"/>
+                                <rect key="frame" x="50" y="504" width="220" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Test Lat/Long to Y/X conversion">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -364,13 +344,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="RK9-yP-2IO">
-                                <rect key="frame" x="0.0" y="533" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="542" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yFA-uI-bcT">
-                                <rect key="frame" x="14" y="123" width="293" height="359"/>
+                                <rect key="frame" x="14" y="65" width="293" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
@@ -422,7 +402,7 @@ A full list of contributors can be found at: http://bien.nceas.ucsb.edu/bien/ .
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" v0.9 (March 2014)">
+                                    <fragment content=" v0.9 (March 2014) ">
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -432,18 +412,37 @@ A full list of contributors can be found at: http://bien.nceas.ucsb.edu/bien/ .
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FinalBIENLogoNoText_highres.png" translatesAutoresizingMaskIntoConstraints="NO" id="emE-Rz-4xB">
+                                <rect key="frame" x="35" y="398" width="250" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iplant_logo_300.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="skH-2e-5gt">
+                                <rect key="frame" x="57" y="452" width="100" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ACES_greyscale_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="AEJ-NM-rYV">
+                                <rect key="frame" x="57" y="478" width="100" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UAsci_logo_college.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y78-NP-kqf">
+                                <rect key="frame" x="163" y="478" width="100" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NCEAS-full_logo-BLK.png" translatesAutoresizingMaskIntoConstraints="NO" id="FOU-Wp-eE3">
+                                <rect key="frame" x="163" y="452" width="100" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="uwf-lP-Xbq"/>
                     <connections>
                         <outlet property="latLongYXLbl" destination="RK9-yP-2IO" id="vzN-1k-hsx"/>
-                        <outlet property="showWelcomeScreenSwitch" destination="eG5-yN-0fc" id="fiJ-hE-pGB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vH8-rW-5Yn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="-62"/>
+            <point key="canvasLocation" x="682" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jfi-WB-AOx">
@@ -458,7 +457,7 @@ A full list of contributors can be found at: http://bien.nceas.ucsb.edu/bien/ .
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clg-gL-DgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-708" y="-21"/>
+            <point key="canvasLocation" x="-712" y="-45"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="t4f-Mf-KjM">
@@ -479,7 +478,12 @@ A full list of contributors can be found at: http://bien.nceas.ucsb.edu/bien/ .
         </scene>
     </scenes>
     <resources>
+        <image name="ACES_greyscale_1.png" width="2100" height="756"/>
+        <image name="FinalBIENLogoNoText_highres.png" width="1779" height="701"/>
+        <image name="NCEAS-full_logo-BLK.png" width="1062" height="239"/>
+        <image name="UAsci_logo_college.png" width="1145" height="325"/>
         <image name="info.png" width="25" height="25"/>
+        <image name="iplant_logo_300.jpg" width="446" height="115"/>
         <image name="reload.png" width="25" height="25"/>
         <image name="up.png" width="25" height="25"/>
     </resources>
