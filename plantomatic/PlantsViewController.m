@@ -329,7 +329,7 @@
 	// this is actually a delegate method, but we forward the request to the datasource in the view controller
     
     NSArray* sortedNamesArray = nil;
-    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+    if(self.isSearchOn){
         sortedNamesArray = [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
     } else {
@@ -350,7 +350,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     NSInteger numberOfRows = 0;
-    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+    if(self.isSearchOn){
         numberOfRows = [[self.plantsSearchResultDictionary allKeys] count];
         
     } else {
@@ -365,7 +365,7 @@
     NSArray* sortedNamesArray= nil;
     NSArray* indexKeyArray=nil;
     
-    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+    if(self.isSearchOn){
         sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         indexKeyArray=[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:section]];
         
@@ -443,7 +443,7 @@
     
     NSArray* sortedNamesArray= nil;
     NSMutableArray* indexKeyArray=nil;
-    if (tableView == [[self searchDisplayController] searchResultsTableView]) {
+    if(self.isSearchOn){
         sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         indexKeyArray=[[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:indexPath.section]] mutableCopy];
         
@@ -804,6 +804,83 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
 }
 
+/*
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar                     // called when text starts editing
+{
+    self.isSearchOn=YES;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self handleSearchForTerm:searchBar.text];
+    [self.tableView reloadData];
+
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+// called when keyboard search button pressed
+{
+    [self handleSearchForTerm:searchBar.text];
+    [self.tableView reloadData];
+    [searchBar resignFirstResponder];
+    self.isSearchOn=NO;
+
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    
+}
+*/
+
+- (void)handleSearch:(NSString *)searchText {
+    NSString *trimmedsearchString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    if (trimmedsearchString.length==0) {
+        self.isSearchOn=NO;
+        [self.tableView reloadData];
+    }
+    else
+    {
+        self.isSearchOn=YES;
+        [self handleSearchForTerm:searchText];
+        [self.tableView reloadData];
+    }
+
+}
+
+#pragma mark -
+#pragma mark UISearchBarDelegate Method
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self handleSearch:searchText];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self handleSearch:searchBar.text];
+     [searchBar resignFirstResponder];
+}
+
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [self handleSearch:searchBar.text];
+    [searchBar resignFirstResponder];
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+    NSLog(@"User canceled search");
+    self.isSearchOn=NO;
+    [self.tableView reloadData];
+    searchBar.text=@"";
+    [searchBar resignFirstResponder]; // if you want the keyboard to go away
+}
 
 @end
