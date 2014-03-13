@@ -17,6 +17,21 @@
 #import "AppDelegate.h"
 
 
+@interface MySearchDisplayController : UISearchDisplayController
+
+@end
+
+@implementation MySearchDisplayController
+
+- (void)setActive:(BOOL)visible animated:(BOOL)animated
+{
+    [super setActive: visible animated: animated];
+    
+    [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
+}
+
+@end
+
 @interface PlantsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -650,6 +665,7 @@
 #pragma mark UISearchDisplayController Delegate Methods
 - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
     self.isSearchOn=YES;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.tableView reloadData];
 }
 
