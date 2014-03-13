@@ -203,10 +203,20 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 <items>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bV9-Uo-tdJ"/>
-                                                    <barButtonItem style="done" systemItem="done" id="wUf-M2-ELz">
-                                                        <connections>
-                                                            <action selector="doneAction:" destination="8fC-6X-Nhh" id="uvC-kb-RmU"/>
-                                                        </connections>
+                                                    <barButtonItem style="plain" id="qmb-fY-g1G">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aMX-RA-4Sj">
+                                                            <rect key="frame" x="231" y="6" width="73" height="33"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="Done">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="doneAction:" destination="8fC-6X-Nhh" eventType="touchUpInside" id="mht-Cc-sja"/>
+                                                            </connections>
+                                                        </button>
                                                     </barButtonItem>
                                                 </items>
                                                 <color key="tintColor" red="0.41568627450000001" green="0.55294117649999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -232,14 +242,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="S1O-9H-DM6">
-                                        <rect key="frame" x="213" y="7" width="100" height="45"/>
+                                        <rect key="frame" x="163" y="7" width="100" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bF-nD-EtV">
-                                        <rect key="frame" x="163" y="11" width="50" height="37"/>
+                                        <rect key="frame" x="105" y="11" width="50" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="up.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -249,7 +259,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3q-9j-l83">
-                                        <rect key="frame" x="105" y="11" width="50" height="37"/>
+                                        <rect key="frame" x="258" y="13" width="50" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="reload.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

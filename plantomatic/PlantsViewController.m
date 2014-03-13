@@ -17,21 +17,6 @@
 #import "AppDelegate.h"
 
 
-@interface MySearchDisplayController : UISearchDisplayController
-
-@end
-
-@implementation MySearchDisplayController
-
-- (void)setActive:(BOOL)visible animated:(BOOL)animated
-{
-    [super setActive: visible animated: animated];
-    
-    [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
-}
-
-@end
-
 @interface PlantsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -287,7 +272,7 @@
 		}
 	}
 
-    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu",(unsigned long)self.plants.count];
+    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
     
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     
@@ -818,7 +803,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     
 }
-
 
 
 
