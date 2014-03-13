@@ -36,6 +36,7 @@
 @property (nonatomic,strong) NSMutableArray *plants;
 @property (nonatomic, retain) NSMutableDictionary *plantsResultDictionary;
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic, readwrite) BOOL isSearchOn;
 
@@ -629,7 +630,8 @@
             break;
     }
 
-    
+    self.searchBar.text=@"";
+    self.isSearchOn=NO;    
     [self populatePlantsWrapper];
 }
 

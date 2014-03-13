@@ -310,6 +310,7 @@
                         <outlet property="pickerControl" destination="RpZ-uR-yYt" id="iIe-fH-Olg"/>
                         <outlet property="pickerView" destination="AXX-pu-ccs" id="jcH-EZ-dUs"/>
                         <outlet property="plantsCountLbl" destination="S1O-9H-DM6" id="u0h-TU-1lH"/>
+                        <outlet property="searchBar" destination="zZ0-0v-VNB" id="yvc-ce-skm"/>
                         <outlet property="searchDisplayController" destination="rU4-FF-UeR" id="J4d-Ah-hg3"/>
                         <outlet property="sortOrderBtn" destination="6bF-nD-EtV" id="1Av-Ss-45q"/>
                         <outlet property="tableView" destination="83X-H1-dDk" id="rGL-Ag-on4"/>
