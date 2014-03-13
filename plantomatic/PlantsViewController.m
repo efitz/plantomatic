@@ -868,10 +868,15 @@ shouldReloadTableForSearchString:(NSString *)searchString
      [searchBar resignFirstResponder];
 }
 
+-(void) searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     [self handleSearch:searchBar.text];
     [searchBar resignFirstResponder];
+    [searchBar setShowsCancelButton:NO animated:YES];
 }
 
 
