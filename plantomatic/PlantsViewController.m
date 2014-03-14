@@ -847,12 +847,16 @@ shouldReloadTableForSearchString:(NSString *)searchString
     if (trimmedsearchString.length==0) {
         self.isSearchOn=NO;
         [self.tableView reloadData];
+        
+        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
     }
     else
     {
         self.isSearchOn=YES;
         [self handleSearchForTerm:searchText];
         [self.tableView reloadData];
+        
+        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plantsSearchResultArray.count];
     }
 
 }
@@ -888,6 +892,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [self.tableView reloadData];
     searchBar.text=@"";
     [searchBar resignFirstResponder]; // if you want the keyboard to go away
+    
+    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
+
 }
 
 @end
