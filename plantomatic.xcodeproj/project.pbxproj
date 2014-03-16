@@ -44,7 +44,9 @@
 		41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */; };
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
 		41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */; };
-		F7239FD018D60D2A0008253E /* splash-screen2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FCF18D60D2A0008253E /* splash-screen2.png */; };
+		F7239FD318D623820008253E /* americas-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD118D623820008253E /* americas-568h@2x.png */; };
+		F7239FD418D623820008253E /* americas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD218D623820008253E /* americas@2x.png */; };
+		F7239FD618D625CC0008253E /* logos.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD518D625CC0008253E /* logos.png */; };
 		F7663576189DA10300B0A594 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7663575189DA10300B0A594 /* Foundation.framework */; };
 		F7663578189DA10300B0A594 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7663577189DA10300B0A594 /* CoreGraphics.framework */; };
 		F766357A189DA10300B0A594 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7663579189DA10300B0A594 /* UIKit.framework */; };
@@ -137,7 +139,9 @@
 		41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ACES_greyscale_1.png; sourceTree = "<group>"; };
 		41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBIENLogoNoText_highres.png; sourceTree = "<group>"; };
 		41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iplant_logo_300.jpg; sourceTree = "<group>"; };
-		F7239FCF18D60D2A0008253E /* splash-screen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen2.png"; sourceTree = "<group>"; };
+		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
+		F7239FD218D623820008253E /* americas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas@2x.png"; sourceTree = "<group>"; };
+		F7239FD518D625CC0008253E /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
 		F726E16518BE6FDC001751DD /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		F7663572189DA10300B0A594 /* plantomatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plantomatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7663575189DA10300B0A594 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -282,7 +286,9 @@
 		41C4BC6F18D1B01B0043D894 /* InfoView images */ = {
 			isa = PBXGroup;
 			children = (
-				F7239FCF18D60D2A0008253E /* splash-screen2.png */,
+				F7239FD118D623820008253E /* americas-568h@2x.png */,
+				F7239FD218D623820008253E /* americas@2x.png */,
+				F7239FD518D625CC0008253E /* logos.png */,
 				41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */,
 				41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */,
 				41C4BC7218D1B1140043D894 /* NCEAS-full_logo-BLK.png */,
@@ -513,15 +519,16 @@
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
 				41B9EE2318BF6A8B00F7B9A1 /* reload@2x.png in Resources */,
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
+				F7239FD618D625CC0008253E /* logos.png in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
 				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
 				41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */,
 				41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */,
-				F7239FD018D60D2A0008253E /* splash-screen2.png in Resources */,
 				41B9EE1B18BF582E00F7B9A1 /* info@2x.png in Resources */,
 				41C4BC7418D1B1140043D894 /* NCEAS-full_logo-BLK.png in Resources */,
 				41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */,
+				F7239FD418D623820008253E /* americas@2x.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
 				41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */,
@@ -531,6 +538,7 @@
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
 				41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */,
+				F7239FD318D623820008253E /* americas-568h@2x.png in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
 				41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,

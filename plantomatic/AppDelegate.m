@@ -92,7 +92,21 @@
 
     
     UIImageView* splashView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    splashView.image = [UIImage imageNamed:@"splash-screen2.png"];
+	
+	if([[UIDevice currentDevice]userInterfaceIdiom]==UIUserInterfaceIdiomPhone)
+	{
+		if ([[UIScreen mainScreen] bounds].size.height == 568.0f)
+		{
+			splashView.image = [UIImage imageNamed:@"americas-568h@2x.png"];
+			
+		}
+		else
+		{
+			//iphone 3.5 inch screen
+			splashView.image = [UIImage imageNamed:@"americas@2x.png"];
+		}
+	}
+    
     self.splashView=splashView;
     [self.window addSubview:self.splashView];
     [self.window bringSubviewToFront:self.splashView];
