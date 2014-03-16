@@ -120,7 +120,7 @@
                 break;
                 
             case FilterByValueClassification:
-                [self.criteriaSortBtn setTitle:@"Classification" forState:UIControlStateNormal];
+                [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
                 break;
 
                 
@@ -211,8 +211,8 @@
     
     
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
-    Y=60;
-    X=53;
+    //Y=60;
+    //X=53;
     self.plants = [db getPlantsForY:Y andX:X andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
@@ -577,7 +577,7 @@
             pickerValueString=@"Genus";
             break;
         case FilterByValueClassification:
-            pickerValueString=@"Classification";
+            pickerValueString=@"Major Group";
             break;
             
         default:
@@ -622,7 +622,7 @@
             [self.criteriaSortBtn setTitle:@"Genus" forState:UIControlStateNormal];
             break;
         case FilterByValueClassification:
-            [self.criteriaSortBtn setTitle:@"Classification" forState:UIControlStateNormal];
+            [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
             break;
 
             

@@ -92,7 +92,7 @@
 
     
     UIImageView* splashView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    splashView.image = [UIImage imageNamed:@"splash_screen2.png"];
+    splashView.image = [UIImage imageNamed:@"splash-screen2.png"];
     self.splashView=splashView;
     [self.window addSubview:self.splashView];
     [self.window bringSubviewToFront:self.splashView];
