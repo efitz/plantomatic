@@ -10,14 +10,16 @@
 #import "FMDBDataAccess.h"
 #import "SpeciesFamily.h"
 #import "Utility.h"
-#import "constants.h"   
+#import "Constants.h"   
 #include "proj_api.h"
 #import "PlantCell.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
+#import "PlantImagesService.h"
+#import "PlantImagesList.h"
 
 
-@interface PlantsViewController ()
+@interface PlantsViewController ()<PlantImagesServiceDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *plantsCountLbl;
@@ -39,6 +41,9 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic, readwrite) BOOL isSearchOn;
+
+
+@property (strong, nonatomic) PlantImagesService *plantImagesService;
 
 
 @end
@@ -136,6 +141,11 @@
     [self populatePlantsWrapper];
     
     [self hidePicker];
+    
+    
+    PlantImagesService *plantImagesService = [[PlantImagesService alloc] initServiceWithDelegate:self];
+    self.plantImagesService = plantImagesService;
+
 }
 
 
@@ -304,6 +314,8 @@
 
 
 
+#pragma mark -
+#pragma mark UITableViewDataSource Method
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     // returns the array of section titles. There is one entry for each unique character that an element begins with
@@ -387,6 +399,33 @@
     
     PlantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    SpeciesFamily *plant = [self getPlantForIndexPath:indexPath];
+    
+    [[cell titleLbl] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
+    [[cell familyLbl] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
+    [[cell classificationLbl] setText:[NSString stringWithFormat:@"%@ ",plant.classification]];
+    
+    
+    NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
+    [cell.imgView setImage:[UIImage imageNamed:imageName]];
+    cell.imgView.contentMode=UIViewContentModeScaleAspectFit;
+
+    
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    SpeciesFamily *plant = [self getPlantForIndexPath:indexPath];
+    [self.plantImagesService fetchPlantImagesListForGenus:plant.genus species:plant.species];
+}
+
+
+-(SpeciesFamily*)getPlantForIndexPath:(NSIndexPath *)indexPath
+{
     NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
                               valueForKey:@"sortCriteria"];
     
@@ -414,10 +453,10 @@
         default:
             //Family
             sortKeyName=@"family";
-
+            
             break;
     }
-
+    
     
     
     NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
@@ -439,7 +478,7 @@
         }
         
     }
-
+    
     SpeciesFamily *plant = nil;
     
     NSArray* sortedNamesArray= nil;
@@ -451,7 +490,7 @@
         //indexKeyArray=[indexKeyArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
         NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(caseInsensitiveCompare:)];
-                                              
+        
         NSArray * descriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
         NSArray * sortedArray = [indexKeyArray sortedArrayUsingDescriptors:descriptors];
         
@@ -472,18 +511,11 @@
         plant=[sortedArray objectAtIndex:indexPath.row];
     }
 
-    [[cell titleLbl] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
-    [[cell familyLbl] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
-    [[cell classificationLbl] setText:[NSString stringWithFormat:@"%@ ",plant.classification]];
-    
-    
-    NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
-    [cell.imgView setImage:[UIImage imageNamed:imageName]];
-    cell.imgView.contentMode=UIViewContentModeScaleAspectFit;
-
-    
-    return cell;
+    return plant;
 }
+
+
+
 
 - (IBAction)showSortOptions:(id)sender {
    
@@ -896,5 +928,25 @@ shouldReloadTableForSearchString:(NSString *)searchString
     self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
 
 }
+
+#pragma mark -
+#pragma mark PlantImagesServiceDelegate Method
+
+- (void)plantImagesFetchSucceed:(PlantImagesList *)plantImagesList
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    
+    NSString* message=[NSString stringWithFormat:@"Images found for selected plant = %lu",(unsigned long)plantImagesList.plantImages.count];
+    [Utility showAlert:@"PlantOMatic Test Alert" message:message];
+}
+
+- (void)plantImagesFetchFailed:(NSString *)errorMessage
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
+    [Utility showAlert:@"PlantOMatic Test Alert" message:errorMessage];
+
+}
+
 
 @end

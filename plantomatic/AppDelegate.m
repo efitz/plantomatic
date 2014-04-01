@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GPSManager.h"
 #import "PlantsViewController.h"
+#import "InternetDetector.h"
 
 
 @interface AppDelegate()
@@ -34,6 +35,8 @@
 //    
 //    [self createAndCheckDatabase];
     
+    //Init Internet Detector
+    [InternetDetector sharedManager];
     
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

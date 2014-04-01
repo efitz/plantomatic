@@ -57,6 +57,49 @@
     return NO;
 }
 
++ (NSString *)getStringValueWithDict:(NSDictionary *)dict key:(NSString *)key
+{
+    NSString *value = [dict valueForKey:key];
+    // Dictionary cannot store nil, so we don't need to test that.
+    // NSNull happens when dict was created from a json response that has null set.
+    if ([value isKindOfClass:[NSNull class]])
+    {
+        value = @"";
+    }
+    
+    return value;
+}
 
+#pragma mark Web Related Utilities
+// Consider moving this into a NSString+URLEncoding.h object
++ (NSString *)urlEncodeValue:(NSString *)value usingEncoding:(NSStringEncoding)encoding
+{
+    if (![value isKindOfClass:[NSString class]])
+    {
+        // Handles objects from dictionary that may have been other objects like NSNumber
+        value = [NSString stringWithFormat:@"%@", value];
+    }
+    
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                 (CFStringRef)value,
+                                                                                 NULL,
+                                                                                 (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                 CFStringConvertNSStringEncodingToEncoding(encoding)));
+}
+
+
++ (int)getIntValueWithDict:(NSDictionary *)dict key:(NSString *)key;
+{
+    int intValue = 0;
+    NSString *value = [dict valueForKey:key];
+    // valueForKey may not always return a NSString, it may return something like
+    // NSDecimalNumber, so calling value length may crash.
+    if (![value isKindOfClass:[NSNull class]])
+    {
+        intValue = [value intValue];
+    }
+    
+    return intValue;
+}
 
 @end

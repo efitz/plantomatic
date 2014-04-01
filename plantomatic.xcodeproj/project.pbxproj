@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41802D1418CF575600E41641 /* MBProgressHUD.m */; };
 		41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AEF48418C4C1B600D68062 /* CoreText.framework */; };
+		41B7974E18EACAC7009F54E2 /* APIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7974D18EACAC7009F54E2 /* APIOperation.m */; };
+		41B7975318EACD65009F54E2 /* GenericService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975218EACD65009F54E2 /* GenericService.m */; };
+		41B7975718EACDF5009F54E2 /* InternetDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975618EACDF5009F54E2 /* InternetDetector.m */; };
+		41B7975B18EACFBD009F54E2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975A18EACFBD009F54E2 /* Reachability.m */; };
+		41B7975E18EAE238009F54E2 /* PlantImagesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975D18EAE238009F54E2 /* PlantImagesService.m */; };
+		41B7976118EAEA6C009F54E2 /* PlantImagesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7976018EAEA6C009F54E2 /* PlantImagesList.m */; };
 		41B9EDF718BE4DF200F7B9A1 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4147B72118BD062F00B111B9 /* libProj4.a */; };
 		41B9EDFE18BF456B00F7B9A1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EDFB18BF456B00F7B9A1 /* FMDatabase.m */; };
 		41B9EDFF18BF456B00F7B9A1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EDFD18BF456B00F7B9A1 /* FMResultSet.m */; };
@@ -94,6 +100,18 @@
 		41802D1318CF575600E41641 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		41802D1418CF575600E41641 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		41AEF48418C4C1B600D68062 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		41B7974C18EACAC7009F54E2 /* APIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIOperation.h; sourceTree = "<group>"; };
+		41B7974D18EACAC7009F54E2 /* APIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIOperation.m; sourceTree = "<group>"; };
+		41B7975118EACD65009F54E2 /* GenericService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericService.h; sourceTree = "<group>"; };
+		41B7975218EACD65009F54E2 /* GenericService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericService.m; sourceTree = "<group>"; };
+		41B7975518EACDF5009F54E2 /* InternetDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetDetector.h; sourceTree = "<group>"; };
+		41B7975618EACDF5009F54E2 /* InternetDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetDetector.m; sourceTree = "<group>"; };
+		41B7975918EACFBD009F54E2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		41B7975A18EACFBD009F54E2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		41B7975C18EAE238009F54E2 /* PlantImagesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantImagesService.h; sourceTree = "<group>"; };
+		41B7975D18EAE238009F54E2 /* PlantImagesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantImagesService.m; sourceTree = "<group>"; };
+		41B7975F18EAEA6C009F54E2 /* PlantImagesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantImagesList.h; sourceTree = "<group>"; };
+		41B7976018EAEA6C009F54E2 /* PlantImagesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantImagesList.m; sourceTree = "<group>"; };
 		41B9EDFA18BF456B00F7B9A1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		41B9EDFB18BF456B00F7B9A1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		41B9EDFC18BF456B00F7B9A1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -142,7 +160,7 @@
 		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
 		F7239FD218D623820008253E /* americas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas@2x.png"; sourceTree = "<group>"; };
 		F7239FD518D625CC0008253E /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
-		F726E16518BE6FDC001751DD /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		F726E16518BE6FDC001751DD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F7663572189DA10300B0A594 /* plantomatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plantomatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7663575189DA10300B0A594 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7663577189DA10300B0A594 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,6 +223,7 @@
 		41802D1118CF573900E41641 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				41B7975818EACFB0009F54E2 /* Reachability */,
 				41802D1218CF574700E41641 /* MBProgressHUD */,
 			);
 			name = "Third Party";
@@ -217,6 +236,57 @@
 				41802D1418CF575600E41641 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		41B7974B18EACAA8009F54E2 /* WebService Operation */ = {
+			isa = PBXGroup;
+			children = (
+				F726E16518BE6FDC001751DD /* Constants.h */,
+				41B7974C18EACAC7009F54E2 /* APIOperation.h */,
+				41B7974D18EACAC7009F54E2 /* APIOperation.m */,
+				41B7975418EACDE8009F54E2 /* InternetDetector */,
+				41B7975018EACD4F009F54E2 /* Generic Service */,
+				41B7974F18EACD47009F54E2 /* Service */,
+			);
+			name = "WebService Operation";
+			sourceTree = "<group>";
+		};
+		41B7974F18EACD47009F54E2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				41B7975C18EAE238009F54E2 /* PlantImagesService.h */,
+				41B7975D18EAE238009F54E2 /* PlantImagesService.m */,
+				41B7975F18EAEA6C009F54E2 /* PlantImagesList.h */,
+				41B7976018EAEA6C009F54E2 /* PlantImagesList.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		41B7975018EACD4F009F54E2 /* Generic Service */ = {
+			isa = PBXGroup;
+			children = (
+				41B7975118EACD65009F54E2 /* GenericService.h */,
+				41B7975218EACD65009F54E2 /* GenericService.m */,
+			);
+			name = "Generic Service";
+			sourceTree = "<group>";
+		};
+		41B7975418EACDE8009F54E2 /* InternetDetector */ = {
+			isa = PBXGroup;
+			children = (
+				41B7975518EACDF5009F54E2 /* InternetDetector.h */,
+				41B7975618EACDF5009F54E2 /* InternetDetector.m */,
+			);
+			name = InternetDetector;
+			sourceTree = "<group>";
+		};
+		41B7975818EACFB0009F54E2 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				41B7975918EACFBD009F54E2 /* Reachability.h */,
+				41B7975A18EACFBD009F54E2 /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		41B9EDF918BF454900F7B9A1 /* FMDB */ = {
@@ -371,9 +441,8 @@
 				41B9EE1D18BF5B1B00F7B9A1 /* InfoViewController.m */,
 				F766358A189DA10300B0A594 /* ConversionTestViewController.h */,
 				F766358B189DA10300B0A594 /* ConversionTestViewController.m */,
-				F726E16518BE6FDC001751DD /* constants.h */,
-				F7EC11CF18CFF934001FD603 /* Icon@2x.png */,
 				F766358D189DA10300B0A594 /* Images.xcassets */,
+				41B7974B18EACAA8009F54E2 /* WebService Operation */,
 				41B9EE2C18BF873C00F7B9A1 /* LocationService */,
 				41B9EE0918BF467200F7B9A1 /* Utilities */,
 				41B9EE0518BF462A00F7B9A1 /* Services */,
@@ -388,6 +457,7 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F7EC11CF18CFF934001FD603 /* Icon@2x.png */,
 				41C4BC7118D1B0A80043D894 /* Database */,
 				41C4BC7018D1B03D0043D894 /* Buttons */,
 				41C4BC6F18D1B01B0043D894 /* InfoView images */,
@@ -565,14 +635,20 @@
 				41B9EE0C18BF468100F7B9A1 /* Utility.m in Sources */,
 				41B9EE1E18BF5B1B00F7B9A1 /* InfoViewController.m in Sources */,
 				F766358C189DA10300B0A594 /* ConversionTestViewController.m in Sources */,
+				41B7975718EACDF5009F54E2 /* InternetDetector.m in Sources */,
+				41B7974E18EACAC7009F54E2 /* APIOperation.m in Sources */,
 				41B9EE0218BF459A00F7B9A1 /* FMDatabasePool.m in Sources */,
+				41B7976118EAEA6C009F54E2 /* PlantImagesList.m in Sources */,
 				41B9EE2F18BF875D00F7B9A1 /* GPSManager.m in Sources */,
 				F7663586189DA10300B0A594 /* AppDelegate.m in Sources */,
 				41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */,
+				41B7975B18EACFBD009F54E2 /* Reachability.m in Sources */,
 				41BA4E8118C9F04000C34D8F /* PlantCell.m in Sources */,
 				F7663582189DA10300B0A594 /* main.m in Sources */,
+				41B7975E18EAE238009F54E2 /* PlantImagesService.m in Sources */,
 				41B9EE1418BF52AD00F7B9A1 /* WelcomeViewController.m in Sources */,
 				41B9EE0818BF465F00F7B9A1 /* FMDBDataAccess.m in Sources */,
+				41B7975318EACD65009F54E2 /* GenericService.m in Sources */,
 				41B9EDFE18BF456B00F7B9A1 /* FMDatabase.m in Sources */,
 				41B9EDFF18BF456B00F7B9A1 /* FMResultSet.m in Sources */,
 				41B9EE1118BF4AC200F7B9A1 /* SpeciesFamily.m in Sources */,

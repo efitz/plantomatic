@@ -17,4 +17,8 @@
 +(void) showAlert:(NSString *) title message:(NSString *) msg;
 +(BOOL) isNumeric:(NSString *)s;
 
++ (NSString *)getStringValueWithDict:(NSDictionary *)dict key:(NSString *)key;
++ (NSString *)urlEncodeValue:(NSString *)value usingEncoding:(NSStringEncoding)encoding;
++ (int)getIntValueWithDict:(NSDictionary *)dict key:(NSString *)key;
+
 @end
