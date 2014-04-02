@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "PlantImagesService.h"
 #import "PlantImagesList.h"
+#import "PlantsCollectionViewController.h"
 
 
 @interface PlantsViewController ()<PlantImagesServiceDelegate>
@@ -936,8 +937,17 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     
-    NSString* message=[NSString stringWithFormat:@"Images found for selected plant = %lu",(unsigned long)plantImagesList.plantImages.count];
-    [Utility showAlert:@"PlantOMatic Test Alert" message:message];
+    //NSString* message=[NSString stringWithFormat:@"Images found for selected plant = %lu",(unsigned long)plantImagesList.plantImages.count];
+    //[Utility showAlert:@"PlantOMatic Test Alert" message:message];
+    
+    //PlantsCollectionViewController* plantsCollectionViewController=[[PlantsCollectionViewController alloc] int
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PlantsCollectionViewController *plantsCollectionViewController = (PlantsCollectionViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantsCollectionViewController"];
+    
+    plantsCollectionViewController.assets=plantImagesList.plantImages;
+    
+    [self.navigationController pushViewController:plantsCollectionViewController animated:YES];
 }
 
 - (void)plantImagesFetchFailed:(NSString *)errorMessage

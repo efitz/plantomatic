@@ -21,4 +21,6 @@
 + (NSString *)urlEncodeValue:(NSString *)value usingEncoding:(NSStringEncoding)encoding;
 + (int)getIntValueWithDict:(NSDictionary *)dict key:(NSString *)key;
 
++ (BOOL)isiOS7;
+
 @end

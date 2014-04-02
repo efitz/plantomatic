@@ -15,6 +15,21 @@
 		41B7975B18EACFBD009F54E2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975A18EACFBD009F54E2 /* Reachability.m */; };
 		41B7975E18EAE238009F54E2 /* PlantImagesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975D18EAE238009F54E2 /* PlantImagesService.m */; };
 		41B7976118EAEA6C009F54E2 /* PlantImagesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7976018EAEA6C009F54E2 /* PlantImagesList.m */; };
+		41B8D6A818EC3BA900CE6D4A /* CBetterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D69D18EC3BA900CE6D4A /* CBetterCollectionViewCell.m */; };
+		41B8D6A918EC3BA900CE6D4A /* CBetterCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D69F18EC3BA900CE6D4A /* CBetterCollectionViewLayoutAttributes.m */; };
+		41B8D6AA18EC3BA900CE6D4A /* CCoverflowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6A118EC3BA900CE6D4A /* CCoverflowCollectionViewLayout.m */; };
+		41B8D6AB18EC3BA900CE6D4A /* CInterpolator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6A318EC3BA900CE6D4A /* CInterpolator.mm */; };
+		41B8D6AC18EC3BA900CE6D4A /* Interpolator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6A418EC3BA900CE6D4A /* Interpolator.cpp */; };
+		41B8D6AD18EC3BA900CE6D4A /* CReflectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6A718EC3BA900CE6D4A /* CReflectionView.m */; };
+		41B8D6B218EC3BD600CE6D4A /* PlantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6AF18EC3BD600CE6D4A /* PlantCollectionViewCell.m */; };
+		41B8D6B318EC3BD600CE6D4A /* PlantsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6B118EC3BD600CE6D4A /* PlantsCollectionViewController.m */; };
+		41B8D78C18EC3C3F00CE6D4A /* CCoverflowTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B8D78918EC3C3F00CE6D4A /* CCoverflowTitleView.xib */; };
+		41B8D78D18EC3C3F00CE6D4A /* CCoverflowTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D78B18EC3C3F00CE6D4A /* CCoverflowTitleView.m */; };
+		41B8D79518EC4F6700CE6D4A /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B8D79418EC4F6700CE6D4A /* SDWebImage.framework */; };
+		41B8D79718EC4F9B00CE6D4A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B8D79618EC4F9B00CE6D4A /* ImageIO.framework */; };
+		41B8D79918EC561000CE6D4A /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B8D79818EC561000CE6D4A /* Placeholder.png */; };
+		41B8D79D18EC5CA700CE6D4A /* ScrollImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D79B18EC5CA700CE6D4A /* ScrollImageViewController.m */; };
+		41B8D79E18EC5CA700CE6D4A /* ScrollImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B8D79C18EC5CA700CE6D4A /* ScrollImageViewController.xib */; };
 		41B9EDF718BE4DF200F7B9A1 /* libProj4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4147B72118BD062F00B111B9 /* libProj4.a */; };
 		41B9EDFE18BF456B00F7B9A1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EDFB18BF456B00F7B9A1 /* FMDatabase.m */; };
 		41B9EDFF18BF456B00F7B9A1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B9EDFD18BF456B00F7B9A1 /* FMResultSet.m */; };
@@ -112,6 +127,31 @@
 		41B7975D18EAE238009F54E2 /* PlantImagesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantImagesService.m; sourceTree = "<group>"; };
 		41B7975F18EAEA6C009F54E2 /* PlantImagesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantImagesList.h; sourceTree = "<group>"; };
 		41B7976018EAEA6C009F54E2 /* PlantImagesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantImagesList.m; sourceTree = "<group>"; };
+		41B8D69C18EC3BA900CE6D4A /* CBetterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBetterCollectionViewCell.h; sourceTree = "<group>"; };
+		41B8D69D18EC3BA900CE6D4A /* CBetterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBetterCollectionViewCell.m; sourceTree = "<group>"; };
+		41B8D69E18EC3BA900CE6D4A /* CBetterCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBetterCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		41B8D69F18EC3BA900CE6D4A /* CBetterCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBetterCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		41B8D6A018EC3BA900CE6D4A /* CCoverflowCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCoverflowCollectionViewLayout.h; sourceTree = "<group>"; };
+		41B8D6A118EC3BA900CE6D4A /* CCoverflowCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCoverflowCollectionViewLayout.m; sourceTree = "<group>"; };
+		41B8D6A218EC3BA900CE6D4A /* CInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CInterpolator.h; sourceTree = "<group>"; };
+		41B8D6A318EC3BA900CE6D4A /* CInterpolator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CInterpolator.mm; sourceTree = "<group>"; };
+		41B8D6A418EC3BA900CE6D4A /* Interpolator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Interpolator.cpp; sourceTree = "<group>"; };
+		41B8D6A518EC3BA900CE6D4A /* Interpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpolator.h; sourceTree = "<group>"; };
+		41B8D6A618EC3BA900CE6D4A /* CReflectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CReflectionView.h; sourceTree = "<group>"; };
+		41B8D6A718EC3BA900CE6D4A /* CReflectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CReflectionView.m; sourceTree = "<group>"; };
+		41B8D6AE18EC3BD600CE6D4A /* PlantCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantCollectionViewCell.h; sourceTree = "<group>"; };
+		41B8D6AF18EC3BD600CE6D4A /* PlantCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantCollectionViewCell.m; sourceTree = "<group>"; };
+		41B8D6B018EC3BD600CE6D4A /* PlantsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantsCollectionViewController.h; sourceTree = "<group>"; };
+		41B8D6B118EC3BD600CE6D4A /* PlantsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantsCollectionViewController.m; sourceTree = "<group>"; };
+		41B8D78918EC3C3F00CE6D4A /* CCoverflowTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCoverflowTitleView.xib; sourceTree = "<group>"; };
+		41B8D78A18EC3C3F00CE6D4A /* CCoverflowTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCoverflowTitleView.h; sourceTree = "<group>"; };
+		41B8D78B18EC3C3F00CE6D4A /* CCoverflowTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCoverflowTitleView.m; sourceTree = "<group>"; };
+		41B8D79418EC4F6700CE6D4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		41B8D79618EC4F9B00CE6D4A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		41B8D79818EC561000CE6D4A /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
+		41B8D79A18EC5CA700CE6D4A /* ScrollImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollImageViewController.h; sourceTree = "<group>"; };
+		41B8D79B18EC5CA700CE6D4A /* ScrollImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollImageViewController.m; sourceTree = "<group>"; };
+		41B8D79C18EC5CA700CE6D4A /* ScrollImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImageViewController.xib; sourceTree = "<group>"; };
 		41B9EDFA18BF456B00F7B9A1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		41B9EDFB18BF456B00F7B9A1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		41B9EDFC18BF456B00F7B9A1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -189,6 +229,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B8D79718EC4F9B00CE6D4A /* ImageIO.framework in Frameworks */,
+				41B8D79518EC4F6700CE6D4A /* SDWebImage.framework in Frameworks */,
 				41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */,
 				41B9EE0418BF45CE00F7B9A1 /* libsqlite3.dylib in Frameworks */,
 				41B9EDF718BE4DF200F7B9A1 /* libProj4.a in Frameworks */,
@@ -223,6 +265,7 @@
 		41802D1118CF573900E41641 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				41B8D69B18EC3B9E00CE6D4A /* Coverflow */,
 				41B7975818EACFB0009F54E2 /* Reachability */,
 				41802D1218CF574700E41641 /* MBProgressHUD */,
 			);
@@ -287,6 +330,25 @@
 				41B7975A18EACFBD009F54E2 /* Reachability.m */,
 			);
 			name = Reachability;
+			sourceTree = "<group>";
+		};
+		41B8D69B18EC3B9E00CE6D4A /* Coverflow */ = {
+			isa = PBXGroup;
+			children = (
+				41B8D69C18EC3BA900CE6D4A /* CBetterCollectionViewCell.h */,
+				41B8D69D18EC3BA900CE6D4A /* CBetterCollectionViewCell.m */,
+				41B8D69E18EC3BA900CE6D4A /* CBetterCollectionViewLayoutAttributes.h */,
+				41B8D69F18EC3BA900CE6D4A /* CBetterCollectionViewLayoutAttributes.m */,
+				41B8D6A018EC3BA900CE6D4A /* CCoverflowCollectionViewLayout.h */,
+				41B8D6A118EC3BA900CE6D4A /* CCoverflowCollectionViewLayout.m */,
+				41B8D6A218EC3BA900CE6D4A /* CInterpolator.h */,
+				41B8D6A318EC3BA900CE6D4A /* CInterpolator.mm */,
+				41B8D6A418EC3BA900CE6D4A /* Interpolator.cpp */,
+				41B8D6A518EC3BA900CE6D4A /* Interpolator.h */,
+				41B8D6A618EC3BA900CE6D4A /* CReflectionView.h */,
+				41B8D6A718EC3BA900CE6D4A /* CReflectionView.m */,
+			);
+			name = Coverflow;
 			sourceTree = "<group>";
 		};
 		41B9EDF918BF454900F7B9A1 /* FMDB */ = {
@@ -413,6 +475,8 @@
 		F7663574189DA10300B0A594 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41B8D79618EC4F9B00CE6D4A /* ImageIO.framework */,
+				41B8D79418EC4F6700CE6D4A /* SDWebImage.framework */,
 				41AEF48418C4C1B600D68062 /* CoreText.framework */,
 				41B9EE0318BF45CE00F7B9A1 /* libsqlite3.dylib */,
 				4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */,
@@ -441,6 +505,16 @@
 				41B9EE1D18BF5B1B00F7B9A1 /* InfoViewController.m */,
 				F766358A189DA10300B0A594 /* ConversionTestViewController.h */,
 				F766358B189DA10300B0A594 /* ConversionTestViewController.m */,
+				41B8D6AE18EC3BD600CE6D4A /* PlantCollectionViewCell.h */,
+				41B8D6AF18EC3BD600CE6D4A /* PlantCollectionViewCell.m */,
+				41B8D6B018EC3BD600CE6D4A /* PlantsCollectionViewController.h */,
+				41B8D6B118EC3BD600CE6D4A /* PlantsCollectionViewController.m */,
+				41B8D79A18EC5CA700CE6D4A /* ScrollImageViewController.h */,
+				41B8D79B18EC5CA700CE6D4A /* ScrollImageViewController.m */,
+				41B8D79C18EC5CA700CE6D4A /* ScrollImageViewController.xib */,
+				41B8D78918EC3C3F00CE6D4A /* CCoverflowTitleView.xib */,
+				41B8D78A18EC3C3F00CE6D4A /* CCoverflowTitleView.h */,
+				41B8D78B18EC3C3F00CE6D4A /* CCoverflowTitleView.m */,
 				F766358D189DA10300B0A594 /* Images.xcassets */,
 				41B7974B18EACAA8009F54E2 /* WebService Operation */,
 				41B9EE2C18BF873C00F7B9A1 /* LocationService */,
@@ -457,6 +531,7 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41B8D79818EC561000CE6D4A /* Placeholder.png */,
 				F7EC11CF18CFF934001FD603 /* Icon@2x.png */,
 				41C4BC7118D1B0A80043D894 /* Database */,
 				41C4BC7018D1B03D0043D894 /* Buttons */,
@@ -589,15 +664,18 @@
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
 				41B9EE2318BF6A8B00F7B9A1 /* reload@2x.png in Resources */,
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
+				41B8D79918EC561000CE6D4A /* Placeholder.png in Resources */,
 				F7239FD618D625CC0008253E /* logos.png in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
 				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
+				41B8D78C18EC3C3F00CE6D4A /* CCoverflowTitleView.xib in Resources */,
 				41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */,
 				41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */,
 				41B9EE1B18BF582E00F7B9A1 /* info@2x.png in Resources */,
 				41C4BC7418D1B1140043D894 /* NCEAS-full_logo-BLK.png in Resources */,
 				41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */,
+				41B8D79E18EC5CA700CE6D4A /* ScrollImageViewController.xib in Resources */,
 				F7239FD418D623820008253E /* americas@2x.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
@@ -631,13 +709,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B8D6AC18EC3BA900CE6D4A /* Interpolator.cpp in Sources */,
 				41B9EE1718BF56EB00F7B9A1 /* PlantsViewController.m in Sources */,
 				41B9EE0C18BF468100F7B9A1 /* Utility.m in Sources */,
 				41B9EE1E18BF5B1B00F7B9A1 /* InfoViewController.m in Sources */,
+				41B8D6AB18EC3BA900CE6D4A /* CInterpolator.mm in Sources */,
 				F766358C189DA10300B0A594 /* ConversionTestViewController.m in Sources */,
+				41B8D6AA18EC3BA900CE6D4A /* CCoverflowCollectionViewLayout.m in Sources */,
+				41B8D6A818EC3BA900CE6D4A /* CBetterCollectionViewCell.m in Sources */,
 				41B7975718EACDF5009F54E2 /* InternetDetector.m in Sources */,
 				41B7974E18EACAC7009F54E2 /* APIOperation.m in Sources */,
+				41B8D6AD18EC3BA900CE6D4A /* CReflectionView.m in Sources */,
+				41B8D78D18EC3C3F00CE6D4A /* CCoverflowTitleView.m in Sources */,
 				41B9EE0218BF459A00F7B9A1 /* FMDatabasePool.m in Sources */,
+				41B8D6A918EC3BA900CE6D4A /* CBetterCollectionViewLayoutAttributes.m in Sources */,
 				41B7976118EAEA6C009F54E2 /* PlantImagesList.m in Sources */,
 				41B9EE2F18BF875D00F7B9A1 /* GPSManager.m in Sources */,
 				F7663586189DA10300B0A594 /* AppDelegate.m in Sources */,
@@ -648,10 +733,13 @@
 				41B7975E18EAE238009F54E2 /* PlantImagesService.m in Sources */,
 				41B9EE1418BF52AD00F7B9A1 /* WelcomeViewController.m in Sources */,
 				41B9EE0818BF465F00F7B9A1 /* FMDBDataAccess.m in Sources */,
+				41B8D6B318EC3BD600CE6D4A /* PlantsCollectionViewController.m in Sources */,
 				41B7975318EACD65009F54E2 /* GenericService.m in Sources */,
 				41B9EDFE18BF456B00F7B9A1 /* FMDatabase.m in Sources */,
+				41B8D79D18EC5CA700CE6D4A /* ScrollImageViewController.m in Sources */,
 				41B9EDFF18BF456B00F7B9A1 /* FMResultSet.m in Sources */,
 				41B9EE1118BF4AC200F7B9A1 /* SpeciesFamily.m in Sources */,
+				41B8D6B218EC3BD600CE6D4A /* PlantCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +884,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ali/Apps/Trunk/github/plantomatic,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "plantomatic/plantomatic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -807,6 +899,7 @@
 				INFOPLIST_FILE = "plantomatic/plantomatic-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A5FD6F32-92FF-4885-B32B-786151ED1C22";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -823,6 +916,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ocotea Technologies LLC (X73ZD9C8U2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ocotea Technologies LLC (X73ZD9C8U2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ali/Apps/Trunk/github/plantomatic,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "plantomatic/plantomatic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -833,6 +930,7 @@
 				);
 				INFOPLIST_FILE = "plantomatic/plantomatic-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A5FD6F32-92FF-4885-B32B-786151ED1C22";
 				USER_HEADER_SEARCH_PATHS = "";

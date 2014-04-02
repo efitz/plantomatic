@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WYw-tO-goB">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Conversion Test View Controller - Conversion Test -->
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1171" y="-45"/>
+            <point key="canvasLocation" x="1819" y="75"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="K1e-hI-peh">
@@ -153,11 +153,11 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlantCell" rowHeight="97" id="JzI-sc-83Y" customClass="PlantCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PlantCell" rowHeight="97" id="JzI-sc-83Y" customClass="PlantCell">
                                                 <rect key="frame" x="0.0" y="22" width="320" height="97"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JzI-sc-83Y" id="qdd-L1-xP8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="96"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="234" translatesAutoresizingMaskIntoConstraints="NO" id="2lG-AS-KtJ">
@@ -535,7 +535,7 @@ IAo
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vH8-rW-5Yn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682" y="-45"/>
+            <point key="canvasLocation" x="852" y="253"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jfi-WB-AOx">
@@ -551,6 +551,58 @@ IAo
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clg-gL-DgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-712" y="-45"/>
+        </scene>
+        <!--Plants Collection View Controller-->
+        <scene sceneID="PuL-UH-7s5">
+            <objects>
+                <collectionViewController storyboardIdentifier="PlantsCollectionViewController" autoresizesArchivedViewToFullSize="NO" id="tJp-H6-rRg" customClass="PlantsCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="xS6-b8-wFS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewLayout key="collectionViewLayout" id="NNm-rU-CMt" customClass="CCoverflowCollectionViewLayout"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="COLLECTION_VIEW_CELL" id="6KV-Ia-hFf" customClass="PlantCollectionViewCell">
+                                <rect key="frame" x="60" y="0.0" width="200" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oFK-3d-56K">
+                                            <rect key="frame" x="0.0" y="50" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yRa-fB-cUK" customClass="CReflectionView">
+                                            <rect key="frame" x="0.0" y="249" width="200" height="51"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <size key="customSize" width="200" height="300"/>
+                                <connections>
+                                    <outlet property="imageView" destination="oFK-3d-56K" id="7yI-kR-pKm"/>
+                                    <outlet property="reflectionImageView" destination="yRa-fB-cUK" id="0oC-ZH-jVI"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="tJp-H6-rRg" id="7mj-kl-k8O"/>
+                            <outlet property="delegate" destination="tJp-H6-rRg" id="35x-Kr-Qes"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="vwC-44-AcF"/>
+                    <connections>
+                        <outlet property="view" destination="xS6-b8-wFS" id="wX7-Hw-gBZ"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u3E-lh-cfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="-651"/>
         </scene>
     </scenes>
     <resources>
