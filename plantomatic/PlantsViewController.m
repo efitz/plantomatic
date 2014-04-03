@@ -954,7 +954,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
-    [Utility showAlert:@"PlantOMatic Test Alert" message:errorMessage];
+    if ([errorMessage isEqualToString:@"No records were found"]) {
+        errorMessage=@"No images available on Tropicos for this record";
+    }
+
+    [Utility showAlert:@"No Images Found" message:errorMessage];
 
 }
 
