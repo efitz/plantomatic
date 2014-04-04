@@ -31,6 +31,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //Variable Initialization
+    if([Utility isiOS7])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     if([CLLocationManager locationServicesEnabled]==NO ||
        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
     {

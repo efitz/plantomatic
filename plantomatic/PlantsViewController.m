@@ -66,7 +66,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    if([Utility isiOS7])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+
     self.isSearchOn=NO;
     self.plantsSearchResultArray=[NSMutableArray array];
     

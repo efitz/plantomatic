@@ -35,6 +35,9 @@
 	// Do any additional setup after loading the view.
     self.navigationController.navigationBar.topItem.title = @"Back";
     
+    if([Utility isiOS7])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+
     
     NSNumber *isNeedToShowWelcome = [[NSUserDefaults standardUserDefaults]
                                      valueForKey:@"isNeedToShowWelcome"];
