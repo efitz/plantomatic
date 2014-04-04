@@ -217,15 +217,59 @@
 	}
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
-    {
+{
     CGPoint theTargetContentOffset = proposedContentOffset;
     if (self.snapToCells == YES)
-        {
+    {
+        //To make exact sure the next or previous cover flow card lands on middle of screen for selection (not more or less)
         theTargetContentOffset.x = roundf(theTargetContentOffset.x / self.cellSpacing) * self.cellSpacing;
-        theTargetContentOffset.x = MIN(theTargetContentOffset.x, (self.cellCount - 1) * self.cellSpacing);
+        
+        //if user dragging slow then it should move to next or previous card exactly
+        //otherwise dont allow user to move too forward or too backword
+        //in our case on fast scroll we allowing only user to move to 2 cards ahead or 2 cards backword
+        
+        //positive velocity show forward movement and negative shows backword
+        if (velocity.x>0) {
+            theTargetContentOffset.x = MIN(theTargetContentOffset.x, (self.currentIndexPath.row+1) * self.cellSpacing);
         }
-    return(theTargetContentOffset);
+        else
+        {
+            theTargetContentOffset.x = MAX(theTargetContentOffset.x, (self.currentIndexPath.row-1) * self.cellSpacing);
+        }
+        
     }
+    return(theTargetContentOffset);
+}
+
+//I m going to remove below experimental code when recieved confirmation of desired speed
+
+/*
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+    
+    CGFloat offsetAdjustment = CGFLOAT_MAX;
+    CGFloat horizontalCenter = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 1.4f);
+    
+    CGRect targetRect = CGRectMake(proposedContentOffset.x,
+                                   0.0f, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
+    
+    NSArray *array = [super layoutAttributesForElementsInRect:targetRect];
+    for (UICollectionViewLayoutAttributes* layoutAttributes in array) {
+        CGFloat distanceFromCenter = layoutAttributes.center.x - horizontalCenter;
+        if (ABS(distanceFromCenter) < ABS(offsetAdjustment)) {
+            offsetAdjustment = distanceFromCenter;
+        }
+    }
+    
+   CGPoint theTargetContentOffset = CGPointMake(proposedContentOffset.x + offsetAdjustment,                                                                   proposedContentOffset.y);
+  
+    theTargetContentOffset.x = roundf(theTargetContentOffset.x / self.cellSpacing) * self.cellSpacing;
+
+    return(theTargetContentOffset);
+//    return CGPointMake(
+//                       proposedContentOffset.x + offsetAdjustment,
+//                       proposedContentOffset.y);
+}
+*/
 
 
 @end
