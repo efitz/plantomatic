@@ -301,7 +301,7 @@
     self.navigationController.navigationBar.topItem.title = @"Plant-O-Matic";
     
     
-    if ([self.searchDisplayController.searchBar.text length] == 0)
+    if ([self.searchDisplayController.searchBar.text length] == 0 && self.isSearchOn==NO)
     {
         self.plantsSearchResultArray = [NSMutableArray array];
         self.plantsSearchResultDictionary = [NSMutableDictionary dictionary];
@@ -957,10 +957,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
     if ([errorMessage isEqualToString:@"No records were found"]) {
-        errorMessage=@"No images available on Tropicos for this record";
+        errorMessage=@"No images in database.";//@"No images available on Tropicos for this record";
     }
 
-    [Utility showAlert:@"No Images Found" message:errorMessage];
+    [Utility showAlert:@"Plant-O-Matic Error!" message:errorMessage];
 
 }
 
