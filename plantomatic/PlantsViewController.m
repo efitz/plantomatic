@@ -957,10 +957,21 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
     if ([errorMessage isEqualToString:@"No records were found"]) {
-        errorMessage=@"No images in database.";//@"No images available on Tropicos for this record";
+        errorMessage=@"No images available.";//@"No images available on Tropicos for this record";
     }
+    
+    NSString* alertTitle=@"";
+    
+    if ([errorMessage isEqualToString:NO_INTERNET_MSG]) {
+        alertTitle=@"Plant-O-Matic Error";
+    }
+    else
+    {
+        alertTitle=@"Tropicos Error";
+    }
+    
 
-    [Utility showAlert:@"Plant-O-Matic Error!" message:errorMessage];
+    [Utility showAlert:alertTitle message:errorMessage];
 
 }
 

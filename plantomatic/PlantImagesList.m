@@ -18,6 +18,12 @@
     {
         _thumbnailUrl           = [Utility getStringValueWithDict:dict key:@"ThumbnailUrl"];
         _detailJpgUrl           = [Utility getStringValueWithDict:dict key:@"DetailJpgUrl"];
+        
+        //Caption: "Gregg - 1131 - Mexico",
+        //ImageKindText: "Herbarium Specimen"
+        _caption                = [Utility getStringValueWithDict:dict key:@"Caption"];
+        _imageKindText          = [Utility getStringValueWithDict:dict key:@"ImageKindText"];
+        
     }
     
     return self;

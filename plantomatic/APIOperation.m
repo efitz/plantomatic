@@ -169,7 +169,7 @@
 - (NSString *)checkErrorFromResponse:(NSHTTPURLResponse *)response orError:(NSError *)error
 {
     NSString *errorMessage = nil;
-    
+
     // Check if there is a bad status code that we know how to handle
     switch ([response statusCode])
     {
@@ -179,6 +179,9 @@
 
         case 404:
             errorMessage = @"API Not Found";
+            break;
+        case kCFURLErrorCannotFindHost:
+            errorMessage = @"Server is unavailable.";
             break;
     }
     
@@ -246,7 +249,7 @@
     }
     else
     {
-        errorMessage = @"We are unable to read the server's response.";
+        errorMessage = @"Server is unavailable.";//old-value =>@"We are unable to read the server's response.";
     }
     
     return errorMessage;

@@ -16,6 +16,12 @@
 @property (nonatomic, strong) NSString *thumbnailUrl;
 @property (nonatomic, strong) NSString *detailJpgUrl;
 
+//Caption: "Gregg - 1131 - Mexico",
+//ImageKindText: "Herbarium Specimen"
+@property (nonatomic, strong) NSString *caption;
+@property (nonatomic, strong) NSString *imageKindText;
+
+
 -(id) initWithDict:(NSDictionary *)dict;
 
 @end

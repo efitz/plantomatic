@@ -57,10 +57,10 @@
     {
 		//NSURL *theURL = [self.assets objectAtIndex:theIndexPath.row];
         PlantImageInfo *plantImageInfo = [self.assets objectAtIndex:theIndexPath.row];
-        NSURL *theURL =[NSURL URLWithString:plantImageInfo.thumbnailUrl];
-        
-        
-		self.titleView.titleLabel.text = [NSString stringWithFormat:@"%@", theURL.lastPathComponent];
+//        NSURL *theURL =[NSURL URLWithString:plantImageInfo.thumbnailUrl];
+//		self.titleView.titleLabel.text = [NSString stringWithFormat:@"%@", theURL.lastPathComponent];
+        self.titleView.titleLabel.text = [NSString stringWithFormat:@"%@\n%@", plantImageInfo.caption, plantImageInfo.imageKindText];
+
     }
 }
 
