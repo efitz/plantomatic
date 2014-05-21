@@ -21,7 +21,7 @@
         
         //Caption: "Gregg - 1131 - Mexico",
         //ImageKindText: "Herbarium Specimen"
-        _caption                = [Utility getStringValueWithDict:dict key:@"Caption"];
+        _caption                = [Utility getStringValueWithDict:dict key:@"NameText"];
         _imageKindText          = [Utility getStringValueWithDict:dict key:@"ImageKindText"];
         
     }

@@ -210,8 +210,8 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 	{
 	UICollectionViewLayoutAttributes *theAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
-	theAttributes.center = (CGPoint){ .x = CGRectGetMidX(self.collectionView.bounds), .y = CGRectGetMaxY(self.collectionView.bounds) - 50};//old experation containts -25 (made adjustments for title view with 2 lines
-	theAttributes.size = (CGSize){ 320, 50 };//old experation containts { 200, 50 }; (made adjustments for title view with 2 lines
+	theAttributes.center = (CGPoint){ .x = CGRectGetMidX(self.collectionView.bounds), .y = CGRectGetMaxY(self.collectionView.bounds) - 50};//old experation containts -25 (made adjustments for title view with 3 lines
+	theAttributes.size = (CGSize){ 320, 75 };//old experation containts { 200, 50 }; (made adjustments for title view with 3 lines (at max)
 	theAttributes.zIndex = 1;
 	return(theAttributes);
 	}
