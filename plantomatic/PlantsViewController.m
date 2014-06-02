@@ -130,6 +130,9 @@
             case FilterByValueClassification:
                 [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
                 break;
+            case FilterByValueHabit:
+                [self.criteriaSortBtn setTitle:@"Habit" forState:UIControlStateNormal];
+                break;
 
                 
             default:
@@ -257,6 +260,12 @@
             case FilterByValueClassification:
                 //Classification
                 firstLetter = [plant.classification substringToIndex:1];
+                
+                
+                break;
+            case FilterByValueHabit:
+                //Classification
+                firstLetter = [plant.habit substringToIndex:1];
                 
                 
                 break;
@@ -407,6 +416,7 @@
     [[cell titleLbl] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
     [[cell familyLbl] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
     [[cell classificationLbl] setText:[NSString stringWithFormat:@"%@ ",plant.classification]];
+    [[cell habitLbl] setText:[NSString stringWithFormat:@"%@ ",plant.habit]];
     
     
     NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
@@ -450,6 +460,11 @@
         case FilterByValueClassification:
             //Classification
             sortKeyName=@"classification";
+            
+            break;
+        case FilterByValueHabit:
+            //Classification
+            sortKeyName=@"habit";
             
             break;
             
@@ -594,7 +609,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 3;
+    return 4;
 }
 
 //97 height
@@ -613,6 +628,9 @@
             break;
         case FilterByValueClassification:
             pickerValueString=@"Major Group";
+            break;
+        case FilterByValueHabit:
+            pickerValueString=@"Habit";
             break;
             
         default:
@@ -658,6 +676,9 @@
             break;
         case FilterByValueClassification:
             [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
+            break;
+        case FilterByValueHabit:
+            [self.criteriaSortBtn setTitle:@"Habit" forState:UIControlStateNormal];
             break;
 
             
@@ -765,6 +786,19 @@ shouldReloadTableForSearchString:(NSString *)searchString
                     }
                 }
                 break;
+                
+            case FilterByValueHabit:
+                //Search in Genus
+                if ([trimmedsearchString length]>0) {
+                    
+                    if ([[plant habit] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+                    {
+                        //add plant
+                        [self.plantsSearchResultArray addObject:plant];
+                    }
+                }
+                break;
+
 
                 
                 
@@ -804,6 +838,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
             case FilterByValueClassification:
                 //Classification
                 firstLetter = [plant.classification substringToIndex:1];
+                
+                break;
+            case FilterByValueHabit:
+                //Classification
+                firstLetter = [plant.habit substringToIndex:1];
                 
                 break;
                 

@@ -12,7 +12,8 @@
 enum FilterByValue {
     FilterByValueFamily,
     FilterByValueGenus,
-    FilterByValueClassification
+    FilterByValueClassification,
+    FilterByValueHabit
 };
 
 

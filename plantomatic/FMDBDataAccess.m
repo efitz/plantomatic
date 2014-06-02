@@ -37,6 +37,9 @@
         case FilterByValueClassification:
             [queryString appendString:@" order by Classification"];
             break;
+        case FilterByValueHabit:
+            [queryString appendString:@" order by Habit"];
+            break;
             
         default:
             [queryString appendString:@" order by Family"];
@@ -91,7 +94,8 @@
         speciesFamily.genus = [results stringForColumn:@"Genus"];
         speciesFamily.species = [results stringForColumn:@"Species"];
         speciesFamily.classification = [results stringForColumn:@"Classification"];
-        
+        speciesFamily.habit = [results stringForColumn:@"Habit"];
+
         [SpeciesFamilies addObject:speciesFamily];
         
     }

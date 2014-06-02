@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *familyLbl;
 @property (strong, nonatomic) IBOutlet UILabel *classificationLbl;
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
+@property (strong, nonatomic) IBOutlet UILabel *habitLbl;
 
 
 @end
