@@ -460,7 +460,10 @@ IAo
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" v1.0">
+                                    <fragment>
+                                        <string key="content"> v1.0
+
+</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -479,6 +482,7 @@ IAo
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="uwf-lP-Xbq"/>
                     <connections>
+                        <outlet property="infoTxtView" destination="yFA-uI-bcT" id="Jrk-NR-qyD"/>
                         <outlet property="latLongYXLbl" destination="RK9-yP-2IO" id="vzN-1k-hsx"/>
                     </connections>
                 </viewController>

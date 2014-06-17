@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UISwitch *showWelcomeScreenSwitch;
 @property (strong, nonatomic) IBOutlet UILabel *latLongYXLbl;
+@property (strong, nonatomic) IBOutlet UITextView *infoTxtView;
 @end
 
 @implementation InfoViewController
@@ -49,6 +50,15 @@
     {
         self.showWelcomeScreenSwitch.on=NO;
     }
+    
+    NSMutableAttributedString *attributedString = [self.infoTxtView.attributedText mutableCopy];
+    
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = [UIImage imageNamed:@"ocotea_logo.png"];
+    NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    
+    [attributedString appendAttributedString:attrStringWithImage];
+    self.infoTxtView.attributedText=attributedString;
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -75,6 +85,9 @@
 
     
     self.latLongYXLbl.text=[NSString stringWithFormat:@"Lat=%.6f, Lon=%.6f\rGrid: Y=%.0f, X=%.0f",currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, Y, X];
+    
+    
+    
 }
 
 
