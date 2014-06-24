@@ -228,9 +228,8 @@
     
     
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
-    //Y=60;
-    //X=53;
-	lon1 = -1.2758;
+
+	//if outside of the US set the grid to Tuscon, AZ
 	if (-1*lon1 > 170 || -1*lon1 < 58) {
 		Y=50;
 		X=24;
