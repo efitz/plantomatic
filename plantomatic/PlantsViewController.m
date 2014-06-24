@@ -194,10 +194,11 @@
     
     CLLocation *currentLocation=[Utility getCurrentLocation];
     
-    double lat=currentLocation.coordinate.latitude, lon=currentLocation.coordinate.longitude;
+    double lat1=currentLocation.coordinate.latitude, lon1=currentLocation.coordinate.longitude;
+	double lat, lon;
 	//Need to convert the input coordinates into radians
-	lat = DEGREES_TO_RADIANS(lat);
-	lon = DEGREES_TO_RADIANS(lon);
+	lat = DEGREES_TO_RADIANS(lat1);
+	lon = DEGREES_TO_RADIANS(lon1);
     
     //Initiate the destination projection using the  Lambert Equal Area projection with proper offsets
 	projPJ dst_prj = pj_init_plus("+proj=laea +lat_0=15 +lon_0=-80 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0");
@@ -229,6 +230,11 @@
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
     //Y=60;
     //X=53;
+	lon1 = -1.2758;
+	if (-1*lon1 > 170 || -1*lon1 < 58) {
+		Y=50;
+		X=24;
+	}
     self.plants = [db getPlantsForY:Y andX:X andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
