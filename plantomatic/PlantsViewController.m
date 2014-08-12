@@ -20,7 +20,7 @@
 #import "PlantsCollectionViewController.h"
 
 
-@interface PlantsViewController ()<PlantImagesServiceDelegate>
+@interface PlantsViewController ()<PlantImagesServiceDelegate,UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *plantsCountLbl;
@@ -140,7 +140,7 @@
         }
     }
 
-    self.pickerViewSelectedIndex=sortCriteria.integerValue;
+    self.pickerViewSelectedIndex=(int)sortCriteria.integerValue;
 
     [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor lightGrayColor]];
     
@@ -234,7 +234,7 @@
 		Y=50;
 		X=24;
 	}
-    self.plants = [db getPlantsForY:Y andX:X andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
+    self.plants = [db getPlantsForY:Y andX:X andFilterByValue:(int)sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
     pj_free(dst_prj);
@@ -542,10 +542,59 @@
 
 - (IBAction)showSortOptions:(id)sender {
    
-    [self showPicker];
+    //[self showPicker];
+    
+    UIActionSheet* actionSheet=[[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Family",@"Genus",@"Major Group",@"Habit", nil];
+    [actionSheet showInView:self.view];
     
     //[Utility showAlert:@"" message:@"Under Contstruction..."];
 }
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"%d",(int)buttonIndex);
+    
+    if (buttonIndex==4) {
+        return;
+    }
+    else
+    {
+        self.pickerViewSelectedIndex =(int)buttonIndex;
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithInteger:self.pickerViewSelectedIndex] forKey:@"sortCriteria"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        switch (self.pickerViewSelectedIndex) {
+            case FilterByValueFamily:
+                [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
+                
+                break;
+            case FilterByValueGenus:
+                [self.criteriaSortBtn setTitle:@"Genus" forState:UIControlStateNormal];
+                break;
+            case FilterByValueClassification:
+                [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
+                break;
+            case FilterByValueHabit:
+                [self.criteriaSortBtn setTitle:@"Habit" forState:UIControlStateNormal];
+                break;
+                
+                
+            default:
+                break;
+        }
+        
+        self.searchBar.text=@"";
+        self.isSearchOn=NO;    
+        [self populatePlantsWrapper];
+    }
+ 
+
+}
+
+
 
 
 - (IBAction)toggleSortOrder:(id)sender {
@@ -647,7 +696,7 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.pickerViewSelectedIndex =row;
+    self.pickerViewSelectedIndex = (int)row;
 }
 
 - (IBAction)hidePickerAction:(id)sender {
@@ -655,7 +704,7 @@
     NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
                               valueForKey:@"sortCriteria"];
     
-    self.pickerViewSelectedIndex =sortCriteria.integerValue;
+    self.pickerViewSelectedIndex =(int)sortCriteria.integerValue;
     
     [self hidePicker];
 }
@@ -664,7 +713,7 @@
     [self hidePicker];
     
     
-    self.pickerViewSelectedIndex=[self.pickerView selectedRowInComponent:0];
+    self.pickerViewSelectedIndex=(int)[self.pickerView selectedRowInComponent:0];
     
     [[NSUserDefaults standardUserDefaults]
      setObject:[NSNumber numberWithInteger:self.pickerViewSelectedIndex] forKey:@"sortCriteria"];
