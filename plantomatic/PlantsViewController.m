@@ -545,6 +545,7 @@
     //[self showPicker];
     
     UIActionSheet* actionSheet=[[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Family",@"Genus",@"Major Group",@"Habit", nil];
+	actionSheet.title = @"Sort by:";
     [actionSheet showInView:self.view];
     
     //[Utility showAlert:@"" message:@"Under Contstruction..."];
