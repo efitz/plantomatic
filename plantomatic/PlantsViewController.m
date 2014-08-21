@@ -429,16 +429,30 @@
     cell.imgView.contentMode=UIViewContentModeScaleAspectFit;
 
     
+    if ([plant.isImageAvailabe isEqualToString:@"TRUE"]) {
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    else
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
+    
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     SpeciesFamily *plant = [self getPlantForIndexPath:indexPath];
-    [self.plantImagesService fetchPlantImagesListForGenus:plant.genus species:plant.species];
+
+    if ([plant.isImageAvailabe isEqualToString:@"TRUE"]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self.plantImagesService fetchPlantImagesListForGenus:plant.genus species:plant.species];
+    }
+    else
+    {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
 
 

@@ -95,6 +95,7 @@
         speciesFamily.species = [results stringForColumn:@"Species"];
         speciesFamily.classification = [results stringForColumn:@"Classification"];
         speciesFamily.habit = [results stringForColumn:@"Habit"];
+        speciesFamily.isImageAvailabe = [results stringForColumn:@"isImageAvailabe"];
 
         [SpeciesFamilies addObject:speciesFamily];
         

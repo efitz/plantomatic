@@ -12,7 +12,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%i, %@, %@, %@ %@, %@",self.spID,self.family, self.genus, self.species, self.classification, self.habit];;
+    return [NSString stringWithFormat:@"%i, %@, %@, %@ %@, %@, %@",self.spID,self.family, self.genus, self.species, self.classification, self.habit, self.isImageAvailabe];;
 }
 
 

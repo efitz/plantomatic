@@ -16,5 +16,6 @@
 @property (nonatomic,strong) NSString *species;
 @property (nonatomic,strong) NSString *classification;
 @property (nonatomic,strong) NSString *habit;
+@property (nonatomic,strong) NSString *isImageAvailabe;
 
 @end
