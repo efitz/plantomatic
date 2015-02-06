@@ -60,11 +60,14 @@
 		41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */; };
 		41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */; };
 		41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */; };
+		41BFBC911A84F21600143452 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BFBC8F1A84F21600143452 /* logo.png */; };
+		41BFBC921A84F21600143452 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BFBC901A84F21600143452 /* text.png */; };
 		41C4BC7418D1B1140043D894 /* NCEAS-full_logo-BLK.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7218D1B1140043D894 /* NCEAS-full_logo-BLK.png */; };
 		41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7318D1B1140043D894 /* UAsci_logo_college.png */; };
 		41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */; };
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
 		41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */; };
+		41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41D4D2E01A849C3F005C9801 /* welcome_view.PNG */; };
 		F7239FD318D623820008253E /* americas-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD118D623820008253E /* americas-568h@2x.png */; };
 		F7239FD418D623820008253E /* americas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD218D623820008253E /* americas@2x.png */; };
 		F7239FD618D625CC0008253E /* logos.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD518D625CC0008253E /* logos.png */; };
@@ -193,11 +196,14 @@
 		41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophytes_classification@2x.png"; sourceTree = "<group>"; };
 		41BA4E8418CA242400C34D8F /* Ferns_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ferns_classification@2x.png"; sourceTree = "<group>"; };
 		41BA4E8518CA242400C34D8F /* Gymnosperms_classification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gymnosperms_classification@2x.png"; sourceTree = "<group>"; };
+		41BFBC8F1A84F21600143452 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		41BFBC901A84F21600143452 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
 		41C4BC7218D1B1140043D894 /* NCEAS-full_logo-BLK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NCEAS-full_logo-BLK.png"; sourceTree = "<group>"; };
 		41C4BC7318D1B1140043D894 /* UAsci_logo_college.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UAsci_logo_college.png; sourceTree = "<group>"; };
 		41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ACES_greyscale_1.png; sourceTree = "<group>"; };
 		41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBIENLogoNoText_highres.png; sourceTree = "<group>"; };
 		41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iplant_logo_300.jpg; sourceTree = "<group>"; };
+		41D4D2E01A849C3F005C9801 /* welcome_view.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_view.PNG; sourceTree = "<group>"; };
 		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
 		F7239FD218D623820008253E /* americas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas@2x.png"; sourceTree = "<group>"; };
 		F7239FD518D625CC0008253E /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
@@ -456,6 +462,16 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
+		41D4D2DF1A849C2C005C9801 /* welcome screen */ = {
+			isa = PBXGroup;
+			children = (
+				41BFBC8F1A84F21600143452 /* logo.png */,
+				41BFBC901A84F21600143452 /* text.png */,
+				41D4D2E01A849C3F005C9801 /* welcome_view.PNG */,
+			);
+			name = "welcome screen";
+			sourceTree = "<group>";
+		};
 		F7663569189DA10300B0A594 = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +550,7 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41D4D2DF1A849C2C005C9801 /* welcome screen */,
 				41B8D79818EC561000CE6D4A /* Placeholder.png */,
 				F7EC11CF18CFF934001FD603 /* Icon@2x.png */,
 				41C4BC7118D1B0A80043D894 /* Database */,
@@ -669,9 +686,11 @@
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
 				41B8D79918EC561000CE6D4A /* Placeholder.png in Resources */,
 				F7239FD618D625CC0008253E /* logos.png in Resources */,
+				41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
 				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
+				41BFBC911A84F21600143452 /* logo.png in Resources */,
 				41B8D78C18EC3C3F00CE6D4A /* CCoverflowTitleView.xib in Resources */,
 				41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */,
 				41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */,
@@ -680,6 +699,7 @@
 				41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */,
 				41B8D79E18EC5CA700CE6D4A /* ScrollImageViewController.xib in Resources */,
 				F7239FD418D623820008253E /* americas@2x.png in Resources */,
+				41BFBC921A84F21600143452 /* text.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
 				41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */,
@@ -802,7 +822,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -846,7 +866,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -883,7 +903,7 @@
 		F76635A5189DA10400B0A594 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ocotea Technologies LLC (X73ZD9C8U2)";
@@ -916,7 +936,7 @@
 		F76635A6189DA10400B0A594 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ocotea Technologies LLC (X73ZD9C8U2)";

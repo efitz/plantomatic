@@ -234,6 +234,10 @@
 		Y=50;
 		X=24;
 	}
+    
+    Y=60;
+    X=53;
+    
     self.plants = [db getPlantsForY:Y andX:X andFilterByValue:(int)sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     pj_free(src_prj);
