@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SpeciesFamily;
+
 @interface PlantCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLbl;
-@property (strong, nonatomic) IBOutlet UILabel *familyLbl;
-@property (strong, nonatomic) IBOutlet UILabel *classificationLbl;
-@property (strong, nonatomic) IBOutlet UIImageView *imgView;
-@property (strong, nonatomic) IBOutlet UILabel *habitLbl;
-
+-(void) updateWithSpeciesFamily:(SpeciesFamily*)speciesFamily;
 
 @end

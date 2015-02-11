@@ -16,6 +16,13 @@ enum FilterByValue {
     FilterByValueHabit
 };
 
+typedef enum
+{
+    FilterTypeCommonName,
+    FilterTypeImage
+    
+}FilterType;
+
 
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #define REQUEST_TIMEOUT_MSG @"Request timeout, please try again later."
@@ -59,6 +66,5 @@ enum FilterByValue {
 //[plantId]
 #define URL_TO_FETCH_IMAGES_LIST_FOR_PLANT_ID [NSString stringWithFormat:@"%@/Name/%%d/Images?apikey=2e8b6fdc-3a67-401d-8564-793700526367&format=json", API_BASE_URL]
 
-
-
+#define REFRESH_NOTIFICATION @"REFRESH_NOTIFICATION"
 

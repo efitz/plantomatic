@@ -41,6 +41,77 @@
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
+    
+    NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
+                                          valueForKey:@"isCommonNameAvailable"];
+    
+    if (isCommonNameAvaialble==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isCommonNameAvailable"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
+    NSNumber *isImageAvailable = [[NSUserDefaults standardUserDefaults]
+                                       valueForKey:@"isImageAvailable"];
+    
+    if (isImageAvailable==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isImageAvailable"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+
+    NSDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]
+                                            valueForKey:@"flowerColorsDictionary"];
+    
+    if (flowerColorsDictionary==nil)
+    {
+        flowerColorsDictionary=@{@"Red":@{@"isSelected":@NO},
+                                 @"Pink":@{@"isSelected":@NO},
+                                 @"Violet":@{@"isSelected":@NO},
+                                 @"Purple": @{@"isSelected":@NO},
+                                 @"Blue":@{@"isSelected":@NO},
+                                 @"Green": @{ @"isSelected":@NO},
+                                 @"Yellow":@{@"isSelected":@NO},
+                                 @"Orange":@{@"isSelected":@NO},
+                                 @"Brown":@{@"isSelected":@NO},
+                                 @"Gray":@{@"isSelected":@NO},
+                                 @"Black":@{@"isSelected":@NO},
+                                 @"White":@{@"isSelected":@NO},
+                                 @"Unknown-Flower":@{@"isSelected":@NO}
+                                 };
+        
+        [[NSUserDefaults standardUserDefaults] setObject:flowerColorsDictionary forKey:@"flowerColorsDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    NSDictionary *growthFormDictionary = [[NSUserDefaults standardUserDefaults]
+                                          valueForKey:@"growthFormDictionary"];
+    
+    if (growthFormDictionary==nil)
+    {
+        growthFormDictionary=@{@"Aquatic":@{@"isSelected":@NO},
+                               @"Bryophyte":@{@"isSelected":@NO},
+                               @"Epiphyte":@{@"isSelected":@NO},
+                               @"Fern": @{@"isSelected":@NO},
+                               @"Grass":@{@"isSelected":@NO},
+                               @"Herb": @{ @"isSelected":@NO},
+                               @"Parasite":@{@"isSelected":@NO},
+                               @"Shrub":@{@"isSelected":@NO},
+                               @"Tree":@{@"isSelected":@NO},
+                               @"Vine":@{@"isSelected":@NO},
+                               @"Unknown":@{@"isSelected":@NO}};
+        
+        [[NSUserDefaults standardUserDefaults] setObject:growthFormDictionary forKey:@"growthFormDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    
+    
+    
     NSNumber *isNeedToShowWelcome = [[NSUserDefaults standardUserDefaults]
                                      valueForKey:@"isNeedToShowWelcome"];
     

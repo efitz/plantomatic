@@ -100,7 +100,7 @@
         
     }
     
-    
+    /*
     NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
                            valueForKey:@"sortCriteria"];
 
@@ -141,8 +141,8 @@
     }
 
     self.pickerViewSelectedIndex=(int)sortCriteria.integerValue;
-
-    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor lightGrayColor]];
+*/
+    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor colorWithRed:168/255.0 green:204/255.0 blue:251/255.0 alpha:1]];
     
     [self populatePlantsWrapper];
     
@@ -151,6 +151,10 @@
     
     PlantImagesService *plantImagesService = [[PlantImagesService alloc] initServiceWithDelegate:self];
     self.plantImagesService = plantImagesService;
+
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(refreshResults:) name:REFRESH_NOTIFICATION object:nil];
 
 }
 
@@ -238,8 +242,11 @@
     Y=60;
     X=53;
     
-    self.plants = [db getPlantsForY:Y andX:X andFilterByValue:(int)sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
+//    self.plants = [db getPlantsForY:Y andX:X andFilterByValue:(int)sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
+    //getPlantsWithFilterForY
+     self.plants = [db getPlantsWithFilterForY:Y andX:X];
+    
     pj_free(src_prj);
     pj_free(dst_prj);
 
@@ -251,8 +258,8 @@
 	for (SpeciesFamily *plant in self.plants)
 	{
         
-        NSString *firstLetter =@"";
-        
+        NSString *firstLetter =[plant.family substringToIndex:1];
+        /*
         switch (sortCriteria.integerValue) {
             case FilterByValueFamily:
                 //Family
@@ -284,7 +291,7 @@
                 
                 break;
         }
-
+*/
         NSMutableArray *existingArray;
         
         if ([Utility isNumeric:firstLetter]) {
@@ -419,28 +426,8 @@
     static NSString *CellIdentifier = @"PlantCell";
     
     PlantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     SpeciesFamily *plant = [self getPlantForIndexPath:indexPath];
-    
-    [[cell titleLbl] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
-    [[cell familyLbl] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
-    [[cell classificationLbl] setText:[NSString stringWithFormat:@"%@ ",plant.classification]];
-    [[cell habitLbl] setText:[NSString stringWithFormat:@"%@ ",plant.habit]];
-    
-    
-    NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
-    [cell.imgView setImage:[UIImage imageNamed:imageName]];
-    cell.imgView.contentMode=UIViewContentModeScaleAspectFit;
-
-    
-    if ([plant.isImageAvailabe isEqualToString:@"TRUE"]) {
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    }
-    else
-    {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-    }
-    
+    [cell updateWithSpeciesFamily:plant];
     return cell;
 }
 
@@ -579,6 +566,7 @@
     }
     else
     {
+        /*
         self.pickerViewSelectedIndex =(int)buttonIndex;
         [[NSUserDefaults standardUserDefaults]
          setObject:[NSNumber numberWithInteger:self.pickerViewSelectedIndex] forKey:@"sortCriteria"];
@@ -603,7 +591,7 @@
                 
             default:
                 break;
-        }
+        }*/
         
         self.searchBar.text=@"";
         self.isSearchOn=NO;    
@@ -731,7 +719,7 @@
 - (IBAction)doneAction:(id)sender {
     [self hidePicker];
     
-    
+    /*
     self.pickerViewSelectedIndex=(int)[self.pickerView selectedRowInComponent:0];
     
     [[NSUserDefaults standardUserDefaults]
@@ -757,7 +745,7 @@
             
         default:
             break;
-    }
+    }*/
 
     self.searchBar.text=@"";
     self.isSearchOn=NO;    
@@ -802,7 +790,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
-    tableView.rowHeight = 97.0f; // or some other height
+    tableView.rowHeight = 130.0f; // or some other height
 }
 
 
@@ -820,7 +808,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [[self plantsSearchResultArray] removeAllObjects];
     for (SpeciesFamily *plant in [self plants])
     {
-        
+        /*
         switch (self.pickerViewSelectedIndex)
         {
             case FilterByValueFamily:
@@ -877,6 +865,35 @@ shouldReloadTableForSearchString:(NSString *)searchString
                 
             default:
                 break;
+        }*/
+        
+        
+        
+        if ([trimmedsearchString length]>0) {
+            
+            if ([[plant family] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                //add plant
+                [self.plantsSearchResultArray addObject:plant];
+            }
+            else if ([[plant genus] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                //add plant
+                [self.plantsSearchResultArray addObject:plant];
+            }
+            else if ([trimmedsearchString length]>0) {
+                
+                if ([[plant classification] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+                {
+                    //add plant
+                    [self.plantsSearchResultArray addObject:plant];
+                }
+            }
+            else if ([[plant habit] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                //add plant
+                [self.plantsSearchResultArray addObject:plant];
+            }
         }
     }
     
@@ -891,39 +908,39 @@ shouldReloadTableForSearchString:(NSString *)searchString
 	for (SpeciesFamily *plant in self.plantsSearchResultArray)
 	{
         
-        NSString *firstLetter =@"";
+        NSString *firstLetter =[plant.family substringToIndex:1];
         
-        switch (sortCriteria.integerValue) {
-            case FilterByValueFamily:
-                //Family
-                // get the element's initial letter
-                firstLetter = [plant.family substringToIndex:1];
-
-                
-                break;
-            case FilterByValueGenus:
-                //Genus
-                // get the element's initial letter
-                firstLetter = [plant.genus substringToIndex:1];
-                
-                
-                break;
-            case FilterByValueClassification:
-                //Classification
-                firstLetter = [plant.classification substringToIndex:1];
-                
-                break;
-            case FilterByValueHabit:
-                //Classification
-                firstLetter = [plant.habit substringToIndex:1];
-                
-                break;
-                
-            default:
-                //Family
-                
-                break;
-        }
+//        switch (sortCriteria.integerValue) {
+//            case FilterByValueFamily:
+//                //Family
+//                // get the element's initial letter
+//                firstLetter = [plant.family substringToIndex:1];
+//
+//                
+//                break;
+//            case FilterByValueGenus:
+//                //Genus
+//                // get the element's initial letter
+//                firstLetter = [plant.genus substringToIndex:1];
+//                
+//                
+//                break;
+//            case FilterByValueClassification:
+//                //Classification
+//                firstLetter = [plant.classification substringToIndex:1];
+//                
+//                break;
+//            case FilterByValueHabit:
+//                //Classification
+//                firstLetter = [plant.habit substringToIndex:1];
+//                
+//                break;
+//                
+//            default:
+//                //Family
+//                
+//                break;
+//        }
         
         NSMutableArray *existingArray;
         

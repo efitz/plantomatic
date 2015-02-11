@@ -17,4 +17,7 @@
                  andFilterByValue:(enum FilterByValue)filterByValue
                isInAscendingOrder:(BOOL)isInAscendingOrder;
 
+-(NSMutableArray *) getPlantsWithFilterForY:(int)y
+                                       andX:(int)x;
+
 @end

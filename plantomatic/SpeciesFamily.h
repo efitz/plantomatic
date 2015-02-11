@@ -17,5 +17,8 @@
 @property (nonatomic,strong) NSString *classification;
 @property (nonatomic,strong) NSString *habit;
 @property (nonatomic,strong) NSString *isImageAvailabe;
+@property (nonatomic,strong) NSString *flowerColor;
+@property (nonatomic,strong) NSString *commonName;
+
 
 @end
