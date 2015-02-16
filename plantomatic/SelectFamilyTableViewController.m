@@ -29,6 +29,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+ }
+
+-(void) viewWillAppear:(BOOL)animated
+{
     FMDBDataAccess *db = [[FMDBDataAccess alloc] init];
     
     CLLocation *currentLocation=[Utility getCurrentLocation];
@@ -60,7 +64,7 @@
      4) 32.243065, -110.927750 column 24, row 50, 3704 species
      */
     
-
+    
     //if outside of the US set the grid to Tuscon, AZ
     if (-1*lon1 > 170 || -1*lon1 < 58) {
         Y=50;
@@ -73,6 +77,7 @@
     
     self.families=[db getFamiliesWithFilterForY:Y andX:X];
     [self.tableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning {
