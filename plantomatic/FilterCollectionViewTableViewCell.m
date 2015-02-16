@@ -8,7 +8,7 @@
 
 #import "FilterCollectionViewTableViewCell.h"
 #import "FilterCollectionViewCell.h"
-
+#import "Constants.h"
 
 
 @interface FilterCollectionViewTableViewCell()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -130,6 +130,8 @@
     [dictionary setValue:isSelected forKey:@"isSelected"];
     [self.filterValuesDictionary setValue:dictionary forKey:key];
     
+    [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray array] forKey:@"familiesSelected"];
+    
     if (self.isForGrowthForm)
     {
         [[NSUserDefaults standardUserDefaults] setObject:self.filterValuesDictionary forKey:@"growthFormDictionary"];
@@ -141,6 +143,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
  
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
+    
     [self.collectionView reloadData];
 }
 

@@ -20,4 +20,7 @@
 -(NSMutableArray *) getPlantsWithFilterForY:(int)y
                                        andX:(int)x;
 
+-(NSMutableArray *) getFamiliesWithFilterForY:(int)y
+                                         andX:(int)x;
+
 @end

@@ -56,6 +56,7 @@
 
 - (IBAction)valueChangeAction:(id)sender
 {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray array] forKey:@"familiesSelected"];
     
     if (self.filterType==FilterTypeCommonName)
     {
@@ -68,6 +69,9 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
 
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
+
 }
 
 

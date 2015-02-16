@@ -109,6 +109,10 @@
 }
 
 
+
+
+
+
 -(NSMutableArray *) getPlantsWithFilterForY:(int)y
                                        andX:(int)x
 {
@@ -169,6 +173,19 @@
     
     NSString *flowerColorsQuery = [flowerColorsArray componentsJoinedByString:@" or "];
     
+    NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+    
+    NSMutableArray* familiesArray=[NSMutableArray array];
+    for (NSString* family in familiesSelected)
+    {
+        NSString* value=[NSString stringWithFormat:@"family=\'%@\'",family];
+        [familiesArray addObject:value];
+    }
+    
+    NSString* familyQueryString=[familiesArray componentsJoinedByString:@" or "];
+    
+    
+    
     
     NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
                                        valueForKey:@"isCommonNameAvailable"];
@@ -216,7 +233,11 @@
         [queryString appendString:@")"];
     }
 
-    
+    if ([familiesArray count]>0) {
+        [queryString appendString:@" and ("];
+        [queryString appendString:familyQueryString];
+        [queryString appendString:@")"];
+    }
     
 //    if (isInAscendingOrder) {
 //        [queryString appendString:@" asc"];
@@ -281,6 +302,130 @@
 }
 
 
+-(NSMutableArray *) getFamiliesWithFilterForY:(int)y
+                                         andX:(int)x
+{
+    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
+                              valueForKey:@"sortCriteria"];
+    BOOL isInAscendingOrder=(int)sortCriteria.integerValue;
+    
+    NSDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
+    NSArray* growthFormKeys=[growthFormDictionary allKeys];
+    NSMutableArray* growthFromArray=[NSMutableArray array];
+    
+    for (NSString* key in growthFormKeys) {
+        
+        NSDictionary* dictionary=[growthFormDictionary valueForKey:key];
+        NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
+        
+        if (isSelected.boolValue)
+        {
+            if ([key isEqualToString:@"Unknown"]) {
+                NSString* value=[NSString stringWithFormat:@"Habit=\'%@\'",@"-"];
+                [growthFromArray addObject:value];
+            }
+            else
+            {
+                NSString* value=[NSString stringWithFormat:@"Habit=\'%@\'",key];
+                [growthFromArray addObject:value];
+            }
+        }
+    }
+    
+    NSString *growthFormQuery = [growthFromArray componentsJoinedByString:@" or "];
+    
+    
+    
+    NSDictionary* flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] objectForKey:@"flowerColorsDictionary"];
+    NSArray* flowerColorsKeys=[flowerColorsDictionary allKeys];
+    NSMutableArray* flowerColorsArray=[NSMutableArray array];
+    
+    for (NSString* key in flowerColorsKeys) {
+        
+        NSDictionary* dictionary=[flowerColorsDictionary valueForKey:key];
+        NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
+        
+        if (isSelected.boolValue)
+        {
+            if ([key isEqualToString:@"Unknown-Flower"]) {
+                NSString* value=[NSString stringWithFormat:@"Flower_Color=\'%@\'",@"-"];
+                [flowerColorsArray addObject:value];
+            }
+            else
+            {
+                NSString* value=[NSString stringWithFormat:@"Flower_Color=\'%@\'",key];
+                [flowerColorsArray addObject:value];
+            }
+            
+        }
+    }
+    
+    NSString *flowerColorsQuery = [flowerColorsArray componentsJoinedByString:@" or "];
+    
+    
+    NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
+                                       valueForKey:@"isCommonNameAvailable"];
+    
+    NSNumber *isImageAvailable = [[NSUserDefaults standardUserDefaults]
+                                  valueForKey:@"isImageAvailable"];
+    
+    
+    
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    
+    [db open];
+    
+    NSMutableString* queryString=[NSMutableString stringWithString:@"SELECT distinct family FROM SpeciesFamily where SpId in (select SpId from Presence where Y=? and X=?)"];
+    
+    
+    if (isCommonNameAvaialble.boolValue) {
+        [queryString appendString:@" and Common_Name!=\'-\'"];
+    }
+    else
+    {
+        [queryString appendString:@" and Common_Name=\'-\'"];
+    }
+    
+    if (isImageAvailable.boolValue) {
+        [queryString appendString:@" and isImageAvailabe=\'TRUE\'"];
+    }
+    else
+    {
+        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
+    }
+    
+    
+    if ([growthFromArray count]>0) {
+        [queryString appendString:@" and ("];
+        [queryString appendString:growthFormQuery];
+        [queryString appendString:@")"];
+    }
+    
+    if ([flowerColorsArray count]>0) {
+        [queryString appendString:@" and ("];
+        [queryString appendString:flowerColorsQuery];
+        [queryString appendString:@")"];
+    }
+    
+    
+    [queryString appendString:@" order by Family asc"];
+    
+    
+    FMResultSet *results = [db executeQuery:queryString, [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];
+    
+    
+    NSMutableArray *SpeciesFamilies = [NSMutableArray array];
+
+    while([results next])
+    {
+       [SpeciesFamilies addObject:[results stringForColumn:@"Family"]];
+    }
+    
+    [db close];
+    
+    return SpeciesFamilies;
+}
 
 
 @end

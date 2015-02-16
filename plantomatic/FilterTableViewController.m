@@ -34,7 +34,19 @@
 
 //    [self.tableView registerClass:[FilterCollectionViewTableViewCell class] forCellReuseIdentifier:@"FilterCollectionViewTableViewCell"];
 
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(refreshFamilyFilterCell) name:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
+
+    
 }
+
+-(void)refreshFamilyFilterCell
+{
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+
+}
+
+
 
 -(void) searchAction
 {
@@ -153,6 +165,19 @@
     {
         cellIdentifier=@"FamilyCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+
+        if ([familiesSelected count]==0)
+        {
+            cell.detailTextLabel.text=@"None";
+        }
+        else
+        {
+            NSString *familiesSelectedString = [familiesSelected componentsJoinedByString:@", "];
+            cell.detailTextLabel.text=familiesSelectedString;
+        }
+        
     }
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WYw-tO-goB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WYw-tO-goB">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -267,6 +267,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="rcP-ZE-yBf" kind="show" id="UjW-aG-1kM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -279,7 +282,58 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyc-ED-UxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="-648"/>
+            <point key="canvasLocation" x="859" y="-654"/>
+        </scene>
+        <!--Select Family-->
+        <scene sceneID="FyN-43-Qlf">
+            <objects>
+                <tableViewController id="7YI-vd-2rc" customClass="SelectFamilyTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="frr-3K-SCa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FamilyFilterCell" textLabel="BYu-dE-sFb" style="IBUITableViewCellStyleDefault" id="pFo-rg-TZa">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFo-rg-TZa" id="A9V-aU-hkv">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BYu-dE-sFb">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7YI-vd-2rc" id="ZA7-sx-pZB"/>
+                            <outlet property="delegate" destination="7YI-vd-2rc" id="UxU-6v-qtM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Family" id="mCR-nO-nNZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCH-dA-4aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057" y="-1194"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ifo-Y3-xva">
+            <objects>
+                <navigationController id="rcP-ZE-yBf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="whg-u4-9Y3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7YI-vd-2rc" kind="relationship" relationship="rootViewController" id="791-9J-n69"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="54A-s7-jDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="-1220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ww5-0K-e9i">
@@ -1147,7 +1201,7 @@ IAo
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3E-lh-cfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646.25" y="-687.67605633802816"/>
+            <point key="canvasLocation" x="1798" y="-354"/>
         </scene>
     </scenes>
     <resources>

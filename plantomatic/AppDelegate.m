@@ -110,6 +110,12 @@
     }
 
     
+    NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+
+    if (familiesSelected==nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray array] forKey:@"familiesSelected"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     
     NSNumber *isNeedToShowWelcome = [[NSUserDefaults standardUserDefaults]
