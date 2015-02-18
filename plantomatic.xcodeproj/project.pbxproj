@@ -683,6 +683,24 @@
 			name = "welcome screen";
 			sourceTree = "<group>";
 		};
+		41E36A931A95054D007BEE03 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				41E36A911A94FB68007BEE03 /* Chunkfive.ttf */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
+		41E36A941A950557007BEE03 /* welcome screen layers */ = {
+			isa = PBXGroup;
+			children = (
+				41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */,
+				41E36A891A94A4F2007BEE03 /* splash-screen-map.png */,
+				41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */,
+			);
+			name = "welcome screen layers";
+			sourceTree = "<group>";
+		};
 		F7663569189DA10300B0A594 = {
 			isa = PBXGroup;
 			children = (
@@ -722,9 +740,6 @@
 		F766357B189DA10300B0A594 /* plantomatic */ = {
 			isa = PBXGroup;
 			children = (
-				41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */,
-				41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */,
-				41E36A891A94A4F2007BEE03 /* splash-screen-map.png */,
 				F7663584189DA10300B0A594 /* AppDelegate.h */,
 				F7663585189DA10300B0A594 /* AppDelegate.m */,
 				F7663587189DA10300B0A594 /* Main.storyboard */,
@@ -776,7 +791,8 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				41E36A911A94FB68007BEE03 /* Chunkfive.ttf */,
+				41E36A941A950557007BEE03 /* welcome screen layers */,
+				41E36A931A95054D007BEE03 /* font */,
 				41C8FA211A8A415F009F1F75 /* Filter */,
 				41D4D2DF1A849C2C005C9801 /* welcome screen */,
 				41B8D79818EC561000CE6D4A /* Placeholder.png */,
