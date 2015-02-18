@@ -64,46 +64,46 @@
     }
 
 
-    NSDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]
+    NSMutableDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]
                                             valueForKey:@"flowerColorsDictionary"];
     
     if (flowerColorsDictionary==nil)
     {
-        flowerColorsDictionary=@{@"Red":@{@"isSelected":@NO},
-                                 @"Pink":@{@"isSelected":@NO},
-                                 @"Violet":@{@"isSelected":@NO},
-                                 @"Purple": @{@"isSelected":@NO},
-                                 @"Blue":@{@"isSelected":@NO},
-                                 @"Green": @{ @"isSelected":@NO},
-                                 @"Yellow":@{@"isSelected":@NO},
-                                 @"Orange":@{@"isSelected":@NO},
-                                 @"Brown":@{@"isSelected":@NO},
-                                 @"Gray":@{@"isSelected":@NO},
-                                 @"Black":@{@"isSelected":@NO},
-                                 @"White":@{@"isSelected":@NO},
-                                 @"Unknown-Flower":@{@"isSelected":@NO}
-                                 };
+        flowerColorsDictionary=[@{@"Red":@{@"isSelected":@YES},
+                                 @"Pink":@{@"isSelected":@YES},
+                                 @"Violet":@{@"isSelected":@YES},
+                                 @"Purple": @{@"isSelected":@YES},
+                                 @"Blue":@{@"isSelected":@YES},
+                                 @"Green": @{ @"isSelected":@YES},
+                                 @"Yellow":@{@"isSelected":@YES},
+                                 @"Orange":@{@"isSelected":@YES},
+                                 @"Brown":@{@"isSelected":@YES},
+                                 @"Gray":@{@"isSelected":@YES},
+                                 @"Black":@{@"isSelected":@YES},
+                                 @"White":@{@"isSelected":@YES},
+                                 @"Unknown-Flower":@{@"isSelected":@YES}
+                                 } mutableCopy];
         
         [[NSUserDefaults standardUserDefaults] setObject:flowerColorsDictionary forKey:@"flowerColorsDictionary"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
-    NSDictionary *growthFormDictionary = [[NSUserDefaults standardUserDefaults]
+    NSMutableDictionary *growthFormDictionary = [[NSUserDefaults standardUserDefaults]
                                           valueForKey:@"growthFormDictionary"];
     
     if (growthFormDictionary==nil)
     {
-        growthFormDictionary=@{@"Aquatic":@{@"isSelected":@NO},
-                               @"Bryophyte":@{@"isSelected":@NO},
-                               @"Epiphyte":@{@"isSelected":@NO},
-                               @"Fern": @{@"isSelected":@NO},
-                               @"Grass":@{@"isSelected":@NO},
-                               @"Herb": @{ @"isSelected":@NO},
-                               @"Parasite":@{@"isSelected":@NO},
-                               @"Shrub":@{@"isSelected":@NO},
-                               @"Tree":@{@"isSelected":@NO},
-                               @"Vine":@{@"isSelected":@NO},
-                               @"Unknown":@{@"isSelected":@NO}};
+        growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@YES},
+                               @"Bryophyte":@{@"isSelected":@YES},
+                               @"Epiphyte":@{@"isSelected":@YES},
+                               @"Fern": @{@"isSelected":@YES},
+                               @"Grass":@{@"isSelected":@YES},
+                               @"Herb": @{ @"isSelected":@YES},
+                               @"Parasite":@{@"isSelected":@YES},
+                               @"Shrub":@{@"isSelected":@YES},
+                               @"Tree":@{@"isSelected":@YES},
+                               @"Vine":@{@"isSelected":@YES},
+                               @"Unknown":@{@"isSelected":@YES}} mutableCopy];
         
         [[NSUserDefaults standardUserDefaults] setObject:growthFormDictionary forKey:@"growthFormDictionary"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -113,7 +113,7 @@
     NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
 
     if (familiesSelected==nil) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray array] forKey:@"familiesSelected"];
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     

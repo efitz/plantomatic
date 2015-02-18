@@ -56,7 +56,7 @@
 
 - (IBAction)valueChangeAction:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray array] forKey:@"familiesSelected"];
+    [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
     
     if (self.filterType==FilterTypeCommonName)
     {

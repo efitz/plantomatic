@@ -190,15 +190,15 @@
 }
 
 
--(NSDictionary*) growthFormDictionary
+-(NSMutableDictionary*) growthFormDictionary
 {
     
-    NSDictionary *growthFormDictionary = [[NSUserDefaults standardUserDefaults]
+    NSMutableDictionary *growthFormDictionary = [[NSUserDefaults standardUserDefaults]
                                           valueForKey:@"growthFormDictionary"];
 
     if (growthFormDictionary==nil)
     {
-        growthFormDictionary=@{@"Aquatic":@{@"isSelected":@NO},
+        growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@NO},
                                @"Bryophyte":@{@"isSelected":@NO},
                                @"Epiphyte":@{@"isSelected":@NO},
                                @"Fern": @{@"isSelected":@NO},
@@ -208,26 +208,26 @@
                                @"Shrub":@{@"isSelected":@NO},
                                @"Tree":@{@"isSelected":@NO},
                                @"Vine":@{@"isSelected":@NO},
-                               @"Unknown":@{@"isSelected":@NO}};
+                               @"Unknown":@{@"isSelected":@NO}} mutableCopy];
 
         [[NSUserDefaults standardUserDefaults] setObject:growthFormDictionary forKey:@"growthFormDictionary"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
     
-    return growthFormDictionary;
+    return [growthFormDictionary mutableCopy];
 }
 
 
--(NSDictionary*) flowerColorsDictionary
+-(NSMutableDictionary*) flowerColorsDictionary
 {
     
-    NSDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]
+    NSMutableDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]
                                             valueForKey:@"flowerColorsDictionary"];
     
     if (flowerColorsDictionary==nil)
     {
-        flowerColorsDictionary=@{@"Red":@{@"isSelected":@NO},
+        flowerColorsDictionary=[@{@"Red":@{@"isSelected":@NO},
                                  @"Pink":@{@"isSelected":@NO},
                                  @"Violet":@{@"isSelected":@NO},
                                  @"Purple": @{@"isSelected":@NO},
@@ -240,13 +240,13 @@
                                  @"Black":@{@"isSelected":@NO},
                                  @"White":@{@"isSelected":@NO},
                                  @"Unknown-Flower":@{@"isSelected":@NO}
-                                 };
+                                 } mutableCopy];
         
         [[NSUserDefaults standardUserDefaults] setObject:flowerColorsDictionary forKey:@"flowerColorsDictionary"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    return flowerColorsDictionary;
+    return [flowerColorsDictionary mutableCopy];
 }
 
 

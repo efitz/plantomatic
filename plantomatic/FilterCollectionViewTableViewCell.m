@@ -15,7 +15,7 @@
 
 //@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (nonatomic, strong) NSDictionary* filterValuesDictionary;
+@property (nonatomic, strong) NSMutableDictionary* filterValuesDictionary;
 
 @property (nonatomic, readwrite) BOOL isForGrowthForm;
 
@@ -35,7 +35,7 @@
     // Configure the view for the selected state
 }
 
--(void)updateCellForGrowthForm:(NSDictionary*)dict
+-(void)updateCellForGrowthForm:(NSMutableDictionary*)dict
 {
 //    NSArray* array=@[@{@"title":@"Aquatic", @"selectedImage":@"aquatic.png", @"unselectedImage":@"aquatic.png", @"isSelected":@YES},
 //                     @{@"title":@"Bryophyte", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@YES},
@@ -59,7 +59,7 @@
     [self.collectionView reloadData];
 }
 
--(void)updateCellForFlowerColors:(NSDictionary*)dict
+-(void)updateCellForFlowerColors:(NSMutableDictionary*)dict
 {
 //    NSArray* array=@[@{@"title":@"Red", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
 //                     @{@"title":@"Pink", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
@@ -102,7 +102,7 @@
     
     NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     NSString* key=[keysArray objectAtIndex:indexPath.row];
-    NSDictionary* dictionary=[self.filterValuesDictionary valueForKey:key];
+    NSMutableDictionary* dictionary=[self.filterValuesDictionary valueForKey:key];
     NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
     [cell updateCellWithTitle:key isSelected:isSelected.boolValue];
     
@@ -124,13 +124,13 @@
     
     NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     NSString* key=[keysArray objectAtIndex:indexPath.row];
-    NSDictionary* dictionary=[self.filterValuesDictionary valueForKey:key];
+    NSMutableDictionary* dictionary=[[self.filterValuesDictionary valueForKey:key] mutableCopy];
     NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
     isSelected=[NSNumber numberWithBool:!isSelected.boolValue];
     [dictionary setValue:isSelected forKey:@"isSelected"];
     [self.filterValuesDictionary setValue:dictionary forKey:key];
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray array] forKey:@"familiesSelected"];
+    [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
     
     if (self.isForGrowthForm)
     {

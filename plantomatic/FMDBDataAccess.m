@@ -120,7 +120,7 @@
                               valueForKey:@"sortCriteria"];
     BOOL isInAscendingOrder=(int)sortCriteria.integerValue;
     
-    NSDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
+    NSMutableDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
     NSArray* growthFormKeys=[growthFormDictionary allKeys];
     NSMutableArray* growthFromArray=[NSMutableArray array];
     
@@ -147,7 +147,7 @@
 
     
     
-    NSDictionary* flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] objectForKey:@"flowerColorsDictionary"];
+    NSMutableDictionary* flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] objectForKey:@"flowerColorsDictionary"];
     NSArray* flowerColorsKeys=[flowerColorsDictionary allKeys];
     NSMutableArray* flowerColorsArray=[NSMutableArray array];
     
@@ -217,7 +217,7 @@
     }
     else
     {
-        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
+//        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
     }
     
     
@@ -309,7 +309,7 @@
                               valueForKey:@"sortCriteria"];
     BOOL isInAscendingOrder=(int)sortCriteria.integerValue;
     
-    NSDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
+    NSMutableDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
     NSArray* growthFormKeys=[growthFormDictionary allKeys];
     NSMutableArray* growthFromArray=[NSMutableArray array];
     
@@ -336,7 +336,7 @@
     
     
     
-    NSDictionary* flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] objectForKey:@"flowerColorsDictionary"];
+    NSMutableDictionary* flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] objectForKey:@"flowerColorsDictionary"];
     NSArray* flowerColorsKeys=[flowerColorsDictionary allKeys];
     NSMutableArray* flowerColorsArray=[NSMutableArray array];
     

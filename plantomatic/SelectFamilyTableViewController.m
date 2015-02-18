@@ -128,7 +128,7 @@
     NSString *family = [self.families objectAtIndex:indexPath.row];
 
     
-    NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+    NSMutableArray* familiesSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"] mutableCopy];
     
     if ([self isFamilyAlreadySelected:family])
     {

@@ -122,6 +122,9 @@
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
 		41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */; };
 		41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41D4D2E01A849C3F005C9801 /* welcome_view.PNG */; };
+		41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */; };
+		41E36A8B1A94A4F2007BEE03 /* splash-screen-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */; };
+		41E36A8C1A94A4F2007BEE03 /* splash-screen-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A891A94A4F2007BEE03 /* splash-screen-map.png */; };
 		F7239FD318D623820008253E /* americas-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD118D623820008253E /* americas-568h@2x.png */; };
 		F7239FD418D623820008253E /* americas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD218D623820008253E /* americas@2x.png */; };
 		F7239FD618D625CC0008253E /* logos.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD518D625CC0008253E /* logos.png */; };
@@ -317,6 +320,9 @@
 		41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBIENLogoNoText_highres.png; sourceTree = "<group>"; };
 		41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iplant_logo_300.jpg; sourceTree = "<group>"; };
 		41D4D2E01A849C3F005C9801 /* welcome_view.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_view.PNG; sourceTree = "<group>"; };
+		41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-gradiant.png"; sourceTree = "<group>"; };
+		41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-logo.png"; sourceTree = "<group>"; };
+		41E36A891A94A4F2007BEE03 /* splash-screen-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-map.png"; sourceTree = "<group>"; };
 		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
 		F7239FD218D623820008253E /* americas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas@2x.png"; sourceTree = "<group>"; };
 		F7239FD518D625CC0008253E /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
@@ -711,6 +717,9 @@
 		F766357B189DA10300B0A594 /* plantomatic */ = {
 			isa = PBXGroup;
 			children = (
+				41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */,
+				41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */,
+				41E36A891A94A4F2007BEE03 /* splash-screen-map.png */,
 				F7663584189DA10300B0A594 /* AppDelegate.h */,
 				F7663585189DA10300B0A594 /* AppDelegate.m */,
 				F7663587189DA10300B0A594 /* Main.storyboard */,
@@ -844,7 +853,7 @@
 				ORGANIZATIONNAME = "Ocotea Technologies, LLC";
 				TargetAttributes = {
 					F7663571189DA10300B0A594 = {
-						DevelopmentTeam = X73ZD9C8U2;
+						DevelopmentTeam = 8UV2GNZ2BB;
 					};
 					F7663592189DA10400B0A594 = {
 						TestTargetID = F7663571189DA10300B0A594;
@@ -902,6 +911,7 @@
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
 				41C8FA7B1A8A4983009F1F75 /* Aquatic-selected.png in Resources */,
 				41C8FA401A8A416D009F1F75 /* Fern.png in Resources */,
+				41E36A8C1A94A4F2007BEE03 /* splash-screen-map.png in Resources */,
 				41B8D79918EC561000CE6D4A /* Placeholder.png in Resources */,
 				F7239FD618D625CC0008253E /* logos.png in Resources */,
 				41C8FA411A8A416D009F1F75 /* Grass.png in Resources */,
@@ -965,11 +975,13 @@
 				41C8FA461A8A416D009F1F75 /* Parasite.png in Resources */,
 				41C8FA451A8A416D009F1F75 /* Orange.png in Resources */,
 				F7239FD318D623820008253E /* americas-568h@2x.png in Resources */,
+				41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */,
 				41C8FA4F1A8A416D009F1F75 /* Violet.png in Resources */,
 				41C8FA831A8A4983009F1F75 /* Tree-selected.png in Resources */,
 				41C8FA4E1A8A416D009F1F75 /* Vine.png in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
 				41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */,
+				41E36A8B1A94A4F2007BEE03 /* splash-screen-logo.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
 				41B9EE2218BF6A8B00F7B9A1 /* reload.png in Resources */,
 				41C8FA7E1A8A4983009F1F75 /* Fern-selected.png in Resources */,
@@ -1101,7 +1113,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1123,6 +1136,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -1145,7 +1159,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1160,6 +1175,7 @@
 					"/Applications/Xcode\\ 5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -1172,8 +1188,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ocotea Technologies LLC (X73ZD9C8U2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -1192,7 +1208,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d9ccdee2-e42e-4fce-b70b-e2a41f986e2d";
+				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1205,8 +1221,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ocotea Technologies LLC (X73ZD9C8U2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -1224,7 +1240,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d9ccdee2-e42e-4fce-b70b-e2a41f986e2d";
+				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
