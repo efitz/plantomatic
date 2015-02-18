@@ -40,7 +40,8 @@
     
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    
+    [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil] setTintColor:[UIColor whiteColor]];
+
     
     NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
                                           valueForKey:@"isCommonNameAvailable"];
@@ -62,6 +63,17 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isImageAvailable"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    
+    NSNumber *isSortOrderAscending = [[NSUserDefaults standardUserDefaults]
+                                  valueForKey:@"sortOrder"];
+    
+    if (isSortOrderAscending==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"sortOrder"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
 
 
     NSMutableDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]

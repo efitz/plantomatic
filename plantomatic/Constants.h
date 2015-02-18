@@ -71,3 +71,11 @@ typedef enum
 #define REFRESH_FAMILY_FILTER_CELL_NOTIFICATION @"REFRESH_FAMILY_FILTER_CELL_NOTIFICATION"
 
 
+
+#define FLOWER_COLORS @[@"Red",@"Pink",@"Violet", @"Purple", @"Blue",@"Green",@"Yellow",@"Orange",@"Brown",@"Gray",@"Black",@"White", @"Unknown-Flower"]
+
+
+#define GROWTH_FORM @[@"Aquatic",@"Bryophyte", @"Epiphyte", @"Fern", @"Grass", @"Herb", @"Parasite", @"Shrub", @"Tree",@"Vine", @"Unknown"]
+
+
+

@@ -116,9 +116,8 @@
 -(NSMutableArray *) getPlantsWithFilterForY:(int)y
                                        andX:(int)x
 {
-    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
-                              valueForKey:@"sortCriteria"];
-    BOOL isInAscendingOrder=(int)sortCriteria.integerValue;
+    NSNumber *isInAscendingOrder = [[NSUserDefaults standardUserDefaults]
+                                      valueForKey:@"sortOrder"];
     
     NSMutableDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
     NSArray* growthFormKeys=[growthFormDictionary allKeys];
@@ -217,6 +216,7 @@
     }
     else
     {
+        //otherwise return with or without image
 //        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
     }
     
@@ -239,13 +239,16 @@
         [queryString appendString:@")"];
     }
     
-//    if (isInAscendingOrder) {
-//        [queryString appendString:@" asc"];
-//    }
-//    else
-//    {
-//        [queryString appendString:@" desc"];
-//    }
+    [queryString appendString:@" order by Family"];
+
+    
+    if (isInAscendingOrder.boolValue) {
+        [queryString appendString:@" asc"];
+    }
+    else
+    {
+        [queryString appendString:@" desc"];
+    }
     
     
     FMResultSet *results = [db executeQuery:queryString, [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];
@@ -305,9 +308,8 @@
 -(NSMutableArray *) getFamiliesWithFilterForY:(int)y
                                          andX:(int)x
 {
-    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
-                              valueForKey:@"sortCriteria"];
-    BOOL isInAscendingOrder=(int)sortCriteria.integerValue;
+    NSNumber *isInAscendingOrder = [[NSUserDefaults standardUserDefaults]
+                                    valueForKey:@"sortOrder"];
     
     NSMutableDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
     NSArray* growthFormKeys=[growthFormDictionary allKeys];
@@ -392,7 +394,8 @@
     }
     else
     {
-        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
+        //otherwise return with or without image
+//        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
     }
     
     
@@ -409,7 +412,16 @@
     }
     
     
-    [queryString appendString:@" order by Family asc"];
+    [queryString appendString:@" order by Family"];
+    
+    
+    if (isInAscendingOrder.boolValue) {
+        [queryString appendString:@" asc"];
+    }
+    else
+    {
+        [queryString appendString:@" desc"];
+    }
     
     
     FMResultSet *results = [db executeQuery:queryString, [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];

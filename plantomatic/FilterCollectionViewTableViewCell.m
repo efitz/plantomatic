@@ -37,18 +37,6 @@
 
 -(void)updateCellForGrowthForm:(NSMutableDictionary*)dict
 {
-//    NSArray* array=@[@{@"title":@"Aquatic", @"selectedImage":@"aquatic.png", @"unselectedImage":@"aquatic.png", @"isSelected":@YES},
-//                     @{@"title":@"Bryophyte", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@YES},
-//                     @{@"title":@"Epiphyte", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Fern", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Grass", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Herb", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Parasite", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Shrub", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Tree", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Vine", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Unknown", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO}];
-
     self.titleLbl.text=@"Growth Form";
     
     self.isForGrowthForm=YES;
@@ -61,20 +49,6 @@
 
 -(void)updateCellForFlowerColors:(NSMutableDictionary*)dict
 {
-//    NSArray* array=@[@{@"title":@"Red", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Pink", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Violet", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Purple", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Blue", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Green", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Yellow", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Orange", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@YES},
-//                     @{@"title":@"Brown", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Gray", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Black", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"White", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO},
-//                     @{@"title":@"Unknown", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO}];
-    
     self.titleLbl.text=@"Flower Colors";
 
     self.isForGrowthForm=NO;
@@ -100,7 +74,20 @@
     
     NSLog(@"Cell Frame : %@", NSStringFromCGRect(cell.frame));
     
-    NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//    NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+    NSArray* keysArray=nil;
+    
+    if (self.isForGrowthForm)
+    {
+        keysArray=GROWTH_FORM;
+    }
+    else
+    {
+        keysArray=FLOWER_COLORS;
+    }
+    
+    
     NSString* key=[keysArray objectAtIndex:indexPath.row];
     NSMutableDictionary* dictionary=[self.filterValuesDictionary valueForKey:key];
     NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
@@ -122,7 +109,19 @@
     
 //    NSDictionary *filterDic = [self.filterValuesArray objectAtIndex:indexPath.row];
     
-    NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//    NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    NSArray* keysArray=nil;
+    
+    if (self.isForGrowthForm)
+    {
+        keysArray=GROWTH_FORM;
+    }
+    else
+    {
+        keysArray=FLOWER_COLORS;
+    }
+    
     NSString* key=[keysArray objectAtIndex:indexPath.row];
     NSMutableDictionary* dictionary=[[self.filterValuesDictionary valueForKey:key] mutableCopy];
     NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];

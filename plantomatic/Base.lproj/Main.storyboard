@@ -374,6 +374,78 @@
                                     <segue destination="rcP-ZE-yBf" kind="show" id="UjW-aG-1kM"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortOrderTableViewCell" id="aE9-bJ-kcc" customClass="SortOrderTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aE9-bJ-kcc" id="3xz-Jj-tzj">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JwK-BQ-4HI">
+                                            <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="117" id="Tnm-Au-50X"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="A..Z"/>
+                                                <segment title="Z..A"/>
+                                            </segments>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Tnm-Au-50X"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Tnm-Au-50X"/>
+                                                </mask>
+                                            </variation>
+                                            <connections>
+                                                <action selector="valueChangeAction:" destination="aE9-bJ-kcc" eventType="valueChanged" id="NaW-gm-Ko4"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sort Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9H-gy-hXQ">
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="b9H-gy-hXQ" firstAttribute="top" secondItem="3xz-Jj-tzj" secondAttribute="topMargin" constant="4" id="GQ6-NO-EUu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JwK-BQ-4HI" secondAttribute="trailing" constant="8" id="HwD-m0-n51"/>
+                                        <constraint firstItem="b9H-gy-hXQ" firstAttribute="leading" secondItem="3xz-Jj-tzj" secondAttribute="leading" constant="15" id="PMZ-0t-XaW"/>
+                                        <constraint firstItem="b9H-gy-hXQ" firstAttribute="top" secondItem="3xz-Jj-tzj" secondAttribute="topMargin" constant="4" id="ccl-c1-dt6"/>
+                                        <constraint firstItem="JwK-BQ-4HI" firstAttribute="top" secondItem="3xz-Jj-tzj" secondAttribute="top" constant="8" id="sUa-lH-jrI"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="JwK-BQ-4HI"/>
+                                            <exclude reference="b9H-gy-hXQ"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="GQ6-NO-EUu"/>
+                                            <exclude reference="PMZ-0t-XaW"/>
+                                            <exclude reference="ccl-c1-dt6"/>
+                                            <exclude reference="HwD-m0-n51"/>
+                                            <exclude reference="sUa-lH-jrI"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="JwK-BQ-4HI"/>
+                                            <include reference="b9H-gy-hXQ"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="GQ6-NO-EUu"/>
+                                            <include reference="PMZ-0t-XaW"/>
+                                            <exclude reference="ccl-c1-dt6"/>
+                                            <include reference="HwD-m0-n51"/>
+                                            <include reference="sUa-lH-jrI"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="segmentControl" destination="JwK-BQ-4HI" id="xUf-nx-x8g"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -385,7 +457,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyc-ED-UxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="-654"/>
+            <point key="canvasLocation" x="858" y="-654"/>
         </scene>
         <!--Select Family-->
         <scene sceneID="FyN-43-Qlf">

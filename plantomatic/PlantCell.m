@@ -90,7 +90,7 @@
         NSString* imageNameForFlower=[NSString stringWithFormat:@"%@.png",plant.flowerColor];
         NSString* flowerColor=plant.flowerColor;
         if ([plant.flowerColor isEqualToString:@"-"]) {
-            imageNameForFlower=@"Unknown-flower.png";
+            imageNameForFlower=@"Unknown-Flower.png";
             flowerColor=@"Uknown";
         }
         

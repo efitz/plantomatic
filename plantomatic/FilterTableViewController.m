@@ -10,6 +10,7 @@
 #import "FilterCollectionViewTableViewCell.h"
 #import "FilterWithSwitchTableViewCell.h"
 #import "Constants.h"
+#import "SortOrderTableViewCell.h"
 
 @interface FilterTableViewController ()
 
@@ -94,7 +95,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 5;
+    return 6;
 }
 
 
@@ -177,9 +178,14 @@
             NSString *familiesSelectedString = [familiesSelected componentsJoinedByString:@", "];
             cell.detailTextLabel.text=familiesSelectedString;
         }
-        
     }
-    
+    else if(indexPath.row==5)
+    {
+        cellIdentifier=@"SortOrderTableViewCell";
+        SortOrderTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        [filterCell updateCell];
+        cell=filterCell;
+    }
     
     
     
