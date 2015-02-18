@@ -126,6 +126,7 @@
 		41E36A8B1A94A4F2007BEE03 /* splash-screen-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */; };
 		41E36A8C1A94A4F2007BEE03 /* splash-screen-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A891A94A4F2007BEE03 /* splash-screen-map.png */; };
 		41E36A8F1A94D08B007BEE03 /* SortOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E36A8E1A94D08B007BEE03 /* SortOrderTableViewCell.m */; };
+		41E36A921A94FB68007BEE03 /* Chunkfive.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A911A94FB68007BEE03 /* Chunkfive.ttf */; };
 		F7239FD318D623820008253E /* americas-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD118D623820008253E /* americas-568h@2x.png */; };
 		F7239FD418D623820008253E /* americas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD218D623820008253E /* americas@2x.png */; };
 		F7239FD618D625CC0008253E /* logos.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD518D625CC0008253E /* logos.png */; };
@@ -326,6 +327,7 @@
 		41E36A891A94A4F2007BEE03 /* splash-screen-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-map.png"; sourceTree = "<group>"; };
 		41E36A8D1A94D08B007BEE03 /* SortOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortOrderTableViewCell.h; sourceTree = "<group>"; };
 		41E36A8E1A94D08B007BEE03 /* SortOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortOrderTableViewCell.m; sourceTree = "<group>"; };
+		41E36A911A94FB68007BEE03 /* Chunkfive.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chunkfive.ttf; sourceTree = "<group>"; };
 		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
 		F7239FD218D623820008253E /* americas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas@2x.png"; sourceTree = "<group>"; };
 		F7239FD518D625CC0008253E /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
@@ -774,6 +776,7 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41E36A911A94FB68007BEE03 /* Chunkfive.ttf */,
 				41C8FA211A8A415F009F1F75 /* Filter */,
 				41D4D2DF1A849C2C005C9801 /* welcome screen */,
 				41B8D79818EC561000CE6D4A /* Placeholder.png */,
@@ -963,6 +966,7 @@
 				41C8FA511A8A416D009F1F75 /* Yellow.png in Resources */,
 				F7EEF5DC194FDCBA00EEBAF4 /* ocotea_logo.png in Resources */,
 				41BA4E7E18C9ED9900C34D8F /* Gymnosperms_classification.png in Resources */,
+				41E36A921A94FB68007BEE03 /* Chunkfive.ttf in Resources */,
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
 				41C8FA3F1A8A416D009F1F75 /* Epiphyte.png in Resources */,

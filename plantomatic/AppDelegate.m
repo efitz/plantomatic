@@ -42,6 +42,17 @@
     
     [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil] setTintColor:[UIColor whiteColor]];
 
+    NSShadow * shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor lightGrayColor];
+    shadow.shadowOffset = CGSizeMake(0, -1);
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName: [UIColor blackColor],
+                                                           UITextAttributeTextShadowColor: [UIColor lightGrayColor],
+                                                           NSShadowAttributeName: shadow,
+                                                           NSFontAttributeName: [UIFont fontWithName:@"ChunkFive" size:18.0],
+                                                           }];
+    
     
     NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
                                           valueForKey:@"isCommonNameAvailable"];
