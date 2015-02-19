@@ -271,6 +271,48 @@
 	{
         
         NSString *firstLetter =[plant.family substringToIndex:1];
+        
+        
+        NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
+
+        if ([sortColumnsSelected count]==0) {
+            //by default sort by family
+        }
+        else
+        {
+            NSString* sortColumn=[sortColumnsSelected objectAtIndex:0u];
+            
+            //@[@"Family",@"Genus",@"Species", @"Habit", @"Flower_Color", @"Common_Name"]
+            
+            if ([sortColumn isEqualToString:@"Family"])
+            {
+                firstLetter = [plant.family substringToIndex:1];
+
+            }
+            else if([sortColumn isEqualToString:@"Genus"])
+            {
+                firstLetter = [plant.genus substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Species"])
+            {
+                firstLetter = [plant.species substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Habit"])
+            {
+                firstLetter = [plant.habit substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Flower_Color"])
+            {
+                firstLetter = [plant.flowerColor substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Common_Name"])
+            {
+                firstLetter = [plant.commonName substringToIndex:1];
+            }
+        }
+        
+        
+        
         /*
         switch (sortCriteria.integerValue) {
             case FilterByValueFamily:
@@ -512,8 +554,51 @@
                               valueForKey:@"sortCriteria"];
     
     
-    NSString* sortKeyName=@"";
+    NSString* sortKeyName=@"family";
     
+    NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
+
+    
+    if ([sortColumnsSelected count]==0) {
+        //by default sort by family
+    }
+    else
+    {
+        NSString* sortColumn=[sortColumnsSelected objectAtIndex:0u];
+        
+        //@[@"Family",@"Genus",@"Species", @"Habit", @"Flower_Color", @"Common_Name"]
+        
+        if ([sortColumn isEqualToString:@"Family"])
+        {
+            sortKeyName = @"family";
+            
+        }
+        else if([sortColumn isEqualToString:@"Genus"])
+        {
+            sortKeyName = @"genus";
+        }
+        else if([sortColumn isEqualToString:@"Species"])
+        {
+            sortKeyName = @"species";
+        }
+        else if([sortColumn isEqualToString:@"Habit"])
+        {
+            sortKeyName = @"habit";
+        }
+        else if([sortColumn isEqualToString:@"Flower_Color"])
+        {
+            sortKeyName = @"flowerColor";
+        }
+        else if([sortColumn isEqualToString:@"Common_Name"])
+        {
+            sortKeyName = @"commonName";
+        }
+    }
+    
+
+    
+    
+    /*
     switch (sortCriteria.integerValue) {
         case FilterByValueFamily:
             //Family
@@ -543,7 +628,7 @@
             
             break;
     }
-    
+    */
     
     
     NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
@@ -952,19 +1037,32 @@ shouldReloadTableForSearchString:(NSString *)searchString
                 //add plant
                 [self.plantsSearchResultArray addObject:plant];
             }
-            else if ([trimmedsearchString length]>0) {
-                
-                if ([[plant classification] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
-                {
-                    //add plant
-                    [self.plantsSearchResultArray addObject:plant];
-                }
+            else if ([[plant classification] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                //add plant
+                [self.plantsSearchResultArray addObject:plant];
+            }
+            else if ([[plant species] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                //add plant
+                [self.plantsSearchResultArray addObject:plant];
             }
             else if ([[plant habit] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
             {
                 //add plant
                 [self.plantsSearchResultArray addObject:plant];
             }
+            else if ([[plant flowerColor] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                //add plant
+                [self.plantsSearchResultArray addObject:plant];
+            }
+            else if ([[plant commonName] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                //add plant
+                [self.plantsSearchResultArray addObject:plant];
+            }
+
         }
     }
     
@@ -1012,6 +1110,47 @@ shouldReloadTableForSearchString:(NSString *)searchString
 //                
 //                break;
 //        }
+        
+        
+        NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
+        
+        if ([sortColumnsSelected count]==0) {
+            //by default sort by family
+        }
+        else
+        {
+            NSString* sortColumn=[sortColumnsSelected objectAtIndex:0u];
+            
+            //@[@"Family",@"Genus",@"Species", @"Habit", @"Flower_Color", @"Common_Name"]
+            
+            if ([sortColumn isEqualToString:@"Family"])
+            {
+                firstLetter = [plant.family substringToIndex:1];
+                
+            }
+            else if([sortColumn isEqualToString:@"Genus"])
+            {
+                firstLetter = [plant.genus substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Species"])
+            {
+                firstLetter = [plant.species substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Habit"])
+            {
+                firstLetter = [plant.habit substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Flower_Color"])
+            {
+                firstLetter = [plant.flowerColor substringToIndex:1];
+            }
+            else if([sortColumn isEqualToString:@"Common_Name"])
+            {
+                firstLetter = [plant.commonName substringToIndex:1];
+            }
+        }
+
+        
         
         NSMutableArray *existingArray;
         

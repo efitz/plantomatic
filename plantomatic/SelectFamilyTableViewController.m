@@ -33,6 +33,22 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    
+    if (self.isForFamilyValues) {
+        [self loadFamilyValues];
+    }
+    else
+    {
+        [self loadSortColumnValues];
+    }
+    
+
+    [self.tableView reloadData];
+
+}
+
+-(void) loadFamilyValues
+{
     FMDBDataAccess *db = [[FMDBDataAccess alloc] init];
     
     CLLocation *currentLocation=[Utility getCurrentLocation];
@@ -76,9 +92,21 @@
     
     
     self.families=[db getFamiliesWithFilterForY:Y andX:X];
-    [self.tableView reloadData];
-
 }
+
+-(void) loadSortColumnValues
+{
+    /*
+     family, species, growth form and common name.
+     
+     "Family" TEXT,"Genus" TEXT,"Species" TEXT,"Classification" text,"Habit" text,"isImageAvailabe" text, "Flower_Color" text, "Common_Name"
+     */
+    
+    NSMutableArray* array=[NSMutableArray arrayWithArray:SORT_COLUMNS];
+    
+    self.families=array;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -109,16 +137,34 @@
     NSString* family=[self.families objectAtIndex:indexPath.row];
     cell.textLabel.text=family;
     
-    if ([self isFamilyAlreadySelected:family])
+    if (self.isForFamilyValues)
     {
-        //check mark the cell
-        cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        if ([self isFamilyAlreadySelected:family])
+        {
+            //check mark the cell
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        }
+        else
+        {
+            //make accessor to none
+            cell.accessoryType=UITableViewCellAccessoryNone;
+        }
     }
     else
     {
-        //make accessor to none
-        cell.accessoryType=UITableViewCellAccessoryNone;
+        if ([self isSortColumnAlreadySelected:family])
+        {
+            //check mark the cell
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        }
+        else
+        {
+            //make accessor to none
+            cell.accessoryType=UITableViewCellAccessoryNone;
+        }
+
     }
+    
     
     return cell;
 }
@@ -128,25 +174,53 @@
     NSString *family = [self.families objectAtIndex:indexPath.row];
 
     
-    NSMutableArray* familiesSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"] mutableCopy];
     
-    if ([self isFamilyAlreadySelected:family])
-    {
-        //remove from family
-        [familiesSelected removeObject:family];
-    }
+     if (self.isForFamilyValues)
+     {
+         NSMutableArray* familiesSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"] mutableCopy];
+
+         if ([self isFamilyAlreadySelected:family])
+         {
+             //remove from family
+             [familiesSelected removeObject:family];
+         }
+         else
+         {
+             //add to families
+             [familiesSelected addObject:family];
+         }
+         
+         [[NSUserDefaults standardUserDefaults] setObject:familiesSelected forKey:@"familiesSelected"];
+         [[NSUserDefaults standardUserDefaults] synchronize];
+
+         //reload current cell
+         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     }
     else
     {
-        //add to families
-        [familiesSelected addObject:family];
+        NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
+        
+        if ([self isSortColumnAlreadySelected:family])
+        {
+            //remove from family
+            [sortColumnsSelected removeObject:family];
+        }
+        else
+        {
+            [sortColumnsSelected removeAllObjects];
+            //add to families
+            [sortColumnsSelected addObject:family];
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setObject:sortColumnsSelected forKey:@"sortColumns"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+        //reload
+        [self.tableView reloadData];
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:familiesSelected forKey:@"familiesSelected"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
     
-    //reload current cell
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
 }
 
@@ -165,6 +239,24 @@
     }
     
     return isFamilyAlreadySelected;
+}
+
+
+-(BOOL) isSortColumnAlreadySelected:(NSString*)sortColumnToSearch
+{
+    BOOL isSortColumnAlreadySelected=NO;
+    
+    NSMutableArray* sortColumnsSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
+    
+    for (NSString* columnSelected in sortColumnsSelected) {
+        
+        if ([columnSelected isEqualToString:sortColumnToSearch]) {
+            isSortColumnAlreadySelected=YES;
+            break;
+        }
+    }
+    
+    return isSortColumnAlreadySelected;
 }
 
 

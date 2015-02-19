@@ -130,6 +130,7 @@
     [self.filterValuesDictionary setValue:dictionary forKey:key];
     
     [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
+//    [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
     
     if (self.isForGrowthForm)
     {

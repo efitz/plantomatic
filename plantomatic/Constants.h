@@ -78,4 +78,4 @@ typedef enum
 #define GROWTH_FORM @[@"Aquatic",@"Bryophyte", @"Epiphyte", @"Fern", @"Grass", @"Herb", @"Parasite", @"Shrub", @"Tree",@"Vine", @"Unknown"]
 
 
-
+#define SORT_COLUMNS @[@"Family",@"Genus",@"Species", @"Habit", @"Flower_Color", @"Common_Name"]

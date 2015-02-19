@@ -11,6 +11,7 @@
 #import "FilterWithSwitchTableViewCell.h"
 #import "Constants.h"
 #import "SortOrderTableViewCell.h"
+#import "SelectFamilyTableViewController.h"
 
 @interface FilterTableViewController ()
 
@@ -44,6 +45,7 @@
 -(void)refreshFamilyFilterCell
 {
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 
 }
 
@@ -95,7 +97,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 6;
+    return 7;
 }
 
 
@@ -166,6 +168,7 @@
     {
         cellIdentifier=@"FamilyCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        cell.textLabel.text=@"Family";
         
         NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
 
@@ -180,6 +183,25 @@
         }
     }
     else if(indexPath.row==5)
+    {
+        cellIdentifier=@"FamilyCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        cell.textLabel.text=@"Sort Field";
+
+        NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
+
+        if ([sortColumns count]==0)
+        {
+            cell.detailTextLabel.text=@"None";
+        }
+        else
+        {
+            NSString *sortColumnsString = [sortColumns componentsJoinedByString:@", "];
+            cell.detailTextLabel.text=sortColumnsString;
+        }
+    }
+
+    else if(indexPath.row==6)
     {
         cellIdentifier=@"SortOrderTableViewCell";
         SortOrderTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -292,14 +314,28 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"showFilterOptions"]) {
+         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        UINavigationController *navigationController = segue.destinationViewController;
+        SelectFamilyTableViewController* selectFamilyTableViewController=(SelectFamilyTableViewController*)navigationController.topViewController;
+        
+        BOOL isForFamily=YES;
+        
+        if (indexPath.row==5) {
+            isForFamily=NO;
+        }
+        
+        selectFamilyTableViewController.isForFamilyValues=isForFamily;
+    }
 }
-*/
+
 
 @end

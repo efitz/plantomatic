@@ -140,6 +140,14 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
+    NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
+    
+    if (sortColumns==nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    
     
     NSNumber *isNeedToShowWelcome = [[NSUserDefaults standardUserDefaults]
                                      valueForKey:@"isNeedToShowWelcome"];

@@ -377,7 +377,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="rcP-ZE-yBf" kind="show" id="UjW-aG-1kM"/>
+                                    <segue destination="rcP-ZE-yBf" kind="show" identifier="showFilterOptions" id="UjW-aG-1kM"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortOrderTableViewCell" id="aE9-bJ-kcc" customClass="SortOrderTableViewCell">

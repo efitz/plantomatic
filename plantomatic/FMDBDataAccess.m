@@ -239,16 +239,25 @@
         [queryString appendString:@")"];
     }
     
-    [queryString appendString:@" order by Family"];
-
+     NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
     
-    if (isInAscendingOrder.boolValue) {
-        [queryString appendString:@" asc"];
-    }
-    else
+    if ([sortColumnsSelected count]>0)
     {
-        [queryString appendString:@" desc"];
+        NSString* sortColumn=[sortColumnsSelected objectAtIndex:0u];
+        
+        [queryString appendFormat:@" order by %@", sortColumn];
+        
+        
+        if (isInAscendingOrder.boolValue) {
+            [queryString appendString:@" asc"];
+        }
+        else
+        {
+            [queryString appendString:@" desc"];
+        }
+
     }
+    
     
     
     FMResultSet *results = [db executeQuery:queryString, [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];
@@ -412,15 +421,23 @@
     }
     
     
-    [queryString appendString:@" order by Family"];
+    NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
     
-    
-    if (isInAscendingOrder.boolValue) {
-        [queryString appendString:@" asc"];
-    }
-    else
+    if ([sortColumnsSelected count]>0)
     {
-        [queryString appendString:@" desc"];
+        NSString* sortColumn=[sortColumnsSelected objectAtIndex:0u];
+        
+        [queryString appendFormat:@" order by %@", sortColumn];
+        
+        
+        if (isInAscendingOrder.boolValue) {
+            [queryString appendString:@" asc"];
+        }
+        else
+        {
+            [queryString appendString:@" desc"];
+        }
+        
     }
     
     

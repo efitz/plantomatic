@@ -10,4 +10,6 @@
 
 @interface SelectFamilyTableViewController : UITableViewController
 
+@property(nonatomic,readwrite) BOOL isForFamilyValues;
+
 @end
