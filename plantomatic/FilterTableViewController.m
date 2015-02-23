@@ -324,8 +324,15 @@
     
     if ([segue.identifier isEqualToString:@"showFilterOptions"]) {
          NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        UINavigationController *navigationController = segue.destinationViewController;
-        SelectFamilyTableViewController* selectFamilyTableViewController=(SelectFamilyTableViewController*)navigationController.topViewController;
+        
+        //For ios7 we get view controller but in case of ios8 it returns navigation controller
+        SelectFamilyTableViewController* selectFamilyTableViewController = segue.destinationViewController;
+        
+        if ([selectFamilyTableViewController isKindOfClass:[UINavigationController class]]) {
+            //For ios8 we get navigation controller instead of view controller
+            UINavigationController* navigationController=(UINavigationController*)selectFamilyTableViewController;
+            selectFamilyTableViewController=(SelectFamilyTableViewController*)navigationController.topViewController;
+        }
         
         BOOL isForFamily=YES;
         

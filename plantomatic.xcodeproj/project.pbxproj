@@ -9,6 +9,58 @@
 /* Begin PBXBuildFile section */
 		4111D9811A88ED51009AAB20 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4111D9801A88ED51009AAB20 /* FilterTableViewController.m */; };
 		416398D61A9B111F00F92BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416398D51A9B111F00F92BF1 /* LaunchScreen.storyboard */; };
+		416398D81A9B32C200F92BF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398D71A9B32C200F92BF1 /* Default-568h@2x.png */; };
+		416398DB1A9B390E00F92BF1 /* Aquatic-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398D91A9B390E00F92BF1 /* Aquatic-selected@2x.png */; };
+		416398DC1A9B390E00F92BF1 /* Aquatic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398DA1A9B390E00F92BF1 /* Aquatic@2x.png */; };
+		4163990C1A9B3E3200F92BF1 /* Black-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398DE1A9B3E3200F92BF1 /* Black-selected@2x.png */; };
+		4163990D1A9B3E3200F92BF1 /* Black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398DF1A9B3E3200F92BF1 /* Black@2x.png */; };
+		4163990E1A9B3E3200F92BF1 /* Blue-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E01A9B3E3200F92BF1 /* Blue-selected@2x.png */; };
+		4163990F1A9B3E3200F92BF1 /* Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E11A9B3E3200F92BF1 /* Blue@2x.png */; };
+		416399101A9B3E3200F92BF1 /* Brown-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E21A9B3E3200F92BF1 /* Brown-selected@2x.png */; };
+		416399111A9B3E3200F92BF1 /* Brown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E31A9B3E3200F92BF1 /* Brown@2x.png */; };
+		416399121A9B3E3200F92BF1 /* Bryophyte-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E41A9B3E3200F92BF1 /* Bryophyte-selected.png */; };
+		416399131A9B3E3200F92BF1 /* Bryophyte.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E51A9B3E3200F92BF1 /* Bryophyte.png */; };
+		416399141A9B3E3200F92BF1 /* Epiphyte-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E61A9B3E3200F92BF1 /* Epiphyte-selected@2x.png */; };
+		416399151A9B3E3200F92BF1 /* Epiphyte@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E71A9B3E3200F92BF1 /* Epiphyte@2x.png */; };
+		416399161A9B3E3200F92BF1 /* Fern-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E81A9B3E3200F92BF1 /* Fern-selected@2x.png */; };
+		416399171A9B3E3200F92BF1 /* Fern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E91A9B3E3200F92BF1 /* Fern@2x.png */; };
+		416399181A9B3E3200F92BF1 /* Grass-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398EA1A9B3E3200F92BF1 /* Grass-selected@2x.png */; };
+		416399191A9B3E3200F92BF1 /* Grass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398EB1A9B3E3200F92BF1 /* Grass@2x.png */; };
+		4163991A1A9B3E3200F92BF1 /* Gray-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398EC1A9B3E3200F92BF1 /* Gray-selected@2x.png */; };
+		4163991B1A9B3E3200F92BF1 /* Gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398ED1A9B3E3200F92BF1 /* Gray@2x.png */; };
+		4163991C1A9B3E3200F92BF1 /* Green-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398EE1A9B3E3200F92BF1 /* Green-selected@2x.png */; };
+		4163991D1A9B3E3200F92BF1 /* Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398EF1A9B3E3200F92BF1 /* Green@2x.png */; };
+		4163991E1A9B3E3200F92BF1 /* Herb-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F01A9B3E3200F92BF1 /* Herb-selected@2x.png */; };
+		4163991F1A9B3E3200F92BF1 /* Herb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F11A9B3E3200F92BF1 /* Herb@2x.png */; };
+		416399201A9B3E3200F92BF1 /* Orange-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F21A9B3E3200F92BF1 /* Orange-selected@2x.png */; };
+		416399211A9B3E3200F92BF1 /* Orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F31A9B3E3200F92BF1 /* Orange@2x.png */; };
+		416399221A9B3E3200F92BF1 /* Parasite-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F41A9B3E3200F92BF1 /* Parasite-selected@2x.png */; };
+		416399231A9B3E3200F92BF1 /* Parasite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F51A9B3E3200F92BF1 /* Parasite@2x.png */; };
+		416399241A9B3E3200F92BF1 /* Pink-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F61A9B3E3200F92BF1 /* Pink-selected@2x.png */; };
+		416399251A9B3E3200F92BF1 /* Pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F71A9B3E3200F92BF1 /* Pink@2x.png */; };
+		416399261A9B3E3200F92BF1 /* Purple-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F81A9B3E3200F92BF1 /* Purple-selected@2x.png */; };
+		416399271A9B3E3200F92BF1 /* Purple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398F91A9B3E3200F92BF1 /* Purple@2x.png */; };
+		416399281A9B3E3200F92BF1 /* Red-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398FA1A9B3E3200F92BF1 /* Red-selected@2x.png */; };
+		416399291A9B3E3200F92BF1 /* Red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398FB1A9B3E3200F92BF1 /* Red@2x.png */; };
+		4163992A1A9B3E3200F92BF1 /* Shrub-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398FC1A9B3E3200F92BF1 /* Shrub-selected@2x.png */; };
+		4163992B1A9B3E3200F92BF1 /* Shrub@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398FD1A9B3E3200F92BF1 /* Shrub@2x.png */; };
+		4163992C1A9B3E3200F92BF1 /* Tree-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398FE1A9B3E3200F92BF1 /* Tree-selected@2x.png */; };
+		4163992D1A9B3E3200F92BF1 /* Tree@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398FF1A9B3E3200F92BF1 /* Tree@2x.png */; };
+		4163992E1A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399001A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png */; };
+		4163992F1A9B3E3200F92BF1 /* Unknown-Flower@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399011A9B3E3200F92BF1 /* Unknown-Flower@2x.png */; };
+		416399301A9B3E3200F92BF1 /* Unknown-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399021A9B3E3200F92BF1 /* Unknown-selected@2x.png */; };
+		416399311A9B3E3200F92BF1 /* Unknown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399031A9B3E3200F92BF1 /* Unknown@2x.png */; };
+		416399321A9B3E3200F92BF1 /* Vine-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399041A9B3E3200F92BF1 /* Vine-selected@2x.png */; };
+		416399331A9B3E3200F92BF1 /* Vine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399051A9B3E3200F92BF1 /* Vine@2x.png */; };
+		416399341A9B3E3200F92BF1 /* Violet-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399061A9B3E3200F92BF1 /* Violet-selected@2x.png */; };
+		416399351A9B3E3200F92BF1 /* Violet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399071A9B3E3200F92BF1 /* Violet@2x.png */; };
+		416399361A9B3E3200F92BF1 /* White-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399081A9B3E3200F92BF1 /* White-selected@2x.png */; };
+		416399371A9B3E3200F92BF1 /* White@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416399091A9B3E3200F92BF1 /* White@2x.png */; };
+		416399381A9B3E3200F92BF1 /* Yellow-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163990A1A9B3E3200F92BF1 /* Yellow-selected@2x.png */; };
+		416399391A9B3E3200F92BF1 /* Yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163990B1A9B3E3200F92BF1 /* Yellow@2x.png */; };
+		4163993D1A9B3F2F00F92BF1 /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163993A1A9B3F2F00F92BF1 /* gradient@2x.png */; };
+		4163993E1A9B3F2F00F92BF1 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163993B1A9B3F2F00F92BF1 /* map@2x.png */; };
+		4163993F1A9B3F2F00F92BF1 /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163993C1A9B3F2F00F92BF1 /* welcome@2x.png */; };
 		41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41802D1418CF575600E41641 /* MBProgressHUD.m */; };
 		418280FD1A9220090003B45B /* SelectFamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */; };
 		41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AEF48418C4C1B600D68062 /* CoreText.framework */; };
@@ -131,6 +183,58 @@
 		4111D9801A88ED51009AAB20 /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Proj4.xcodeproj; path = Proj4/Proj4.xcodeproj; sourceTree = "<group>"; };
 		416398D51A9B111F00F92BF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
+		416398D71A9B32C200F92BF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		416398D91A9B390E00F92BF1 /* Aquatic-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Aquatic-selected@2x.png"; sourceTree = "<group>"; };
+		416398DA1A9B390E00F92BF1 /* Aquatic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Aquatic@2x.png"; sourceTree = "<group>"; };
+		416398DE1A9B3E3200F92BF1 /* Black-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black-selected@2x.png"; sourceTree = "<group>"; };
+		416398DF1A9B3E3200F92BF1 /* Black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black@2x.png"; sourceTree = "<group>"; };
+		416398E01A9B3E3200F92BF1 /* Blue-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue-selected@2x.png"; sourceTree = "<group>"; };
+		416398E11A9B3E3200F92BF1 /* Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue@2x.png"; sourceTree = "<group>"; };
+		416398E21A9B3E3200F92BF1 /* Brown-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brown-selected@2x.png"; sourceTree = "<group>"; };
+		416398E31A9B3E3200F92BF1 /* Brown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brown@2x.png"; sourceTree = "<group>"; };
+		416398E41A9B3E3200F92BF1 /* Bryophyte-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte-selected.png"; sourceTree = "<group>"; };
+		416398E51A9B3E3200F92BF1 /* Bryophyte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bryophyte.png; sourceTree = "<group>"; };
+		416398E61A9B3E3200F92BF1 /* Epiphyte-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Epiphyte-selected@2x.png"; sourceTree = "<group>"; };
+		416398E71A9B3E3200F92BF1 /* Epiphyte@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Epiphyte@2x.png"; sourceTree = "<group>"; };
+		416398E81A9B3E3200F92BF1 /* Fern-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fern-selected@2x.png"; sourceTree = "<group>"; };
+		416398E91A9B3E3200F92BF1 /* Fern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fern@2x.png"; sourceTree = "<group>"; };
+		416398EA1A9B3E3200F92BF1 /* Grass-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grass-selected@2x.png"; sourceTree = "<group>"; };
+		416398EB1A9B3E3200F92BF1 /* Grass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grass@2x.png"; sourceTree = "<group>"; };
+		416398EC1A9B3E3200F92BF1 /* Gray-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gray-selected@2x.png"; sourceTree = "<group>"; };
+		416398ED1A9B3E3200F92BF1 /* Gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gray@2x.png"; sourceTree = "<group>"; };
+		416398EE1A9B3E3200F92BF1 /* Green-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green-selected@2x.png"; sourceTree = "<group>"; };
+		416398EF1A9B3E3200F92BF1 /* Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@2x.png"; sourceTree = "<group>"; };
+		416398F01A9B3E3200F92BF1 /* Herb-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Herb-selected@2x.png"; sourceTree = "<group>"; };
+		416398F11A9B3E3200F92BF1 /* Herb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Herb@2x.png"; sourceTree = "<group>"; };
+		416398F21A9B3E3200F92BF1 /* Orange-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange-selected@2x.png"; sourceTree = "<group>"; };
+		416398F31A9B3E3200F92BF1 /* Orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange@2x.png"; sourceTree = "<group>"; };
+		416398F41A9B3E3200F92BF1 /* Parasite-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Parasite-selected@2x.png"; sourceTree = "<group>"; };
+		416398F51A9B3E3200F92BF1 /* Parasite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Parasite@2x.png"; sourceTree = "<group>"; };
+		416398F61A9B3E3200F92BF1 /* Pink-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink-selected@2x.png"; sourceTree = "<group>"; };
+		416398F71A9B3E3200F92BF1 /* Pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink@2x.png"; sourceTree = "<group>"; };
+		416398F81A9B3E3200F92BF1 /* Purple-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Purple-selected@2x.png"; sourceTree = "<group>"; };
+		416398F91A9B3E3200F92BF1 /* Purple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Purple@2x.png"; sourceTree = "<group>"; };
+		416398FA1A9B3E3200F92BF1 /* Red-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red-selected@2x.png"; sourceTree = "<group>"; };
+		416398FB1A9B3E3200F92BF1 /* Red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red@2x.png"; sourceTree = "<group>"; };
+		416398FC1A9B3E3200F92BF1 /* Shrub-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shrub-selected@2x.png"; sourceTree = "<group>"; };
+		416398FD1A9B3E3200F92BF1 /* Shrub@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shrub@2x.png"; sourceTree = "<group>"; };
+		416398FE1A9B3E3200F92BF1 /* Tree-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tree-selected@2x.png"; sourceTree = "<group>"; };
+		416398FF1A9B3E3200F92BF1 /* Tree@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tree@2x.png"; sourceTree = "<group>"; };
+		416399001A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unknown-Flower-selected@2x.png"; sourceTree = "<group>"; };
+		416399011A9B3E3200F92BF1 /* Unknown-Flower@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unknown-Flower@2x.png"; sourceTree = "<group>"; };
+		416399021A9B3E3200F92BF1 /* Unknown-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unknown-selected@2x.png"; sourceTree = "<group>"; };
+		416399031A9B3E3200F92BF1 /* Unknown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unknown@2x.png"; sourceTree = "<group>"; };
+		416399041A9B3E3200F92BF1 /* Vine-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vine-selected@2x.png"; sourceTree = "<group>"; };
+		416399051A9B3E3200F92BF1 /* Vine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vine@2x.png"; sourceTree = "<group>"; };
+		416399061A9B3E3200F92BF1 /* Violet-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Violet-selected@2x.png"; sourceTree = "<group>"; };
+		416399071A9B3E3200F92BF1 /* Violet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Violet@2x.png"; sourceTree = "<group>"; };
+		416399081A9B3E3200F92BF1 /* White-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White-selected@2x.png"; sourceTree = "<group>"; };
+		416399091A9B3E3200F92BF1 /* White@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White@2x.png"; sourceTree = "<group>"; };
+		4163990A1A9B3E3200F92BF1 /* Yellow-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yellow-selected@2x.png"; sourceTree = "<group>"; };
+		4163990B1A9B3E3200F92BF1 /* Yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yellow@2x.png"; sourceTree = "<group>"; };
+		4163993A1A9B3F2F00F92BF1 /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
+		4163993B1A9B3F2F00F92BF1 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
+		4163993C1A9B3F2F00F92BF1 /* welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome@2x.png"; sourceTree = "<group>"; };
 		41802D1318CF575600E41641 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		41802D1418CF575600E41641 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		418280FB1A9220090003B45B /* SelectFamilyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFamilyTableViewController.h; sourceTree = "<group>"; };
@@ -298,6 +402,64 @@
 				4147B72118BD062F00B111B9 /* libProj4.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		416398DD1A9B39B900F92BF1 /* images for ios7 */ = {
+			isa = PBXGroup;
+			children = (
+				4163993A1A9B3F2F00F92BF1 /* gradient@2x.png */,
+				4163993B1A9B3F2F00F92BF1 /* map@2x.png */,
+				4163993C1A9B3F2F00F92BF1 /* welcome@2x.png */,
+				416398D91A9B390E00F92BF1 /* Aquatic-selected@2x.png */,
+				416398DA1A9B390E00F92BF1 /* Aquatic@2x.png */,
+				416398DE1A9B3E3200F92BF1 /* Black-selected@2x.png */,
+				416398DF1A9B3E3200F92BF1 /* Black@2x.png */,
+				416398E01A9B3E3200F92BF1 /* Blue-selected@2x.png */,
+				416398E11A9B3E3200F92BF1 /* Blue@2x.png */,
+				416398E21A9B3E3200F92BF1 /* Brown-selected@2x.png */,
+				416398E31A9B3E3200F92BF1 /* Brown@2x.png */,
+				416398E41A9B3E3200F92BF1 /* Bryophyte-selected.png */,
+				416398E51A9B3E3200F92BF1 /* Bryophyte.png */,
+				416398E61A9B3E3200F92BF1 /* Epiphyte-selected@2x.png */,
+				416398E71A9B3E3200F92BF1 /* Epiphyte@2x.png */,
+				416398E81A9B3E3200F92BF1 /* Fern-selected@2x.png */,
+				416398E91A9B3E3200F92BF1 /* Fern@2x.png */,
+				416398EA1A9B3E3200F92BF1 /* Grass-selected@2x.png */,
+				416398EB1A9B3E3200F92BF1 /* Grass@2x.png */,
+				416398EC1A9B3E3200F92BF1 /* Gray-selected@2x.png */,
+				416398ED1A9B3E3200F92BF1 /* Gray@2x.png */,
+				416398EE1A9B3E3200F92BF1 /* Green-selected@2x.png */,
+				416398EF1A9B3E3200F92BF1 /* Green@2x.png */,
+				416398F01A9B3E3200F92BF1 /* Herb-selected@2x.png */,
+				416398F11A9B3E3200F92BF1 /* Herb@2x.png */,
+				416398F21A9B3E3200F92BF1 /* Orange-selected@2x.png */,
+				416398F31A9B3E3200F92BF1 /* Orange@2x.png */,
+				416398F41A9B3E3200F92BF1 /* Parasite-selected@2x.png */,
+				416398F51A9B3E3200F92BF1 /* Parasite@2x.png */,
+				416398F61A9B3E3200F92BF1 /* Pink-selected@2x.png */,
+				416398F71A9B3E3200F92BF1 /* Pink@2x.png */,
+				416398F81A9B3E3200F92BF1 /* Purple-selected@2x.png */,
+				416398F91A9B3E3200F92BF1 /* Purple@2x.png */,
+				416398FA1A9B3E3200F92BF1 /* Red-selected@2x.png */,
+				416398FB1A9B3E3200F92BF1 /* Red@2x.png */,
+				416398FC1A9B3E3200F92BF1 /* Shrub-selected@2x.png */,
+				416398FD1A9B3E3200F92BF1 /* Shrub@2x.png */,
+				416398FE1A9B3E3200F92BF1 /* Tree-selected@2x.png */,
+				416398FF1A9B3E3200F92BF1 /* Tree@2x.png */,
+				416399001A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png */,
+				416399011A9B3E3200F92BF1 /* Unknown-Flower@2x.png */,
+				416399021A9B3E3200F92BF1 /* Unknown-selected@2x.png */,
+				416399031A9B3E3200F92BF1 /* Unknown@2x.png */,
+				416399041A9B3E3200F92BF1 /* Vine-selected@2x.png */,
+				416399051A9B3E3200F92BF1 /* Vine@2x.png */,
+				416399061A9B3E3200F92BF1 /* Violet-selected@2x.png */,
+				416399071A9B3E3200F92BF1 /* Violet@2x.png */,
+				416399081A9B3E3200F92BF1 /* White-selected@2x.png */,
+				416399091A9B3E3200F92BF1 /* White@2x.png */,
+				4163990A1A9B3E3200F92BF1 /* Yellow-selected@2x.png */,
+				4163990B1A9B3E3200F92BF1 /* Yellow@2x.png */,
+			);
+			name = "images for ios7";
 			sourceTree = "<group>";
 		};
 		41802D1118CF573900E41641 /* Third Party */ = {
@@ -492,13 +654,6 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
-		41C8FA211A8A415F009F1F75 /* Filter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Filter;
-			sourceTree = "<group>";
-		};
 		41D4D2DF1A849C2C005C9801 /* welcome screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +685,7 @@
 		F7663569189DA10300B0A594 = {
 			isa = PBXGroup;
 			children = (
+				416398D71A9B32C200F92BF1 /* Default-568h@2x.png */,
 				F766357B189DA10300B0A594 /* plantomatic */,
 				F766359A189DA10400B0A594 /* plantomaticTests */,
 				F7663574189DA10300B0A594 /* Frameworks */,
@@ -618,9 +774,9 @@
 		F766357C189DA10300B0A594 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				416398DD1A9B39B900F92BF1 /* images for ios7 */,
 				41E36A941A950557007BEE03 /* welcome screen layers */,
 				41E36A931A95054D007BEE03 /* font */,
-				41C8FA211A8A415F009F1F75 /* Filter */,
 				41D4D2DF1A849C2C005C9801 /* welcome screen */,
 				41B8D79818EC561000CE6D4A /* Placeholder.png */,
 				41CC40A21A8BBC230088E417 /* iconImage.png */,
@@ -751,48 +907,100 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416399251A9B3E3200F92BF1 /* Pink@2x.png in Resources */,
 				41BA4E7C18C9ED9900C34D8F /* Bryophytes_classification.png in Resources */,
 				F7EC11D018CFF934001FD603 /* Icon@2x.png in Resources */,
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
 				41B9EE2318BF6A8B00F7B9A1 /* reload@2x.png in Resources */,
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
 				41E36A8C1A94A4F2007BEE03 /* splash-screen-map.png in Resources */,
+				416398D81A9B32C200F92BF1 /* Default-568h@2x.png in Resources */,
 				41B8D79918EC561000CE6D4A /* Placeholder.png in Resources */,
+				4163993F1A9B3F2F00F92BF1 /* welcome@2x.png in Resources */,
 				F7239FD618D625CC0008253E /* logos.png in Resources */,
+				4163990D1A9B3E3200F92BF1 /* Black@2x.png in Resources */,
 				41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */,
+				416399241A9B3E3200F92BF1 /* Pink-selected@2x.png in Resources */,
+				416399151A9B3E3200F92BF1 /* Epiphyte@2x.png in Resources */,
+				416399271A9B3E3200F92BF1 /* Purple@2x.png in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
+				416399331A9B3E3200F92BF1 /* Vine@2x.png in Resources */,
 				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
+				416399201A9B3E3200F92BF1 /* Orange-selected@2x.png in Resources */,
 				41BFBC911A84F21600143452 /* logo.png in Resources */,
 				41B8D78C18EC3C3F00CE6D4A /* CCoverflowTitleView.xib in Resources */,
+				4163992F1A9B3E3200F92BF1 /* Unknown-Flower@2x.png in Resources */,
+				4163993E1A9B3F2F00F92BF1 /* map@2x.png in Resources */,
+				4163990C1A9B3E3200F92BF1 /* Black-selected@2x.png in Resources */,
+				4163991A1A9B3E3200F92BF1 /* Gray-selected@2x.png in Resources */,
+				416399231A9B3E3200F92BF1 /* Parasite@2x.png in Resources */,
+				416399321A9B3E3200F92BF1 /* Vine-selected@2x.png in Resources */,
 				41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */,
 				41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */,
 				41B9EE1B18BF582E00F7B9A1 /* info@2x.png in Resources */,
 				41C4BC7418D1B1140043D894 /* NCEAS-full_logo-BLK.png in Resources */,
+				416399111A9B3E3200F92BF1 /* Brown@2x.png in Resources */,
 				41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */,
+				416399361A9B3E3200F92BF1 /* White-selected@2x.png in Resources */,
 				41B8D79E18EC5CA700CE6D4A /* ScrollImageViewController.xib in Resources */,
 				F7239FD418D623820008253E /* americas@2x.png in Resources */,
 				41BFBC921A84F21600143452 /* text.png in Resources */,
+				416399391A9B3E3200F92BF1 /* Yellow@2x.png in Resources */,
+				4163990F1A9B3E3200F92BF1 /* Blue@2x.png in Resources */,
+				4163991D1A9B3E3200F92BF1 /* Green@2x.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
+				416399131A9B3E3200F92BF1 /* Bryophyte.png in Resources */,
+				4163991F1A9B3E3200F92BF1 /* Herb@2x.png in Resources */,
+				416399371A9B3E3200F92BF1 /* White@2x.png in Resources */,
+				416399211A9B3E3200F92BF1 /* Orange@2x.png in Resources */,
 				41CC40A31A8BBC230088E417 /* iconImage.png in Resources */,
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
 				41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */,
 				41BA4E8618CA242400C34D8F /* Angiosperms_classification@2x.png in Resources */,
+				416399161A9B3E3200F92BF1 /* Fern-selected@2x.png in Resources */,
 				41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */,
+				4163992E1A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png in Resources */,
+				4163990E1A9B3E3200F92BF1 /* Blue-selected@2x.png in Resources */,
+				416399341A9B3E3200F92BF1 /* Violet-selected@2x.png in Resources */,
 				F7EEF5DC194FDCBA00EEBAF4 /* ocotea_logo.png in Resources */,
+				4163991E1A9B3E3200F92BF1 /* Herb-selected@2x.png in Resources */,
+				416398DC1A9B390E00F92BF1 /* Aquatic@2x.png in Resources */,
 				41BA4E7E18C9ED9900C34D8F /* Gymnosperms_classification.png in Resources */,
 				41E36A921A94FB68007BEE03 /* Chunkfive.ttf in Resources */,
+				416399311A9B3E3200F92BF1 /* Unknown@2x.png in Resources */,
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
+				416399181A9B3E3200F92BF1 /* Grass-selected@2x.png in Resources */,
+				416399101A9B3E3200F92BF1 /* Brown-selected@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
+				416399351A9B3E3200F92BF1 /* Violet@2x.png in Resources */,
+				416399281A9B3E3200F92BF1 /* Red-selected@2x.png in Resources */,
+				416398DB1A9B390E00F92BF1 /* Aquatic-selected@2x.png in Resources */,
 				41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */,
 				F7239FD318D623820008253E /* americas-568h@2x.png in Resources */,
+				416399261A9B3E3200F92BF1 /* Purple-selected@2x.png in Resources */,
+				4163993D1A9B3F2F00F92BF1 /* gradient@2x.png in Resources */,
 				41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
+				416399191A9B3E3200F92BF1 /* Grass@2x.png in Resources */,
 				41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */,
+				4163992D1A9B3E3200F92BF1 /* Tree@2x.png in Resources */,
+				4163992A1A9B3E3200F92BF1 /* Shrub-selected@2x.png in Resources */,
 				41E36A8B1A94A4F2007BEE03 /* splash-screen-logo.png in Resources */,
+				416399171A9B3E3200F92BF1 /* Fern@2x.png in Resources */,
+				416399301A9B3E3200F92BF1 /* Unknown-selected@2x.png in Resources */,
 				416398D61A9B111F00F92BF1 /* LaunchScreen.storyboard in Resources */,
+				416399381A9B3E3200F92BF1 /* Yellow-selected@2x.png in Resources */,
+				416399121A9B3E3200F92BF1 /* Bryophyte-selected.png in Resources */,
+				416399141A9B3E3200F92BF1 /* Epiphyte-selected@2x.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
+				416399221A9B3E3200F92BF1 /* Parasite-selected@2x.png in Resources */,
 				41B9EE2218BF6A8B00F7B9A1 /* reload.png in Resources */,
+				4163992B1A9B3E3200F92BF1 /* Shrub@2x.png in Resources */,
+				4163991B1A9B3E3200F92BF1 /* Gray@2x.png in Resources */,
+				4163992C1A9B3E3200F92BF1 /* Tree-selected@2x.png in Resources */,
+				416399291A9B3E3200F92BF1 /* Red@2x.png in Resources */,
+				4163991C1A9B3E3200F92BF1 /* Green-selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,7 +1150,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
+				PROVISIONING_PROFILE = "9209b29b-e835-4ca0-b9d7-02d7867c9f8e";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -981,7 +1189,7 @@
 					"/Applications/Xcode\\ 5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
+				PROVISIONING_PROFILE = "9209b29b-e835-4ca0-b9d7-02d7867c9f8e";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -1013,7 +1221,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
+				PROVISIONING_PROFILE = "9209b29b-e835-4ca0-b9d7-02d7867c9f8e";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1044,7 +1252,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A3CD47CA-1BC8-4DF4-9169-1D2B82F66149";
+				PROVISIONING_PROFILE = "9209b29b-e835-4ca0-b9d7-02d7867c9f8e";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
