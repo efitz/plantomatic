@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4111D9811A88ED51009AAB20 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4111D9801A88ED51009AAB20 /* FilterTableViewController.m */; };
+		416398D61A9B111F00F92BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416398D51A9B111F00F92BF1 /* LaunchScreen.storyboard */; };
 		41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41802D1418CF575600E41641 /* MBProgressHUD.m */; };
 		418280FD1A9220090003B45B /* SelectFamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */; };
 		41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AEF48418C4C1B600D68062 /* CoreText.framework */; };
@@ -69,54 +70,6 @@
 		41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C4BC7618D1B1B30043D894 /* ACES_greyscale_1.png */; };
 		41C8FA1D1A89F7B8009F1F75 /* FilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8FA1C1A89F7B8009F1F75 /* FilterCollectionViewCell.m */; };
 		41C8FA201A89F8D1009F1F75 /* FilterCollectionViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8FA1F1A89F8D1009F1F75 /* FilterCollectionViewTableViewCell.m */; };
-		41C8FA3A1A8A416D009F1F75 /* Aquatic.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA221A8A416D009F1F75 /* Aquatic.png */; };
-		41C8FA3B1A8A416D009F1F75 /* Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA231A8A416D009F1F75 /* Black.png */; };
-		41C8FA3C1A8A416D009F1F75 /* Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA241A8A416D009F1F75 /* Blue.png */; };
-		41C8FA3D1A8A416D009F1F75 /* Brown.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA251A8A416D009F1F75 /* Brown.png */; };
-		41C8FA3E1A8A416D009F1F75 /* Bryophyte.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA261A8A416D009F1F75 /* Bryophyte.png */; };
-		41C8FA3F1A8A416D009F1F75 /* Epiphyte.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA271A8A416D009F1F75 /* Epiphyte.png */; };
-		41C8FA401A8A416D009F1F75 /* Fern.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA281A8A416D009F1F75 /* Fern.png */; };
-		41C8FA411A8A416D009F1F75 /* Grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA291A8A416D009F1F75 /* Grass.png */; };
-		41C8FA421A8A416D009F1F75 /* Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA2A1A8A416D009F1F75 /* Green.png */; };
-		41C8FA431A8A416D009F1F75 /* Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA2B1A8A416D009F1F75 /* Gray.png */; };
-		41C8FA441A8A416D009F1F75 /* Herb.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA2C1A8A416D009F1F75 /* Herb.png */; };
-		41C8FA451A8A416D009F1F75 /* Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA2D1A8A416D009F1F75 /* Orange.png */; };
-		41C8FA461A8A416D009F1F75 /* Parasite.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA2E1A8A416D009F1F75 /* Parasite.png */; };
-		41C8FA471A8A416D009F1F75 /* Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA2F1A8A416D009F1F75 /* Pink.png */; };
-		41C8FA481A8A416D009F1F75 /* Purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA301A8A416D009F1F75 /* Purple.png */; };
-		41C8FA491A8A416D009F1F75 /* Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA311A8A416D009F1F75 /* Red.png */; };
-		41C8FA4A1A8A416D009F1F75 /* Shrub.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA321A8A416D009F1F75 /* Shrub.png */; };
-		41C8FA4B1A8A416D009F1F75 /* Tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA331A8A416D009F1F75 /* Tree.png */; };
-		41C8FA4C1A8A416D009F1F75 /* Unknown-Flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA341A8A416D009F1F75 /* Unknown-Flower.png */; };
-		41C8FA4D1A8A416D009F1F75 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA351A8A416D009F1F75 /* Unknown.png */; };
-		41C8FA4E1A8A416D009F1F75 /* Vine.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA361A8A416D009F1F75 /* Vine.png */; };
-		41C8FA4F1A8A416D009F1F75 /* Violet.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA371A8A416D009F1F75 /* Violet.png */; };
-		41C8FA501A8A416D009F1F75 /* White.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA381A8A416D009F1F75 /* White.png */; };
-		41C8FA511A8A416D009F1F75 /* Yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA391A8A416D009F1F75 /* Yellow.png */; };
-		41C8FA621A8A4961009F1F75 /* Black-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA551A8A4961009F1F75 /* Black-selected.png */; };
-		41C8FA631A8A4961009F1F75 /* Blue-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA561A8A4961009F1F75 /* Blue-selected.png */; };
-		41C8FA641A8A4961009F1F75 /* Brown-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA571A8A4961009F1F75 /* Brown-selected.png */; };
-		41C8FA651A8A4961009F1F75 /* Gray-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA581A8A4961009F1F75 /* Gray-selected.png */; };
-		41C8FA661A8A4961009F1F75 /* Green-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA591A8A4961009F1F75 /* Green-selected.png */; };
-		41C8FA671A8A4961009F1F75 /* Orange-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA5A1A8A4961009F1F75 /* Orange-selected.png */; };
-		41C8FA681A8A4961009F1F75 /* Pink-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA5B1A8A4961009F1F75 /* Pink-selected.png */; };
-		41C8FA691A8A4961009F1F75 /* Purple-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA5C1A8A4961009F1F75 /* Purple-selected.png */; };
-		41C8FA6A1A8A4961009F1F75 /* Red-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA5D1A8A4961009F1F75 /* Red-selected.png */; };
-		41C8FA6B1A8A4961009F1F75 /* Unknown-Flower-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA5E1A8A4961009F1F75 /* Unknown-Flower-selected.png */; };
-		41C8FA6C1A8A4961009F1F75 /* Violet-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA5F1A8A4961009F1F75 /* Violet-selected.png */; };
-		41C8FA6D1A8A4961009F1F75 /* White-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA601A8A4961009F1F75 /* White-selected.png */; };
-		41C8FA6E1A8A4961009F1F75 /* Yellow-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA611A8A4961009F1F75 /* Yellow-selected.png */; };
-		41C8FA7B1A8A4983009F1F75 /* Aquatic-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA701A8A4983009F1F75 /* Aquatic-selected.png */; };
-		41C8FA7C1A8A4983009F1F75 /* Bryophyte-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA711A8A4983009F1F75 /* Bryophyte-selected.png */; };
-		41C8FA7D1A8A4983009F1F75 /* Epiphyte-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA721A8A4983009F1F75 /* Epiphyte-selected.png */; };
-		41C8FA7E1A8A4983009F1F75 /* Fern-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA731A8A4983009F1F75 /* Fern-selected.png */; };
-		41C8FA7F1A8A4983009F1F75 /* Grass-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA741A8A4983009F1F75 /* Grass-selected.png */; };
-		41C8FA801A8A4983009F1F75 /* Herb-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA751A8A4983009F1F75 /* Herb-selected.png */; };
-		41C8FA811A8A4983009F1F75 /* Parasite-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA761A8A4983009F1F75 /* Parasite-selected.png */; };
-		41C8FA821A8A4983009F1F75 /* Shrub-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA771A8A4983009F1F75 /* Shrub-selected.png */; };
-		41C8FA831A8A4983009F1F75 /* Tree-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA781A8A4983009F1F75 /* Tree-selected.png */; };
-		41C8FA841A8A4983009F1F75 /* Unknown-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA791A8A4983009F1F75 /* Unknown-selected.png */; };
-		41C8FA851A8A4983009F1F75 /* Vine-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8FA7A1A8A4983009F1F75 /* Vine-selected.png */; };
 		41CC40A11A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CC40A01A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.m */; };
 		41CC40A31A8BBC230088E417 /* iconImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 41CC40A21A8BBC230088E417 /* iconImage.png */; };
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
@@ -177,6 +130,7 @@
 		4111D97F1A88ED51009AAB20 /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewController.h; sourceTree = "<group>"; };
 		4111D9801A88ED51009AAB20 /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Proj4.xcodeproj; path = Proj4/Proj4.xcodeproj; sourceTree = "<group>"; };
+		416398D51A9B111F00F92BF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41802D1318CF575600E41641 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		41802D1418CF575600E41641 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		418280FB1A9220090003B45B /* SelectFamilyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFamilyTableViewController.h; sourceTree = "<group>"; };
@@ -268,54 +222,6 @@
 		41C8FA1C1A89F7B8009F1F75 /* FilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewCell.m; sourceTree = "<group>"; };
 		41C8FA1E1A89F8D1009F1F75 /* FilterCollectionViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewTableViewCell.h; sourceTree = "<group>"; };
 		41C8FA1F1A89F8D1009F1F75 /* FilterCollectionViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewTableViewCell.m; sourceTree = "<group>"; };
-		41C8FA221A8A416D009F1F75 /* Aquatic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Aquatic.png; sourceTree = "<group>"; };
-		41C8FA231A8A416D009F1F75 /* Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Black.png; sourceTree = "<group>"; };
-		41C8FA241A8A416D009F1F75 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue.png; sourceTree = "<group>"; };
-		41C8FA251A8A416D009F1F75 /* Brown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Brown.png; sourceTree = "<group>"; };
-		41C8FA261A8A416D009F1F75 /* Bryophyte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bryophyte.png; sourceTree = "<group>"; };
-		41C8FA271A8A416D009F1F75 /* Epiphyte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Epiphyte.png; sourceTree = "<group>"; };
-		41C8FA281A8A416D009F1F75 /* Fern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fern.png; sourceTree = "<group>"; };
-		41C8FA291A8A416D009F1F75 /* Grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grass.png; sourceTree = "<group>"; };
-		41C8FA2A1A8A416D009F1F75 /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Green.png; sourceTree = "<group>"; };
-		41C8FA2B1A8A416D009F1F75 /* Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gray.png; sourceTree = "<group>"; };
-		41C8FA2C1A8A416D009F1F75 /* Herb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Herb.png; sourceTree = "<group>"; };
-		41C8FA2D1A8A416D009F1F75 /* Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orange.png; sourceTree = "<group>"; };
-		41C8FA2E1A8A416D009F1F75 /* Parasite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Parasite.png; sourceTree = "<group>"; };
-		41C8FA2F1A8A416D009F1F75 /* Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pink.png; sourceTree = "<group>"; };
-		41C8FA301A8A416D009F1F75 /* Purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Purple.png; sourceTree = "<group>"; };
-		41C8FA311A8A416D009F1F75 /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red.png; sourceTree = "<group>"; };
-		41C8FA321A8A416D009F1F75 /* Shrub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shrub.png; sourceTree = "<group>"; };
-		41C8FA331A8A416D009F1F75 /* Tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tree.png; sourceTree = "<group>"; };
-		41C8FA341A8A416D009F1F75 /* Unknown-Flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unknown-Flower.png"; sourceTree = "<group>"; };
-		41C8FA351A8A416D009F1F75 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
-		41C8FA361A8A416D009F1F75 /* Vine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vine.png; sourceTree = "<group>"; };
-		41C8FA371A8A416D009F1F75 /* Violet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Violet.png; sourceTree = "<group>"; };
-		41C8FA381A8A416D009F1F75 /* White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = White.png; sourceTree = "<group>"; };
-		41C8FA391A8A416D009F1F75 /* Yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yellow.png; sourceTree = "<group>"; };
-		41C8FA551A8A4961009F1F75 /* Black-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black-selected.png"; sourceTree = "<group>"; };
-		41C8FA561A8A4961009F1F75 /* Blue-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue-selected.png"; sourceTree = "<group>"; };
-		41C8FA571A8A4961009F1F75 /* Brown-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brown-selected.png"; sourceTree = "<group>"; };
-		41C8FA581A8A4961009F1F75 /* Gray-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gray-selected.png"; sourceTree = "<group>"; };
-		41C8FA591A8A4961009F1F75 /* Green-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green-selected.png"; sourceTree = "<group>"; };
-		41C8FA5A1A8A4961009F1F75 /* Orange-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange-selected.png"; sourceTree = "<group>"; };
-		41C8FA5B1A8A4961009F1F75 /* Pink-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink-selected.png"; sourceTree = "<group>"; };
-		41C8FA5C1A8A4961009F1F75 /* Purple-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Purple-selected.png"; sourceTree = "<group>"; };
-		41C8FA5D1A8A4961009F1F75 /* Red-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red-selected.png"; sourceTree = "<group>"; };
-		41C8FA5E1A8A4961009F1F75 /* Unknown-Flower-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unknown-Flower-selected.png"; sourceTree = "<group>"; };
-		41C8FA5F1A8A4961009F1F75 /* Violet-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Violet-selected.png"; sourceTree = "<group>"; };
-		41C8FA601A8A4961009F1F75 /* White-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White-selected.png"; sourceTree = "<group>"; };
-		41C8FA611A8A4961009F1F75 /* Yellow-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yellow-selected.png"; sourceTree = "<group>"; };
-		41C8FA701A8A4983009F1F75 /* Aquatic-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Aquatic-selected.png"; sourceTree = "<group>"; };
-		41C8FA711A8A4983009F1F75 /* Bryophyte-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte-selected.png"; sourceTree = "<group>"; };
-		41C8FA721A8A4983009F1F75 /* Epiphyte-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Epiphyte-selected.png"; sourceTree = "<group>"; };
-		41C8FA731A8A4983009F1F75 /* Fern-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fern-selected.png"; sourceTree = "<group>"; };
-		41C8FA741A8A4983009F1F75 /* Grass-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grass-selected.png"; sourceTree = "<group>"; };
-		41C8FA751A8A4983009F1F75 /* Herb-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Herb-selected.png"; sourceTree = "<group>"; };
-		41C8FA761A8A4983009F1F75 /* Parasite-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Parasite-selected.png"; sourceTree = "<group>"; };
-		41C8FA771A8A4983009F1F75 /* Shrub-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shrub-selected.png"; sourceTree = "<group>"; };
-		41C8FA781A8A4983009F1F75 /* Tree-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tree-selected.png"; sourceTree = "<group>"; };
-		41C8FA791A8A4983009F1F75 /* Unknown-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unknown-selected.png"; sourceTree = "<group>"; };
-		41C8FA7A1A8A4983009F1F75 /* Vine-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vine-selected.png"; sourceTree = "<group>"; };
 		41CC409F1A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterWithSwitchTableViewCell.h; sourceTree = "<group>"; };
 		41CC40A01A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterWithSwitchTableViewCell.m; sourceTree = "<group>"; };
 		41CC40A21A8BBC230088E417 /* iconImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconImage.png; sourceTree = "<group>"; };
@@ -589,88 +495,8 @@
 		41C8FA211A8A415F009F1F75 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				41C8FA6F1A8A496E009F1F75 /* Selected Growth Form */,
-				41C8FA541A8A4950009F1F75 /* selected Flowers */,
-				41C8FA531A8A493A009F1F75 /* growth form */,
-				41C8FA521A8A4194009F1F75 /* Flowers */,
 			);
 			name = Filter;
-			sourceTree = "<group>";
-		};
-		41C8FA521A8A4194009F1F75 /* Flowers */ = {
-			isa = PBXGroup;
-			children = (
-				41C8FA311A8A416D009F1F75 /* Red.png */,
-				41C8FA2F1A8A416D009F1F75 /* Pink.png */,
-				41C8FA371A8A416D009F1F75 /* Violet.png */,
-				41C8FA301A8A416D009F1F75 /* Purple.png */,
-				41C8FA241A8A416D009F1F75 /* Blue.png */,
-				41C8FA2A1A8A416D009F1F75 /* Green.png */,
-				41C8FA391A8A416D009F1F75 /* Yellow.png */,
-				41C8FA2D1A8A416D009F1F75 /* Orange.png */,
-				41C8FA251A8A416D009F1F75 /* Brown.png */,
-				41C8FA2B1A8A416D009F1F75 /* Gray.png */,
-				41C8FA231A8A416D009F1F75 /* Black.png */,
-				41C8FA381A8A416D009F1F75 /* White.png */,
-				41C8FA341A8A416D009F1F75 /* Unknown-Flower.png */,
-			);
-			name = Flowers;
-			sourceTree = "<group>";
-		};
-		41C8FA531A8A493A009F1F75 /* growth form */ = {
-			isa = PBXGroup;
-			children = (
-				41C8FA221A8A416D009F1F75 /* Aquatic.png */,
-				41C8FA261A8A416D009F1F75 /* Bryophyte.png */,
-				41C8FA271A8A416D009F1F75 /* Epiphyte.png */,
-				41C8FA281A8A416D009F1F75 /* Fern.png */,
-				41C8FA291A8A416D009F1F75 /* Grass.png */,
-				41C8FA2C1A8A416D009F1F75 /* Herb.png */,
-				41C8FA2E1A8A416D009F1F75 /* Parasite.png */,
-				41C8FA321A8A416D009F1F75 /* Shrub.png */,
-				41C8FA331A8A416D009F1F75 /* Tree.png */,
-				41C8FA361A8A416D009F1F75 /* Vine.png */,
-				41C8FA351A8A416D009F1F75 /* Unknown.png */,
-			);
-			name = "growth form";
-			sourceTree = "<group>";
-		};
-		41C8FA541A8A4950009F1F75 /* selected Flowers */ = {
-			isa = PBXGroup;
-			children = (
-				41C8FA551A8A4961009F1F75 /* Black-selected.png */,
-				41C8FA561A8A4961009F1F75 /* Blue-selected.png */,
-				41C8FA571A8A4961009F1F75 /* Brown-selected.png */,
-				41C8FA581A8A4961009F1F75 /* Gray-selected.png */,
-				41C8FA591A8A4961009F1F75 /* Green-selected.png */,
-				41C8FA5A1A8A4961009F1F75 /* Orange-selected.png */,
-				41C8FA5B1A8A4961009F1F75 /* Pink-selected.png */,
-				41C8FA5C1A8A4961009F1F75 /* Purple-selected.png */,
-				41C8FA5D1A8A4961009F1F75 /* Red-selected.png */,
-				41C8FA5E1A8A4961009F1F75 /* Unknown-Flower-selected.png */,
-				41C8FA5F1A8A4961009F1F75 /* Violet-selected.png */,
-				41C8FA601A8A4961009F1F75 /* White-selected.png */,
-				41C8FA611A8A4961009F1F75 /* Yellow-selected.png */,
-			);
-			name = "selected Flowers";
-			sourceTree = "<group>";
-		};
-		41C8FA6F1A8A496E009F1F75 /* Selected Growth Form */ = {
-			isa = PBXGroup;
-			children = (
-				41C8FA701A8A4983009F1F75 /* Aquatic-selected.png */,
-				41C8FA711A8A4983009F1F75 /* Bryophyte-selected.png */,
-				41C8FA721A8A4983009F1F75 /* Epiphyte-selected.png */,
-				41C8FA731A8A4983009F1F75 /* Fern-selected.png */,
-				41C8FA741A8A4983009F1F75 /* Grass-selected.png */,
-				41C8FA751A8A4983009F1F75 /* Herb-selected.png */,
-				41C8FA761A8A4983009F1F75 /* Parasite-selected.png */,
-				41C8FA771A8A4983009F1F75 /* Shrub-selected.png */,
-				41C8FA781A8A4983009F1F75 /* Tree-selected.png */,
-				41C8FA791A8A4983009F1F75 /* Unknown-selected.png */,
-				41C8FA7A1A8A4983009F1F75 /* Vine-selected.png */,
-			);
-			name = "Selected Growth Form";
 			sourceTree = "<group>";
 		};
 		41D4D2DF1A849C2C005C9801 /* welcome screen */ = {
@@ -742,6 +568,7 @@
 			children = (
 				F7663584189DA10300B0A594 /* AppDelegate.h */,
 				F7663585189DA10300B0A594 /* AppDelegate.m */,
+				416398D51A9B111F00F92BF1 /* LaunchScreen.storyboard */,
 				F7663587189DA10300B0A594 /* Main.storyboard */,
 				41B9EE1218BF52AD00F7B9A1 /* WelcomeViewController.h */,
 				41B9EE1318BF52AD00F7B9A1 /* WelcomeViewController.m */,
@@ -924,95 +751,48 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41C8FA681A8A4961009F1F75 /* Pink-selected.png in Resources */,
-				41C8FA4C1A8A416D009F1F75 /* Unknown-Flower.png in Resources */,
-				41C8FA641A8A4961009F1F75 /* Brown-selected.png in Resources */,
 				41BA4E7C18C9ED9900C34D8F /* Bryophytes_classification.png in Resources */,
 				F7EC11D018CFF934001FD603 /* Icon@2x.png in Resources */,
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
-				41C8FA621A8A4961009F1F75 /* Black-selected.png in Resources */,
 				41B9EE2318BF6A8B00F7B9A1 /* reload@2x.png in Resources */,
 				F7663580189DA10300B0A594 /* InfoPlist.strings in Resources */,
-				41C8FA7B1A8A4983009F1F75 /* Aquatic-selected.png in Resources */,
-				41C8FA401A8A416D009F1F75 /* Fern.png in Resources */,
 				41E36A8C1A94A4F2007BEE03 /* splash-screen-map.png in Resources */,
 				41B8D79918EC561000CE6D4A /* Placeholder.png in Resources */,
 				F7239FD618D625CC0008253E /* logos.png in Resources */,
-				41C8FA411A8A416D009F1F75 /* Grass.png in Resources */,
-				41C8FA6C1A8A4961009F1F75 /* Violet-selected.png in Resources */,
 				41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */,
-				41C8FA6E1A8A4961009F1F75 /* Yellow-selected.png in Resources */,
-				41C8FA7F1A8A4983009F1F75 /* Grass-selected.png in Resources */,
-				41C8FA651A8A4961009F1F75 /* Gray-selected.png in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
-				41C8FA821A8A4983009F1F75 /* Shrub-selected.png in Resources */,
-				41C8FA6B1A8A4961009F1F75 /* Unknown-Flower-selected.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
-				41C8FA421A8A416D009F1F75 /* Green.png in Resources */,
 				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
 				41BFBC911A84F21600143452 /* logo.png in Resources */,
 				41B8D78C18EC3C3F00CE6D4A /* CCoverflowTitleView.xib in Resources */,
-				41C8FA3B1A8A416D009F1F75 /* Black.png in Resources */,
-				41C8FA491A8A416D009F1F75 /* Red.png in Resources */,
 				41BA4E7B18C9ED9900C34D8F /* Angiosperms_classification.png in Resources */,
 				41BA4E7D18C9ED9900C34D8F /* Ferns_classification.png in Resources */,
 				41B9EE1B18BF582E00F7B9A1 /* info@2x.png in Resources */,
-				41C8FA6A1A8A4961009F1F75 /* Red-selected.png in Resources */,
-				41C8FA4D1A8A416D009F1F75 /* Unknown.png in Resources */,
-				41C8FA7C1A8A4983009F1F75 /* Bryophyte-selected.png in Resources */,
 				41C4BC7418D1B1140043D894 /* NCEAS-full_logo-BLK.png in Resources */,
-				41C8FA851A8A4983009F1F75 /* Vine-selected.png in Resources */,
-				41C8FA841A8A4983009F1F75 /* Unknown-selected.png in Resources */,
-				41C8FA3A1A8A416D009F1F75 /* Aquatic.png in Resources */,
 				41B9EE2A18BF6CC200F7B9A1 /* down.png in Resources */,
 				41B8D79E18EC5CA700CE6D4A /* ScrollImageViewController.xib in Resources */,
 				F7239FD418D623820008253E /* americas@2x.png in Resources */,
-				41C8FA811A8A4983009F1F75 /* Parasite-selected.png in Resources */,
 				41BFBC921A84F21600143452 /* text.png in Resources */,
-				41C8FA471A8A416D009F1F75 /* Pink.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
 				41CC40A31A8BBC230088E417 /* iconImage.png in Resources */,
-				41C8FA671A8A4961009F1F75 /* Orange-selected.png in Resources */,
-				41C8FA4B1A8A416D009F1F75 /* Tree.png in Resources */,
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
 				41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */,
 				41BA4E8618CA242400C34D8F /* Angiosperms_classification@2x.png in Resources */,
 				41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */,
-				41C8FA3D1A8A416D009F1F75 /* Brown.png in Resources */,
-				41C8FA511A8A416D009F1F75 /* Yellow.png in Resources */,
 				F7EEF5DC194FDCBA00EEBAF4 /* ocotea_logo.png in Resources */,
 				41BA4E7E18C9ED9900C34D8F /* Gymnosperms_classification.png in Resources */,
 				41E36A921A94FB68007BEE03 /* Chunkfive.ttf in Resources */,
 				41B9EE2B18BF6CC200F7B9A1 /* down@2x.png in Resources */,
 				41B9EE2618BF6CA700F7B9A1 /* up.png in Resources */,
-				41C8FA3F1A8A416D009F1F75 /* Epiphyte.png in Resources */,
-				41C8FA7D1A8A4983009F1F75 /* Epiphyte-selected.png in Resources */,
-				41C8FA4A1A8A416D009F1F75 /* Shrub.png in Resources */,
-				41C8FA6D1A8A4961009F1F75 /* White-selected.png in Resources */,
-				41C8FA3C1A8A416D009F1F75 /* Blue.png in Resources */,
-				41C8FA631A8A4961009F1F75 /* Blue-selected.png in Resources */,
-				41C8FA441A8A416D009F1F75 /* Herb.png in Resources */,
-				41C8FA691A8A4961009F1F75 /* Purple-selected.png in Resources */,
-				41C8FA801A8A4983009F1F75 /* Herb-selected.png in Resources */,
-				41C8FA431A8A416D009F1F75 /* Gray.png in Resources */,
-				41C8FA661A8A4961009F1F75 /* Green-selected.png in Resources */,
 				41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */,
-				41C8FA461A8A416D009F1F75 /* Parasite.png in Resources */,
-				41C8FA451A8A416D009F1F75 /* Orange.png in Resources */,
 				F7239FD318D623820008253E /* americas-568h@2x.png in Resources */,
 				41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */,
-				41C8FA4F1A8A416D009F1F75 /* Violet.png in Resources */,
-				41C8FA831A8A4983009F1F75 /* Tree-selected.png in Resources */,
-				41C8FA4E1A8A416D009F1F75 /* Vine.png in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
 				41BA4E8818CA242400C34D8F /* Ferns_classification@2x.png in Resources */,
 				41E36A8B1A94A4F2007BEE03 /* splash-screen-logo.png in Resources */,
+				416398D61A9B111F00F92BF1 /* LaunchScreen.storyboard in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
 				41B9EE2218BF6A8B00F7B9A1 /* reload.png in Resources */,
-				41C8FA7E1A8A4983009F1F75 /* Fern-selected.png in Resources */,
-				41C8FA501A8A416D009F1F75 /* White.png in Resources */,
-				41C8FA3E1A8A416D009F1F75 /* Bryophyte.png in Resources */,
-				41C8FA481A8A416D009F1F75 /* Purple.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1213,7 +993,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1246,7 +1025,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				FRAMEWORK_SEARCH_PATHS = (

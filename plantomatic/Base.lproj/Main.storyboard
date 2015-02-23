@@ -547,21 +547,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mV2-ez-lQ2" userLabel="SearchView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="zZ0-0v-VNB">
-                                        <rect key="frame" x="92" y="0.0" width="508" height="44"/>
-                                        <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <scopeButtonTitles>
-                                            <string>Title</string>
-                                            <string>Title</string>
-                                        </scopeButtonTitles>
-                                        <connections>
-                                            <outlet property="delegate" destination="8fC-6X-Nhh" id="BAL-aZ-KOW"/>
-                                        </connections>
-                                    </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZO-C0-2u4">
                                         <rect key="frame" x="0.0" y="0.0" width="92" height="44"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.41960784313725491" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="92" id="a6A-4W-gFp"/>
                                         </constraints>
@@ -573,6 +561,18 @@
                                             <segue destination="oAO-d7-CS8" kind="presentation" id="87I-dz-zUf"/>
                                         </connections>
                                     </button>
+                                    <searchBar contentMode="redraw" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZ0-0v-VNB">
+                                        <rect key="frame" x="92" y="0.0" width="508" height="44"/>
+                                        <color key="barTintColor" red="0.0" green="0.41960784313725491" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="8fC-6X-Nhh" id="BAL-aZ-KOW"/>
+                                        </connections>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
