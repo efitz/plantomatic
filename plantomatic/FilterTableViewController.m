@@ -186,7 +186,7 @@
     {
         cellIdentifier=@"FamilyCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text=@"Sort Field";
+        cell.textLabel.text=@"Sort By";
 
         NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
 

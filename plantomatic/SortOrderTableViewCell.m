@@ -49,12 +49,12 @@
 
     if (self.segmentControl.selectedSegmentIndex==0)
     {
-        //A..Z
+        //A-Z
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"sortOrder"];
     }
     else
     {
-        //Z..A
+        //Z-A
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"sortOrder"];
     }
     
