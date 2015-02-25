@@ -88,6 +88,12 @@ static GPSManager *gpsManagerInstance = nil;
     self.delegate=delegate;
     self.selCallCompletaion=callCompleteSelector;
     self.selCallFailure=callFailSelector;
+    
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
     [self start];
 }
 

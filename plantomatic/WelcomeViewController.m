@@ -13,6 +13,7 @@
 
 @interface WelcomeViewController ()
 @property(nonatomic, readwrite) BOOL isPreviouslyAuthorized;
+@property (strong, nonatomic) IBOutlet UIButton *getPlantsBtn;
 @end
 
 @implementation WelcomeViewController
@@ -45,7 +46,15 @@
         self.isPreviouslyAuthorized=YES;
     }
 
+    CABasicAnimation *theAnimation;
     
+    theAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    theAnimation.duration=1.0;
+    theAnimation.repeatCount=HUGE_VALF;
+    theAnimation.autoreverses=YES;
+    theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
+    theAnimation.toValue=[NSNumber numberWithFloat:0.0];
+    [self.getPlantsBtn.layer addAnimation:theAnimation forKey:@"animateOpacity"]; //myButton.layer instead of
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPlantsScreen) name:@"GoAHeadToUseLocationsNotification" object:nil];
     

@@ -40,6 +40,114 @@
     
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil] setTintColor:[UIColor whiteColor]];
+
+    NSShadow * shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor lightGrayColor];
+    shadow.shadowOffset = CGSizeMake(0, -1);
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName: [UIColor blackColor],
+                                                           UITextAttributeTextShadowColor: [UIColor lightGrayColor],
+                                                           NSShadowAttributeName: shadow,
+                                                           NSFontAttributeName: [UIFont fontWithName:@"ChunkFive" size:18.0],
+                                                           }];
+    
+    
+    NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
+                                          valueForKey:@"isCommonNameAvailable"];
+    
+    if (isCommonNameAvaialble==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isCommonNameAvailable"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
+    NSNumber *isImageAvailable = [[NSUserDefaults standardUserDefaults]
+                                       valueForKey:@"isImageAvailable"];
+    
+    if (isImageAvailable==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isImageAvailable"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    NSNumber *isSortOrderAscending = [[NSUserDefaults standardUserDefaults]
+                                  valueForKey:@"sortOrder"];
+    
+    if (isSortOrderAscending==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"sortOrder"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+
+
+    NSMutableDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]
+                                            valueForKey:@"flowerColorsDictionary"];
+    
+    if (flowerColorsDictionary==nil)
+    {
+        flowerColorsDictionary=[@{@"Red":@{@"isSelected":@YES},
+                                 @"Pink":@{@"isSelected":@YES},
+                                 @"Violet":@{@"isSelected":@YES},
+                                 @"Purple": @{@"isSelected":@YES},
+                                 @"Blue":@{@"isSelected":@YES},
+                                 @"Green": @{ @"isSelected":@YES},
+                                 @"Yellow":@{@"isSelected":@YES},
+                                 @"Orange":@{@"isSelected":@YES},
+                                 @"Brown":@{@"isSelected":@YES},
+                                 @"Gray":@{@"isSelected":@YES},
+                                 @"Black":@{@"isSelected":@YES},
+                                 @"White":@{@"isSelected":@YES},
+                                 @"Unknown-Flower":@{@"isSelected":@YES}
+                                 } mutableCopy];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:flowerColorsDictionary forKey:@"flowerColorsDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    NSMutableDictionary *growthFormDictionary = [[NSUserDefaults standardUserDefaults]
+                                          valueForKey:@"growthFormDictionary"];
+    
+    if (growthFormDictionary==nil)
+    {
+        growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@YES},
+                               @"Bryophyte":@{@"isSelected":@YES},
+                               @"Epiphyte":@{@"isSelected":@YES},
+                               @"Fern": @{@"isSelected":@YES},
+                               @"Grass":@{@"isSelected":@YES},
+                               @"Herb": @{ @"isSelected":@YES},
+                               @"Parasite":@{@"isSelected":@YES},
+                               @"Shrub":@{@"isSelected":@YES},
+                               @"Tree":@{@"isSelected":@YES},
+                               @"Vine":@{@"isSelected":@YES},
+                               @"Unknown":@{@"isSelected":@YES}} mutableCopy];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:growthFormDictionary forKey:@"growthFormDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    
+    NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+
+    if (familiesSelected==nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
+    
+    if (sortColumns==nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    
     
     NSNumber *isNeedToShowWelcome = [[NSUserDefaults standardUserDefaults]
                                      valueForKey:@"isNeedToShowWelcome"];
@@ -94,30 +202,7 @@
     
 
     
-    UIImageView* splashView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	
-	if([[UIDevice currentDevice]userInterfaceIdiom]==UIUserInterfaceIdiomPhone)
-	{
-		if ([[UIScreen mainScreen] bounds].size.height == 568.0f)
-		{
-			splashView.image = [UIImage imageNamed:@"americas-568h@2x.png"];
-			
-		}
-		else
-		{
-			//iphone 3.5 inch screen
-			splashView.image = [UIImage imageNamed:@"americas@2x.png"];
-		}
-	}
-    
-    self.splashView=splashView;
-    [self.window addSubview:self.splashView];
-    [self.window bringSubviewToFront:self.splashView];
-
-    // Do your time consuming setup
-    [self performSelector:@selector(removeSplashScreen) withObject:nil afterDelay:2.0];
-    
-    
+  
     
     return YES;
 }
