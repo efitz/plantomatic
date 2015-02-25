@@ -91,7 +91,7 @@
         NSString* flowerColor=plant.flowerColor;
         if ([plant.flowerColor isEqualToString:@"-"]) {
             imageNameForFlower=@"Unknown-Flower.png";
-            flowerColor=@"Unknown";
+            flowerColor=@" -";
         }
         
         self.flowerColorImgView.image=[UIImage imageNamed:imageNameForFlower];

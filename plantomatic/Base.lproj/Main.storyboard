@@ -602,14 +602,14 @@
                                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtt-R2-whm" userLabel="FirstColumView">
                                                             <rect key="frame" x="10" y="0.0" width="96" height="130"/>
                                                             <subviews>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqH-a3-xl7" userLabel="Classification Label">
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqH-a3-xl7" userLabel="Classification Label">
                                                                     <rect key="frame" x="0.0" y="108" width="96" height="21"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <color key="tintColor" red="0.65882354974746704" green="0.80000007152557373" blue="0.98431378602981567" alpha="1" colorSpace="deviceRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="96" id="J1l-gz-HuH"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-Bk-tAH" userLabel="Habit Label">
