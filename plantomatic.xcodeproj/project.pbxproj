@@ -132,6 +132,11 @@
 		41E36A8C1A94A4F2007BEE03 /* splash-screen-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A891A94A4F2007BEE03 /* splash-screen-map.png */; };
 		41E36A8F1A94D08B007BEE03 /* SortOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E36A8E1A94D08B007BEE03 /* SortOrderTableViewCell.m */; };
 		41E36A921A94FB68007BEE03 /* Chunkfive.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A911A94FB68007BEE03 /* Chunkfive.ttf */; };
+		41E402691A9F2B9C006E443B /* spores@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E402681A9F2B9C006E443B /* spores@2x.png */; };
+		41E4026B1A9F2C3F006E443B /* spores.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E4026A1A9F2C3F006E443B /* spores.png */; };
+		41E4026D1A9F2C48006E443B /* cone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E4026C1A9F2C48006E443B /* cone@2x.png */; };
+		41E4026F1A9F2C4F006E443B /* cone.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E4026E1A9F2C4F006E443B /* cone.png */; };
+		41E402731A9F7277006E443B /* FilterHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E402721A9F7277006E443B /* FilterHeaderTableViewCell.m */; };
 		F7239FD318D623820008253E /* americas-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD118D623820008253E /* americas-568h@2x.png */; };
 		F7239FD418D623820008253E /* americas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD218D623820008253E /* americas@2x.png */; };
 		F7239FD618D625CC0008253E /* logos.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD518D625CC0008253E /* logos.png */; };
@@ -338,6 +343,12 @@
 		41E36A8D1A94D08B007BEE03 /* SortOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortOrderTableViewCell.h; sourceTree = "<group>"; };
 		41E36A8E1A94D08B007BEE03 /* SortOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortOrderTableViewCell.m; sourceTree = "<group>"; };
 		41E36A911A94FB68007BEE03 /* Chunkfive.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chunkfive.ttf; sourceTree = "<group>"; };
+		41E402681A9F2B9C006E443B /* spores@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spores@2x.png"; sourceTree = "<group>"; };
+		41E4026A1A9F2C3F006E443B /* spores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spores.png; sourceTree = "<group>"; };
+		41E4026C1A9F2C48006E443B /* cone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cone@2x.png"; sourceTree = "<group>"; };
+		41E4026E1A9F2C4F006E443B /* cone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cone.png; sourceTree = "<group>"; };
+		41E402711A9F7277006E443B /* FilterHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterHeaderTableViewCell.h; sourceTree = "<group>"; };
+		41E402721A9F7277006E443B /* FilterHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterHeaderTableViewCell.m; sourceTree = "<group>"; };
 		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
 		F7239FD218D623820008253E /* americas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas@2x.png"; sourceTree = "<group>"; };
 		F7239FD518D625CC0008253E /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
@@ -603,6 +614,10 @@
 		41C4BC6E18D1B0040043D894 /* Classifications images */ = {
 			isa = PBXGroup;
 			children = (
+				41E402681A9F2B9C006E443B /* spores@2x.png */,
+				41E4026A1A9F2C3F006E443B /* spores.png */,
+				41E4026C1A9F2C48006E443B /* cone@2x.png */,
+				41E4026E1A9F2C4F006E443B /* cone.png */,
 				41BA4E8218CA242400C34D8F /* Angiosperms_classification@2x.png */,
 				41BA4E7718C9ED9900C34D8F /* Angiosperms_classification.png */,
 				41BA4E8318CA242400C34D8F /* Bryophytes_classification@2x.png */,
@@ -758,6 +773,8 @@
 				418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */,
 				41E36A8D1A94D08B007BEE03 /* SortOrderTableViewCell.h */,
 				41E36A8E1A94D08B007BEE03 /* SortOrderTableViewCell.m */,
+				41E402711A9F7277006E443B /* FilterHeaderTableViewCell.h */,
+				41E402721A9F7277006E443B /* FilterHeaderTableViewCell.m */,
 				F766358D189DA10300B0A594 /* Images.xcassets */,
 				41B7974B18EACAA8009F54E2 /* WebService Operation */,
 				41B9EE2C18BF873C00F7B9A1 /* LocationService */,
@@ -923,6 +940,7 @@
 				416399241A9B3E3200F92BF1 /* Pink-selected@2x.png in Resources */,
 				416399151A9B3E3200F92BF1 /* Epiphyte@2x.png in Resources */,
 				416399271A9B3E3200F92BF1 /* Purple@2x.png in Resources */,
+				41E402691A9F2B9C006E443B /* spores@2x.png in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
 				416399331A9B3E3200F92BF1 /* Vine@2x.png in Resources */,
@@ -948,6 +966,7 @@
 				41BFBC921A84F21600143452 /* text.png in Resources */,
 				416399391A9B3E3200F92BF1 /* Yellow@2x.png in Resources */,
 				4163990F1A9B3E3200F92BF1 /* Blue@2x.png in Resources */,
+				41E4026F1A9F2C4F006E443B /* cone.png in Resources */,
 				4163991D1A9B3E3200F92BF1 /* Green@2x.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
 				416399131A9B3E3200F92BF1 /* Bryophyte.png in Resources */,
@@ -963,6 +982,7 @@
 				4163992E1A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png in Resources */,
 				4163990E1A9B3E3200F92BF1 /* Blue-selected@2x.png in Resources */,
 				416399341A9B3E3200F92BF1 /* Violet-selected@2x.png in Resources */,
+				41E4026B1A9F2C3F006E443B /* spores.png in Resources */,
 				F7EEF5DC194FDCBA00EEBAF4 /* ocotea_logo.png in Resources */,
 				4163991E1A9B3E3200F92BF1 /* Herb-selected@2x.png in Resources */,
 				416398DC1A9B390E00F92BF1 /* Aquatic@2x.png in Resources */,
@@ -991,6 +1011,7 @@
 				416399301A9B3E3200F92BF1 /* Unknown-selected@2x.png in Resources */,
 				416398D61A9B111F00F92BF1 /* LaunchScreen.storyboard in Resources */,
 				416399381A9B3E3200F92BF1 /* Yellow-selected@2x.png in Resources */,
+				41E4026D1A9F2C48006E443B /* cone@2x.png in Resources */,
 				416399121A9B3E3200F92BF1 /* Bryophyte-selected.png in Resources */,
 				416399141A9B3E3200F92BF1 /* Epiphyte-selected@2x.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
@@ -1049,6 +1070,7 @@
 				41B9EE1418BF52AD00F7B9A1 /* WelcomeViewController.m in Sources */,
 				41C8FA1D1A89F7B8009F1F75 /* FilterCollectionViewCell.m in Sources */,
 				41B9EE0818BF465F00F7B9A1 /* FMDBDataAccess.m in Sources */,
+				41E402731A9F7277006E443B /* FilterHeaderTableViewCell.m in Sources */,
 				41B8D6B318EC3BD600CE6D4A /* PlantsCollectionViewController.m in Sources */,
 				41B7975318EACD65009F54E2 /* GenericService.m in Sources */,
 				41B9EDFE18BF456B00F7B9A1 /* FMDatabase.m in Sources */,

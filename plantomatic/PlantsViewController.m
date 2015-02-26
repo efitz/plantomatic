@@ -526,7 +526,7 @@
 {
     static NSString *CellIdentifier = @"PlantCell";
     
-    PlantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PlantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     SpeciesFamily *plant = [self getPlantForIndexPath:indexPath];
     [cell updateWithSpeciesFamily:plant];
     return cell;

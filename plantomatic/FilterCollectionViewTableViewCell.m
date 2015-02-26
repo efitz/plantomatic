@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) IBOutlet UILabel* titleLbl;
 
+- (IBAction)selectAllAction:(id)sender;
 @end
 
 @implementation FilterCollectionViewTableViewCell
@@ -149,6 +150,34 @@
 }
 
 
+
+
+- (IBAction)selectAllAction:(id)sender
+{
+    NSArray* keysArray=[self.filterValuesDictionary allKeys];
+
+    for (NSString* key in keysArray)
+    {
+        NSMutableDictionary* dictionary=[[self.filterValuesDictionary valueForKey:key] mutableCopy];
+        [dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"isSelected"];
+        [self.filterValuesDictionary setValue:dictionary forKey:key];
+    }
+
+    if (self.isForGrowthForm)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:self.filterValuesDictionary forKey:@"growthFormDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:self.filterValuesDictionary forKey:@"flowerColorsDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
+    
+    [self.collectionView reloadData];
+}
 
 
 @end

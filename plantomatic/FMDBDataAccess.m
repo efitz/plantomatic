@@ -204,11 +204,12 @@
     
     
     if (isCommonNameAvaialble.boolValue) {
+        //Limit results to only records with common name
         [queryString appendString:@" and Common_Name!=\'-\'"];
     }
     else
     {
-        [queryString appendString:@" and Common_Name=\'-\'"];
+        //Show all results, both with or without a common name
     }
     
     if (isImageAvailable.boolValue) {
@@ -217,9 +218,8 @@
     else
     {
         //otherwise return with or without image
-//        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
     }
-    
+
     
     if ([growthFromArray count]>0) {
         [queryString appendString:@" and ("];
@@ -391,11 +391,12 @@
     
     
     if (isCommonNameAvaialble.boolValue) {
+        //Limit results to only records with common name
         [queryString appendString:@" and Common_Name!=\'-\'"];
     }
     else
     {
-        [queryString appendString:@" and Common_Name=\'-\'"];
+        //Show all results, both with or without a common name
     }
     
     if (isImageAvailable.boolValue) {
@@ -404,7 +405,6 @@
     else
     {
         //otherwise return with or without image
-//        [queryString appendString:@" and isImageAvailabe=\'FALSE\'"];
     }
     
     
