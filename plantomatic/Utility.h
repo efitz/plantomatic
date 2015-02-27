@@ -23,4 +23,11 @@
 
 + (BOOL)isiOS7;
 
+
++(void) initializeUserDefaults;
+
++(void) resetUserDefaults;
+
++(BOOL)isAppUsingDefaultSettings;
+
 @end

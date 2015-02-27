@@ -12,8 +12,12 @@
 #import "Constants.h"
 #import "SortOrderTableViewCell.h"
 #import "SelectFamilyTableViewController.h"
+#import "FilterHeaderTableViewCell.h"
+#import "Utility.h"
 
 @interface FilterTableViewController ()
+
+@property(nonatomic, strong) FilterHeaderTableViewCell *sectionHeaderCell;
 
 @end
 
@@ -28,12 +32,14 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self setTitle:@"Filters"];
+    [self setTitle:@"Filter Options"];
     
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStyleBordered target:self action:@selector(searchAction)];
+//    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleBordered target:self action:@selector(searchAction)];
 
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelAction)];
 
+    [self createSearchActionButton];
+    
 //    [self.tableView registerClass:[FilterCollectionViewTableViewCell class] forCellReuseIdentifier:@"FilterCollectionViewTableViewCell"];
 
     [[NSNotificationCenter defaultCenter]
@@ -42,10 +48,43 @@
     
 }
 
+-(void) createSearchActionButton
+{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    button.frame = CGRectMake(0.0, 0.0, 80.0f, 25.0f);
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    NSLog(@"%@", button.titleLabel.font);
+    CALayer *doneBtnLayer = [button layer];
+    [doneBtnLayer setMasksToBounds:YES];
+//    [doneBtnLayer setCornerRadius:5.0f];
+    
+    NSString* buttonTitle=@"Filter";
+    SEL action=@selector(searchAction);
+    
+    button.backgroundColor=[UIColor colorWithRed:162.0/255.0 green:216.0/255.0 blue:131.0/255.0 alpha:1.0];
+//    [button setBackgroundImage:[UIImage imageNamed:@"btn-tag-blue"] forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(buttonTitle, nil) forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *searchActionButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.navigationItem setRightBarButtonItem:searchActionButton];
+}
+
+
+
 -(void)refreshFamilyFilterCell
 {
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+//    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+//    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    
+//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+
+    [self.tableView reloadData];
 
 }
 
@@ -75,6 +114,39 @@
 }
 
 #pragma mark - Table view data source
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    FilterHeaderTableViewCell* filterHeaderTableViewCell=nil;
+    
+    if (_sectionHeaderCell==nil) {
+        self.sectionHeaderCell = [tableView dequeueReusableCellWithIdentifier:@"FilterHeaderTableViewCell"];
+    }
+    
+    
+    if ([Utility isAppUsingDefaultSettings]) {
+        filterHeaderTableViewCell=nil;
+    }
+    else
+    {
+        filterHeaderTableViewCell=self.sectionHeaderCell;
+    }
+    
+    return filterHeaderTableViewCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    CGFloat headerHeight=0.0;
+    
+    if (![Utility isAppUsingDefaultSettings])
+    {
+        headerHeight=44.0;
+    }
+    
+    return headerHeight;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -8,6 +8,7 @@
 
 #import "PlantCell.h"
 #import "SpeciesFamily.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PlantCell ()
 
@@ -16,6 +17,7 @@
 
 
 //First column
+@property (strong, nonatomic) IBOutlet UIView *colorView;
 @property (strong, nonatomic) IBOutlet UIImageView *flowerColorImgView;
 @property (strong, nonatomic) IBOutlet UIImageView *growthFormImgView;
 @property (strong, nonatomic) IBOutlet UILabel *habitLbl;
@@ -51,6 +53,10 @@
     // Configure the view for the selected state
 }
 
+-(void) awakeFromNib
+{
+}
+
 -(void) updateWithSpeciesFamily:(SpeciesFamily*)plant
 {
     /*
@@ -76,36 +82,64 @@
     
     //First column
     
-    NSString* imageNameForHabit=[NSString stringWithFormat:@"%@.png",plant.habit];
+    NSString* imageNameForHabit=[NSString stringWithFormat:@"%@-selected.png",plant.habit];
     
     if ([plant.habit isEqualToString:@"-"]) {
-        imageNameForHabit=@"Unknown.png";
+        imageNameForHabit=@"Unknown-selected.png";
     }
     
     self.growthFormImgView.image=[UIImage imageNamed:imageNameForHabit];
     
+    //This is not working with formula we have placed half value for making circle i.e 17
+    self.colorView.layer.cornerRadius = 17;//self.colorView.frame.size.width/2 ;
+    self.colorView.clipsToBounds = YES;
+    self.colorView.backgroundColor=[UIColor whiteColor];
+    
+    /*
+     Special case to replace the Flower Color descriptor:
+     
+     if major_group == angiosperm then display flower_color
+     elseif major group == fern or bryophyte then display spore
+     elseif major group == gymnosperm then display cone
+     */
+    
     if ([plant.classification isEqualToString:@"Angiosperms"])
     {
+        // major_group == angiosperm then display flower_color
         //This is case for flower
-        NSString* imageNameForFlower=[NSString stringWithFormat:@"%@.png",plant.flowerColor];
+        NSString* imageNameForFlower=[NSString stringWithFormat:@"%@-selected.png",plant.flowerColor];
         NSString* flowerColor=plant.flowerColor;
         if ([plant.flowerColor isEqualToString:@"-"]) {
-            imageNameForFlower=@"Unknown-Flower.png";
+            imageNameForFlower=@"Unknown-Flower-selected.png";
             flowerColor=@" -";
         }
         
         self.flowerColorImgView.image=[UIImage imageNamed:imageNameForFlower];
         [self.classificationLbl setText:[NSString stringWithFormat:@"Flower Color:%@",flowerColor]];
     }
-    else
+    else if ([plant.classification isEqualToString:@"Bryophytes"]||[plant.classification isEqualToString:@"Ferns"])
     {
-        NSString* imageNameForFlower=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
-        self.flowerColorImgView.image=[UIImage imageNamed:imageNameForFlower];
+         //major group == fern or bryophyte then display spore
+        self.flowerColorImgView.image=[UIImage imageNamed:@"spores"];
         
         [self.classificationLbl setText:plant.classification];
     }
-    
-    
+    else if ([plant.classification isEqualToString:@"Gymnosperms"])
+    {
+        //major group == gymnosperm then display cone
+        self.flowerColorImgView.image=[UIImage imageNamed:@"cone"];
+        [self.classificationLbl setText:plant.classification];
+    }
+    else
+    {
+        ////major group == NA (not avaialble)
+        //There are 23 records in "SpeciesFamily" with classification "NA"
+        //We dont have image for "NA"
+        //so, i m setting it nil
+        self.flowerColorImgView.image=nil;
+        
+        [self.classificationLbl setText:plant.classification];
+    }
     
     
     

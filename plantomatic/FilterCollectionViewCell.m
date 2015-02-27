@@ -26,7 +26,6 @@
 {
     self.titleString=title;
     self.isSelected=isSelected;
-    //@{@"title":@"Aquatic", @"selectedImage":@"", @"unselectedImage":@"", @"isSelected":@NO}
     
     self.filterLbl.text=title;
     NSString* imageName=[NSString stringWithFormat:@"%@.png",self.titleString];
@@ -36,10 +35,14 @@
     if (isSelected)
     {
         [self.filterImageView setImage:[UIImage imageNamed:selectedImageName]];
+        //Make the font bold when selected
+        self.filterLbl.font=[UIFont boldSystemFontOfSize:12];
     }
     else
     {
         [self.filterImageView setImage:[UIImage imageNamed:imageName]];
+        //Make the font normal when unselected
+        self.filterLbl.font=[UIFont systemFontOfSize:12];
     }
     
 }

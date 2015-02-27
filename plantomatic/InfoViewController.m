@@ -57,7 +57,14 @@
     textAttachment.image = [UIImage imageNamed:@"ocotea_logo.png"];
     NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
     
-    [attributedString appendAttributedString:attrStringWithImage];
+    NSMutableAttributedString *attrStringWithImageMutable =[attrStringWithImage mutableCopy];
+    //add alignment to make logo image centered in screen
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    [attrStringWithImageMutable addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attrStringWithImageMutable.length)];
+
+    
+    [attributedString appendAttributedString:attrStringWithImageMutable];
     self.infoTxtView.attributedText=attributedString;
 }
 

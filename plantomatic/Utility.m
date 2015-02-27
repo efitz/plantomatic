@@ -116,4 +116,232 @@
     
 }
 
+
++(void) initializeUserDefaults
+{
+    NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
+                                       valueForKey:@"isCommonNameAvailable"];
+    
+    if (isCommonNameAvaialble==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isCommonNameAvailable"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
+    NSNumber *isImageAvailable = [[NSUserDefaults standardUserDefaults]
+                                  valueForKey:@"isImageAvailable"];
+    
+    if (isImageAvailable==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isImageAvailable"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    NSNumber *isSortOrderAscending = [[NSUserDefaults standardUserDefaults]
+                                      valueForKey:@"sortOrder"];
+    
+    if (isSortOrderAscending==nil)
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"sortOrder"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
+    
+    NSMutableDictionary *flowerColorsDictionary = [[NSUserDefaults standardUserDefaults]
+                                                   valueForKey:@"flowerColorsDictionary"];
+    
+    if (flowerColorsDictionary==nil)
+    {
+        flowerColorsDictionary=[@{@"Red":@{@"isSelected":@NO},
+                                  @"Pink":@{@"isSelected":@NO},
+                                  @"Violet":@{@"isSelected":@NO},
+                                  @"Purple": @{@"isSelected":@NO},
+                                  @"Blue":@{@"isSelected":@NO},
+                                  @"Green": @{ @"isSelected":@NO},
+                                  @"Yellow":@{@"isSelected":@NO},
+                                  @"Orange":@{@"isSelected":@NO},
+                                  @"Brown":@{@"isSelected":@NO},
+                                  @"Gray":@{@"isSelected":@NO},
+                                  @"Black":@{@"isSelected":@NO},
+                                  @"White":@{@"isSelected":@NO},
+                                  @"Unknown-Flower":@{@"isSelected":@NO}
+                                  } mutableCopy];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:flowerColorsDictionary forKey:@"flowerColorsDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    NSMutableDictionary *growthFormDictionary = [[NSUserDefaults standardUserDefaults]
+                                                 valueForKey:@"growthFormDictionary"];
+    
+    if (growthFormDictionary==nil)
+    {
+        growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@NO},
+                                @"Bryophyte":@{@"isSelected":@NO},
+                                @"Epiphyte":@{@"isSelected":@NO},
+                                @"Fern": @{@"isSelected":@NO},
+                                @"Grass":@{@"isSelected":@NO},
+                                @"Herb": @{ @"isSelected":@NO},
+                                @"Parasite":@{@"isSelected":@NO},
+                                @"Shrub":@{@"isSelected":@NO},
+                                @"Tree":@{@"isSelected":@NO},
+                                @"Vine":@{@"isSelected":@NO},
+                                @"Unknown":@{@"isSelected":@NO}} mutableCopy];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:growthFormDictionary forKey:@"growthFormDictionary"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
+    NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+    
+    if (familiesSelected==nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
+    
+    if (sortColumns==nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
++(void) resetUserDefaults
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isCommonNameAvailable"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"isImageAvailable"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"sortOrder"];
+    
+    NSMutableDictionary *flowerColorsDictionary=[@{@"Red":@{@"isSelected":@NO},
+                                                   @"Pink":@{@"isSelected":@NO},
+                                                   @"Violet":@{@"isSelected":@NO},
+                                                   @"Purple": @{@"isSelected":@NO},
+                                                   @"Blue":@{@"isSelected":@NO},
+                                                   @"Green": @{ @"isSelected":@NO},
+                                                   @"Yellow":@{@"isSelected":@NO},
+                                                   @"Orange":@{@"isSelected":@NO},
+                                                   @"Brown":@{@"isSelected":@NO},
+                                                   @"Gray":@{@"isSelected":@NO},
+                                                   @"Black":@{@"isSelected":@NO},
+                                                   @"White":@{@"isSelected":@NO},
+                                                   @"Unknown-Flower":@{@"isSelected":@NO}
+                                                   } mutableCopy];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:flowerColorsDictionary forKey:@"flowerColorsDictionary"];
+    
+    NSMutableDictionary *growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@NO},
+                                                 @"Bryophyte":@{@"isSelected":@NO},
+                                                 @"Epiphyte":@{@"isSelected":@NO},
+                                                 @"Fern": @{@"isSelected":@NO},
+                                                 @"Grass":@{@"isSelected":@NO},
+                                                 @"Herb": @{ @"isSelected":@NO},
+                                                 @"Parasite":@{@"isSelected":@NO},
+                                                 @"Shrub":@{@"isSelected":@NO},
+                                                 @"Tree":@{@"isSelected":@NO},
+                                                 @"Vine":@{@"isSelected":@NO},
+                                                 @"Unknown":@{@"isSelected":@NO}} mutableCopy];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:growthFormDictionary forKey:@"growthFormDictionary"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
+
+    [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
++(BOOL)isAppUsingDefaultSettings
+{
+    BOOL isUsingDefaultValues=YES;
+    
+    BOOL isNeedToCheckFurther=YES;
+    
+    //default is NO
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"isCommonNameAvailable"] boolValue])
+    {
+        isNeedToCheckFurther=NO;
+        isUsingDefaultValues=NO;
+    }
+    
+    //default is NO
+    if (isNeedToCheckFurther && [[[NSUserDefaults standardUserDefaults] valueForKey:@"isImageAvailable"] boolValue])
+    {
+        isNeedToCheckFurther=NO;
+        isUsingDefaultValues=NO;
+    }
+    
+    //default is YES
+    if (isNeedToCheckFurther && [[[NSUserDefaults standardUserDefaults] valueForKey:@"sortOrder"] boolValue]==NO)
+    {
+        isNeedToCheckFurther=NO;
+        isUsingDefaultValues=NO;
+    }
+    
+    
+    
+    if (isNeedToCheckFurther)
+    {
+        NSMutableDictionary *flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] valueForKey:@"flowerColorsDictionary"];
+        NSArray* keysArray=[flowerColorsDictionary allKeys];
+        
+        for (NSString* key in keysArray)
+        {
+            NSMutableDictionary* dictionary=[[flowerColorsDictionary valueForKey:key] mutableCopy];
+            
+            if ([[dictionary valueForKey:@"isSelected"] boolValue])
+            {
+                isNeedToCheckFurther=NO;
+                isUsingDefaultValues=NO;
+                break;
+            }
+        }
+    }
+    
+    
+    if (isNeedToCheckFurther)
+    {
+        NSMutableDictionary *growthFormDictionary=[[NSUserDefaults standardUserDefaults] valueForKey:@"growthFormDictionary"];
+        NSArray* keysArray=[growthFormDictionary allKeys];
+        
+        for (NSString* key in keysArray)
+        {
+            NSMutableDictionary* dictionary=[[growthFormDictionary valueForKey:key] mutableCopy];
+            
+            if ([[dictionary valueForKey:@"isSelected"] boolValue])
+            {
+                isNeedToCheckFurther=NO;
+                isUsingDefaultValues=NO;
+                break;
+            }
+        }
+    }
+
+    if (isNeedToCheckFurther && [[[NSUserDefaults standardUserDefaults] valueForKey:@"familiesSelected"] count]>0)
+    {
+        isNeedToCheckFurther=NO;
+        isUsingDefaultValues=NO;
+    }
+    
+    if (isNeedToCheckFurther && [[[NSUserDefaults standardUserDefaults] valueForKey:@"sortColumns"] count]>0)
+    {
+        isNeedToCheckFurther=NO;
+        isUsingDefaultValues=NO;
+    }
+    
+    
+    return isUsingDefaultValues;
+}
+
+
+
 @end
