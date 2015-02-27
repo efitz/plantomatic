@@ -9,7 +9,7 @@
 #import "FilterCollectionViewTableViewCell.h"
 #import "FilterCollectionViewCell.h"
 #import "Constants.h"
-
+#import "Utility.h"
 
 @interface FilterCollectionViewTableViewCell()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -20,6 +20,7 @@
 @property (nonatomic, readwrite) BOOL isForGrowthForm;
 
 @property (nonatomic, strong) IBOutlet UILabel* titleLbl;
+@property (strong, nonatomic) IBOutlet UIButton *selectDeselectBtn;
 
 - (IBAction)selectAllAction:(id)sender;
 @end
@@ -45,6 +46,17 @@
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;
     
+    if ([Utility isAllGrowthFormsSelected]) {
+        //Deselect All
+        [self.selectDeselectBtn setTitle:@"Deselect All" forState:UIControlStateNormal];
+    }
+    else
+    {
+        //select All
+        [self.selectDeselectBtn setTitle:@"Select All" forState:UIControlStateNormal];
+    }
+    
+    
     [self.collectionView reloadData];
 }
 
@@ -57,6 +69,18 @@
     
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;
+    
+    if ([Utility isAllFlowersSelected]) {
+        //Deselect All
+        [self.selectDeselectBtn setTitle:@"Deselect All" forState:UIControlStateNormal];
+    }
+    else
+    {
+        //select All
+        [self.selectDeselectBtn setTitle:@"Select All" forState:UIControlStateNormal];
+    }
+
+    
     
     [self.collectionView reloadData];
 }
@@ -154,12 +178,30 @@
 
 - (IBAction)selectAllAction:(id)sender
 {
+    
+    BOOL valueToSet=YES;
+    
+    if (self.isForGrowthForm)
+    {
+        if ([Utility isAllGrowthFormsSelected])
+        {
+            valueToSet=NO;
+        }
+    }
+    else
+    {
+        if ([Utility isAllFlowersSelected])
+        {
+            valueToSet=NO;
+        }
+    }
+    
     NSArray* keysArray=[self.filterValuesDictionary allKeys];
 
     for (NSString* key in keysArray)
     {
         NSMutableDictionary* dictionary=[[self.filterValuesDictionary valueForKey:key] mutableCopy];
-        [dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"isSelected"];
+        [dictionary setValue:[NSNumber numberWithBool:valueToSet] forKey:@"isSelected"];
         [self.filterValuesDictionary setValue:dictionary forKey:key];
     }
 

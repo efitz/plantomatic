@@ -30,4 +30,10 @@
 
 +(BOOL)isAppUsingDefaultSettings;
 
++(BOOL)isAllGrowthFormsSelected;
+
++(BOOL)isAllFlowersSelected;
+
++ (void) logFontNames;
+
 @end

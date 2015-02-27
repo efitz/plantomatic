@@ -92,6 +92,13 @@
     
     BOOL returnValue=YES;
     
+    
+    NSLog(@"%@",[CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse?@"Authorized":@"Not Authorized");
+    NSLog(@"%@",[CLLocationManager locationServicesEnabled]==YES?@"Location service Enabled":@"Location service Disabled");
+    
+    
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     if ([identifier isEqualToString:@"showDetail"]) {
         NSLog(@"Segue Blocked");
         //Put your validation code here and return YES or NO as needed
@@ -100,7 +107,6 @@
         if([CLLocationManager locationServicesEnabled]==NO ||
            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
         {
-            AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate getLocationUpdates];
             returnValue=NO;
             
@@ -124,6 +130,13 @@
 //            [[NSUserDefaults standardUserDefaults] synchronize];
 
         }
+        else if([CLLocationManager locationServicesEnabled]==YES && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
+        {
+            //The condition for ios8 to work with location manager            
+            //kCLAuthorizationStatusAuthorizedWhenInUse
+            [appDelegate getLocationUpdates];
+        }
+        
         else
         {
 //            [[NSUserDefaults standardUserDefaults]
