@@ -344,4 +344,69 @@
 
 
 
++(BOOL)isAllGrowthFormsSelected
+{
+    BOOL isAllSelected=YES;
+    
+    NSMutableDictionary *growthFormDictionary=[[NSUserDefaults standardUserDefaults] valueForKey:@"growthFormDictionary"];
+    NSArray* keysArray=[growthFormDictionary allKeys];
+    
+    for (NSString* key in keysArray)
+    {
+        NSMutableDictionary* dictionary=[[growthFormDictionary valueForKey:key] mutableCopy];
+        
+        if ([[dictionary valueForKey:@"isSelected"] boolValue]==NO)
+        {
+            isAllSelected=NO;
+            break;
+        }
+    }
+
+    
+    return isAllSelected;
+}
+
+
++(BOOL)isAllFlowersSelected
+{
+    BOOL isAllSelected=YES;
+    
+    
+    NSMutableDictionary *flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] valueForKey:@"flowerColorsDictionary"];
+    NSArray* keysArray=[flowerColorsDictionary allKeys];
+    
+    for (NSString* key in keysArray)
+    {
+        NSMutableDictionary* dictionary=[[flowerColorsDictionary valueForKey:key] mutableCopy];
+        
+        if ([[dictionary valueForKey:@"isSelected"] boolValue]==NO)
+        {
+            isAllSelected=NO;
+            break;
+        }
+    }
+
+    
+    return isAllSelected;
+}
+
+
++ (void) logFontNames
+{
+    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
+    NSArray *fontNames;
+    NSInteger indFamily, indFont;
+    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
+    {
+        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
+        fontNames = [[NSArray alloc] initWithArray:
+                     [UIFont fontNamesForFamilyName:
+                      [familyNames objectAtIndex:indFamily]]];
+        for (indFont=0; indFont<[fontNames count]; ++indFont)
+        {
+            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
+        }
+    }
+}
+
 @end

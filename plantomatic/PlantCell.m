@@ -148,9 +148,76 @@
     
     
     //second column
-    [self.commonNameLbl setText:plant.commonName];
-    [self.genusSpeciesLbl setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
-    [self.familyLbl setText:[NSString stringWithFormat:@"%@ ",plant.family]];
+    
+    //ChunkFive 18
+    //system italic 18
+    //system bold 14
+    
+    UIFont *chunkFiveFont=[UIFont fontWithName:@"ChunkFive" size:18];
+    UIFont *italicSystemFont=[UIFont italicSystemFontOfSize:18];
+    UIFont *boldSystemFont=[UIFont boldSystemFontOfSize:14];
+    UIColor *fontColor=[UIColor blackColor];
+    
+    
+    NSString* commonName=plant.commonName;
+    NSString* genusSpecies=[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species];
+    NSString* family=plant.family;
+    
+    NSInteger commonNameLength=[commonName length];
+    NSInteger genusSpeciesLength=[genusSpecies length];
+    NSInteger familyLength=[family length];
+    
+    
+    //ChunkFive 18
+    NSMutableAttributedString *attString=[[NSMutableAttributedString alloc] initWithString:commonName];
+    [attString addAttribute:NSFontAttributeName value:chunkFiveFont range:NSMakeRange(0, commonNameLength)];
+    [attString addAttribute:NSForegroundColorAttributeName value:fontColor range:NSMakeRange(0, commonNameLength)];
+    
+    //system italic 18
+    NSMutableAttributedString *genusSpeciesAttributtedString=[[NSMutableAttributedString alloc] initWithString:genusSpecies];
+    [genusSpeciesAttributtedString addAttribute:NSFontAttributeName value:italicSystemFont range:NSMakeRange(0, genusSpeciesLength)];
+    [genusSpeciesAttributtedString addAttribute:NSForegroundColorAttributeName value:fontColor range:NSMakeRange(0, genusSpeciesLength)];
+
+
+    //system bold 14
+    NSMutableAttributedString *familyattributedString=[[NSMutableAttributedString alloc] initWithString:family];
+    [familyattributedString addAttribute:NSFontAttributeName value:boldSystemFont range:NSMakeRange(0, familyLength)];
+    [familyattributedString addAttribute:NSForegroundColorAttributeName value:fontColor range:NSMakeRange(0, familyLength)];
+    
+    NSMutableAttributedString *simpleCr = [[NSMutableAttributedString alloc] initWithString: @"\n"];
+
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setLineHeightMultiple:0.5];
+
+    
+    NSMutableAttributedString *cr = [[NSMutableAttributedString alloc] initWithString: @"\n"];
+    [cr addAttribute:NSParagraphStyleAttributeName
+                                          value:style
+                                          range:NSMakeRange(0, @"\n".length)];
+    
+    [attString appendAttributedString:simpleCr];
+    [attString appendAttributedString:cr];
+    [attString appendAttributedString:genusSpeciesAttributtedString];
+    [attString appendAttributedString:simpleCr];
+    [attString appendAttributedString:cr];
+    [attString appendAttributedString:familyattributedString];
+
+
+    
+//    NSInteger strLength = [attString length];
+//    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+//    [style setLineHeightMultiple:0.92];
+//    [attString addAttribute:NSParagraphStyleAttributeName
+//                      value:style
+//                      range:NSMakeRange(0, strLength)];
+    
+    self.commonNameLbl.attributedText=attString;
+    
+    
+    
+//    [self.commonNameLbl setText:plant.commonName];
+//    [self.genusSpeciesLbl setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
+//    [self.familyLbl setText:[NSString stringWithFormat:@"%@ ",plant.family]];
    
     
     //third column

@@ -320,7 +320,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RJ-zY-d2E">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="tEJ-Dw-y3L"/>
+                                                <constraint firstAttribute="width" constant="100" id="tEJ-Dw-y3L"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Select All">
@@ -381,6 +381,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="collectionView" destination="CNz-9i-KSu" id="Q0E-P9-qZI"/>
+                                    <outlet property="selectDeselectBtn" destination="0RJ-zY-d2E" id="hDO-nB-cmZ"/>
                                     <outlet property="titleLbl" destination="DC4-Wt-CT9" id="FfB-j4-mw2"/>
                                 </connections>
                             </tableViewCell>
@@ -700,6 +701,9 @@
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="0.0" y="109" width="96" height="19"/>
+                                                                    </variation>
                                                                 </label>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-Bk-tAH" userLabel="Habit Label">
                                                                     <rect key="frame" x="0.0" y="88" width="96" height="21"/>
@@ -714,6 +718,9 @@
                                                                             <exclude reference="7KW-Pk-V9p"/>
                                                                         </mask>
                                                                     </variation>
+                                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="0.0" y="89" width="96" height="19"/>
+                                                                    </variation>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bzh-IA-b4O" userLabel="Growth Image View">
                                                                     <rect key="frame" x="8" y="8" width="80" height="80"/>
@@ -721,6 +728,9 @@
                                                                         <constraint firstAttribute="height" constant="80" id="lZO-r5-XzF"/>
                                                                         <constraint firstAttribute="width" constant="80" id="rwj-LQ-eDX"/>
                                                                     </constraints>
+                                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="8" y="9" width="80" height="80"/>
+                                                                    </variation>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKG-vM-FYo" userLabel="ColorView">
                                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -791,15 +801,16 @@
                                                                 </mask>
                                                                 <mask key="constraints">
                                                                     <exclude reference="EQz-9L-Mnj"/>
-                                                                    <exclude reference="NhK-52-1ey"/>
-                                                                    <exclude reference="efW-Pi-cML"/>
                                                                     <exclude reference="CgK-Fe-wcD"/>
                                                                     <exclude reference="Tcw-9a-SMJ"/>
                                                                     <exclude reference="9wc-fg-bX5"/>
                                                                     <exclude reference="bYD-df-RUf"/>
+                                                                    <exclude reference="NhK-52-1ey"/>
+                                                                    <exclude reference="efW-Pi-cML"/>
                                                                 </mask>
                                                             </variation>
-                                                            <variation key="heightClass=regular-widthClass=compact">
+                                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="10" y="1" width="96" height="128"/>
                                                                 <mask key="subviews">
                                                                     <include reference="KKG-vM-FYo"/>
                                                                 </mask>
@@ -812,7 +823,7 @@
                                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9N-qK-Flr" userLabel="SecondColumnView">
                                                             <rect key="frame" x="96" y="0.0" width="474" height="130"/>
                                                             <subviews>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lG-AS-KtJ" userLabel="Common Name Label">
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lG-AS-KtJ" userLabel="Common Name Label">
                                                                     <rect key="frame" x="0.0" y="6" width="474" height="43"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
@@ -821,39 +832,32 @@
                                                                     <fontDescription key="fontDescription" name="ChunkFive" family="ChunkFive" pointSize="18"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyL-3N-8e1" userLabel="Genus Species Label">
-                                                                    <rect key="frame" x="0.0" y="54" width="474" height="43"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="43" id="N5N-fb-jDk"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1w-FN-wjI" userLabel="Family Label">
-                                                                    <rect key="frame" x="0.0" y="101" width="474" height="21"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                    <nil key="highlightedColor"/>
+                                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="0.0" y="7" width="264" height="113"/>
+                                                                        <mask key="constraints">
+                                                                            <exclude reference="140-Je-Zq9"/>
+                                                                        </mask>
+                                                                    </variation>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstItem="NyL-3N-8e1" firstAttribute="leading" secondItem="h9N-qK-Flr" secondAttribute="leading" id="4E8-be-d3z"/>
-                                                                <constraint firstItem="Y1w-FN-wjI" firstAttribute="top" secondItem="NyL-3N-8e1" secondAttribute="bottom" constant="4" id="Dab-it-TMf"/>
-                                                                <constraint firstItem="NyL-3N-8e1" firstAttribute="top" secondItem="2lG-AS-KtJ" secondAttribute="bottom" constant="5" id="J5C-Xw-Jw3"/>
-                                                                <constraint firstItem="Y1w-FN-wjI" firstAttribute="leading" secondItem="h9N-qK-Flr" secondAttribute="leading" id="KXQ-sV-IMi"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Y1w-FN-wjI" secondAttribute="trailing" id="Nte-uz-HZT"/>
-                                                                <constraint firstAttribute="trailing" secondItem="NyL-3N-8e1" secondAttribute="trailing" id="c76-tD-lnS"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Y1w-FN-wjI" secondAttribute="bottom" constant="8" id="cK7-N1-Tmj"/>
-                                                                <constraint firstItem="Y1w-FN-wjI" firstAttribute="top" secondItem="NyL-3N-8e1" secondAttribute="bottom" constant="4" id="gE0-4e-Y0L"/>
                                                                 <constraint firstItem="2lG-AS-KtJ" firstAttribute="top" secondItem="h9N-qK-Flr" secondAttribute="top" constant="6" id="hry-vO-bxG"/>
                                                                 <constraint firstItem="2lG-AS-KtJ" firstAttribute="leading" secondItem="h9N-qK-Flr" secondAttribute="leading" id="nV2-wq-bnM"/>
                                                                 <constraint firstAttribute="trailing" secondItem="2lG-AS-KtJ" secondAttribute="trailing" id="uIy-Ea-1OF"/>
-                                                                <constraint firstItem="NyL-3N-8e1" firstAttribute="top" secondItem="2lG-AS-KtJ" secondAttribute="bottom" constant="5" id="zcy-rx-Y3H"/>
+                                                                <constraint firstAttribute="bottom" secondItem="2lG-AS-KtJ" secondAttribute="bottom" constant="8" id="wiW-uh-DkB"/>
                                                             </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="wiW-uh-DkB"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="106" y="1" width="264" height="128"/>
+                                                                <mask key="constraints">
+                                                                    <include reference="wiW-uh-DkB"/>
+                                                                </mask>
+                                                            </variation>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfo-QW-VD2" userLabel="ThirdColumnView">
                                                             <rect key="frame" x="570" y="0.0" width="30" height="130"/>
@@ -866,6 +870,9 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="BRv-rv-QYh"/>
                                                             </constraints>
+                                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="370" y="1" width="30" height="130"/>
+                                                            </variation>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
@@ -893,9 +900,7 @@
                                                     <outlet property="classificationLbl" destination="aqH-a3-xl7" id="CEg-jc-7bW"/>
                                                     <outlet property="colorView" destination="KKG-vM-FYo" id="D3H-wU-gMX"/>
                                                     <outlet property="commonNameLbl" destination="2lG-AS-KtJ" id="M8O-5p-DEK"/>
-                                                    <outlet property="familyLbl" destination="Y1w-FN-wjI" id="BLU-VE-lmh"/>
                                                     <outlet property="flowerColorImgView" destination="T0f-Gy-RSw" id="UYA-X8-tWn"/>
-                                                    <outlet property="genusSpeciesLbl" destination="NyL-3N-8e1" id="19p-N2-uvq"/>
                                                     <outlet property="growthFormImgView" destination="Bzh-IA-b4O" id="zdc-8L-Opx"/>
                                                     <outlet property="habitLbl" destination="zqf-Bk-tAH" id="D7p-6u-L3a"/>
                                                     <outlet property="imgView" destination="huj-kw-Wy9" id="TnK-0X-2wk"/>
@@ -1053,7 +1058,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="371" y="-48"/>
+            <point key="canvasLocation" x="370.5" y="-49.5"/>
         </scene>
         <!--Info-->
         <scene sceneID="lb4-CK-HW3">
@@ -1081,7 +1086,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="About:">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-BoldItalic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1089,7 +1094,7 @@
                                     </fragment>
                                     <fragment content=" ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                            <font key="NSFont" size="12" name="Cambria-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1097,7 +1102,7 @@
                                     </fragment>
                                     <fragment content="The BIEN ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1105,7 +1110,7 @@
                                     </fragment>
                                     <fragment content="Plant-O-Matic ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-Oblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-Italic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1113,7 +1118,7 @@
                                     </fragment>
                                     <fragment content="application generates a list of species in the user’s location at 100 km">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1121,17 +1126,33 @@
                                     </fragment>
                                     <fragment content="2 ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <integer key="NSSuperScript" value="1"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">resolution for any location in North and South America based on 3,585,449 standardized plant observations and geographic range models. The BIEN data represents a comprehensive effort to merge data from the world’s herbaria and ecological studies.  Some geographic areas are better represented than others. While efforts were made to remove them, known issues include presence of cultivated species and over-prediction of some species geographic ranges. The application is intended as a general reference to discover the botanical diversity that likely exists around you; all data is provided “as is,” BIEN, Ocotea Technologies and their affiliates take no responsibility for the accuracy of the output. Additional details regarding the data, analysis, and other botanical tools can be found at </string>
+                                    <fragment content="resolution for any location in North and South America based on ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="3,585,449 standardized ">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="TimesNewRomanPSMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">plant observations and geographic range models. The BIEN data represents a comprehensive effort to merge data from the world’s herbaria and ecological studies.  Some geographic areas are better represented than others. While efforts were made to remove them, known issues include presence of cultivated species and overprediction of some species geographic ranges. The application is intended as a general reference to discover the botanical diversity that likely exists around you; all data is provided “as is,” BIEN, Ocotea Technologies and their affiliates take no responsibility for the accuracy of the output. Additional details regarding the data, analysis, and other botanical tools can be found at </string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1140,7 +1161,7 @@
                                     <fragment content="http://bien.nceas.ucsb.edu/bien/">
                                         <attributes>
                                             <color key="NSColor" red="0.066666666666666666" green="0.33333333333333331" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <url key="NSLink" string="http://bien.nceas.ucsb.edu/bien/%22%20%5Ct%20%22_blank"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
@@ -1150,20 +1171,10 @@
                                     </fragment>
                                     <fragment>
                                         <string key="content">.
+
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="Cambria"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1171,7 +1182,7 @@ Cg
                                     </fragment>
                                     <fragment content="Why Is This App Free?:">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-BoldItalic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1179,7 +1190,7 @@ Cg
                                     </fragment>
                                     <fragment content=" All of the herbarium specimens and botanical work that underlies ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1187,7 +1198,7 @@ Cg
                                     </fragment>
                                     <fragment content="Plant-O-Matic">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-Oblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-Italic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1195,20 +1206,10 @@ Cg
                                     </fragment>
                                     <fragment>
                                         <string key="content"> has largely been supported by you! Public taxes have supported research across numerous countries that collectively gives us a detailed geographic understanding of plant diversity. So, in short, these are public data. 
+
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="Cambria"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1216,7 +1217,7 @@ Cg
                                     </fragment>
                                     <fragment content="Caveats &amp; Feedback">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-BoldItalic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1225,7 +1226,7 @@ Cg
                                     <fragment>
                                         <string key="content">: Keen botanical observers will likely spot cultivated and non-native plants, as well as species that may be missing in various </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1233,7 +1234,7 @@ Cg
                                     </fragment>
                                     <fragment content="Plant-O-Matic">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-Oblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-Italic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1241,7 +1242,7 @@ Cg
                                     </fragment>
                                     <fragment content=" downloads. This is a reality of botanical data. We are actively working to improve ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1249,18 +1250,36 @@ Cg
                                     </fragment>
                                     <fragment content="Plant-O-Matic">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-Oblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="’s ability to accurately predict what may ">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">’s ability to accurately predict what may be found around you. In the meantime, we welcome any feedback and thoughts for future refinements by emailing info@ocoteatech.com.
-
+                                        <string key="content">be found around you. In the meantime, we welcome any feedback and thoughts for future refinements by emailing info@ocoteatech.com.
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="TimesNewRomanPSMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1268,7 +1287,7 @@ Cg
                                     </fragment>
                                     <fragment content="Credits:">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-BoldItalic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1276,7 +1295,7 @@ Cg
                                     </fragment>
                                     <fragment content=" ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1284,16 +1303,16 @@ Cg
                                     </fragment>
                                     <fragment content="Plant-O-Matic">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-Oblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-Italic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> is powered by the Botanical Information and Ecology Network (BIEN) working group, led by B.J. Enquist, B. Boyle, R. Condit, R.K. Peet, M. Schildhauer and B. Thiers.  Important contributions to the foundation of </string>
+                                        <string key="content"> is powered by the Botanical Information and Ecology Network (BIEN) working group, led by B.J. Enquist, B. Boyle, R. Condit, R.K. Peet, M. Schildhauer and B. Thiers. Program development was led by G. Goldsmith, E. Fitz, and S. Fitz at Ocotea Technologies. Important contributions to the foundation of </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1301,7 +1320,7 @@ Cg
                                     </fragment>
                                     <fragment content="Plant-o-Matic ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica-Oblique"/>
+                                            <font key="NSFont" size="12" name="Cambria-Italic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1309,7 +1328,7 @@ Cg
                                     </fragment>
                                     <fragment content="were provided by J Regetz, J. Donoghue, B. Sandel and N. Casler. A full list of BIEN scientists can be found at: ">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1318,7 +1337,7 @@ Cg
                                     <fragment content="http://bien.nceas.ucsb.edu/bien/">
                                         <attributes>
                                             <color key="NSColor" red="0.066666666666666666" green="0.33333333333333331" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <url key="NSLink" string="http://bien.nceas.ucsb.edu/bien/%22%20%5Ct%20%22_blank"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
@@ -1330,7 +1349,7 @@ Cg
                                         <string key="content">people.
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1341,7 +1360,7 @@ Cg
 Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1351,26 +1370,28 @@ Cg
                                     <fragment>
                                         <string key="content">The work is supported by the National Center for Ecological Analysis and Synthesis, a center funded by the National Science Foundation, the University of California, Santa Barbara, and the State of California. BIEN is also supported by The iPlant Collaborative with funding from the National Science Foundation. Funding  from the Aspen Center for Environmental Studies and the University of Arizona College of Science supported technical development. We thank all those who have contributed to data and analysis to the project, including New York Botanical Garden, Missouri Botanical Garden, Utrecht Herbarium, the UNC Herbarium, GBIF, REMIB, SpeciesLink and the Texas Advanced Computing Center at the University of Texas.  A full list of data contributors to BIEN can be found at: </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="http://bien.nceas.ucsb.edu/bien/">
+                                    <fragment content="http://bien.nceas.ucsb.edu/bien/people/data-contributors">
                                         <attributes>
-                                            <color key="NSColor" red="0.066666666666666666" green="0.33333333333333331" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
-                                            <url key="NSLink" string="http://bien.nceas.ucsb.edu/bien/%22%20%5Ct%20%22_blank"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
+                                            <url key="NSLink" string="http://bien.nceas.ucsb.edu/bien/people/data-contributors"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="people/data-contributors">
+                                    <fragment>
+                                        <string key="content">.
+</string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <font key="NSFont" size="12" name="Cambria"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1400,12 +1421,20 @@ IAo
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                             <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content"> v1.0
-
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
 </string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
