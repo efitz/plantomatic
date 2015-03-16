@@ -84,6 +84,7 @@
                                                boldItalic:cambriaBoldItalic
                                               regularFont:cambriaRegular];
     
+
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -110,6 +111,8 @@
 
     
     self.latLongYXLbl.text=[NSString stringWithFormat:@"Lat=%.6f, Lon=%.6f\rGrid: Y=%.0f, X=%.0f",currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, Y, X];
+
+    [self.infoTxtView scrollRangeToVisible:NSMakeRange(0, 0)];
 }
 
 -(NSMutableAttributedString*) ApplyCustomFont:(NSAttributedString*)attributedText

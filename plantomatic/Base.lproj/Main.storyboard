@@ -1422,7 +1422,7 @@ Cg
                             <constraint firstItem="yFA-uI-bcT" firstAttribute="centerX" secondItem="emE-Rz-4xB" secondAttribute="centerX" id="6lv-2w-PTM"/>
                             <constraint firstItem="emE-Rz-4xB" firstAttribute="top" secondItem="yFA-uI-bcT" secondAttribute="bottom" constant="8" symbolic="YES" id="Acs-PA-J4G"/>
                             <constraint firstItem="yFA-uI-bcT" firstAttribute="leading" secondItem="C7j-Rs-vqd" secondAttribute="leadingMargin" constant="-2" id="G88-Xh-ETr"/>
-                            <constraint firstItem="yFA-uI-bcT" firstAttribute="top" secondItem="C7j-Rs-vqd" secondAttribute="top" id="PrG-L3-g8L"/>
+                            <constraint firstItem="yFA-uI-bcT" firstAttribute="top" secondItem="C7j-Rs-vqd" secondAttribute="top" constant="5" id="PrG-L3-g8L"/>
                             <constraint firstItem="emE-Rz-4xB" firstAttribute="centerX" secondItem="C7j-Rs-vqd" secondAttribute="centerX" id="SW1-TH-sOG"/>
                             <constraint firstItem="emE-Rz-4xB" firstAttribute="leading" secondItem="C7j-Rs-vqd" secondAttribute="leadingMargin" constant="4" id="Ss1-dS-ffn"/>
                             <constraint firstItem="RK9-yP-2IO" firstAttribute="top" secondItem="emE-Rz-4xB" secondAttribute="bottom" constant="8" symbolic="YES" id="Uef-u1-0fS"/>
