@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4107624B1AB6C03400620456 /* cambria_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4107624A1AB6C03400620456 /* cambria_regular.ttf */; };
+		4107624D1AB6C0CA00620456 /* Cambria_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4107624C1AB6C0CA00620456 /* Cambria_Bold.ttf */; };
+		4107624F1AB6C0F700620456 /* Cambria_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4107624E1AB6C0F700620456 /* Cambria_Italic.ttf */; };
+		410762511AB6C13400620456 /* Cambria_Bold_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 410762501AB6C13400620456 /* Cambria_Bold_Italic.ttf */; };
 		4111D9811A88ED51009AAB20 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4111D9801A88ED51009AAB20 /* FilterTableViewController.m */; };
 		416398D61A9B111F00F92BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416398D51A9B111F00F92BF1 /* LaunchScreen.storyboard */; };
 		416398D81A9B32C200F92BF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398D71A9B32C200F92BF1 /* Default-568h@2x.png */; };
@@ -184,6 +188,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4107624A1AB6C03400620456 /* cambria_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cambria_regular.ttf; sourceTree = "<group>"; };
+		4107624C1AB6C0CA00620456 /* Cambria_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cambria_Bold.ttf; sourceTree = "<group>"; };
+		4107624E1AB6C0F700620456 /* Cambria_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cambria_Italic.ttf; sourceTree = "<group>"; };
+		410762501AB6C13400620456 /* Cambria_Bold_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cambria_Bold_Italic.ttf; sourceTree = "<group>"; };
 		4111D97F1A88ED51009AAB20 /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewController.h; sourceTree = "<group>"; };
 		4111D9801A88ED51009AAB20 /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		4147B71C18BD062F00B111B9 /* Proj4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Proj4.xcodeproj; path = Proj4/Proj4.xcodeproj; sourceTree = "<group>"; };
@@ -682,6 +690,10 @@
 		41E36A931A95054D007BEE03 /* font */ = {
 			isa = PBXGroup;
 			children = (
+				4107624A1AB6C03400620456 /* cambria_regular.ttf */,
+				4107624C1AB6C0CA00620456 /* Cambria_Bold.ttf */,
+				4107624E1AB6C0F700620456 /* Cambria_Italic.ttf */,
+				410762501AB6C13400620456 /* Cambria_Bold_Italic.ttf */,
 				41E36A911A94FB68007BEE03 /* Chunkfive.ttf */,
 			);
 			name = font;
@@ -943,6 +955,7 @@
 				41E402691A9F2B9C006E443B /* spores@2x.png in Resources */,
 				41B9EE2718BF6CA700F7B9A1 /* up@2x.png in Resources */,
 				41BA4E8718CA242400C34D8F /* Bryophytes_classification@2x.png in Resources */,
+				4107624D1AB6C0CA00620456 /* Cambria_Bold.ttf in Resources */,
 				416399331A9B3E3200F92BF1 /* Vine@2x.png in Resources */,
 				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
 				416399201A9B3E3200F92BF1 /* Orange-selected@2x.png in Resources */,
@@ -980,6 +993,7 @@
 				416399161A9B3E3200F92BF1 /* Fern-selected@2x.png in Resources */,
 				41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */,
 				4163992E1A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png in Resources */,
+				4107624F1AB6C0F700620456 /* Cambria_Italic.ttf in Resources */,
 				4163990E1A9B3E3200F92BF1 /* Blue-selected@2x.png in Resources */,
 				416399341A9B3E3200F92BF1 /* Violet-selected@2x.png in Resources */,
 				41E4026B1A9F2C3F006E443B /* spores.png in Resources */,
@@ -1000,6 +1014,7 @@
 				F7239FD318D623820008253E /* americas-568h@2x.png in Resources */,
 				416399261A9B3E3200F92BF1 /* Purple-selected@2x.png in Resources */,
 				4163993D1A9B3F2F00F92BF1 /* gradient@2x.png in Resources */,
+				4107624B1AB6C03400620456 /* cambria_regular.ttf in Resources */,
 				41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */,
 				41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */,
 				416399191A9B3E3200F92BF1 /* Grass@2x.png in Resources */,
@@ -1016,6 +1031,7 @@
 				416399141A9B3E3200F92BF1 /* Epiphyte-selected@2x.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
 				416399221A9B3E3200F92BF1 /* Parasite-selected@2x.png in Resources */,
+				410762511AB6C13400620456 /* Cambria_Bold_Italic.ttf in Resources */,
 				41B9EE2218BF6A8B00F7B9A1 /* reload.png in Resources */,
 				4163992B1A9B3E3200F92BF1 /* Shrub@2x.png in Resources */,
 				4163991B1A9B3E3200F92BF1 /* Gray@2x.png in Resources */,

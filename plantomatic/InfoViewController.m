@@ -65,7 +65,25 @@
 
     
     [attributedString appendAttributedString:attrStringWithImageMutable];
-    self.infoTxtView.attributedText=attributedString;
+    
+    /*
+     Font name: Cambria
+     Font name: Cambria-Italic
+     Font name: Cambria-Bold
+     Font name: Cambria-BoldItalic
+     */
+    
+    UIFont* cambriaRegular=[UIFont fontWithName:@"Cambria" size:12];
+    UIFont* cambriaItalic=[UIFont fontWithName:@"Cambria-Italic" size:12];
+    UIFont* cambriaBold=[UIFont fontWithName:@"Cambria-Bold" size:12];
+    UIFont* cambriaBoldItalic=[UIFont fontWithName:@"Cambria-BoldItalic" size:12];
+    
+    self.infoTxtView.attributedText=[self ApplyCustomFont:attributedString
+                                                 boldFont:cambriaBold
+                                               italicFont:cambriaItalic
+                                               boldItalic:cambriaBoldItalic
+                                              regularFont:cambriaRegular];
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -92,10 +110,42 @@
 
     
     self.latLongYXLbl.text=[NSString stringWithFormat:@"Lat=%.6f, Lon=%.6f\rGrid: Y=%.0f, X=%.0f",currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, Y, X];
-    
-    
-    
 }
+
+-(NSMutableAttributedString*) ApplyCustomFont:(NSAttributedString*)attributedText
+                                     boldFont:(UIFont*)boldFont
+                                   italicFont:(UIFont*)italicFont
+                                   boldItalic:(UIFont*)boldItalicFont
+                                  regularFont:(UIFont*)regularFont
+{
+    
+    NSMutableAttributedString *attrib = [[NSMutableAttributedString alloc] initWithAttributedString:attributedText];
+    [attrib beginEditing];
+    [attrib enumerateAttribute:NSFontAttributeName inRange:NSMakeRange(0, attrib.length) options:0
+                    usingBlock:^(id value, NSRange range, BOOL *stop)
+     {
+         if (value)
+         {
+             UIFont *oldFont = (UIFont *)value;
+             NSLog(@"%@",oldFont.fontName);
+             
+             [attrib removeAttribute:NSFontAttributeName range:range];
+             
+             if([oldFont.fontName rangeOfString:@"BoldItalic"].location != NSNotFound && boldItalicFont != nil)
+                 [attrib addAttribute:NSFontAttributeName value:boldItalicFont range:range];
+             else if([oldFont.fontName rangeOfString:@"Italic"].location != NSNotFound && italicFont != nil)
+                 [attrib addAttribute:NSFontAttributeName value:italicFont range:range];
+             else if([oldFont.fontName rangeOfString:@"Bold"].location != NSNotFound && boldFont != nil)
+                 [attrib addAttribute:NSFontAttributeName value:boldFont range:range];
+             else if(regularFont != nil)
+                 [attrib addAttribute:NSFontAttributeName value:regularFont range:range];
+         }
+     }];
+    [attrib endEditing];
+    
+    return attrib;
+}
+
 
 
 - (void)didReceiveMemoryWarning

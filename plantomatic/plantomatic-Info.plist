@@ -29,6 +29,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Chunkfive.ttf</string>
+		<string>cambria_regular.ttf</string>
+		<string>Cambria_Bold.ttf</string>
+		<string>Cambria_Italic.ttf</string>
+		<string>Cambria_Bold_Italic.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
