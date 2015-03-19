@@ -58,6 +58,13 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPlantsScreen) name:@"GoAHeadToUseLocationsNotification" object:nil];
     
+    CALayer *doneBtnLayer = [self.getPlantsBtn layer];
+    [doneBtnLayer setMasksToBounds:YES];
+    [doneBtnLayer setCornerRadius:5.0f];
+    doneBtnLayer.borderWidth=2;
+    doneBtnLayer.borderColor=[[UIColor blackColor] CGColor];
+    
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated
