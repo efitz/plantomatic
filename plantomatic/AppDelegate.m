@@ -11,6 +11,9 @@
 #import "PlantsViewController.h"
 #import "InternetDetector.h"
 #import "Utility.h"
+#import "Mixpanel.h"
+#import "Constants.h"
+
 
 @interface AppDelegate()
 @property (nonatomic, strong) UIImageView* splashView;
@@ -25,6 +28,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     // Override point for customization after application launch.
     
 //    self.databaseName = @"PlantoMaticDB.sqlite";

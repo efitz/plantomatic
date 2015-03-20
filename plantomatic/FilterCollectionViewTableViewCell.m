@@ -116,7 +116,7 @@
     NSString* key=[keysArray objectAtIndex:indexPath.row];
     NSMutableDictionary* dictionary=[self.filterValuesDictionary valueForKey:key];
     NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
-    [cell updateCellWithTitle:key isSelected:isSelected.boolValue];
+    [cell updateCellWithTitle:key isSelected:isSelected.boolValue isForGrowthForm:self.isForGrowthForm];
     
     CALayer *layer = [cell layer];
     [layer setCornerRadius:5];

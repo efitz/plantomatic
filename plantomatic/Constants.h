@@ -24,6 +24,10 @@ typedef enum
 }FilterType;
 
 
+#define MIXPANEL_TOKEN @"9d75c96819572a4c6a34fc2b016f8ba6"
+
+
+
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #define REQUEST_TIMEOUT_MSG @"Request timeout, please try again later."
 
@@ -75,7 +79,7 @@ typedef enum
 #define FLOWER_COLORS @[@"Red",@"Pink",@"Violet", @"Purple", @"Blue",@"Green",@"Yellow",@"Orange",@"Brown",@"Gray",@"Black",@"White", @"Unknown-Flower"]
 
 
-#define GROWTH_FORM @[@"Aquatic",@"Bryophyte", @"Epiphyte", @"Fern", @"Grass", @"Herb", @"Parasite", @"Shrub", @"Tree",@"Vine", @"Unknown"]
+#define GROWTH_FORM @[@"Aquatic",@"Bryophyte", @"Cactus", @"Epiphyte", @"Fern", @"Grass", @"Herb", @"Parasite", @"Shrub", @"Tree",@"Vine", @"Unknown"]
 
 
-#define SORT_COLUMNS @[@"Family",@"Genus",@"Species", @"Habit", @"Flower_Color", @"Common_Name"]
+#define SORT_COLUMNS @[@"Family",@"Genus", @"Habit", @"Flower_Color", @"Common_Name"]

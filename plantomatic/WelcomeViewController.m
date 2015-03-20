@@ -49,11 +49,11 @@
     CABasicAnimation *theAnimation;
     
     theAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
-    theAnimation.duration=1.0;
+    theAnimation.duration=1;
     theAnimation.repeatCount=HUGE_VALF;
     theAnimation.autoreverses=YES;
     theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
-    theAnimation.toValue=[NSNumber numberWithFloat:0.0];
+    theAnimation.toValue=[NSNumber numberWithFloat:0.33];
     [self.getPlantsBtn.layer addAnimation:theAnimation forKey:@"animateOpacity"]; //myButton.layer instead of
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPlantsScreen) name:@"GoAHeadToUseLocationsNotification" object:nil];
@@ -61,7 +61,7 @@
     CALayer *doneBtnLayer = [self.getPlantsBtn layer];
     [doneBtnLayer setMasksToBounds:YES];
     [doneBtnLayer setCornerRadius:5.0f];
-    doneBtnLayer.borderWidth=2;
+    doneBtnLayer.borderWidth=1;
     doneBtnLayer.borderColor=[[UIColor blackColor] CGColor];
     
     

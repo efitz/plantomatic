@@ -79,6 +79,10 @@
         [self setAccessoryType:UITableViewCellAccessoryNone];
     }
 */
+    if ([plant.isImageAvailabe isEqualToString:@"FALSE"]) {
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    }
+    
     
     //First column
     
@@ -115,7 +119,7 @@
         }
         
         self.flowerColorImgView.image=[UIImage imageNamed:imageNameForFlower];
-        [self.classificationLbl setText:[NSString stringWithFormat:@"Flower Color:%@",flowerColor]];
+        [self.classificationLbl setText:[NSString stringWithFormat:@"Flower Color: %@",flowerColor]];
     }
     else if ([plant.classification isEqualToString:@"Bryophytes"]||[plant.classification isEqualToString:@"Ferns"])
     {
