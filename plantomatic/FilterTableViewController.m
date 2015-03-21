@@ -53,7 +53,7 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    button.frame = CGRectMake(0.0, 0.0, 80.0f, 25.0f);
+    button.frame = CGRectMake(0.0, 0.0, 80.0f, 30.0f);
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     NSLog(@"%@", button.titleLabel.font);
     CALayer *doneBtnLayer = [button layer];
