@@ -53,7 +53,7 @@
     theAnimation.repeatCount=HUGE_VALF;
     theAnimation.autoreverses=YES;
     theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
-    theAnimation.toValue=[NSNumber numberWithFloat:0.33];
+    theAnimation.toValue=[NSNumber numberWithFloat:0.40];
     [self.getPlantsBtn.layer addAnimation:theAnimation forKey:@"animateOpacity"]; //myButton.layer instead of
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPlantsScreen) name:@"GoAHeadToUseLocationsNotification" object:nil];
