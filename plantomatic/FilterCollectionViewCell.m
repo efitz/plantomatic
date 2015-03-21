@@ -23,26 +23,43 @@
 
 -(void) updateCellWithTitle:(NSString*)title
                  isSelected:(BOOL)isSelected
+            isForGrowthForm:(BOOL)isForGrowthForm
 {
     self.titleString=title;
     self.isSelected=isSelected;
     
-    self.filterLbl.text=title;
     NSString* imageName=[NSString stringWithFormat:@"%@.png",self.titleString];
     NSString* selectedImageName=[NSString stringWithFormat:@"%@-selected.png",self.titleString];
 
+    if (isForGrowthForm==NO && [title isEqualToString:@"Unknown-Flower"]==NO )
+    {
+        imageName=@"flower_unselected";
+    }
+    
+    if (isForGrowthForm==NO && [title isEqualToString:@"Unknown-Flower"]==YES) {
+        self.titleString=@"Unknown";
 
+    }
+    
+    self.filterLbl.text=self.titleString;
+
+
+   
+    
     if (isSelected)
     {
         [self.filterImageView setImage:[UIImage imageNamed:selectedImageName]];
         //Make the font bold when selected
         self.filterLbl.font=[UIFont boldSystemFontOfSize:12];
+        self.filterLbl.textColor=[UIColor blackColor];
     }
     else
     {
         [self.filterImageView setImage:[UIImage imageNamed:imageName]];
+
         //Make the font normal when unselected
         self.filterLbl.font=[UIFont systemFontOfSize:12];
+        self.filterLbl.textColor=[UIColor grayColor];
     }
     
 }

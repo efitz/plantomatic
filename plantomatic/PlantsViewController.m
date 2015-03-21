@@ -168,6 +168,14 @@
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(refreshResults:) name:REFRESH_NOTIFICATION object:nil];
 
+    
+    //sortOrderBtn
+    CALayer *btnLayer = [self.criteriaSortBtn layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:5.0f];
+    btnLayer.borderWidth=1;
+    btnLayer.borderColor=[[UIColor blackColor] CGColor];
+    
 }
 
 
@@ -250,6 +258,10 @@
 		Y=50;
 		X=24;
 	}
+
+    Y=50;
+    X=24;
+
     
 //    Y=60;
 //    X=53;
@@ -386,6 +398,7 @@
         self.plantsSearchResultDictionary = [NSMutableDictionary dictionary];
     }
     
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

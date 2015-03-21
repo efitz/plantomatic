@@ -29,6 +29,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    if (self.isForFamilyValues==NO) {
+        [self setTitle:@"Select Sort By"];
+    }
+    
  }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -135,7 +139,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FamilyFilterCell" forIndexPath:indexPath];
     
     NSString* family=[self.families objectAtIndex:indexPath.row];
-    cell.textLabel.text=family;
     
     if (self.isForFamilyValues)
     {
@@ -163,9 +166,20 @@
             cell.accessoryType=UITableViewCellAccessoryNone;
         }
 
+        
+        if ([family isEqualToString:@"Habit"]) {
+            family=@"Growth Form";
+        }
+        else if ([family isEqualToString:@"Flower_Color"]) {
+            family=@"Flower Color";
+        }
+        else if ([family isEqualToString:@"Common_Name"]) {
+            family=@"Common Name";
+        }
     }
     
-    
+    cell.textLabel.text=family;
+
     return cell;
 }
 

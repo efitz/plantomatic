@@ -11,7 +11,8 @@
 @interface FilterCollectionViewCell : UICollectionViewCell
 
 -(void) updateCellWithTitle:(NSString*)title
-                 isSelected:(BOOL)isSelected;
+                 isSelected:(BOOL)isSelected
+            isForGrowthForm:(BOOL)isForGrowthForm;
 
 
 @end

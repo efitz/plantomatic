@@ -63,7 +63,18 @@
     NSString* buttonTitle=@"Filter";
     SEL action=@selector(searchAction);
     
-    button.backgroundColor=[UIColor colorWithRed:162.0/255.0 green:216.0/255.0 blue:131.0/255.0 alpha:1.0];
+//    button.backgroundColor=[UIColor colorWithRed:162.0/255.0 green:216.0/255.0 blue:131.0/255.0 alpha:1.0];
+
+    button.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0];
+
+    //sortOrderBtn
+    CALayer *btnLayer = [button layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:5.0f];
+    btnLayer.borderWidth=1;
+    btnLayer.borderColor=[[UIColor blackColor] CGColor];
+
+    
 //    [button setBackgroundImage:[UIImage imageNamed:@"btn-tag-blue"] forState:UIControlStateNormal];
     [button setTitle:NSLocalizedString(buttonTitle, nil) forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -269,6 +280,17 @@
         else
         {
             NSString *sortColumnsString = [sortColumns componentsJoinedByString:@", "];
+            
+            if ([sortColumnsString isEqualToString:@"Habit"]) {
+                sortColumnsString=@"Growth Form";
+            }
+            else if ([sortColumnsString isEqualToString:@"Flower_Color"]) {
+                sortColumnsString=@"Flower Color";
+            }
+            else if ([sortColumnsString isEqualToString:@"Common_Name"]) {
+                sortColumnsString=@"Common Name";
+            }
+            
             cell.detailTextLabel.text=sortColumnsString;
         }
     }
@@ -298,8 +320,10 @@
 
     if (growthFormDictionary==nil)
     {
+        
         growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@NO},
                                @"Bryophyte":@{@"isSelected":@NO},
+                               @"Cactus":@{@"isSelected":@NO},
                                @"Epiphyte":@{@"isSelected":@NO},
                                @"Fern": @{@"isSelected":@NO},
                                @"Grass":@{@"isSelected":@NO},

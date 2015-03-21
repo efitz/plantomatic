@@ -421,6 +421,7 @@
     }
     
     
+    /*
     NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
     
     if ([sortColumnsSelected count]>0)
@@ -439,6 +440,10 @@
         }
         
     }
+    */
+    
+    //Family
+    [queryString appendString:@" order by Family asc"];
     
     
     FMResultSet *results = [db executeQuery:queryString, [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];

@@ -183,6 +183,7 @@
     {
         growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@NO},
                                 @"Bryophyte":@{@"isSelected":@NO},
+                                @"Cactus":@{@"isSelected":@NO},
                                 @"Epiphyte":@{@"isSelected":@NO},
                                 @"Fern": @{@"isSelected":@NO},
                                 @"Grass":@{@"isSelected":@NO},
@@ -208,7 +209,9 @@
     NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
     
     if (sortColumns==nil) {
-        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
+        ;
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray arrayWithObjects:@"Genus", nil] forKey:@"sortColumns"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
@@ -240,6 +243,7 @@
     
     NSMutableDictionary *growthFormDictionary=[@{@"Aquatic":@{@"isSelected":@NO},
                                                  @"Bryophyte":@{@"isSelected":@NO},
+                                                 @"Cactus":@{@"isSelected":@NO},
                                                  @"Epiphyte":@{@"isSelected":@NO},
                                                  @"Fern": @{@"isSelected":@NO},
                                                  @"Grass":@{@"isSelected":@NO},
@@ -254,7 +258,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
 
-    [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSMutableArray arrayWithObjects:@"Genus", nil] forKey:@"sortColumns"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -334,8 +338,18 @@
     
     if (isNeedToCheckFurther && [[[NSUserDefaults standardUserDefaults] valueForKey:@"sortColumns"] count]>0)
     {
-        isNeedToCheckFurther=NO;
-        isUsingDefaultValues=NO;
+        NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
+        
+        if ([sortColumnsSelected count]>0)
+        {
+       
+            NSString* sortColumn=[sortColumnsSelected objectAtIndex:0u];
+
+            if (![sortColumn isEqualToString:@"Genus"]) {
+                isNeedToCheckFurther=NO;
+                isUsingDefaultValues=NO;
+            }
+        }
     }
     
     
