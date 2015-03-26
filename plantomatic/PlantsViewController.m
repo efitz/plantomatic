@@ -174,7 +174,7 @@
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:5.0f];
     btnLayer.borderWidth=1;
-    btnLayer.borderColor=[[UIColor blackColor] CGColor];
+    btnLayer.borderColor=[[UIColor whiteColor] CGColor];
     
 }
 
@@ -373,7 +373,7 @@
 		}
 	}
 
-    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
+    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
     
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     
@@ -1231,7 +1231,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
         self.isSearchOn=NO;
         [self.tableView reloadData];
         
-        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
+        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
     }
     else
     {
@@ -1239,7 +1239,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
         [self handleSearchForTerm:searchText];
         [self.tableView reloadData];
         
-        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plantsSearchResultArray.count];
+        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plantsSearchResultArray.count];
     }
 
 }

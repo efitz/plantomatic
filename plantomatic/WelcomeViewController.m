@@ -62,7 +62,7 @@
     [doneBtnLayer setMasksToBounds:YES];
     [doneBtnLayer setCornerRadius:5.0f];
     doneBtnLayer.borderWidth=1;
-    doneBtnLayer.borderColor=[[UIColor blackColor] CGColor];
+    doneBtnLayer.borderColor=[[UIColor whiteColor] CGColor];
     
     
 }

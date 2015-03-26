@@ -32,7 +32,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self setTitle:@"Filter Options"];
+    [self setTitle:@"Filters"];
     
 //    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleBordered target:self action:@selector(searchAction)];
 
@@ -53,7 +53,7 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    button.frame = CGRectMake(0.0, 0.0, 80.0f, 30.0f);
+    button.frame = CGRectMake(0.0, 0.0, 60.0f, 30.0f);
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     NSLog(@"%@", button.titleLabel.font);
     CALayer *doneBtnLayer = [button layer];
@@ -65,14 +65,14 @@
     
 //    button.backgroundColor=[UIColor colorWithRed:162.0/255.0 green:216.0/255.0 blue:131.0/255.0 alpha:1.0];
 
-    button.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0];
+    button.backgroundColor=[UIColor colorWithRed:17.0/255.0 green:115.0/255.0 blue:186.0/255.0 alpha:1.0];
 
     //sortOrderBtn
     CALayer *btnLayer = [button layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:5.0f];
     btnLayer.borderWidth=1;
-    btnLayer.borderColor=[[UIColor blackColor] CGColor];
+    btnLayer.borderColor=[[UIColor whiteColor] CGColor];
 
     
 //    [button setBackgroundImage:[UIImage imageNamed:@"btn-tag-blue"] forState:UIControlStateNormal];
