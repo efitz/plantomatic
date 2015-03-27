@@ -13,14 +13,11 @@
 #import "Utility.h"
 #import "Mixpanel.h"
 #import "Constants.h"
-<<<<<<< HEAD
 #import "GAI.h"
-=======
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
 
->>>>>>> 5a872873d163e43a24005533c358ca226fda7776
 
 @interface AppDelegate()
 @property (nonatomic, strong) UIImageView* splashView;
