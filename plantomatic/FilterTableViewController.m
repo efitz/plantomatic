@@ -60,7 +60,7 @@
     [doneBtnLayer setMasksToBounds:YES];
 //    [doneBtnLayer setCornerRadius:5.0f];
     
-    NSString* buttonTitle=@"Filter";
+    NSString* buttonTitle=@"Search";
     SEL action=@selector(searchAction);
     
 //    button.backgroundColor=[UIColor colorWithRed:162.0/255.0 green:216.0/255.0 blue:131.0/255.0 alpha:1.0];

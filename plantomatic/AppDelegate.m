@@ -13,7 +13,14 @@
 #import "Utility.h"
 #import "Mixpanel.h"
 #import "Constants.h"
+<<<<<<< HEAD
 #import "GAI.h"
+=======
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
+
+>>>>>>> 5a872873d163e43a24005533c358ca226fda7776
 
 @interface AppDelegate()
 @property (nonatomic, strong) UIImageView* splashView;
@@ -29,6 +36,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
+    [Fabric with:@[CrashlyticsKit]];
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     
     // Optional: automatically send uncaught exceptions to Google Analytics.
