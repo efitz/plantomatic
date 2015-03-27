@@ -220,6 +220,8 @@
 		41E613011ABC67DD006B6470 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E613001ABC67DD006B6470 /* libicucore.dylib */; };
 		41E613041ABC6999006B6470 /* image_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E613021ABC6999006B6470 /* image_available.png */; };
 		41E613051ABC6999006B6470 /* image_available@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E613031ABC6999006B6470 /* image_available@2x.png */; };
+		9C0A5A111AC4E3FD0064C584 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0A5A0F1AC4E3FD0064C584 /* Crashlytics.framework */; };
+		9C0A5A121AC4E3FD0064C584 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0A5A101AC4E3FD0064C584 /* Fabric.framework */; };
 		F7239FD318D623820008253E /* americas-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD118D623820008253E /* americas-568h@2x.png */; };
 		F7239FD418D623820008253E /* americas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD218D623820008253E /* americas@2x.png */; };
 		F7239FD618D625CC0008253E /* logos.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD518D625CC0008253E /* logos.png */; };
@@ -569,6 +571,8 @@
 		41E613001ABC67DD006B6470 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		41E613021ABC6999006B6470 /* image_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_available.png; sourceTree = "<group>"; };
 		41E613031ABC6999006B6470 /* image_available@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_available@2x.png"; sourceTree = "<group>"; };
+		9C0A5A0F1AC4E3FD0064C584 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		9C0A5A101AC4E3FD0064C584 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
 		F7239FD218D623820008253E /* americas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas@2x.png"; sourceTree = "<group>"; };
 		F7239FD518D625CC0008253E /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
@@ -612,10 +616,12 @@
 				41B8D79518EC4F6700CE6D4A /* SDWebImage.framework in Frameworks */,
 				41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */,
 				41B9EE0418BF45CE00F7B9A1 /* libsqlite3.dylib in Frameworks */,
+				9C0A5A111AC4E3FD0064C584 /* Crashlytics.framework in Frameworks */,
 				41B9EDF718BE4DF200F7B9A1 /* libProj4.a in Frameworks */,
 				F76635AB189DA28600B0A594 /* CoreLocation.framework in Frameworks */,
 				F7663578189DA10300B0A594 /* CoreGraphics.framework in Frameworks */,
 				F766357A189DA10300B0A594 /* UIKit.framework in Frameworks */,
+				9C0A5A121AC4E3FD0064C584 /* Fabric.framework in Frameworks */,
 				F7663576189DA10300B0A594 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,6 +712,8 @@
 		41802D1118CF573900E41641 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				9C0A5A0F1AC4E3FD0064C584 /* Crashlytics.framework */,
+				9C0A5A101AC4E3FD0064C584 /* Fabric.framework */,
 				41E6123F1ABC6730006B6470 /* Mixpanel */,
 				41B8D69B18EC3B9E00CE6D4A /* Coverflow */,
 				41B7975818EACFB0009F54E2 /* Reachability */,
@@ -1209,6 +1217,7 @@
 				F766356E189DA10300B0A594 /* Sources */,
 				F766356F189DA10300B0A594 /* Frameworks */,
 				F7663570189DA10300B0A594 /* Resources */,
+				9C0A5A0E1AC4E3970064C584 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1420,6 +1429,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C0A5A0E1AC4E3970064C584 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 572b89f2bd7c55e1942071ffc060e74b1cbc2149 03e79ed65a91d2ee44fba099a987ef45484d726a605bf7c0ac59a06eb45496ac";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F766356E189DA10300B0A594 /* Sources */ = {
@@ -1678,6 +1704,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					/Users/ali/Apps/Trunk/github/plantomatic,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "plantomatic/plantomatic-Prefix.pch";
@@ -1714,6 +1741,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					/Users/ali/Apps/Trunk/github/plantomatic,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "plantomatic/plantomatic-Prefix.pch";

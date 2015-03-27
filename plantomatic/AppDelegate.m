@@ -13,6 +13,9 @@
 #import "Utility.h"
 #import "Mixpanel.h"
 #import "Constants.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 
 @interface AppDelegate()
@@ -29,6 +32,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
+    [Fabric with:@[CrashlyticsKit]];
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     // Override point for customization after application launch.
     
