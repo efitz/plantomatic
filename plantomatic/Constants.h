@@ -26,6 +26,7 @@ typedef enum
 
 #define MIXPANEL_TOKEN @"9d75c96819572a4c6a34fc2b016f8ba6"
 
+#define GOOGLE_ANALYTICS_TRACKER_ID @"UA-56120368-1"
 
 
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)

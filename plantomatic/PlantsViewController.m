@@ -55,6 +55,7 @@
 
 @property (nonatomic, readwrite) BOOL isSearchOn;
 
+@property (strong, nonatomic) IBOutlet UIView *searchView;
 
 @property (strong, nonatomic) PlantImagesService *plantImagesService;
 
@@ -175,6 +176,13 @@
     [btnLayer setCornerRadius:5.0f];
     btnLayer.borderWidth=1;
     btnLayer.borderColor=[[UIColor whiteColor] CGColor];
+    
+    
+    btnLayer =[self.searchView layer];
+    [btnLayer setMasksToBounds:YES];
+    btnLayer.borderWidth=1;
+    btnLayer.borderColor=[[UIColor blackColor] CGColor];
+
     
 }
 

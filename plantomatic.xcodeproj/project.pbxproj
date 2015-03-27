@@ -129,6 +129,11 @@
 		41CC40A11A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CC40A01A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.m */; };
 		41D0BB8718C097D600E4CF3E /* FinalBIENLogoNoText_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */; };
 		41D0BB8918C0981800E4CF3E /* iplant_logo_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */; };
+		41D194F01AC597BD009FB4F1 /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194EF1AC597BD009FB4F1 /* libAdIdAccess.a */; };
+		41D194F21AC597C5009FB4F1 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F11AC597C5009FB4F1 /* libGoogleAnalyticsServices.a */; };
+		41D194F41AC597E1009FB4F1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F31AC597E1009FB4F1 /* AdSupport.framework */; };
+		41D194F61AC5991A009FB4F1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F51AC5991A009FB4F1 /* CoreData.framework */; };
+		41D194F81AC5993B009FB4F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F71AC5993B009FB4F1 /* libz.dylib */; };
 		41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41D4D2E01A849C3F005C9801 /* welcome_view.PNG */; };
 		41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */; };
 		41E36A8B1A94A4F2007BEE03 /* splash-screen-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */; };
@@ -422,6 +427,21 @@
 		41CC40A01A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterWithSwitchTableViewCell.m; sourceTree = "<group>"; };
 		41D0BB8618C097D600E4CF3E /* FinalBIENLogoNoText_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBIENLogoNoText_highres.png; sourceTree = "<group>"; };
 		41D0BB8818C0981800E4CF3E /* iplant_logo_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iplant_logo_300.jpg; sourceTree = "<group>"; };
+		41D194E51AC59784009FB4F1 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		41D194E61AC59784009FB4F1 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		41D194E71AC59784009FB4F1 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		41D194E81AC59784009FB4F1 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		41D194E91AC59784009FB4F1 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		41D194EA1AC59784009FB4F1 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		41D194EB1AC59784009FB4F1 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		41D194EC1AC59784009FB4F1 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		41D194ED1AC59784009FB4F1 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		41D194EE1AC59784009FB4F1 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		41D194EF1AC597BD009FB4F1 /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
+		41D194F11AC597C5009FB4F1 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		41D194F31AC597E1009FB4F1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		41D194F51AC5991A009FB4F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		41D194F71AC5993B009FB4F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		41D4D2E01A849C3F005C9801 /* welcome_view.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_view.PNG; sourceTree = "<group>"; };
 		41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-gradiant.png"; sourceTree = "<group>"; };
 		41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-logo.png"; sourceTree = "<group>"; };
@@ -602,19 +622,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B9EE0418BF45CE00F7B9A1 /* libsqlite3.dylib in Frameworks */,
+				41D194F81AC5993B009FB4F1 /* libz.dylib in Frameworks */,
+				41E612381ABC632F006B6470 /* SystemConfiguration.framework in Frameworks */,
+				41D194F61AC5991A009FB4F1 /* CoreData.framework in Frameworks */,
+				41D194F41AC597E1009FB4F1 /* AdSupport.framework in Frameworks */,
 				41E613011ABC67DD006B6470 /* libicucore.dylib in Frameworks */,
 				41E612BC1ABC6730006B6470 /* libMPCategoryHelpers.a in Frameworks */,
 				41E6123E1ABC635E006B6470 /* QuartzCore.framework in Frameworks */,
 				41E6123C1ABC6346006B6470 /* Accelerate.framework in Frameworks */,
 				41E6123A1ABC633A006B6470 /* CoreTelephony.framework in Frameworks */,
-				41E612381ABC632F006B6470 /* SystemConfiguration.framework in Frameworks */,
 				41B8D79718EC4F9B00CE6D4A /* ImageIO.framework in Frameworks */,
 				41B8D79518EC4F6700CE6D4A /* SDWebImage.framework in Frameworks */,
 				41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */,
-				41B9EE0418BF45CE00F7B9A1 /* libsqlite3.dylib in Frameworks */,
+				41D194F01AC597BD009FB4F1 /* libAdIdAccess.a in Frameworks */,
 				41B9EDF718BE4DF200F7B9A1 /* libProj4.a in Frameworks */,
 				F76635AB189DA28600B0A594 /* CoreLocation.framework in Frameworks */,
 				F7663578189DA10300B0A594 /* CoreGraphics.framework in Frameworks */,
+				41D194F21AC597C5009FB4F1 /* libGoogleAnalyticsServices.a in Frameworks */,
 				F766357A189DA10300B0A594 /* UIKit.framework in Frameworks */,
 				F7663576189DA10300B0A594 /* Foundation.framework in Frameworks */,
 			);
@@ -706,6 +731,7 @@
 		41802D1118CF573900E41641 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				41D194E41AC5976F009FB4F1 /* Google Analytics */,
 				41E6123F1ABC6730006B6470 /* Mixpanel */,
 				41B8D69B18EC3B9E00CE6D4A /* Coverflow */,
 				41B7975818EACFB0009F54E2 /* Reachability */,
@@ -900,6 +926,25 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
+		41D194E41AC5976F009FB4F1 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				41D194E51AC59784009FB4F1 /* GAI.h */,
+				41D194E61AC59784009FB4F1 /* GAIDictionaryBuilder.h */,
+				41D194E71AC59784009FB4F1 /* GAIEcommerceFields.h */,
+				41D194E81AC59784009FB4F1 /* GAIEcommerceProduct.h */,
+				41D194E91AC59784009FB4F1 /* GAIEcommerceProductAction.h */,
+				41D194EA1AC59784009FB4F1 /* GAIEcommercePromotion.h */,
+				41D194EB1AC59784009FB4F1 /* GAIFields.h */,
+				41D194EC1AC59784009FB4F1 /* GAILogger.h */,
+				41D194ED1AC59784009FB4F1 /* GAITrackedViewController.h */,
+				41D194EE1AC59784009FB4F1 /* GAITracker.h */,
+				41D194EF1AC597BD009FB4F1 /* libAdIdAccess.a */,
+				41D194F11AC597C5009FB4F1 /* libGoogleAnalyticsServices.a */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
 		41D4D2DF1A849C2C005C9801 /* welcome screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1085,6 +1130,9 @@
 		F7663574189DA10300B0A594 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41D194F71AC5993B009FB4F1 /* libz.dylib */,
+				41D194F51AC5991A009FB4F1 /* CoreData.framework */,
+				41D194F31AC597E1009FB4F1 /* AdSupport.framework */,
 				41E613001ABC67DD006B6470 /* libicucore.dylib */,
 				41E6123D1ABC635E006B6470 /* QuartzCore.framework */,
 				41E6123B1ABC6346006B6470 /* Accelerate.framework */,
@@ -1692,6 +1740,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/plantomatic/Mixpanel",
+					"$(PROJECT_DIR)/plantomatic",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1728,6 +1777,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/plantomatic/Mixpanel",
+					"$(PROJECT_DIR)/plantomatic",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -82,8 +82,17 @@
     [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
     
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    negativeSpacer.width = -9;// it was -6 in iOS 6
+    
     UIBarButtonItem *searchActionButton = [[UIBarButtonItem alloc] initWithCustomView:button];
-    [self.navigationItem setRightBarButtonItem:searchActionButton];
+    
+    
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer, searchActionButton/*this will be the button which u actually need*/, nil] animated:NO];
+
+//    [self.navigationItem setRightBarButtonItem:searchActionButton];
 }
 
 

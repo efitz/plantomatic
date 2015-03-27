@@ -582,22 +582,72 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Filter Options" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mby-EN-F9V">
                                             <rect key="frame" x="20" y="5" width="200" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="zza-Xs-csW"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="20" y="11" width="200" height="21"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="zza-Xs-csW"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="zza-Xs-csW"/>
+                                                </mask>
                                             </variation>
                                         </label>
+                                        <view alpha="0.29999999999999966" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6T-Cx-F80">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                            <color key="backgroundColor" red="0.64313725490196083" green="0.63921568627450975" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="USZ-hB-njk"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="USZ-hB-njk"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="USZ-hB-njk"/>
+                                                </mask>
+                                            </variation>
+                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="q6T-Cx-F80" firstAttribute="leading" secondItem="WSo-dC-v1E" secondAttribute="leading" constant="15" id="42Z-ei-vdd"/>
+                                        <constraint firstAttribute="trailing" secondItem="q6T-Cx-F80" secondAttribute="trailing" id="NB3-1k-rxY"/>
+                                        <constraint firstItem="q6T-Cx-F80" firstAttribute="top" secondItem="WSo-dC-v1E" secondAttribute="top" id="U2C-4e-tNz"/>
+                                        <constraint firstItem="Mby-EN-F9V" firstAttribute="leading" secondItem="WSo-dC-v1E" secondAttribute="leadingMargin" constant="12" id="gia-DA-G9j"/>
+                                        <constraint firstItem="Mby-EN-F9V" firstAttribute="top" secondItem="q6T-Cx-F80" secondAttribute="bottom" constant="10" id="sSJ-Ce-jzC"/>
+                                    </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="Mby-EN-F9V"/>
+                                            <exclude reference="q6T-Cx-F80"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="42Z-ei-vdd"/>
+                                            <exclude reference="NB3-1k-rxY"/>
+                                            <exclude reference="U2C-4e-tNz"/>
+                                            <exclude reference="gia-DA-G9j"/>
+                                            <exclude reference="sSJ-Ce-jzC"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="Mby-EN-F9V"/>
+                                            <include reference="q6T-Cx-F80"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="42Z-ei-vdd"/>
+                                            <include reference="NB3-1k-rxY"/>
+                                            <include reference="U2C-4e-tNz"/>
+                                            <include reference="gia-DA-G9j"/>
+                                            <include reference="sSJ-Ce-jzC"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -992,7 +1042,7 @@
                                     <searchBar contentMode="redraw" misplaced="YES" text="" placeholder="name, color, family, genus…" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZ0-0v-VNB">
                                         <rect key="frame" x="92" y="0.0" width="508" height="44"/>
                                         <color key="backgroundColor" red="0.027450980392156862" green="0.30980392156862746" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="barTintColor" red="0.0" green="0.41960784313725491" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="barTintColor" red="0.066666666669999999" green="0.45098039220000002" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -1027,7 +1077,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.10196078431372549" green="0.3843137254901961" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.45098039220000002" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="EZO-C0-2u4" firstAttribute="width" secondItem="mV2-ez-lQ2" secondAttribute="width" id="057-wn-cVJ"/>
                                     <constraint firstItem="zZ0-0v-VNB" firstAttribute="leading" secondItem="EZO-C0-2u4" secondAttribute="trailing" id="6Ev-bC-iUP"/>
@@ -1089,6 +1139,7 @@
                         <outlet property="plantsCountLbl" destination="S1O-9H-DM6" id="u0h-TU-1lH"/>
                         <outlet property="searchBar" destination="zZ0-0v-VNB" id="yvc-ce-skm"/>
                         <outlet property="searchDisplayController" destination="rU4-FF-UeR" id="J4d-Ah-hg3"/>
+                        <outlet property="searchView" destination="mV2-ez-lQ2" id="L2p-PK-f3t"/>
                         <outlet property="tableView" destination="83X-H1-dDk" id="rGL-Ag-on4"/>
                         <outlet property="toolbar" destination="NIb-dn-aR1" id="jll-hA-zxH"/>
                     </connections>

@@ -13,7 +13,7 @@
 #import "Utility.h"
 #import "Mixpanel.h"
 #import "Constants.h"
-
+#import "GAI.h"
 
 @interface AppDelegate()
 @property (nonatomic, strong) UIImageView* splashView;
@@ -30,6 +30,20 @@
 {
   
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_TRACKER_ID];
+    
+    
     // Override point for customization after application launch.
     
 //    self.databaseName = @"PlantoMaticDB.sqlite";
