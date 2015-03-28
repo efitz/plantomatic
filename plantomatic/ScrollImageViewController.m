@@ -9,6 +9,10 @@
 #import "ScrollImageViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Utility.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
+#import "GAI.h"
 
 @interface ScrollImageViewController ()
 @property (nonatomic, strong) UIImageView *imageView;
@@ -156,6 +160,12 @@
     self.scrollView.zoomScale = minScale;
     
     [self centerScrollViewContents];
+    
+    //Google Analytics manual view tracking
+    //id tracker = [[GAI sharedInstance] defaultTracker];
+    //[tracker set:kGAIScreenName
+    //       value:@"High Res Image View"];
+    //[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 

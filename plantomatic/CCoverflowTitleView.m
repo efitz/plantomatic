@@ -7,12 +7,20 @@
 
 
 #import "CCoverflowTitleView.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
+#import "GAI.h"
 
 @implementation CCoverflowTitleView
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes;
 {
-        
+    //Google Analytics manual view tracking
+    //id tracker = [[GAI sharedInstance] defaultTracker];
+    //[tracker set:kGAIScreenName
+    //       value:@"Image Carousel View"];
+    //[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 @end
