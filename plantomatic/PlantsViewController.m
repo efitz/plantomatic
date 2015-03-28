@@ -394,6 +394,8 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.topItem.title = @"Plant-O-Matic";
+    //Google Analytics page view
+    self.screenName = @"Results View";
     
     
     if ([self.searchDisplayController.searchBar.text length] == 0 && self.isSearchOn==NO)
