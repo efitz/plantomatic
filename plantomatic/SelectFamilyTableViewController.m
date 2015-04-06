@@ -91,10 +91,6 @@
         X=24;
     }
     
-    Y=60;
-    X=53;
-    
-    
     self.families=[db getFamiliesWithFilterForY:Y andX:X];
 }
 

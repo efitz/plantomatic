@@ -335,6 +335,7 @@
             [filterCell updateCell];
             cell=filterCell;
         }
+        cell.separatorInset=UIEdgeInsetsMake(0, 0, 0, 0);
     }
     
     // Configure the cell...

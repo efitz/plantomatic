@@ -19,6 +19,40 @@
 #import "PlantImagesList.h"
 #import "PlantsCollectionViewController.h"
 
+
+@interface NSString(MyCustomSorting)
+
+- (NSComparisonResult)customCaseInsensitiveCompare:(NSString *)string;
+
+@end
+
+
+@implementation NSString(MyCustomSorting)
+
+- (NSComparisonResult)customCaseInsensitiveCompare:(NSString *)string
+{
+    NSComparisonResult result=NSOrderedDescending;
+  
+    if ([self isEqualToString:@"-"])
+    {
+        result=NSOrderedDescending;
+    }
+    else if([string isEqualToString:@"-"])
+    {
+        result=NSOrderedAscending;
+    }
+    else
+    {
+        result=[self caseInsensitiveCompare:string];
+    }
+    
+    return result;
+}
+
+@end
+
+
+
 @implementation NSArray (Reverse)
 
 - (NSArray *)reversedArray {
@@ -267,9 +301,7 @@
 		X=24;
 	}
 
-//    Y=60;
-//    X=53;
-    
+   
 //    self.plants = [db getPlantsForY:Y andX:X andFilterByValue:(int)sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue]; //Hardcoded to match Arizona
 
     //getPlantsWithFilterForY
@@ -364,8 +396,8 @@
 */
         NSMutableArray *existingArray;
         
-        if ([Utility isNumeric:firstLetter]) {
-            firstLetter=@"Z#";
+        if ([firstLetter isEqualToString:@"-"]) {
+            firstLetter=@"-";
         }
 
 		// if an array already exists in the name index dictionary
@@ -423,7 +455,7 @@
     NSArray* sortedNamesArray=nil;
     
     if (!self.isSearchOn) {
-        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
         
         NSNumber *isSortOrderAscending = [[NSUserDefaults standardUserDefaults]
                                           valueForKey:@"sortOrder"];
@@ -455,7 +487,7 @@
     
     NSArray* sortedNamesArray = nil;
     if(self.isSearchOn){
-        sortedNamesArray = [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        sortedNamesArray = [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
 
 //        if (isSortOrderAscending.boolValue==NO)
 //        {
@@ -465,7 +497,7 @@
 
         
     } else {
-        sortedNamesArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        sortedNamesArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
 
         if (isSortOrderAscending.boolValue==NO)
         {
@@ -508,7 +540,7 @@
     
     
     if(self.isSearchOn){
-        sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
         
 //        if (isSortOrderAscending.boolValue==NO)
 //        {
@@ -520,7 +552,7 @@
         indexKeyArray=[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:section]];
         
     } else {
-        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
         
         
         if (isSortOrderAscending.boolValue==NO)
@@ -675,7 +707,7 @@
     NSArray* sortedNamesArray= nil;
     NSMutableArray* indexKeyArray=nil;
     if(self.isSearchOn){
-        sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
         
 //        if (sortOrder.boolValue==NO) {
 //            sortedNamesArray=[sortedNamesArray reversedArray];
@@ -683,9 +715,9 @@
         
         indexKeyArray=[[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:indexPath.section]] mutableCopy];
         
-        //indexKeyArray=[indexKeyArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        //indexKeyArray=[indexKeyArray sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
         
-        NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(caseInsensitiveCompare:)];
+        NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(customCaseInsensitiveCompare:)];
         
         NSArray * descriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
         NSArray * sortedArray = [indexKeyArray sortedArrayUsingDescriptors:descriptors];
@@ -695,7 +727,7 @@
         
         
     } else {
-        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        sortedNamesArray= [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
         
         if (sortOrder.boolValue==NO) {
             sortedNamesArray=[sortedNamesArray reversedArray];
@@ -703,7 +735,7 @@
         
         indexKeyArray=[[self.plantsResultDictionary objectForKey:[sortedNamesArray objectAtIndex:indexPath.section]] mutableCopy];
         
-        NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(caseInsensitiveCompare:)];
+        NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(customCaseInsensitiveCompare:)];
         
         NSArray * descriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
         NSArray * sortedArray = [indexKeyArray sortedArrayUsingDescriptors:descriptors];
@@ -1172,8 +1204,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
         NSMutableArray *existingArray;
         
         
-        if ([Utility isNumeric:firstLetter]) {
-            firstLetter=@"Z#";
+        if ([firstLetter isEqualToString:@"-"]) {
+            firstLetter=@"-";
         }
         
         

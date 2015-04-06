@@ -22,8 +22,6 @@
 		4163990F1A9B3E3200F92BF1 /* Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E11A9B3E3200F92BF1 /* Blue@2x.png */; };
 		416399101A9B3E3200F92BF1 /* Brown-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E21A9B3E3200F92BF1 /* Brown-selected@2x.png */; };
 		416399111A9B3E3200F92BF1 /* Brown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E31A9B3E3200F92BF1 /* Brown@2x.png */; };
-		416399121A9B3E3200F92BF1 /* Bryophyte-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E41A9B3E3200F92BF1 /* Bryophyte-selected.png */; };
-		416399131A9B3E3200F92BF1 /* Bryophyte.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E51A9B3E3200F92BF1 /* Bryophyte.png */; };
 		416399141A9B3E3200F92BF1 /* Epiphyte-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E61A9B3E3200F92BF1 /* Epiphyte-selected@2x.png */; };
 		416399151A9B3E3200F92BF1 /* Epiphyte@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E71A9B3E3200F92BF1 /* Epiphyte@2x.png */; };
 		416399161A9B3E3200F92BF1 /* Fern-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416398E81A9B3E3200F92BF1 /* Fern-selected@2x.png */; };
@@ -135,6 +133,8 @@
 		41D194F61AC5991A009FB4F1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F51AC5991A009FB4F1 /* CoreData.framework */; };
 		41D194F81AC5993B009FB4F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F71AC5993B009FB4F1 /* libz.dylib */; };
 		41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41D4D2E01A849C3F005C9801 /* welcome_view.PNG */; };
+		41E301021ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E301001ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png */; };
+		41E301031ACD5BAE00D3DDCF /* Bryophyte@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E301011ACD5BAE00D3DDCF /* Bryophyte@2x.png */; };
 		41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */; };
 		41E36A8B1A94A4F2007BEE03 /* splash-screen-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */; };
 		41E36A8C1A94A4F2007BEE03 /* splash-screen-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A891A94A4F2007BEE03 /* splash-screen-map.png */; };
@@ -291,8 +291,6 @@
 		416398E11A9B3E3200F92BF1 /* Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue@2x.png"; sourceTree = "<group>"; };
 		416398E21A9B3E3200F92BF1 /* Brown-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brown-selected@2x.png"; sourceTree = "<group>"; };
 		416398E31A9B3E3200F92BF1 /* Brown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brown@2x.png"; sourceTree = "<group>"; };
-		416398E41A9B3E3200F92BF1 /* Bryophyte-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte-selected.png"; sourceTree = "<group>"; };
-		416398E51A9B3E3200F92BF1 /* Bryophyte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bryophyte.png; sourceTree = "<group>"; };
 		416398E61A9B3E3200F92BF1 /* Epiphyte-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Epiphyte-selected@2x.png"; sourceTree = "<group>"; };
 		416398E71A9B3E3200F92BF1 /* Epiphyte@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Epiphyte@2x.png"; sourceTree = "<group>"; };
 		416398E81A9B3E3200F92BF1 /* Fern-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fern-selected@2x.png"; sourceTree = "<group>"; };
@@ -445,6 +443,8 @@
 		41D194F51AC5991A009FB4F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		41D194F71AC5993B009FB4F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		41D4D2E01A849C3F005C9801 /* welcome_view.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_view.PNG; sourceTree = "<group>"; };
+		41E301001ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte-selected@2x.png"; sourceTree = "<group>"; };
+		41E301011ACD5BAE00D3DDCF /* Bryophyte@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte@2x.png"; sourceTree = "<group>"; };
 		41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-gradiant.png"; sourceTree = "<group>"; };
 		41E36A881A94A4F2007BEE03 /* splash-screen-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-logo.png"; sourceTree = "<group>"; };
 		41E36A891A94A4F2007BEE03 /* splash-screen-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-map.png"; sourceTree = "<group>"; };
@@ -687,8 +687,8 @@
 				416398E11A9B3E3200F92BF1 /* Blue@2x.png */,
 				416398E21A9B3E3200F92BF1 /* Brown-selected@2x.png */,
 				416398E31A9B3E3200F92BF1 /* Brown@2x.png */,
-				416398E41A9B3E3200F92BF1 /* Bryophyte-selected.png */,
-				416398E51A9B3E3200F92BF1 /* Bryophyte.png */,
+				41E301001ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png */,
+				41E301011ACD5BAE00D3DDCF /* Bryophyte@2x.png */,
 				416398E61A9B3E3200F92BF1 /* Epiphyte-selected@2x.png */,
 				416398E71A9B3E3200F92BF1 /* Epiphyte@2x.png */,
 				416398E81A9B3E3200F92BF1 /* Fern-selected@2x.png */,
@@ -1405,8 +1405,8 @@
 				4163990F1A9B3E3200F92BF1 /* Blue@2x.png in Resources */,
 				41E4026F1A9F2C4F006E443B /* cone.png in Resources */,
 				4163991D1A9B3E3200F92BF1 /* Green@2x.png in Resources */,
+				41E301031ACD5BAE00D3DDCF /* Bryophyte@2x.png in Resources */,
 				F7663589189DA10300B0A594 /* Main.storyboard in Resources */,
-				416399131A9B3E3200F92BF1 /* Bryophyte.png in Resources */,
 				41E612DD1ABC6730006B6470 /* MPNotification.storyboard in Resources */,
 				4163991F1A9B3E3200F92BF1 /* Herb@2x.png in Resources */,
 				416399371A9B3E3200F92BF1 /* White@2x.png in Resources */,
@@ -1415,6 +1415,7 @@
 				41B9EE1F18BF677000F7B9A1 /* PlantoMaticDB.sqlite in Resources */,
 				41C4BC7718D1B1B30043D894 /* ACES_greyscale_1.png in Resources */,
 				41BA4E8618CA242400C34D8F /* Angiosperms_classification@2x.png in Resources */,
+				41E301021ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png in Resources */,
 				416399161A9B3E3200F92BF1 /* Fern-selected@2x.png in Resources */,
 				41BA4E8918CA242400C34D8F /* Gymnosperms_classification@2x.png in Resources */,
 				4163992E1A9B3E3200F92BF1 /* Unknown-Flower-selected@2x.png in Resources */,
@@ -1453,7 +1454,6 @@
 				416399381A9B3E3200F92BF1 /* Yellow-selected@2x.png in Resources */,
 				41E4026D1A9F2C48006E443B /* cone@2x.png in Resources */,
 				41E611711ABC4988006B6470 /* Cactus@2x.png in Resources */,
-				416399121A9B3E3200F92BF1 /* Bryophyte-selected.png in Resources */,
 				416399141A9B3E3200F92BF1 /* Epiphyte-selected@2x.png in Resources */,
 				41B9EE1A18BF582E00F7B9A1 /* info.png in Resources */,
 				416399221A9B3E3200F92BF1 /* Parasite-selected@2x.png in Resources */,
