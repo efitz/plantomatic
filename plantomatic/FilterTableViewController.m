@@ -163,10 +163,10 @@
             filterHeaderTableViewCell=self.sectionHeaderCell;
         }
     }
-    else
-    {
-         filterHeaderTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"SectionHeaderCell"];
-    }
+//    else
+//    {
+//         filterHeaderTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"SectionHeaderCell"];
+//    }
     
     return filterHeaderTableViewCell;
 }
@@ -176,10 +176,6 @@
     CGFloat headerHeight=0.0;
     
     if (![Utility isAppUsingDefaultSettings] && section==0)
-    {
-        headerHeight=44.0;
-    }
-    else if(section==1)
     {
         headerHeight=44.0;
     }
@@ -204,20 +200,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    
-    NSInteger numberOfSections=5;
-    
-    if (section==0) {
-        //2
-        numberOfSections=2;
-    }
-    
-    return numberOfSections;
+    return 8;
 }
 
 
@@ -246,105 +234,103 @@
     
     //FilterCollectionViewTableViewCell
     
-    if (indexPath.section==0)
+    if (indexPath.row==0)
     {
-        if (indexPath.row==0)
-        {
-            cellIdentifier=@"FilterCollectionViewTableViewCell";
-            FilterCollectionViewTableViewCell *filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            
-            if (filterCell == nil) {
-                filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            }
-            
-            [filterCell updateCellForGrowthForm:[self growthFormDictionary]];
-            cell=filterCell;
-        }
-        else if (indexPath.row==1)
-        {
-            cellIdentifier=@"FilterCollectionViewTableViewCell";
-            FilterCollectionViewTableViewCell *filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            
-            if (filterCell == nil) {
-                filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            }
-            
-            [filterCell updateCellForFlowerColors:[self flowerColorsDictionary]];
-            cell=filterCell;
-        }
-    }
-    else
-    {
-        if (indexPath.row==0)
-        {
-            cellIdentifier=@"FilterWithSwitchTableViewCell";
-            FilterWithSwitchTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            [filterCell updateCellWithFilterType:FilterTypeCommonName];
-            cell=filterCell;
-        }
-        else if(indexPath.row==1)
-        {
-            cellIdentifier=@"FilterWithSwitchTableViewCell";
-            FilterWithSwitchTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            [filterCell updateCellWithFilterType:FilterTypeImage];
-            cell=filterCell;
-        }
-        else if(indexPath.row==2)
-        {
-            cellIdentifier=@"FamilyCell";
-            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            cell.textLabel.text=@" Family";
-
-            NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
-            
-            if ([familiesSelected count]==0)
-            {
-                cell.detailTextLabel.text=@"None";
-            }
-            else
-            {
-                NSString *familiesSelectedString = [familiesSelected componentsJoinedByString:@", "];
-                cell.detailTextLabel.text=familiesSelectedString;
-            }
-        }
-        else if(indexPath.row==3)
-        {
-            cellIdentifier=@"FamilyCell";
-            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            cell.textLabel.text=@" Sort By";
-
-            NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
-            
-            if ([sortColumns count]==0)
-            {
-                cell.detailTextLabel.text=@"None";
-            }
-            else
-            {
-                NSString *sortColumnsString = [sortColumns componentsJoinedByString:@", "];
-                
-                if ([sortColumnsString isEqualToString:@"Habit"]) {
-                    sortColumnsString=@"Growth Form";
-                }
-                else if ([sortColumnsString isEqualToString:@"Flower_Color"]) {
-                    sortColumnsString=@"Flower Color";
-                }
-                else if ([sortColumnsString isEqualToString:@"Common_Name"]) {
-                    sortColumnsString=@"Common Name";
-                }
-                
-                cell.detailTextLabel.text=sortColumnsString;
-            }
+        cellIdentifier=@"FilterCollectionViewTableViewCell";
+        FilterCollectionViewTableViewCell *filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        if (filterCell == nil) {
+            filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         }
         
-        else if(indexPath.row==4)
-        {
-            cellIdentifier=@"SortOrderTableViewCell";
-            SortOrderTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-            [filterCell updateCell];
-            cell=filterCell;
+        [filterCell updateCellForGrowthForm:[self growthFormDictionary]];
+        cell=filterCell;
+    }
+    else if (indexPath.row==1)
+    {
+        cellIdentifier=@"FilterCollectionViewTableViewCell";
+        FilterCollectionViewTableViewCell *filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        if (filterCell == nil) {
+            filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         }
-        cell.separatorInset=UIEdgeInsetsMake(0, 0, 0, 0);
+        
+        [filterCell updateCellForFlowerColors:[self flowerColorsDictionary]];
+        cell=filterCell;
+    }
+    else if (indexPath.row==2)
+    {
+        cellIdentifier=@"SectionHeaderCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    }
+    else if (indexPath.row==3)
+    {
+        cellIdentifier=@"FilterWithSwitchTableViewCell";
+        FilterWithSwitchTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        [filterCell updateCellWithFilterType:FilterTypeCommonName];
+        cell=filterCell;
+    }
+    else if(indexPath.row==4)
+    {
+        cellIdentifier=@"FilterWithSwitchTableViewCell";
+        FilterWithSwitchTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        [filterCell updateCellWithFilterType:FilterTypeImage];
+        cell=filterCell;
+    }
+    else if(indexPath.row==5)
+    {
+        cellIdentifier=@"FamilyCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        cell.textLabel.text=@" Family";
+        
+        NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+        
+        if ([familiesSelected count]==0)
+        {
+            cell.detailTextLabel.text=@"None";
+        }
+        else
+        {
+            NSString *familiesSelectedString = [familiesSelected componentsJoinedByString:@", "];
+            cell.detailTextLabel.text=familiesSelectedString;
+        }
+    }
+    else if(indexPath.row==6)
+    {
+        cellIdentifier=@"FamilyCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        cell.textLabel.text=@" Sort By";
+        
+        NSMutableArray* sortColumns=[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"];
+        
+        if ([sortColumns count]==0)
+        {
+            cell.detailTextLabel.text=@"None";
+        }
+        else
+        {
+            NSString *sortColumnsString = [sortColumns componentsJoinedByString:@", "];
+            
+            if ([sortColumnsString isEqualToString:@"Habit"]) {
+                sortColumnsString=@"Growth Form";
+            }
+            else if ([sortColumnsString isEqualToString:@"Flower_Color"]) {
+                sortColumnsString=@"Flower Color";
+            }
+            else if ([sortColumnsString isEqualToString:@"Common_Name"]) {
+                sortColumnsString=@"Common Name";
+            }
+            
+            cell.detailTextLabel.text=sortColumnsString;
+        }
+    }
+    
+    else if(indexPath.row==7)
+    {
+        cellIdentifier=@"SortOrderTableViewCell";
+        SortOrderTableViewCell* filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        [filterCell updateCell];
+        cell=filterCell;
     }
     
     // Configure the cell...
@@ -473,7 +459,7 @@
         
         BOOL isForFamily=YES;
         
-        if (indexPath.row==3) {
+        if (indexPath.row==6) {
             isForFamily=NO;
         }
         
