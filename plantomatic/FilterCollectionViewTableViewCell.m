@@ -10,6 +10,7 @@
 #import "FilterCollectionViewCell.h"
 #import "Constants.h"
 #import "Utility.h"
+#import "SpeciesFamily.h"
 
 @interface FilterCollectionViewTableViewCell()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -23,6 +24,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *selectDeselectBtn;
 
 - (IBAction)selectAllAction:(id)sender;
+
+
+@property(nonatomic, strong) NSMutableArray* totalAvialblePlants;
+
 @end
 
 @implementation FilterCollectionViewTableViewCell
@@ -38,7 +43,10 @@
 }
 
 -(void)updateCellForGrowthForm:(NSMutableDictionary*)dict
+   totalPlantsAvailable:(NSMutableArray*)totalPlantsAvaialbe;
 {
+    self.totalAvialblePlants=totalPlantsAvaialbe;
+    
     self.titleLbl.text=@"Growth Form";
     
     self.isForGrowthForm=YES;
@@ -61,7 +69,10 @@
 }
 
 -(void)updateCellForFlowerColors:(NSMutableDictionary*)dict
+   totalPlantsAvailable:(NSMutableArray*)totalPlantsAvaialbe;
 {
+    self.totalAvialblePlants=totalPlantsAvaialbe;
+
     self.titleLbl.text=@"Flower Colors";
 
     self.isForGrowthForm=NO;
@@ -90,6 +101,19 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.filterValuesDictionary allKeys].count ;
+    
+//    NSInteger count=0;
+//    
+//    if (self.isForGrowthForm)
+//    {
+//        count=[[self getGrowthForms] count];//GROWTH_FORM;
+//    }
+//    else
+//    {
+//        count=[[self getFlowerColors] count];//FLOWER_COLORS;
+//    }
+//    
+//    return count;
 }
 
 
@@ -105,13 +129,12 @@
     
     if (self.isForGrowthForm)
     {
-        keysArray=GROWTH_FORM;
+        keysArray=GROWTH_FORM;//[self getGrowthForms];
     }
     else
     {
-        keysArray=FLOWER_COLORS;
+        keysArray=FLOWER_COLORS;//[self getFlowerColors];
     }
-    
     
     NSString* key=[keysArray objectAtIndex:indexPath.row];
     NSMutableDictionary* dictionary=[self.filterValuesDictionary valueForKey:key];
@@ -128,6 +151,80 @@
 }
 
 
+-(NSMutableArray*) getGrowthForms
+{
+    //GROWTH_FORM
+    NSMutableArray* array=[NSMutableArray array];
+    
+    for (int i=0; i<[GROWTH_FORM count]; i++) {
+        
+        NSString* key=[GROWTH_FORM objectAtIndex:i];
+        
+        for (SpeciesFamily *speciesFamily  in self.totalAvialblePlants)
+        {
+            //filter objects based on keys
+            
+            if ([key isEqualToString:@"Unknown"]) {
+                key=@"-";
+            }
+            
+            if ([[speciesFamily.habit capitalizedString] isEqualToString:key])
+            {
+                if ([key isEqualToString:@"-"])
+                {
+                     [array addObject:@"Unknown"];
+                }
+                else
+                {
+                    [array addObject:key];
+                }
+                
+               
+                break;
+            }
+        }
+    }
+
+    return array;
+}
+
+-(NSMutableArray*) getFlowerColors
+{
+    //FLOWER_COLORS
+    NSMutableArray* array=[NSMutableArray array];
+    
+    for (int i=0; i<[FLOWER_COLORS count]; i++) {
+        
+        NSString* key=[FLOWER_COLORS objectAtIndex:i];
+        
+        for (SpeciesFamily *speciesFamily  in self.totalAvialblePlants)
+        {
+            //filter objects based on keys
+            
+            if ([key isEqualToString:@"Unknown-Flower"]) {
+                key=@"-";
+            }
+            
+            if ([[speciesFamily.flowerColor capitalizedString] isEqualToString:key])
+            {
+                if ([key isEqualToString:@"-"])
+                {
+                    [array addObject:@"Unknown-Flower"];
+                }
+                else
+                {
+                    [array addObject:key];
+                }
+                
+                break;
+            }
+        }
+    }
+
+    return array;
+}
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"This is Something IndexPath : %@", [indexPath description]);
@@ -140,11 +237,11 @@
     
     if (self.isForGrowthForm)
     {
-        keysArray=GROWTH_FORM;
+        keysArray=GROWTH_FORM;//[self getGrowthForms];
     }
     else
     {
-        keysArray=FLOWER_COLORS;
+        keysArray=FLOWER_COLORS;//[self getFlowerColors];
     }
     
     NSString* key=[keysArray objectAtIndex:indexPath.row];

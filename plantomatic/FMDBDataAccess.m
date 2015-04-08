@@ -314,6 +314,42 @@
 }
 
 
+
+-(NSMutableArray *) getPlantsForY:(int)y
+                             andX:(int)x
+{
+    NSMutableArray *SpeciesFamilies = [NSMutableArray array];
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+
+    NSMutableString* queryString=[NSMutableString stringWithString:@"SELECT * FROM SpeciesFamily where SpId in (select SpId from Presence where Y=? and X=?)"];
+//    [queryString appendString:@" order by asc"];
+    
+    FMResultSet *results = [db executeQuery:queryString, [NSNumber numberWithInt:y], [NSNumber numberWithInt:x]];
+    
+    while([results next])
+    {
+        SpeciesFamily *speciesFamily = [[SpeciesFamily alloc] init];
+        
+        speciesFamily.spID = [results intForColumn:@"SpID"];
+        speciesFamily.family = [results stringForColumn:@"Family"];
+        speciesFamily.genus = [results stringForColumn:@"Genus"];
+        speciesFamily.species = [results stringForColumn:@"Species"];
+        speciesFamily.classification = [results stringForColumn:@"Classification"];
+        speciesFamily.habit = [results stringForColumn:@"Habit"];
+        speciesFamily.isImageAvailabe = [results stringForColumn:@"isImageAvailabe"];
+        speciesFamily.commonName=[results stringForColumn:@"Common_Name"];
+        speciesFamily.flowerColor=[results stringForColumn:@"Flower_Color"];
+        
+        [SpeciesFamilies addObject:speciesFamily];
+    }
+    
+    [db close];
+    
+    return SpeciesFamilies;
+}
+
+
 -(NSMutableArray *) getFamiliesWithFilterForY:(int)y
                                          andX:(int)x
 {

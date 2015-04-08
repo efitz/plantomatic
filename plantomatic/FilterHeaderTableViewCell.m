@@ -11,6 +11,7 @@
 #import "Constants.h"
 
 @interface FilterHeaderTableViewCell ()
+@property (strong, nonatomic) IBOutlet UILabel *hintLbl;
 
 - (IBAction)resetToDefaultSettings:(id)sender;
 @end
@@ -31,6 +32,12 @@
 {
     [Utility resetUserDefaults];
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
+}
+
+-(void)updateCellWithAvailablePlants:(int)availablePlants
+                      andTotalPlants:(int)totalPlants
+{
+    self.hintLbl.text=[NSString stringWithFormat:@"Hint: %d plants filtered from %d.",availablePlants,totalPlants ];
 }
 
 @end

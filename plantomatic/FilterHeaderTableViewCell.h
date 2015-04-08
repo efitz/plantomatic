@@ -10,4 +10,7 @@
 
 @interface FilterHeaderTableViewCell : UITableViewCell
 
+-(void)updateCellWithAvailablePlants:(int)availablePlants
+                      andTotalPlants:(int)totalPlants;
+
 @end

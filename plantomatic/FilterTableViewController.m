@@ -14,10 +14,16 @@
 #import "SelectFamilyTableViewController.h"
 #import "FilterHeaderTableViewCell.h"
 #import "Utility.h"
+#import "FMDBDataAccess.h"
+#include "proj_api.h"
+#import <CoreLocation/CoreLocation.h>
+#import "SpeciesFamily.h"
 
 @interface FilterTableViewController ()
 
 @property(nonatomic, strong) FilterHeaderTableViewCell *sectionHeaderCell;
+
+@property(nonatomic, strong) NSMutableArray* totalAvialblePlants;
 
 @end
 
@@ -47,6 +53,257 @@
 
     
 }
+
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self updateHeaderHint];
+}
+
+
+-(void)updateHeaderHint
+{
+    FMDBDataAccess *db = [[FMDBDataAccess alloc] init];
+    
+    CLLocation *currentLocation=[Utility getCurrentLocation];
+    
+    double lat1=currentLocation.coordinate.latitude, lon1=currentLocation.coordinate.longitude;
+    double lat, lon;
+    //Need to convert the input coordinates into radians
+    lat = DEGREES_TO_RADIANS(lat1);
+    lon = DEGREES_TO_RADIANS(lon1);
+    
+    //Initiate the destination projection using the  Lambert Equal Area projection with proper offsets
+    projPJ dst_prj = pj_init_plus("+proj=laea +lat_0=15 +lon_0=-80 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0");
+    
+    //Initiate the source projection
+    projPJ src_prj = pj_init_plus("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs");
+    
+    //To transform the data
+    pj_transform(src_prj, dst_prj, 1, 1, &lon, &lat, NULL);
+    double X=0,Y=0,resolution=100000, corner_x=-5261554, corner_y=7165012;
+    
+    X = floor((lon - corner_x)/resolution + 1); //units are in meters so we need to convert output 100kM grid
+    Y = floor(((lat - corner_y)/resolution * -1) + 1);
+    
+    /*
+     Here is test data with example input and output
+     1) 42.337302, -71.227067 column 61, row 42, 2117
+     2) 43.478256, -110.763924 column 28, row 38, 2263 species
+     3) 26.363909, -80.131706 column 53, row 60, 1087
+     4) 32.243065, -110.927750 column 24, row 50, 3704 species
+     */
+    
+    
+    //if outside of the US set the grid to Tuscon, AZ
+    if (-1*lon1 > 170 || -1*lon1 < 58) {
+        Y=50;
+        X=24;
+    }
+    
+    
+    self.totalAvialblePlants=[db getPlantsForY:Y andX:X];
+    
+    [self.sectionHeaderCell updateCellWithAvailablePlants:[self getFilterPlantsNumber]
+                                           andTotalPlants:[self.totalAvialblePlants count]];
+}
+
+
+-(int) getFilterPlantsNumber
+{
+    @autoreleasepool {
+        int resultNumber=0;
+        NSMutableArray* filteredResultArrayImageAvaialbe=[NSMutableArray array];
+        
+        
+        NSMutableArray* filteredResultArrayGrowthForm=[NSMutableArray array];
+        
+        if ([self.totalAvialblePlants count]>0)
+        {
+            NSMutableDictionary* growthFormDictionary= [[NSUserDefaults standardUserDefaults] objectForKey:@"growthFormDictionary"];
+            NSArray* growthFormKeys=[growthFormDictionary allKeys];
+            NSMutableArray* growthFromArray=[NSMutableArray array];
+            
+            for (NSString* key in growthFormKeys) {
+                
+                NSDictionary* dictionary=[growthFormDictionary valueForKey:key];
+                NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
+                
+                if (isSelected.boolValue)
+                {
+                    if ([key isEqualToString:@"Unknown"]) {
+                        [growthFromArray addObject:@"-"];
+                    }
+                    else
+                    {
+                        [growthFromArray addObject:key];
+                    }
+                }
+            }
+            
+            
+            if ([growthFromArray count]>0)
+            {
+                for (SpeciesFamily *speciesFamily  in self.totalAvialblePlants)
+                {
+                    //filter objects based on keys
+                    
+                    for (NSString* key in growthFromArray)
+                    {
+                        if ([speciesFamily.habit isEqualToString:key])
+                        {
+                            [filteredResultArrayGrowthForm addObject:speciesFamily];
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                [filteredResultArrayGrowthForm addObjectsFromArray:self.totalAvialblePlants];
+            }
+            
+            
+            //-----------------------Growth form filtered
+            
+            NSMutableArray* filteredResultArrayFlowers=[NSMutableArray array];
+            
+            
+            NSMutableDictionary* flowerColorsDictionary=[[NSUserDefaults standardUserDefaults] objectForKey:@"flowerColorsDictionary"];
+            NSArray* flowerColorsKeys=[flowerColorsDictionary allKeys];
+            NSMutableArray* flowerColorsArray=[NSMutableArray array];
+            
+            for (NSString* key in flowerColorsKeys) {
+                
+                NSDictionary* dictionary=[flowerColorsDictionary valueForKey:key];
+                NSNumber* isSelected=[dictionary valueForKey:@"isSelected"];
+                
+                if (isSelected.boolValue)
+                {
+                    if ([key isEqualToString:@"Unknown-Flower"]) {
+                        [flowerColorsArray addObject:@"-"];
+                    }
+                    else
+                    {
+                        [flowerColorsArray addObject:key];
+                    }
+                    
+                }
+            }
+            
+            
+            if ([flowerColorsArray count]>0)
+            {
+                for (SpeciesFamily *speciesFamily  in filteredResultArrayGrowthForm)
+                {
+                    //filter objects based on keys
+                    
+                    for (NSString* key in flowerColorsArray)
+                    {
+                        if ([speciesFamily.flowerColor isEqualToString:key])
+                        {
+                            [filteredResultArrayFlowers addObject:speciesFamily];
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                [filteredResultArrayFlowers addObjectsFromArray:filteredResultArrayGrowthForm];
+            }
+            
+            //        filteredResultArrayGrowthForm=nil;
+            
+            //-----------------------Flowers filtered
+            
+            NSMutableArray* filteredResultArrayFamily=[NSMutableArray array];
+            
+            
+            NSMutableArray* familiesSelected=[[NSUserDefaults standardUserDefaults] objectForKey:@"familiesSelected"];
+            
+            
+            if ([familiesSelected count]>0) {
+                for (SpeciesFamily *speciesFamily  in filteredResultArrayFlowers)
+                {
+                    //filter objects based on keys
+                    
+                    for (NSString* family in familiesSelected)
+                    {
+                        if ([speciesFamily.family isEqualToString:family])
+                        {
+                            [filteredResultArrayFamily addObject:speciesFamily];
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                [filteredResultArrayFamily addObjectsFromArray:filteredResultArrayFlowers];
+                
+            }
+            
+            //        filteredResultArrayFlowers=nil;
+            
+            //-----------------------Family filtered
+            
+            NSMutableArray* filteredResultArrayCommonName=[NSMutableArray array];
+            
+            NSNumber *isCommonNameAvaialble = [[NSUserDefaults standardUserDefaults]
+                                               valueForKey:@"isCommonNameAvailable"];
+            
+            if ([isCommonNameAvaialble boolValue]==YES)
+            {
+                for (SpeciesFamily *speciesFamily  in filteredResultArrayFamily)
+                {
+                    if (![speciesFamily.commonName isEqualToString:@"-"]) {
+                        [filteredResultArrayCommonName addObject:speciesFamily];
+                    }
+                }
+            }
+            else
+            {
+                [filteredResultArrayCommonName addObjectsFromArray:filteredResultArrayFamily];
+            }
+            
+            //        filteredResultArrayFamily=nil;
+            //-----------------------CommonName filtered
+            
+            
+            NSNumber *isImageAvailable = [[NSUserDefaults standardUserDefaults]
+                                          valueForKey:@"isImageAvailable"];
+            
+            if ([isImageAvailable boolValue]==YES)
+            {
+                for (SpeciesFamily *speciesFamily  in filteredResultArrayCommonName)
+                {
+                    if ([speciesFamily.isImageAvailabe isEqualToString:@"TRUE"]) {
+                        [filteredResultArrayImageAvaialbe addObject:speciesFamily];
+                    }
+                }
+            }
+            else
+            {
+                [filteredResultArrayImageAvaialbe addObjectsFromArray:filteredResultArrayFamily];
+            }
+            
+            //        filteredResultArrayFamily=nil;
+            //-----------------------isImageAvailable filtered
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        return [filteredResultArrayImageAvaialbe count];
+    }
+}
+
 
 -(void) createSearchActionButton
 {
@@ -104,6 +361,9 @@
     
 //    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
 
+    
+//    [self.sectionHeaderCell updateCellWithAvailablePlants:9 andTotalPlants:1000];
+    
     [self.tableView reloadData];
 
 }
@@ -146,29 +406,32 @@
             self.sectionHeaderCell = [tableView dequeueReusableCellWithIdentifier:@"FilterHeaderTableViewCell"];
         }
         
-        if ([Utility isAppUsingDefaultSettings]) {
-            filterHeaderTableViewCell=nil;
-        }
-        else
-        {
+//        if ([Utility isAppUsingDefaultSettings]) {
+//            filterHeaderTableViewCell=nil;
+//        }
+//        else
+//        {
             filterHeaderTableViewCell=self.sectionHeaderCell;
-        }
+//        }
     }
 //    else
 //    {
 //         filterHeaderTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"SectionHeaderCell"];
 //    }
     
+    [self updateHeaderHint];
+
+    
     return filterHeaderTableViewCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    CGFloat headerHeight=0.0;
+    CGFloat headerHeight=32.0;
     
     if (![Utility isAppUsingDefaultSettings] && section==0)
     {
-        headerHeight=44.0;
+        headerHeight=60.0;
     }
     
     return headerHeight;
@@ -199,13 +462,93 @@
     return 8;
 }
 
+-(NSMutableArray*) getGrowthForms
+{
+    //GROWTH_FORM
+    NSMutableArray* array=[NSMutableArray array];
+    
+    for (int i=0; i<[GROWTH_FORM count]; i++) {
+        
+        NSString* key=[GROWTH_FORM objectAtIndex:i];
+        
+        for (SpeciesFamily *speciesFamily  in self.totalAvialblePlants)
+        {
+            //filter objects based on keys
+            
+            if ([key isEqualToString:@"Unknown"]) {
+                key=@"-";
+            }
+            
+            if ([[speciesFamily.habit capitalizedString] isEqualToString:key])
+            {
+                if ([key isEqualToString:@"-"])
+                {
+                    [array addObject:@"Unknown"];
+                }
+                else
+                {
+                    [array addObject:key];
+                }
+                
+                
+                break;
+            }
+        }
+    }
+    
+    return array;
+}
+
+-(NSMutableArray*) getFlowerColors
+{
+    //FLOWER_COLORS
+    NSMutableArray* array=[NSMutableArray array];
+    
+    for (int i=0; i<[FLOWER_COLORS count]; i++) {
+        
+        NSString* key=[FLOWER_COLORS objectAtIndex:i];
+        
+        for (SpeciesFamily *speciesFamily  in self.totalAvialblePlants)
+        {
+            //filter objects based on keys
+            
+            if ([key isEqualToString:@"Unknown-Flower"]) {
+                key=@"-";
+            }
+            
+            if ([[speciesFamily.flowerColor capitalizedString] isEqualToString:key])
+            {
+                if ([key isEqualToString:@"-"])
+                {
+                    [array addObject:@"Unknown-Flower"];
+                }
+                else
+                {
+                    [array addObject:key];
+                }
+                
+                break;
+            }
+        }
+    }
+    
+    return array;
+}
+
+
+
 
 -(CGFloat) FilterCellHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int numberOfItems=11;
+    NSInteger numberOfItems=11;
+    
+//    if (indexPath.row==0) {
+//        numberOfItems=[[self getGrowthForms] count];
+//    }
     
     if (indexPath.row==1) {
         numberOfItems=13;
+//        numberOfItems=[[self getFlowerColors] count];
     }
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -234,7 +577,7 @@
             filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         }
         
-        [filterCell updateCellForGrowthForm:[self growthFormDictionary]];
+        [filterCell updateCellForGrowthForm:[self growthFormDictionary] totalPlantsAvailable:self.totalAvialblePlants];
         cell=filterCell;
     }
     else if (indexPath.row==1)
@@ -246,7 +589,7 @@
             filterCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         }
         
-        [filterCell updateCellForFlowerColors:[self flowerColorsDictionary]];
+        [filterCell updateCellForFlowerColors:[self flowerColorsDictionary] totalPlantsAvailable:self.totalAvialblePlants];
         cell=filterCell;
     }
     else if (indexPath.row==2)

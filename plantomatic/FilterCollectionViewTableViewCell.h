@@ -13,8 +13,11 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
--(void)updateCellForGrowthForm:(NSDictionary*)dict;
--(void)updateCellForFlowerColors:(NSDictionary*)dict;
+-(void)updateCellForGrowthForm:(NSDictionary*)dict
+          totalPlantsAvailable:(NSMutableArray*)totalPlantsAvaialbe;
+
+-(void)updateCellForFlowerColors:(NSDictionary*)dict
+            totalPlantsAvailable:(NSMutableArray*)totalPlantsAvaialbe;
 
 
 @end
