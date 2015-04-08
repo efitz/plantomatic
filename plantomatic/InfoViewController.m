@@ -89,8 +89,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    //Google Analytics page view
-    self.screenName = @"Info View";
+
     CLLocation *currentLocation=[Utility getCurrentLocation];
     
     double lat=currentLocation.coordinate.latitude, lon=currentLocation.coordinate.longitude;

@@ -9,10 +9,6 @@
 #import "ScrollImageViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Utility.h"
-#import "GAITrackedViewController.h"
-#import "GAIDictionaryBuilder.h"
-#import "GAIFields.h"
-#import "GAI.h"
 
 @interface ScrollImageViewController ()
 @property (nonatomic, strong) UIImageView *imageView;
