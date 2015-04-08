@@ -57,7 +57,8 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self updateHeaderHint];
+    [self performSelectorInBackground:@selector(updateHeaderHint) withObject:nil];
+//    [self updateHeaderHint];
 }
 
 
@@ -103,6 +104,7 @@
     
     
     self.totalAvialblePlants=[db getPlantsForY:Y andX:X];
+    
     
     [self.sectionHeaderCell updateCellWithAvailablePlants:[self getFilterPlantsNumber]
                                            andTotalPlants:[self.totalAvialblePlants count]];
@@ -418,8 +420,10 @@
 //    {
 //         filterHeaderTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"SectionHeaderCell"];
 //    }
-    
-    [self updateHeaderHint];
+
+    [self performSelectorInBackground:@selector(updateHeaderHint) withObject:nil];
+
+//    [self updateHeaderHint];
 
     
     return filterHeaderTableViewCell;
