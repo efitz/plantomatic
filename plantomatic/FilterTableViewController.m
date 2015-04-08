@@ -14,10 +14,6 @@
 #import "SelectFamilyTableViewController.h"
 #import "FilterHeaderTableViewCell.h"
 #import "Utility.h"
-#import "GAITrackedViewController.h"
-#import "GAIDictionaryBuilder.h"
-#import "GAIFields.h"
-#import "GAI.h"
 
 @interface FilterTableViewController ()
 
@@ -48,11 +44,6 @@
 
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(refreshFamilyFilterCell) name:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
-    
-    id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName
-           value:@"Filters view"];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 
     
 }

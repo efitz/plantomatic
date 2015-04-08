@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WYw-tO-goB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WYw-tO-goB">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1409,7 +1409,7 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> is powered by the Botanical Information and Ecology Network (BIEN) working group, led by B.J. Enquist, B. Boyle, R. Condit, R.K. Peet, M. Schildhauer and B. Thiers. Program development was led by G. Goldsmith, E. Fitz, and S. Fitz at Ocotea Technologies. Important contributions to the foundation of </string>
+                                        <string key="content"> is powered by the Botanical Information and Ecology Network (BIEN) working group, led by B.J. Enquist, B. Boyle, R. Condit, R.K. Peet, M. Schildhauer and B. Thiers. Mobile app development was led by G. Goldsmith, E. Fitz, and S. Fitz at Ocotea Technologies. Important contributions to the foundation of </string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
@@ -1417,7 +1417,7 @@
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Plant-o-Matic ">
+                                    <fragment content="Plant-O-Matic ">
                                         <attributes>
                                             <font key="NSFont" size="12" name="HelveticaNeue-Italic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
@@ -1514,10 +1514,10 @@ Privacy Policy:</string>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="http://www.ocotech.com/privacy">
+                                    <fragment content="http://www.ocoteatech.com/privacy">
                                         <attributes>
                                             <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                            <url key="NSLink" string="http://www.ocotech.com/privacy"/>
+                                            <url key="NSLink" string="http://www.ocoteatech.com/privacy"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
