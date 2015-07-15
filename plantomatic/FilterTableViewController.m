@@ -68,6 +68,18 @@
     
     CLLocation *currentLocation=[Utility getCurrentLocation];
     
+    if (currentLocation==nil)
+    {
+        //Happens in iOS8 first time after app launch get current location nil
+        //so calling it again with delay of half second
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSelector:@selector(updateHeaderHint) withObject:nil afterDelay:0.5];
+        });
+        
+        return;
+    }
+    
     double lat1=currentLocation.coordinate.latitude, lon1=currentLocation.coordinate.longitude;
     double lat, lon;
     //Need to convert the input coordinates into radians
