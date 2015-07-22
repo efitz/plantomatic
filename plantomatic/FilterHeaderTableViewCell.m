@@ -37,7 +37,7 @@
 -(void)updateCellWithAvailablePlants:(int)availablePlants
                       andTotalPlants:(int)totalPlants
 {
-    self.hintLbl.text=[NSString stringWithFormat:@"Hint: %d of %d plants remain.",availablePlants,totalPlants ];
+    self.hintLbl.text=[NSString stringWithFormat:@"Active Filters: %d of %d plants remain.",availablePlants,totalPlants ];
 }
 
 @end
