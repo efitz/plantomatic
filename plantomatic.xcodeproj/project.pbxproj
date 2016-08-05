@@ -223,6 +223,7 @@
 		41E613011ABC67DD006B6470 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E613001ABC67DD006B6470 /* libicucore.dylib */; };
 		41E613041ABC6999006B6470 /* image_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E613021ABC6999006B6470 /* image_available.png */; };
 		41E613051ABC6999006B6470 /* image_available@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E613031ABC6999006B6470 /* image_available@2x.png */; };
+		41EBF2921D54CF5E007E98CE /* CustomMapVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EBF2911D54CF5E007E98CE /* CustomMapVIewController.m */; };
 		9C0A5A111AC4E3FD0064C584 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0A5A0F1AC4E3FD0064C584 /* Crashlytics.framework */; };
 		9C0A5A121AC4E3FD0064C584 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0A5A101AC4E3FD0064C584 /* Fabric.framework */; };
 		F7239FD318D623820008253E /* americas-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7239FD118D623820008253E /* americas-568h@2x.png */; };
@@ -577,6 +578,8 @@
 		41E613001ABC67DD006B6470 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		41E613021ABC6999006B6470 /* image_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_available.png; sourceTree = "<group>"; };
 		41E613031ABC6999006B6470 /* image_available@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_available@2x.png"; sourceTree = "<group>"; };
+		41EBF2901D54CF5E007E98CE /* CustomMapVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMapVIewController.h; sourceTree = "<group>"; };
+		41EBF2911D54CF5E007E98CE /* CustomMapVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMapVIewController.m; sourceTree = "<group>"; };
 		9C0A5A0F1AC4E3FD0064C584 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		9C0A5A101AC4E3FD0064C584 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		F7239FD118D623820008253E /* americas-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "americas-568h@2x.png"; sourceTree = "<group>"; };
@@ -1080,6 +1083,15 @@
 			path = Mixpanel;
 			sourceTree = "<group>";
 		};
+		41EBF28F1D54CF40007E98CE /* Map Filter */ = {
+			isa = PBXGroup;
+			children = (
+				41EBF2901D54CF5E007E98CE /* CustomMapVIewController.h */,
+				41EBF2911D54CF5E007E98CE /* CustomMapVIewController.m */,
+			);
+			name = "Map Filter";
+			sourceTree = "<group>";
+		};
 		F7663569189DA10300B0A594 = {
 			isa = PBXGroup;
 			children = (
@@ -1128,6 +1140,7 @@
 		F766357B189DA10300B0A594 /* plantomatic */ = {
 			isa = PBXGroup;
 			children = (
+				41EBF28F1D54CF40007E98CE /* Map Filter */,
 				F7663584189DA10300B0A594 /* AppDelegate.h */,
 				F7663585189DA10300B0A594 /* AppDelegate.m */,
 				416398D51A9B111F00F92BF1 /* LaunchScreen.storyboard */,
@@ -1541,6 +1554,7 @@
 				41E612F21ABC6730006B6470 /* MPTypeDescription.m in Sources */,
 				41E612C11ABC6730006B6470 /* MPABTestDesignerChangeResponseMessage.m in Sources */,
 				41E612E31ABC6730006B6470 /* MPObjectSerializer.m in Sources */,
+				41EBF2921D54CF5E007E98CE /* CustomMapVIewController.m in Sources */,
 				41E612C81ABC6730006B6470 /* MPABTestDesignerSnapshotRequestMessage.m in Sources */,
 				41E402731A9F7277006E443B /* FilterHeaderTableViewCell.m in Sources */,
 				41E612F31ABC6730006B6470 /* MPUIColorToNSStringValueTransformer.m in Sources */,
