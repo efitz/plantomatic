@@ -65,6 +65,8 @@
 		4163993F1A9B3F2F00F92BF1 /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163993C1A9B3F2F00F92BF1 /* welcome@2x.png */; };
 		41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41802D1418CF575600E41641 /* MBProgressHUD.m */; };
 		418280FD1A9220090003B45B /* SelectFamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */; };
+		418D103F1D58C50D001AEEFB /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D103E1D58C50D001AEEFB /* CustomCalloutView.m */; };
+		418D10421D58D10D001AEEFB /* PlantomaticAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */; };
 		41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AEF48418C4C1B600D68062 /* CoreText.framework */; };
 		41B7974E18EACAC7009F54E2 /* APIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7974D18EACAC7009F54E2 /* APIOperation.m */; };
 		41B7975318EACD65009F54E2 /* GenericService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975218EACD65009F54E2 /* GenericService.m */; };
@@ -131,6 +133,7 @@
 		41D194F61AC5991A009FB4F1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F51AC5991A009FB4F1 /* CoreData.framework */; };
 		41D194F81AC5993B009FB4F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F71AC5993B009FB4F1 /* libz.dylib */; };
 		41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41D4D2E01A849C3F005C9801 /* welcome_view.PNG */; };
+		41DD43B11D58F10200A29EDF /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DD43B01D58F10200A29EDF /* CustomCalloutView.xib */; };
 		41E301021ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E301001ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png */; };
 		41E301031ACD5BAE00D3DDCF /* Bryophyte@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E301011ACD5BAE00D3DDCF /* Bryophyte@2x.png */; };
 		41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */; };
@@ -335,6 +338,10 @@
 		41802D1418CF575600E41641 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		418280FB1A9220090003B45B /* SelectFamilyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFamilyTableViewController.h; sourceTree = "<group>"; };
 		418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFamilyTableViewController.m; sourceTree = "<group>"; };
+		418D103D1D58C50D001AEEFB /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
+		418D103E1D58C50D001AEEFB /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
+		418D10401D58D10D001AEEFB /* PlantomaticAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantomaticAnnotation.h; sourceTree = "<group>"; };
+		418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantomaticAnnotation.m; sourceTree = "<group>"; };
 		41AEF48418C4C1B600D68062 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		41B7974C18EACAC7009F54E2 /* APIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIOperation.h; sourceTree = "<group>"; };
 		41B7974D18EACAC7009F54E2 /* APIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIOperation.m; sourceTree = "<group>"; };
@@ -430,6 +437,7 @@
 		41D194F51AC5991A009FB4F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		41D194F71AC5993B009FB4F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		41D4D2E01A849C3F005C9801 /* welcome_view.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_view.PNG; sourceTree = "<group>"; };
+		41DD43B01D58F10200A29EDF /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		41E301001ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte-selected@2x.png"; sourceTree = "<group>"; };
 		41E301011ACD5BAE00D3DDCF /* Bryophyte@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte@2x.png"; sourceTree = "<group>"; };
 		41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-gradiant.png"; sourceTree = "<group>"; };
@@ -742,6 +750,18 @@
 				41802D1418CF575600E41641 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		418D103A1D58C4C2001AEEFB /* Custom Callout */ = {
+			isa = PBXGroup;
+			children = (
+				41DD43B01D58F10200A29EDF /* CustomCalloutView.xib */,
+				418D103D1D58C50D001AEEFB /* CustomCalloutView.h */,
+				418D103E1D58C50D001AEEFB /* CustomCalloutView.m */,
+				418D10401D58D10D001AEEFB /* PlantomaticAnnotation.h */,
+				418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */,
+			);
+			name = "Custom Callout";
 			sourceTree = "<group>";
 		};
 		41B7974B18EACAA8009F54E2 /* WebService Operation */ = {
@@ -1086,6 +1106,7 @@
 		41EBF28F1D54CF40007E98CE /* Map Filter */ = {
 			isa = PBXGroup;
 			children = (
+				418D103A1D58C4C2001AEEFB /* Custom Callout */,
 				41EBF2901D54CF5E007E98CE /* CustomMapVIewController.h */,
 				41EBF2911D54CF5E007E98CE /* CustomMapVIewController.m */,
 			);
@@ -1333,6 +1354,7 @@
 			files = (
 				416399251A9B3E3200F92BF1 /* Pink@2x.png in Resources */,
 				41BA4E7C18C9ED9900C34D8F /* Bryophytes_classification.png in Resources */,
+				41DD43B11D58F10200A29EDF /* CustomCalloutView.xib in Resources */,
 				F7EC11D018CFF934001FD603 /* Icon@2x.png in Resources */,
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
 				41B9EE2318BF6A8B00F7B9A1 /* reload@2x.png in Resources */,
@@ -1535,6 +1557,7 @@
 				41E612C91ABC6730006B6470 /* MPABTestDesignerSnapshotResponseMessage.m in Sources */,
 				41B9EE2F18BF875D00F7B9A1 /* GPSManager.m in Sources */,
 				418280FD1A9220090003B45B /* SelectFamilyTableViewController.m in Sources */,
+				418D10421D58D10D001AEEFB /* PlantomaticAnnotation.m in Sources */,
 				41E612E01ABC6730006B6470 /* MPNSNumberToCGFloatValueTransformer.m in Sources */,
 				F7663586189DA10300B0A594 /* AppDelegate.m in Sources */,
 				41E612E61ABC6730006B6470 /* MPPassThroughValueTransformer.m in Sources */,
@@ -1573,6 +1596,7 @@
 				41B8D79D18EC5CA700CE6D4A /* ScrollImageViewController.m in Sources */,
 				41E612FC1ABC6730006B6470 /* NSInvocation+MPHelpers.m in Sources */,
 				41E612DC1ABC6730006B6470 /* MPNotification.m in Sources */,
+				418D103F1D58C50D001AEEFB /* CustomCalloutView.m in Sources */,
 				41E612FB1ABC6730006B6470 /* NSData+MPBase64.m in Sources */,
 				41B9EDFF18BF456B00F7B9A1 /* FMResultSet.m in Sources */,
 				41B9EE1118BF4AC200F7B9A1 /* SpeciesFamily.m in Sources */,

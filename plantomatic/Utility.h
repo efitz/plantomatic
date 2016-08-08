@@ -14,6 +14,7 @@
 
 +(NSString *) getDatabasePath;
 +(CLLocation *) getCurrentLocation;
++(BOOL) isUserHaveSelectedAnyLocation;
 +(void) showAlert:(NSString *) title message:(NSString *) msg;
 +(BOOL) isNumeric:(NSString *)s;
 

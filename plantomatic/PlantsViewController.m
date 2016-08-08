@@ -425,7 +425,8 @@
 		}
 	}
 
-    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
+//    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
+    self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plants.count];
     
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     
@@ -434,6 +435,50 @@
     NSDate *future = [NSDate dateWithTimeIntervalSinceNow: 1.0 ];
     [NSThread sleepUntilDate:future];
 }
+
+
+-(NSMutableAttributedString*) getCountStringUsingCount:(long) count {
+    
+    NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:@""];
+
+    NSString* countString = [NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
+    long stringLength = countString.length;
+    UIFont* font = [UIFont systemFontOfSize:20];
+    UIColor* color = [[UIColor alloc] initWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0];
+    
+    NSMutableAttributedString* attStringToAdd = [[NSMutableAttributedString alloc] initWithString:countString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, stringLength)];
+
+    [attString appendAttributedString:attStringToAdd];
+    [attString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
+
+    
+    NSString* locationString = @"";
+    
+    if ([Utility isUserHaveSelectedAnyLocation]) {
+        // Using user selected location.
+        locationString = @"(Using User Selected Location)";
+    }
+    else {
+        // Using current GPS location location.
+        locationString = @"(Using GPS Location)";
+    }
+    
+    stringLength = locationString.length;
+    font = [UIFont systemFontOfSize:15];
+    color = [UIColor lightGrayColor];
+
+    
+    attStringToAdd = [[NSMutableAttributedString alloc] initWithString:locationString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, stringLength)];
+    
+    [attString appendAttributedString:attStringToAdd];
+    
+    return attString;
+}
+
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -1282,7 +1327,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
         self.isSearchOn=NO;
         [self.tableView reloadData];
         
-        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
+//        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
+        
+        self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plants.count];
+
     }
     else
     {
@@ -1290,7 +1338,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
         [self handleSearchForTerm:searchText];
         [self.tableView reloadData];
         
-        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plantsSearchResultArray.count];
+//        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plantsSearchResultArray.count];
+        
+        self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plantsSearchResultArray.count];
+
     }
 
 }
@@ -1327,7 +1378,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
     searchBar.text=@"";
     [searchBar resignFirstResponder]; // if you want the keyboard to go away
     
-    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
+//    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
+
+    self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plants.count];
 
 }
 

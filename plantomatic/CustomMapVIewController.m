@@ -8,6 +8,11 @@
 //
 #import <MapKit/MapKit.h>
 #import "CustomMapVIewController.h"
+#import "Constants.h"
+#import "PlantomaticAnnotation.h"
+#import "CustomCalloutView.h"
+
+
 @interface CustomMapVIewController()<UIGestureRecognizerDelegate,MKMapViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchingTextField;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -39,8 +44,8 @@
     
     [self.locationManager requestWhenInUseAuthorization];
     self.point = [[MKPointAnnotation alloc] init];
-    self.searchPoint = [[MKPointAnnotation alloc]init];
-    self.searchPoint.title = @"searchingPoint";
+    self.searchPoint = [[MKPointAnnotation alloc] init];
+    self.searchPoint.title = @"";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(somethingHappens:) name:@"MBDidReceiveAddressNotification" object:nil];
     self.searchingTextField.delegate = self;
@@ -58,8 +63,21 @@
         [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]];
         
         [self.point setCoordinate:touchMapCoordinate];
-        self.point.title = [NSString stringWithFormat:@"latitude: %f longitude: %f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
-        self.point.subtitle= [NSString stringWithFormat:@"Distance : %f",[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]]];
+        self.point.title = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
+        
+        
+        float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]];
+        
+                       
+        if ( distance >= 1000 )  {
+            //use km unit
+            self.point.subtitle= [NSString stringWithFormat:@"%.02f km",distance/1000];
+        }
+        else {
+            //use m
+            self.point.subtitle= [NSString stringWithFormat:@"%.0f meter",distance];
+        }
+        
         
         [self.mapView addAnnotation:self.point];
         [self.mapView selectAnnotation:self.point animated:YES];
@@ -80,36 +98,64 @@
     if (annotation == self.mapView.userLocation)
         return nil;
 
-    MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"asdf"];
+    MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"pin"];
     
     if (pin == nil)
-        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier: @"asdf"] ;
+    {
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier: @"pin"] ;
+    }
     else
         pin.annotation = annotation;
     
-    //  NSLog(@"%@",annotation.title);
     
     NSString *titlename=@"searchingPoint";
     if ([annotation.title isEqualToString:titlename]) {
-        pin.pinColor= MKPinAnnotationColorPurple;
-        // pin.image=[UIImage imageNamed:@"arrest.png"] ;
+        pin.pinColor =  MKPinAnnotationColorPurple;
     }
     else{
-        pin.pinColor= MKPinAnnotationColorRed;
+        pin.pinColor = MKPinAnnotationColorRed;
     }
     
     pin.userInteractionEnabled = YES;
-    UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     pin.rightCalloutAccessoryView = disclosureButton;
-    //pin.pinColor = MKPinAnnotationColorRed;
+    pin.pinColor = MKPinAnnotationColorRed;
     pin.animatesDrop = YES;
     [pin setEnabled:YES];
     [pin setCanShowCallout:YES];
+
     return pin;
-    
-    
 }
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    if (view.annotation == mapView.userLocation)
+    {
+        return;
+    }
+    
+//    PlantomaticAnnotation* plantomaticAnnotation = view.annotation;
+//    
+//    NSArray * arr =[[NSBundle mainBundle] loadNibNamed:@"CustomCalloutView" owner:nil options:nil];
+//    CustomCalloutView * calloutView = (CustomCalloutView *) [arr firstObject];
+//    
+//    [calloutView updateCellWithDistanceString:plantomaticAnnotation.distance addressString:plantomaticAnnotation.address];
+//    
+//    calloutView.center = CGPointMake(view.bounds.size.width / 2, -calloutView.bounds.size.height*0.52);
+//    [view addSubview:calloutView];
+}
+
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    if ( [view isKindOfClass:[CustomCalloutView class]] ) {
+        for (UIView *subview in view.subviews) {
+            [subview removeFromSuperview];
+        }
+    }
+}
+
 
 - (void) getPlacemarkFromLocation:(CLLocation*)location {
     CLGeocoder* geocoder = [CLGeocoder new];
@@ -123,7 +169,7 @@
              CLPlacemark* placemark = [placemarks lastObject];
              
              
-              NSString *address = [NSString stringWithFormat:@"%@ %@,%@ %@", [placemark subThoroughfare],[placemark thoroughfare],[placemark locality], [placemark administrativeArea]];
+//              NSString *address = [NSString stringWithFormat:@"%@ %@,%@ %@", [placemark subThoroughfare],[placemark thoroughfare],[placemark locality], [placemark administrativeArea]];
              
              NSMutableString* addressString = [[NSMutableString alloc] initWithString:@""];
              
@@ -178,7 +224,6 @@
 {
     NSString* address = [notification.userInfo objectForKey:@"address"];
     self.point.title = address;
-    
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
@@ -223,8 +268,20 @@
                          [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
                          
                          self.searchPoint.coordinate = placemark.coordinate;
-                         self.searchPoint.title = placemark.name;
-                         self.searchPoint.subtitle= [NSString stringWithFormat:@"Distance : %f",[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:placemark.coordinate.latitude longitude:placemark.coordinate.longitude]]];
+                         self.searchPoint.title = address;
+                         
+                         float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:placemark.coordinate.latitude longitude:placemark.coordinate.longitude]];
+                         
+                         
+                         if ( distance >= 1000 )  {
+                             //use km unit
+                             self.searchPoint.subtitle= [NSString stringWithFormat:@"%.02f km",distance/1000];
+                         }
+                         else {
+                             //use m
+                             self.searchPoint.subtitle= [NSString stringWithFormat:@"%.0f meter",distance];
+                         }
+                         
                          
                          [self.mapView addAnnotation:self.searchPoint];
                          [self.mapView selectAnnotation:self.searchPoint animated:YES];
@@ -248,6 +305,7 @@
         
         [self dismissViewControllerAnimated:true completion:^{
             //dont do anything here
+            [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_NOTIFICATION object:nil];
         }];
         
     }];

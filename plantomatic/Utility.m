@@ -36,8 +36,31 @@
 
 +(CLLocation *) getCurrentLocation
 {
-    CLLocation* currentLocation=[(AppDelegate *)[[UIApplication sharedApplication] delegate] currentLocation];
+    CLLocation* currentLocation = nil;
+    
+    if( [Utility isUserHaveSelectedAnyLocation]){
+        currentLocation = [[NSUserDefaults standardUserDefaults]
+                                            valueForKey:@"UserSelectedLocation"];
+    }
+    else {
+        currentLocation=[(AppDelegate *)[[UIApplication sharedApplication] delegate] currentLocation];
+    }
+    
     return currentLocation;
+}
+
+
++(BOOL) isUserHaveSelectedAnyLocation
+{
+    BOOL returnValue = false ;
+    CLLocation *userSelectedLocation = [[NSUserDefaults standardUserDefaults]
+                                  valueForKey:@"UserSelectedLocation"];
+
+    if (userSelectedLocation!=nil) {
+        returnValue = true;
+    }
+    
+    return returnValue;
 }
 
 
