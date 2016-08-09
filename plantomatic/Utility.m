@@ -39,8 +39,13 @@
     CLLocation* currentLocation = nil;
     
     if( [Utility isUserHaveSelectedAnyLocation]){
-        currentLocation = [[NSUserDefaults standardUserDefaults]
-                                            valueForKey:@"UserSelectedLocation"];
+        
+        NSDictionary *userLoc=[[NSUserDefaults standardUserDefaults] objectForKey:@"UserSelectedLocation"];
+
+        //CLLocationDegrees
+        NSNumber *latitude = [userLoc objectForKey:@"latitude"];
+        NSNumber *longitude = [userLoc objectForKey:@"longitude"];
+        currentLocation = [[CLLocation alloc] initWithLatitude:latitude.doubleValue longitude:longitude.doubleValue];
     }
     else {
         currentLocation=[(AppDelegate *)[[UIApplication sharedApplication] delegate] currentLocation];
@@ -50,13 +55,30 @@
 }
 
 
++(void) setUserSelectedLocation:(CLLocationCoordinate2D)coordinate
+{
+    NSNumber *lat = [NSNumber numberWithDouble:coordinate.latitude];
+    NSNumber *lon = [NSNumber numberWithDouble:coordinate.longitude];
+    NSDictionary *userLocation=@{@"latitude":lat,@"longitude":lon};
+    [[NSUserDefaults standardUserDefaults] setObject:userLocation forKey:@"UserSelectedLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(void) removeUserSelectedLocation
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserSelectedLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
+
 +(BOOL) isUserHaveSelectedAnyLocation
 {
     BOOL returnValue = false ;
-    CLLocation *userSelectedLocation = [[NSUserDefaults standardUserDefaults]
+    NSDictionary *userLoc = [[NSUserDefaults standardUserDefaults]
                                   valueForKey:@"UserSelectedLocation"];
 
-    if (userSelectedLocation!=nil) {
+    if (userLoc!=nil) {
         returnValue = true;
     }
     
@@ -444,6 +466,45 @@
             NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
         }
     }
+}
+
++(NSString*)parseAddress:(MKPlacemark*)placemark
+{
+    NSMutableString* addressString = [[NSMutableString alloc] initWithString:@""];
+    
+    if ( [placemark subThoroughfare] != nil ) {
+        [addressString appendString:[placemark subThoroughfare]];
+    }
+    
+    
+    if ( [placemark subThoroughfare] != nil ) {
+        
+        if ( [addressString length] > 0 ) {
+            [addressString appendString:@" "];
+        }
+        
+        [addressString appendString:[placemark thoroughfare]];
+    }
+    
+    if ( [placemark locality] != nil ) {
+        
+        if ( [addressString length] > 0 ) {
+            [addressString appendString:@", "];
+        }
+        
+        [addressString appendString:[placemark locality]];
+    }
+    
+    if ( [placemark administrativeArea] != nil ) {
+        
+        if ( [addressString length] > 0 ) {
+            [addressString appendString:@" "];
+        }
+        
+        [addressString appendString:[placemark administrativeArea]];
+    }
+    
+    return addressString;
 }
 
 @end

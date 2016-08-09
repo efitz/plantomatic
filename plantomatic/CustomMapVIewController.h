@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol HandleMapSearch <NSObject>
+
+- (void)dropPinZoomIn:(MKPlacemark *)placemark
+              address:(NSString*)address;
+@end
+
 @interface CustomMapVIewController : UIViewController
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface Utility : NSObject
 
@@ -36,5 +37,11 @@
 +(BOOL)isAllFlowersSelected;
 
 + (void) logFontNames;
+
++(NSString*)parseAddress:(MKPlacemark*)placemark;
+
++(void) setUserSelectedLocation:(CLLocationCoordinate2D) coordinate;
+
++(void) removeUserSelectedLocation;
 
 @end
