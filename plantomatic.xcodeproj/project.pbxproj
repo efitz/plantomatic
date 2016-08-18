@@ -67,6 +67,9 @@
 		418280FD1A9220090003B45B /* SelectFamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */; };
 		418D103F1D58C50D001AEEFB /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D103E1D58C50D001AEEFB /* CustomCalloutView.m */; };
 		418D10421D58D10D001AEEFB /* PlantomaticAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */; };
+		4198D3E51D6467AE00939058 /* PlantDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198D3E41D6467AE00939058 /* PlantDetailsViewController.m */; };
+		4198D3EF1D64B7FA00939058 /* PlantPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198D3EE1D64B7FA00939058 /* PlantPageViewController.m */; };
+		4198D3F21D64FEAD00939058 /* PlantImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198D3F11D64FEAD00939058 /* PlantImageViewController.m */; };
 		41AEF48518C4C1B600D68062 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AEF48418C4C1B600D68062 /* CoreText.framework */; };
 		41B7974E18EACAC7009F54E2 /* APIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7974D18EACAC7009F54E2 /* APIOperation.m */; };
 		41B7975318EACD65009F54E2 /* GenericService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7975218EACD65009F54E2 /* GenericService.m */; };
@@ -343,6 +346,12 @@
 		418D103E1D58C50D001AEEFB /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		418D10401D58D10D001AEEFB /* PlantomaticAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantomaticAnnotation.h; sourceTree = "<group>"; };
 		418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantomaticAnnotation.m; sourceTree = "<group>"; };
+		4198D3E31D6467AE00939058 /* PlantDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantDetailsViewController.h; sourceTree = "<group>"; };
+		4198D3E41D6467AE00939058 /* PlantDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantDetailsViewController.m; sourceTree = "<group>"; };
+		4198D3ED1D64B7FA00939058 /* PlantPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantPageViewController.h; sourceTree = "<group>"; };
+		4198D3EE1D64B7FA00939058 /* PlantPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantPageViewController.m; sourceTree = "<group>"; };
+		4198D3F01D64FEAD00939058 /* PlantImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantImageViewController.h; sourceTree = "<group>"; };
+		4198D3F11D64FEAD00939058 /* PlantImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantImageViewController.m; sourceTree = "<group>"; };
 		41AEF48418C4C1B600D68062 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		41B7974C18EACAC7009F54E2 /* APIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIOperation.h; sourceTree = "<group>"; };
 		41B7974D18EACAC7009F54E2 /* APIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIOperation.m; sourceTree = "<group>"; };
@@ -768,6 +777,19 @@
 			name = "Custom Callout";
 			sourceTree = "<group>";
 		};
+		4198D3E21D64674C00939058 /* Plant Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4198D3E31D6467AE00939058 /* PlantDetailsViewController.h */,
+				4198D3E41D6467AE00939058 /* PlantDetailsViewController.m */,
+				4198D3ED1D64B7FA00939058 /* PlantPageViewController.h */,
+				4198D3EE1D64B7FA00939058 /* PlantPageViewController.m */,
+				4198D3F01D64FEAD00939058 /* PlantImageViewController.h */,
+				4198D3F11D64FEAD00939058 /* PlantImageViewController.m */,
+			);
+			name = "Plant Detail";
+			sourceTree = "<group>";
+		};
 		41B7974B18EACAA8009F54E2 /* WebService Operation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1168,6 +1190,7 @@
 		F766357B189DA10300B0A594 /* plantomatic */ = {
 			isa = PBXGroup;
 			children = (
+				4198D3E21D64674C00939058 /* Plant Detail */,
 				41EBF28F1D54CF40007E98CE /* Map Filter */,
 				F7663584189DA10300B0A594 /* AppDelegate.h */,
 				F7663585189DA10300B0A594 /* AppDelegate.m */,
@@ -1600,7 +1623,9 @@
 				41E612CC1ABC6730006B6470 /* MPApplicationStateSerializer.m in Sources */,
 				41E612C01ABC6730006B6470 /* MPABTestDesignerChangeRequestMessage.m in Sources */,
 				41E612F41ABC6730006B6470 /* MPUIControlBinding.m in Sources */,
+				4198D3EF1D64B7FA00939058 /* PlantPageViewController.m in Sources */,
 				41E612ED1ABC6730006B6470 /* MPSurveyQuestionViewController.m in Sources */,
+				4198D3F21D64FEAD00939058 /* PlantImageViewController.m in Sources */,
 				41B9EDFE18BF456B00F7B9A1 /* FMDatabase.m in Sources */,
 				41B8D79D18EC5CA700CE6D4A /* ScrollImageViewController.m in Sources */,
 				41E612FC1ABC6730006B6470 /* NSInvocation+MPHelpers.m in Sources */,
@@ -1613,6 +1638,7 @@
 				41B8D6B218EC3BD600CE6D4A /* PlantCollectionViewCell.m in Sources */,
 				41E612F81ABC6730006B6470 /* MPUITableViewBinding.m in Sources */,
 				41E612D31ABC6730006B6470 /* MPCGSizeToNSDictionaryValueTransformer.m in Sources */,
+				4198D3E51D6467AE00939058 /* PlantDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

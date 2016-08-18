@@ -42,7 +42,7 @@
     
 //    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleBordered target:self action:@selector(searchAction)];
 
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelAction)];
+    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
 
     [self createSearchActionButton];
     
@@ -118,8 +118,11 @@
     self.totalAvialblePlants=[db getPlantsForY:Y andX:X];
     
     
-    [self.sectionHeaderCell updateCellWithAvailablePlants:[self getFilterPlantsNumber]
-                                           andTotalPlants:[self.totalAvialblePlants count]];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self.sectionHeaderCell updateCellWithAvailablePlants:[self getFilterPlantsNumber]
+                                               andTotalPlants:[self.totalAvialblePlants count]];
+    });
+
 }
 
 
@@ -378,7 +381,10 @@
     
 //    [self.sectionHeaderCell updateCellWithAvailablePlants:9 andTotalPlants:1000];
     
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
 
 }
 

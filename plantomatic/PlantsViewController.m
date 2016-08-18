@@ -18,7 +18,7 @@
 #import "PlantImagesService.h"
 #import "PlantImagesList.h"
 #import "PlantsCollectionViewController.h"
-
+#import "PlantDetailsViewController.h"
 
 @interface NSString(MyCustomSorting)
 
@@ -92,6 +92,8 @@
 @property (strong, nonatomic) IBOutlet UIView *searchView;
 
 @property (strong, nonatomic) PlantImagesService *plantImagesService;
+
+@property (strong, nonatomic) SpeciesFamily *selectedPlant;
 
 
 @end
@@ -644,6 +646,7 @@
 
     if ([plant.isImageAvailabe isEqualToString:@"TRUE"]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.selectedPlant = plant;
         [self.plantImagesService fetchPlantImagesListForGenus:plant.genus species:plant.species];
     }
     else
@@ -1390,18 +1393,23 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)plantImagesFetchSucceed:(PlantImagesList *)plantImagesList
 {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    
-    //NSString* message=[NSString stringWithFormat:@"Images found for selected plant = %lu",(unsigned long)plantImagesList.plantImages.count];
-    //[Utility showAlert:@"PlantOMatic Test Alert" message:message];
-    
-    //PlantsCollectionViewController* plantsCollectionViewController=[[PlantsCollectionViewController alloc] int
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PlantsCollectionViewController *plantsCollectionViewController = (PlantsCollectionViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantsCollectionViewController"];
+
     
-    plantsCollectionViewController.assets=plantImagesList.plantImages;
+    //Old implmentation
+//    PlantsCollectionViewController *plantsCollectionViewController = (PlantsCollectionViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantsCollectionViewController"];
+//    
+//    plantsCollectionViewController.assets=plantImagesList.plantImages;
+//    
+//    [self.navigationController pushViewController:plantsCollectionViewController animated:YES];
     
-    [self.navigationController pushViewController:plantsCollectionViewController animated:YES];
+    //New Detail view
+    PlantDetailsViewController *plantDetailsViewController = (PlantDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantDetailsViewController"];
+    
+    plantDetailsViewController.assets = plantImagesList.plantImages;
+    plantDetailsViewController.plant = self.selectedPlant;
+    [self.navigationController pushViewController:plantDetailsViewController animated:YES];
+
 }
 
 - (void)plantImagesFetchFailed:(NSString *)errorMessage

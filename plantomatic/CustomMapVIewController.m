@@ -299,12 +299,12 @@
         UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"Draw route to Pin location" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"Draw route from current GPS location to Pin location");
             
-            [self dismissViewControllerAnimated:true completion:^{
+//            [self dismissViewControllerAnimated:true completion:^{
                 ///create MKMapItem out of coordinates
                 MKPlacemark* placeMark = [[MKPlacemark alloc] initWithCoordinate:annotation.coordinate addressDictionary:nil];
                 MKMapItem* destination =  [[MKMapItem alloc] initWithPlacemark:placeMark];
                 [destination openInMapsWithLaunchOptions:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving}];
-            }];
+//            }];
             
         }];
 
