@@ -25,12 +25,16 @@
 
 @property (readwrite, nonatomic) BOOL isFirstTime;
 
+@property (strong, nonatomic) IBOutlet UIView *searchView;
+
 @end
 
 @implementation CustomMapVIewController
 
 - (void)viewDidLoad
 {
+    self.title = @"Plants of the Americas";
+    
     // attach long press gesture to collectionView
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                        action:@selector(handleLongPress:)];
@@ -105,7 +109,8 @@
     UISearchBar* searchBar = self.resultSearchController.searchBar;
     [searchBar sizeToFit];
     searchBar.placeholder = @"Search for places";
-    self.navigationItem.titleView = self.resultSearchController.searchBar;
+   // self.navigationItem.titleView = self.resultSearchController.searchBar;
+    [self.searchView addSubview:self.resultSearchController.searchBar];
     self.resultSearchController.hidesNavigationBarDuringPresentation = false;
     self.resultSearchController.dimsBackgroundDuringPresentation = true;
 
@@ -221,15 +226,27 @@
     
     pin.userInteractionEnabled = YES;
 
-    UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    pin.rightCalloutAccessoryView = disclosureButton;
+//    UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//    pin.rightCalloutAccessoryView = disclosureButton;
     
     
-    UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [button setBackgroundImage:[UIImage imageNamed:@"car"] forState:(UIControlStateNormal)];
-    pin.leftCalloutAccessoryView = button;
+//    UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+//    [button setBackgroundImage:[UIImage imageNamed:@"car"] forState:(UIControlStateNormal)];
+//    pin.leftCalloutAccessoryView = button;
+
+//    UIButton * leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [leftButton setBackgroundImage:[UIImage imageNamed:@"arrow"] forState:UIControlStateNormal];
+//    pin.rightCalloutAccessoryView = leftButton;
 
     
+    UIImage *listImage = [UIImage imageNamed:@"arrow"];
+    UIButton *listButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    listButton.frame = CGRectMake(0, 0, 30.0, 30.0);
+    [listButton setImage:listImage forState:UIControlStateNormal];
+    listButton.userInteractionEnabled = false;
+    
+    pin.rightCalloutAccessoryView = listButton;
+
     
     pin.pinColor = MKPinAnnotationColorRed;
     pin.animatesDrop = YES;
@@ -267,8 +284,8 @@
 -(void)calloutTapped:(UITapGestureRecognizer *) sender
 {
     NSLog(@"Callout was tapped");
-    
     MKAnnotationView *view = (MKAnnotationView*)sender.view;
+    
     id <MKAnnotation> annotation = [view annotation];
     if ([annotation isKindOfClass:[MKPointAnnotation class]])
     {
@@ -335,6 +352,7 @@
         [self presentViewController:actionSheet animated:YES completion:nil];
     }
 }
+
 
 
 

@@ -21,9 +21,22 @@
         
         //Caption: "Gregg - 1131 - Mexico",
         //ImageKindText: "Herbarium Specimen"
-        _nameText                = [Utility getStringValueWithDict:dict key:@"NameText"];
+        _nameText               = [Utility getStringValueWithDict:dict key:@"NameText"];
         _imageKindText          = [Utility getStringValueWithDict:dict key:@"ImageKindText"];
         
+        //Additional things that previously not parsing
+        _imageId                = [Utility getIntValueWithDict:dict key:@"ImageId"];
+        _nameId                 = [Utility getIntValueWithDict:dict key:@"NameId"];
+        _specimenId             = [Utility getIntValueWithDict:dict key:@"SpecimenId"];
+        _specimenText           = [Utility getStringValueWithDict:dict key:@"SpecimenText"];
+        _caption                = [Utility getStringValueWithDict:dict key:@"Caption"];
+        _longDescription        = [Utility getStringValueWithDict:dict key:@"LongDescription"];
+        _barcode                = [Utility getStringValueWithDict:dict key:@"Barcode"];
+        _copyright              = [Utility getStringValueWithDict:dict key:@"Copyright"];
+        _licenseUrl             = [Utility getStringValueWithDict:dict key:@"LicenseUrl"];
+        _licenseName            = [Utility getStringValueWithDict:dict key:@"LicenseName"];
+        _photographer           = [Utility getStringValueWithDict:dict key:@"Photographer"];
+        _detailUrl              = [Utility getStringValueWithDict:dict key:@"DetailUrl"];
     }
     
     return self;
