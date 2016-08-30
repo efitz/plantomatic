@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface CustomCalloutView : UIView
+@interface CustomCalloutView : MKAnnotationView
 
 @property (strong, nonatomic) IBOutlet UILabel *distanceLbl;
 @property (strong, nonatomic) IBOutlet UILabel *addressLbl;

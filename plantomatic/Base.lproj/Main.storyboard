@@ -11,6 +11,7 @@
         <mutableArray key="Chunkfive.ttf">
             <string>ChunkFive</string>
             <string>ChunkFive</string>
+            <string>ChunkFive</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2206,25 +2207,29 @@ CgoKA
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hv-U3-KQy">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plants of the Americas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUf-Ax-PZA">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="5ob-BU-LPP"/>
+                                    <constraint firstAttribute="height" constant="50" id="f5j-9p-D6o">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="51"/>
+                                    </constraint>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="ChunkFive" family="ChunkFive" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="5ob-BU-LPP"/>
+                                        <exclude reference="f5j-9p-D6o"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="63" width="400" height="40"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="5ob-BU-LPP"/>
+                                        <include reference="f5j-9p-D6o"/>
                                     </mask>
                                 </variation>
-                            </view>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXZ-qr-zCa">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
@@ -2244,8 +2249,7 @@ CgoKA
                                         <exclude reference="hsw-hc-mHX"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="7" y="116" width="40" height="40"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="GbZ-BG-ksF"/>
                                         <include reference="hsw-hc-mHX"/>
@@ -2259,32 +2263,30 @@ CgoKA
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1hv-U3-KQy" firstAttribute="leading" secondItem="YIV-Yt-adE" secondAttribute="leading" id="5lo-Fx-pGA"/>
+                            <constraint firstAttribute="trailing" secondItem="VUf-Ax-PZA" secondAttribute="trailing" id="2cn-ff-bLQ"/>
                             <constraint firstItem="dFb-AK-J7x" firstAttribute="top" secondItem="Dxn-GS-pnI" secondAttribute="bottom" id="72H-wB-07K"/>
                             <constraint firstItem="MXZ-qr-zCa" firstAttribute="top" secondItem="Dxn-GS-pnI" secondAttribute="bottom" constant="52" id="8WT-et-J9b">
-                                <variation key="heightClass=regular-widthClass=compact" constant="52"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
-                            <constraint firstAttribute="trailing" secondItem="1hv-U3-KQy" secondAttribute="trailing" id="EVn-55-vO2"/>
-                            <constraint firstItem="1hv-U3-KQy" firstAttribute="leading" secondItem="MXZ-qr-zCa" secondAttribute="trailing" constant="8" id="FRh-Cs-INP"/>
                             <constraint firstAttribute="trailing" secondItem="dFb-AK-J7x" secondAttribute="trailing" id="JCI-bK-PGs"/>
+                            <constraint firstItem="VUf-Ax-PZA" firstAttribute="leading" secondItem="YIV-Yt-adE" secondAttribute="leading" id="QBB-lT-b0H"/>
                             <constraint firstItem="MXZ-qr-zCa" firstAttribute="leading" secondItem="YIV-Yt-adE" secondAttribute="leading" constant="11" id="cY2-Y5-P2L">
                                 <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
                             <constraint firstItem="dFb-AK-J7x" firstAttribute="leading" secondItem="YIV-Yt-adE" secondAttribute="leading" id="g4a-Yg-Uhf"/>
+                            <constraint firstItem="VUf-Ax-PZA" firstAttribute="top" secondItem="Dxn-GS-pnI" secondAttribute="bottom" id="g7A-7m-lm5"/>
                             <constraint firstItem="4bM-Hj-Bw7" firstAttribute="top" secondItem="dFb-AK-J7x" secondAttribute="bottom" id="h6a-hX-VIR"/>
-                            <constraint firstItem="1hv-U3-KQy" firstAttribute="top" secondItem="Dxn-GS-pnI" secondAttribute="bottom" id="mp6-LS-6qC"/>
                             <constraint firstItem="MXZ-qr-zCa" firstAttribute="top" secondItem="Dxn-GS-pnI" secondAttribute="bottom" constant="55" id="pq0-bF-1c3"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="1hv-U3-KQy"/>
+                                <exclude reference="VUf-Ax-PZA"/>
                                 <exclude reference="MXZ-qr-zCa"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5lo-Fx-pGA"/>
-                                <exclude reference="EVn-55-vO2"/>
-                                <exclude reference="FRh-Cs-INP"/>
-                                <exclude reference="mp6-LS-6qC"/>
+                                <exclude reference="2cn-ff-bLQ"/>
+                                <exclude reference="QBB-lT-b0H"/>
+                                <exclude reference="g7A-7m-lm5"/>
                                 <exclude reference="8WT-et-J9b"/>
                                 <exclude reference="cY2-Y5-P2L"/>
                                 <exclude reference="pq0-bF-1c3"/>
@@ -2292,14 +2294,13 @@ CgoKA
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="1hv-U3-KQy"/>
+                                <include reference="VUf-Ax-PZA"/>
                                 <include reference="MXZ-qr-zCa"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5lo-Fx-pGA"/>
-                                <include reference="EVn-55-vO2"/>
-                                <exclude reference="FRh-Cs-INP"/>
-                                <include reference="mp6-LS-6qC"/>
+                                <include reference="2cn-ff-bLQ"/>
+                                <include reference="QBB-lT-b0H"/>
+                                <include reference="g7A-7m-lm5"/>
                                 <include reference="8WT-et-J9b"/>
                                 <include reference="cY2-Y5-P2L"/>
                                 <exclude reference="pq0-bF-1c3"/>
@@ -2310,7 +2311,6 @@ CgoKA
                     <connections>
                         <outlet property="closeButton" destination="MXZ-qr-zCa" id="LhX-h2-qkw"/>
                         <outlet property="mapView" destination="dFb-AK-J7x" id="nYj-cE-bEO"/>
-                        <outlet property="searchView" destination="1hv-U3-KQy" id="a63-jf-djz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0t-d7-pMY" userLabel="First Responder" sceneMemberID="firstResponder"/>

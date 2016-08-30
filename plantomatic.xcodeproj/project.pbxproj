@@ -65,6 +65,9 @@
 		4163993F1A9B3F2F00F92BF1 /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163993C1A9B3F2F00F92BF1 /* welcome@2x.png */; };
 		41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41802D1418CF575600E41641 /* MBProgressHUD.m */; };
 		418280FD1A9220090003B45B /* SelectFamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */; };
+		418BBB1C1D75E79B0099F564 /* CalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB171D75E79B0099F564 /* CalloutAnnotation.m */; };
+		418BBB1D1D75E79B0099F564 /* CalloutAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB191D75E79B0099F564 /* CalloutAnnotationView.m */; };
+		418BBB1E1D75E79B0099F564 /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB1B1D75E79B0099F564 /* PinAnnotation.m */; };
 		418D103F1D58C50D001AEEFB /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D103E1D58C50D001AEEFB /* CustomCalloutView.m */; };
 		418D10421D58D10D001AEEFB /* PlantomaticAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */; };
 		4198D3E51D6467AE00939058 /* PlantDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198D3E41D6467AE00939058 /* PlantDetailsViewController.m */; };
@@ -342,6 +345,12 @@
 		41802D1418CF575600E41641 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		418280FB1A9220090003B45B /* SelectFamilyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFamilyTableViewController.h; sourceTree = "<group>"; };
 		418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFamilyTableViewController.m; sourceTree = "<group>"; };
+		418BBB161D75E79B0099F564 /* CalloutAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotation.h; sourceTree = "<group>"; };
+		418BBB171D75E79B0099F564 /* CalloutAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotation.m; sourceTree = "<group>"; };
+		418BBB181D75E79B0099F564 /* CalloutAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotationView.h; sourceTree = "<group>"; };
+		418BBB191D75E79B0099F564 /* CalloutAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotationView.m; sourceTree = "<group>"; };
+		418BBB1A1D75E79B0099F564 /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
+		418BBB1B1D75E79B0099F564 /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
 		418D103D1D58C50D001AEEFB /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
 		418D103E1D58C50D001AEEFB /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		418D10401D58D10D001AEEFB /* PlantomaticAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantomaticAnnotation.h; sourceTree = "<group>"; };
@@ -765,7 +774,20 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		418D103A1D58C4C2001AEEFB /* Custom Callout */ = {
+		418BBB151D75E6940099F564 /* CusomCallOut */ = {
+			isa = PBXGroup;
+			children = (
+				418BBB161D75E79B0099F564 /* CalloutAnnotation.h */,
+				418BBB171D75E79B0099F564 /* CalloutAnnotation.m */,
+				418BBB181D75E79B0099F564 /* CalloutAnnotationView.h */,
+				418BBB191D75E79B0099F564 /* CalloutAnnotationView.m */,
+				418BBB1A1D75E79B0099F564 /* PinAnnotation.h */,
+				418BBB1B1D75E79B0099F564 /* PinAnnotation.m */,
+			);
+			name = CusomCallOut;
+			sourceTree = "<group>";
+		};
+		418D103A1D58C4C2001AEEFB /* Custom Callout (will remove when done) */ = {
 			isa = PBXGroup;
 			children = (
 				41DD43B01D58F10200A29EDF /* CustomCalloutView.xib */,
@@ -774,7 +796,7 @@
 				418D10401D58D10D001AEEFB /* PlantomaticAnnotation.h */,
 				418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */,
 			);
-			name = "Custom Callout";
+			name = "Custom Callout (will remove when done)";
 			sourceTree = "<group>";
 		};
 		4198D3E21D64674C00939058 /* Plant Detail */ = {
@@ -1132,7 +1154,8 @@
 		41EBF28F1D54CF40007E98CE /* Map Filter */ = {
 			isa = PBXGroup;
 			children = (
-				418D103A1D58C4C2001AEEFB /* Custom Callout */,
+				418BBB151D75E6940099F564 /* CusomCallOut */,
+				418D103A1D58C4C2001AEEFB /* Custom Callout (will remove when done) */,
 				41EBF2901D54CF5E007E98CE /* CustomMapVIewController.h */,
 				41EBF2911D54CF5E007E98CE /* CustomMapVIewController.m */,
 				41E6998D1D59EC110028D3F2 /* LocationSearchTableViewController.h */,
@@ -1549,7 +1572,9 @@
 				41E612DE1ABC6730006B6470 /* MPNotificationViewController.m in Sources */,
 				41E612C51ABC6730006B6470 /* MPABTestDesignerDeviceInfoRequestMessage.m in Sources */,
 				41B9EE1E18BF5B1B00F7B9A1 /* InfoViewController.m in Sources */,
+				418BBB1C1D75E79B0099F564 /* CalloutAnnotation.m in Sources */,
 				41E612C61ABC6730006B6470 /* MPABTestDesignerDeviceInfoResponseMessage.m in Sources */,
+				418BBB1E1D75E79B0099F564 /* PinAnnotation.m in Sources */,
 				41B8D6AB18EC3BA900CE6D4A /* CInterpolator.mm in Sources */,
 				41E612E11ABC6730006B6470 /* MPObjectIdentityProvider.m in Sources */,
 				F766358C189DA10300B0A594 /* ConversionTestViewController.m in Sources */,
@@ -1576,6 +1601,7 @@
 				41E612D01ABC6730006B6470 /* MPCGColorRefToNSStringValueTransformer.m in Sources */,
 				41E612C21ABC6730006B6470 /* MPABTestDesignerClearRequestMessage.m in Sources */,
 				41B8D78D18EC3C3F00CE6D4A /* CCoverflowTitleView.m in Sources */,
+				418BBB1D1D75E79B0099F564 /* CalloutAnnotationView.m in Sources */,
 				41CC40A11A8B6E2C0088E417 /* FilterWithSwitchTableViewCell.m in Sources */,
 				41E612CD1ABC6730006B6470 /* MPBOOLToNSNumberValueTransformer.m in Sources */,
 				41E612E81ABC6730006B6470 /* MPSequenceGenerator.m in Sources */,

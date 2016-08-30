@@ -9,23 +9,22 @@
 #import <MapKit/MapKit.h>
 #import "CustomMapVIewController.h"
 #import "Constants.h"
-#import "PlantomaticAnnotation.h"
-#import "CustomCalloutView.h"
 #import "LocationSearchTableViewController.h"
 #import "Utility.h"
+#import "PinAnnotation.h"
+#import "CalloutAnnotationView.h"
 
-@interface CustomMapVIewController()<UIGestureRecognizerDelegate,MKMapViewDelegate,HandleMapSearch>
+@interface CustomMapVIewController()<UIGestureRecognizerDelegate,MKMapViewDelegate,HandleMapSearch, CalloutAnnotationViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) MKPointAnnotation *point;
-@property (strong, nonatomic) MKPointAnnotation *searchPoint;
+@property (strong, nonatomic) PinAnnotation *point;
+@property (strong, nonatomic) PinAnnotation *searchPoint;
 @property (strong, nonatomic) UISearchController *resultSearchController;
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
 
 @property (readwrite, nonatomic) BOOL isFirstTime;
-
-@property (strong, nonatomic) IBOutlet UIView *searchView;
+@property (readwrite, nonatomic) BOOL isSafeToChangeCenterCoordinates;
 
 @end
 
@@ -55,8 +54,9 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager requestWhenInUseAuthorization];
-    self.point = [[MKPointAnnotation alloc] init];
-    self.searchPoint = [[MKPointAnnotation alloc] init];
+    self.point = [[PinAnnotation alloc] init];
+    self.point.title = @"";
+    self.searchPoint = [[PinAnnotation alloc] init];
     self.searchPoint.title = @"";
     
     
@@ -65,6 +65,7 @@
     self.closeButton.layer.cornerRadius  = 20.0;
 
     self.isFirstTime = true;
+    self.isSafeToChangeCenterCoordinates = true;
     ///////////////////////////////////////////////////////////////////
     //// This part brings back to user to last time selected location
     ///////////////////////////////////////////////////////////////////
@@ -76,7 +77,7 @@
         [self getPlacemarkFromLocation:currentLocation];
         
         [self.point setCoordinate:currentLocation.coordinate];
-        self.point.title = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude];
+        self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude];
         
         
         float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude]];
@@ -84,11 +85,11 @@
         
         if ( distance >= 1000 )  {
             //use km unit
-            self.point.subtitle= [NSString stringWithFormat:@"%.02f km",distance/1000];
+            self.point.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
         }
         else {
             //use m
-            self.point.subtitle= [NSString stringWithFormat:@"%.0f meter",distance];
+            self.point.distance= [NSString stringWithFormat:@"%.0f meter",distance];
         }
         
         [self.mapView addAnnotation:self.point];
@@ -109,8 +110,7 @@
     UISearchBar* searchBar = self.resultSearchController.searchBar;
     [searchBar sizeToFit];
     searchBar.placeholder = @"Search for places";
-   // self.navigationItem.titleView = self.resultSearchController.searchBar;
-    [self.searchView addSubview:self.resultSearchController.searchBar];
+    self.navigationItem.titleView = self.resultSearchController.searchBar;
     self.resultSearchController.hidesNavigationBarDuringPresentation = false;
     self.resultSearchController.dimsBackgroundDuringPresentation = true;
 
@@ -131,7 +131,7 @@
         [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]];
         
         [self.point setCoordinate:touchMapCoordinate];
-        self.point.title = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
+        self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
         
         
         float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]];
@@ -139,11 +139,11 @@
                        
         if ( distance >= 1000 )  {
             //use km unit
-            self.point.subtitle= [NSString stringWithFormat:@"%.02f km",distance/1000];
+            self.point.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
         }
         else {
             //use m
-            self.point.subtitle= [NSString stringWithFormat:@"%.0f meter",distance];
+            self.point.distance= [NSString stringWithFormat:@"%.0f meter",distance];
         }
         
         [self.mapView addAnnotation:self.point];
@@ -173,9 +173,12 @@
         
         double inset = -zoomRect.size.width * 1.0;
         zoomRect = MKMapRectInset(zoomRect, inset, inset);
+        
+        self.isSafeToChangeCenterCoordinates = false;
+
         [self.mapView setVisibleMapRect:MKMapRectInset(zoomRect, inset, inset) animated:YES];
         
-        [mapView setVisibleMapRect:zoomRect animated:YES];
+        self.isSafeToChangeCenterCoordinates = true;
     }
     
     //The below code is only runs once in case of user have selected any location
@@ -190,104 +193,131 @@
         
         if ( distance >= 1000 )  {
             //use km unit
-            self.point.subtitle= [NSString stringWithFormat:@"%.02f km",distance/1000];
+            self.point.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
         }
         else {
             //use m
-            self.point.subtitle= [NSString stringWithFormat:@"%.0f meter",distance];
+            self.point.distance= [NSString stringWithFormat:@"%.0f meter",distance];
         }
 
     }
     
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    if (annotation == self.mapView.userLocation)
-        return nil;
+#pragma mark
+#pragma mark Custom methods
 
-    MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"pin"];
-    
-    if (pin == nil)
-    {
-        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier: @"pin"] ;
-    }
-    else
-        pin.annotation = annotation;
-    
-    
-    NSString *titlename=@"searchingPoint";
-    if ([annotation.title isEqualToString:titlename]) {
-        pin.pinColor =  MKPinAnnotationColorPurple;
-    }
-    else{
-        pin.pinColor = MKPinAnnotationColorRed;
-    }
-    
-    pin.userInteractionEnabled = YES;
+//---------------------------------------------------------------
 
-//    UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//    pin.rightCalloutAccessoryView = disclosureButton;
+- (void)calloutButtonClicked:(NSString *)title {
     
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"More info" message:title delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alertView show];
     
-//    UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-//    [button setBackgroundImage:[UIImage imageNamed:@"car"] forState:(UIControlStateNormal)];
-//    pin.leftCalloutAccessoryView = button;
-
-//    UIButton * leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [leftButton setBackgroundImage:[UIImage imageNamed:@"arrow"] forState:UIControlStateNormal];
-//    pin.rightCalloutAccessoryView = leftButton;
-
-    
-    UIImage *listImage = [UIImage imageNamed:@"arrow"];
-    UIButton *listButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    listButton.frame = CGRectMake(0, 0, 30.0, 30.0);
-    [listButton setImage:listImage forState:UIControlStateNormal];
-    listButton.userInteractionEnabled = false;
-    
-    pin.rightCalloutAccessoryView = listButton;
-
-    
-    pin.pinColor = MKPinAnnotationColorRed;
-    pin.animatesDrop = YES;
-    [pin setEnabled:YES];
-    [pin setCanShowCallout:YES];
-
-    return pin;
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-//    [mapView deselectAnnotation:view.annotation animated:YES];
 
-    if (view.annotation == mapView.userLocation)
-    {
-        return;
+#pragma mark
+#pragma mark MKMapView delegate methods
+
+//---------------------------------------------------------------
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView *annotationView;
+    NSString *identifier;
+    
+    if ([annotation isKindOfClass:[PinAnnotation class]]) {
+        // Pin annotation.
+        identifier = @"Pin";
+        annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        
+        if (annotationView == nil) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        }
+        else
+        {
+            PinAnnotation *pinAnnotation = ((PinAnnotation *)annotation);
+            [mapView removeAnnotation:pinAnnotation.calloutAnnotation];
+            pinAnnotation.calloutAnnotation = nil;
+        }
+    } else if ([annotation isKindOfClass:[CalloutAnnotation class]]) {
+        // Callout annotation.
+        identifier = @"Callout";
+        annotationView = (CalloutAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        
+        if (annotationView == nil) {
+            annotationView = [[CalloutAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        }
+        
+        CalloutAnnotation *calloutAnnotation = (CalloutAnnotation *)annotation;
+        
+        ((CalloutAnnotationView *)annotationView).title = calloutAnnotation.title;
+        ((CalloutAnnotationView *)annotationView).delegate = self;
+        [annotationView setNeedsDisplay];
+        
+        
+        [annotationView setCenterOffset:CGPointMake(0, -80)];
+        // Move the display position of MapView.
+        
+        if ( self.isSafeToChangeCenterCoordinates ){
+            [UIView animateWithDuration:0.5f
+                             animations:^(void) {
+                                 mapView.centerCoordinate = calloutAnnotation.coordinate;
+                             }];
+        }
+
     }
     
-//    PlantomaticAnnotation* plantomaticAnnotation = view.annotation;
-//    
-//    NSArray * arr =[[NSBundle mainBundle] loadNibNamed:@"CustomCalloutView" owner:nil options:nil];
-//    CustomCalloutView * calloutView = (CustomCalloutView *) [arr firstObject];
-//    
-//    [calloutView updateCellWithDistanceString:plantomaticAnnotation.distance addressString:plantomaticAnnotation.address];
-//    
-//    calloutView.center = CGPointMake(view.bounds.size.width / 2, -calloutView.bounds.size.height*0.52);
-//    [view addSubview:calloutView];
+    annotationView.annotation = annotation;
     
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(calloutTapped:)];
-    [view addGestureRecognizer:tapGesture];
-
+    return annotationView;
 }
 
--(void)calloutTapped:(UITapGestureRecognizer *) sender
+//---------------------------------------------------------------
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if ([view.annotation isKindOfClass:[PinAnnotation class]]) {
+        // Selected the pin annotation.
+        CalloutAnnotation *calloutAnnotation = [[CalloutAnnotation alloc] init];
+        
+        PinAnnotation *pinAnnotation = ((PinAnnotation *)view.annotation);
+        calloutAnnotation.title = [[NSString alloc] initWithFormat:@"%@ (%@)",pinAnnotation.address,pinAnnotation.distance];
+        calloutAnnotation.coordinate = pinAnnotation.coordinate;
+        pinAnnotation.calloutAnnotation = calloutAnnotation;
+        [mapView addAnnotation:calloutAnnotation];
+    }
+}
+
+//---------------------------------------------------------------
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    if ([view.annotation isKindOfClass:[PinAnnotation class]]) {
+        // Deselected the pin annotation.
+        PinAnnotation *pinAnnotation = ((PinAnnotation *)view.annotation);
+        
+        [mapView removeAnnotation:pinAnnotation.calloutAnnotation];
+        
+        pinAnnotation.calloutAnnotation = nil;
+    }
+}
+
+//---------------------------------------------------------------
+
+
+
+- (void)goButtonClicked:(CalloutAnnotation*)annotation
+{
+    [self dismissViewControllerAnimated:true completion:^{
+        [Utility setUserSelectedLocation:annotation.coordinate];
+        [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_NOTIFICATION object:nil];
+    }];
+}
+
+
+- (void)moreInfoButtonClicked:(CalloutAnnotation*)annotation
 {
     NSLog(@"Callout was tapped");
-    MKAnnotationView *view = (MKAnnotationView*)sender.view;
-    
-    id <MKAnnotation> annotation = [view annotation];
-    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    if ([annotation isKindOfClass:[CalloutAnnotation class]])
     {
         // create an alert controller with action sheet appearance
         UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"PlantOMatic" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -354,20 +384,6 @@
 }
 
 
-
-
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
-{
-//     [mapView deselectAnnotation:view.annotation animated:YES];
-
-//    if ( [view isKindOfClass:[CustomCalloutView class]] ) {
-//        for (UIView *subview in view.subviews) {
-//            [subview removeFromSuperview];
-//        }
-//    }
-}
-
-
 - (void) getPlacemarkFromLocation:(CLLocation*)location {
     CLGeocoder* geocoder = [CLGeocoder new];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
@@ -392,7 +408,16 @@
 -(void)receiveAddressNotification:(NSNotification*)notification
 {
     NSString* address = [notification.userInfo objectForKey:@"address"];
-    self.point.title = address;
+    self.point.address = address;
+    self.point.calloutAnnotation.title = [[NSString alloc] initWithFormat:@"%@ (%@)",self.point.address,self.point.distance];
+
+
+    
+    CalloutAnnotationView* annotationView = (CalloutAnnotationView*)[self.mapView viewForAnnotation:self.point.calloutAnnotation];
+    annotationView.titleLabel.text = self.point.calloutAnnotation.title;
+
+//    [self.mapView removeAnnotation:self.point.calloutAnnotation];
+//    [self.mapView addAnnotation:self.point.calloutAnnotation];
 }
 
 
@@ -448,18 +473,29 @@
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
     self.searchPoint.coordinate = placemark.coordinate;
-    self.searchPoint.title = address;
     
+    [self.mapView removeAnnotation:self.searchPoint.calloutAnnotation];
+    self.point.calloutAnnotation = nil;
+    [self.mapView removeAnnotation:self.searchPoint];
+
+    self.searchPoint.address = address;
+
     float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:placemark.coordinate.latitude longitude:placemark.coordinate.longitude]];
+    
     
     if ( distance >= 1000 )  {
         //use km unit
-        self.searchPoint.subtitle= [NSString stringWithFormat:@"%.02f km",distance/1000];
+        self.searchPoint.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
     }
     else {
         //use m
-        self.searchPoint.subtitle= [NSString stringWithFormat:@"%.0f meter",distance];
+        self.searchPoint.distance= [NSString stringWithFormat:@"%.0f meter",distance];
     }
+    
+    [self.mapView removeAnnotation:self.point.calloutAnnotation];
+    self.point.calloutAnnotation = nil;
+
+    
     
     [self.mapView addAnnotation:self.searchPoint];
     [self.mapView setRegion:region animated:YES];
