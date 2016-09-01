@@ -28,6 +28,7 @@
 
 @property (strong, nonatomic) PlantPageViewController* plantPageViewController;
 
+@property (strong, nonatomic) IBOutlet UILabel *countLbl;
 
 
 @end
@@ -43,6 +44,8 @@
     self.pageControl.numberOfPages = self.assets.count;
     
     [self.pageControl addTarget:self action:@selector(didChangePageControlValue) forControlEvents:UIControlEventValueChanged];
+    
+    self.countLbl.text = [[NSString alloc] initWithFormat:@"%d of %lu", 1, (unsigned long)self.assets.count];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -209,6 +212,8 @@
              didUpdatePageIndex:(int)index
 {
     self.pageControl.currentPage = index;
+    self.countLbl.text = [[NSString alloc] initWithFormat:@"%d of %lu", index+1, (unsigned long)self.pageControl.numberOfPages];
+
 }
 
 
