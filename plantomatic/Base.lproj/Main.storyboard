@@ -2284,12 +2284,12 @@ CgoKA
                                 <exclude reference="MXZ-qr-zCa"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2cn-ff-bLQ"/>
-                                <exclude reference="QBB-lT-b0H"/>
-                                <exclude reference="g7A-7m-lm5"/>
                                 <exclude reference="8WT-et-J9b"/>
                                 <exclude reference="cY2-Y5-P2L"/>
                                 <exclude reference="pq0-bF-1c3"/>
+                                <exclude reference="2cn-ff-bLQ"/>
+                                <exclude reference="QBB-lT-b0H"/>
+                                <exclude reference="g7A-7m-lm5"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -2298,12 +2298,12 @@ CgoKA
                                 <include reference="MXZ-qr-zCa"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2cn-ff-bLQ"/>
-                                <include reference="QBB-lT-b0H"/>
-                                <include reference="g7A-7m-lm5"/>
                                 <include reference="8WT-et-J9b"/>
                                 <include reference="cY2-Y5-P2L"/>
                                 <exclude reference="pq0-bF-1c3"/>
+                                <include reference="2cn-ff-bLQ"/>
+                                <include reference="QBB-lT-b0H"/>
+                                <include reference="g7A-7m-lm5"/>
                             </mask>
                         </variation>
                     </view>
@@ -2378,39 +2378,52 @@ CgoKA
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-hf-q4f">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Bs2-sO-0Sa">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-hf-q4f">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Bs2-sO-0Sa" firstAttribute="centerX" secondItem="RZ4-kD-4uX" secondAttribute="centerX" id="9NV-MP-r6W"/>
                             <constraint firstItem="ftI-hf-q4f" firstAttribute="top" secondItem="RZ4-kD-4uX" secondAttribute="top" id="AVc-wJ-PZu"/>
+                            <constraint firstItem="Bs2-sO-0Sa" firstAttribute="centerY" secondItem="RZ4-kD-4uX" secondAttribute="centerY" id="Cyn-I0-R9m"/>
                             <constraint firstItem="ftI-hf-q4f" firstAttribute="leading" secondItem="RZ4-kD-4uX" secondAttribute="leading" id="Wju-wq-Zm9"/>
                             <constraint firstItem="SJ0-vj-3eg" firstAttribute="top" secondItem="ftI-hf-q4f" secondAttribute="bottom" id="bBP-SA-BeY"/>
                             <constraint firstAttribute="trailing" secondItem="ftI-hf-q4f" secondAttribute="trailing" id="eOa-1P-V4J"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="Bs2-sO-0Sa"/>
                                 <exclude reference="ftI-hf-q4f"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="bBP-SA-BeY"/>
                                 <exclude reference="AVc-wJ-PZu"/>
                                 <exclude reference="Wju-wq-Zm9"/>
                                 <exclude reference="eOa-1P-V4J"/>
+                                <exclude reference="9NV-MP-r6W"/>
+                                <exclude reference="Cyn-I0-R9m"/>
+                                <exclude reference="bBP-SA-BeY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="Bs2-sO-0Sa"/>
                                 <include reference="ftI-hf-q4f"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bBP-SA-BeY"/>
                                 <include reference="AVc-wJ-PZu"/>
                                 <include reference="Wju-wq-Zm9"/>
                                 <include reference="eOa-1P-V4J"/>
+                                <include reference="9NV-MP-r6W"/>
+                                <include reference="Cyn-I0-R9m"/>
+                                <include reference="bBP-SA-BeY"/>
                             </mask>
                         </variation>
                     </view>
@@ -2424,7 +2437,6 @@ CgoKA
         </scene>
     </scenes>
     <resources>
-        <image name="Placeholder.png" width="200" height="200"/>
         <image name="close" width="26" height="24"/>
         <image name="gradient" width="213" height="378"/>
         <image name="image_available.png" width="30" height="30"/>

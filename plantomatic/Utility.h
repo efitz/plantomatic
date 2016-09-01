@@ -44,4 +44,6 @@
 
 +(void) removeUserSelectedLocation;
 
++ (UIImage *)imageWithColor:(UIColor *)color;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "PlantImageViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Utility.h"
 
 @interface PlantImageViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
@@ -20,7 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.imgView setImageWithURL:self.theURL placeholderImage:[UIImage imageNamed:@"Placeholder.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+    UIImage* placeHolderImage = [Utility imageWithColor:[UIColor clearColor]];
+    
+    [self.imgView setImageWithURL:self.theURL placeholderImage:placeHolderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
         //do nothing here
     }];
 

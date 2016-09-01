@@ -42,7 +42,7 @@
         for (int i=0; i<self.assets.count; i++)
         {
             PlantImageInfo *plantImageInfo = [self.assets objectAtIndex:i];
-            NSURL *theURL =[NSURL URLWithString:plantImageInfo.thumbnailUrl];
+            NSURL *theURL =[NSURL URLWithString:plantImageInfo.detailJpgUrl];
             [_orderedViewControllers addObject:[self newViewControllerWithImageUrl:theURL]];
         }
         
