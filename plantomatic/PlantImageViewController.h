@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PlantImageInfo;
+
 @interface PlantImageViewController : UIViewController
 
-@property (strong, nonatomic) NSURL* theURL;
+@property (strong, nonatomic) PlantImageInfo *plantImageInfo;
 
 @end

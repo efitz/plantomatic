@@ -25,6 +25,7 @@
 
 @property (readwrite, nonatomic) BOOL isFirstTime;
 @property (readwrite, nonatomic) BOOL isSafeToChangeCenterCoordinates;
+@property (strong, nonatomic) IBOutlet UIView *searchView;
 
 @end
 
@@ -32,7 +33,7 @@
 
 - (void)viewDidLoad
 {
-    self.title = @"Plants of the Americas";
+    self.title = @"Choose location"; //Plants of the Americas
     
     // attach long press gesture to collectionView
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self
@@ -59,11 +60,6 @@
     self.searchPoint = [[PinAnnotation alloc] init];
     self.searchPoint.title = @"";
     
-    
-    self.closeButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.closeButton.layer.borderWidth = 2.0;
-    self.closeButton.layer.cornerRadius  = 20.0;
-
     self.isFirstTime = true;
     self.isSafeToChangeCenterCoordinates = true;
     ///////////////////////////////////////////////////////////////////
@@ -79,18 +75,6 @@
         [self.point setCoordinate:currentLocation.coordinate];
         self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude];
         
-        
-        float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude]];
-        
-        
-        if ( distance >= 1000 )  {
-            //use km unit
-            self.point.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
-        }
-        else {
-            //use m
-            self.point.distance= [NSString stringWithFormat:@"%.0f meter",distance];
-        }
         
         [self.mapView addAnnotation:self.point];
         [self.mapView selectAnnotation:self.point animated:YES];
@@ -110,13 +94,24 @@
     UISearchBar* searchBar = self.resultSearchController.searchBar;
     [searchBar sizeToFit];
     searchBar.placeholder = @"Search for places";
-    self.navigationItem.titleView = self.resultSearchController.searchBar;
+//    self.navigationItem.titleView = self.resultSearchController.searchBar;
+    [self.searchView addSubview:self.resultSearchController.searchBar];
     self.resultSearchController.hidesNavigationBarDuringPresentation = false;
     self.resultSearchController.dimsBackgroundDuringPresentation = true;
 
     self.definesPresentationContext = true;
     locationSearchTable.mapView = self.mapView;
     locationSearchTable.handleMapSearchDelegate = self;
+    
+    
+    UIImage *closeImage = [UIImage imageNamed:@"close"];
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    closeBtn.bounds = CGRectMake( 0, 0, 30, 30 );
+    [closeBtn setImage:closeImage forState:UIControlStateNormal];
+    [closeBtn addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
+    closeBtn.layer.borderColor = [[UIColor clearColor] CGColor];
+    UIBarButtonItem *closeBtnItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
+    self.navigationItem.leftBarButtonItem = closeBtnItem;
 }
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -132,19 +127,6 @@
         
         [self.point setCoordinate:touchMapCoordinate];
         self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
-        
-        
-        float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]];
-        
-                       
-        if ( distance >= 1000 )  {
-            //use km unit
-            self.point.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
-        }
-        else {
-            //use m
-            self.point.distance= [NSString stringWithFormat:@"%.0f meter",distance];
-        }
         
         [self.mapView addAnnotation:self.point];
         [self.mapView selectAnnotation:self.point animated:YES];
@@ -180,28 +162,6 @@
         
         self.isSafeToChangeCenterCoordinates = true;
     }
-    
-    //The below code is only runs once in case of user have selected any location
-    //to calculate the distance of user selected location from gps current location
-    if (self.isFirstTime==true && [Utility isUserHaveSelectedAnyLocation]==true) {
-        self.isFirstTime = false;
-        
-        CLLocation* currentLocation = [Utility getCurrentLocation];
-
-        float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude]];
-        
-        
-        if ( distance >= 1000 )  {
-            //use km unit
-            self.point.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
-        }
-        else {
-            //use m
-            self.point.distance= [NSString stringWithFormat:@"%.0f meter",distance];
-        }
-
-    }
-    
 }
 
 #pragma mark
@@ -281,7 +241,8 @@
         CalloutAnnotation *calloutAnnotation = [[CalloutAnnotation alloc] init];
         
         PinAnnotation *pinAnnotation = ((PinAnnotation *)view.annotation);
-        calloutAnnotation.title = [[NSString alloc] initWithFormat:@"%@ (%@)",pinAnnotation.address,pinAnnotation.distance];
+        calloutAnnotation.title = [[NSString alloc] initWithFormat:@"%@",pinAnnotation.address];
+
         calloutAnnotation.coordinate = pinAnnotation.coordinate;
         pinAnnotation.calloutAnnotation = calloutAnnotation;
         [mapView addAnnotation:calloutAnnotation];
@@ -409,7 +370,7 @@
 {
     NSString* address = [notification.userInfo objectForKey:@"address"];
     self.point.address = address;
-    self.point.calloutAnnotation.title = [[NSString alloc] initWithFormat:@"%@ (%@)",self.point.address,self.point.distance];
+    self.point.calloutAnnotation.title = [[NSString alloc] initWithFormat:@"%@",self.point.address];
 
 
     
@@ -480,18 +441,6 @@
 
     self.searchPoint.address = address;
 
-    float distance =[self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc]initWithLatitude:placemark.coordinate.latitude longitude:placemark.coordinate.longitude]];
-    
-    
-    if ( distance >= 1000 )  {
-        //use km unit
-        self.searchPoint.distance= [NSString stringWithFormat:@"%.02f km",distance/1000];
-    }
-    else {
-        //use m
-        self.searchPoint.distance= [NSString stringWithFormat:@"%.0f meter",distance];
-    }
-    
     [self.mapView removeAnnotation:self.point.calloutAnnotation];
     self.point.calloutAnnotation = nil;
 

@@ -24,11 +24,11 @@
 @implementation PlantPageViewController
 
 
--(UIViewController*)newViewControllerWithImageUrl:(NSURL*)theURL{
+-(UIViewController*)newViewControllerWithImageUrl:(PlantImageInfo*)plantImageInfo{
  
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlantImageViewController *plantImageViewController = (PlantImageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantImageViewController"];
-    plantImageViewController.theURL = theURL;    
+    plantImageViewController.plantImageInfo = plantImageInfo;
     return plantImageViewController;
 }
 
@@ -42,8 +42,7 @@
         for (int i=0; i<self.assets.count; i++)
         {
             PlantImageInfo *plantImageInfo = [self.assets objectAtIndex:i];
-            NSURL *theURL =[NSURL URLWithString:plantImageInfo.detailJpgUrl];
-            [_orderedViewControllers addObject:[self newViewControllerWithImageUrl:theURL]];
+            [_orderedViewControllers addObject:[self newViewControllerWithImageUrl:plantImageInfo]];
         }
         
     }

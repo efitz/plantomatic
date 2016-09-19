@@ -1406,11 +1406,69 @@ shouldReloadTableForSearchString:(NSString *)searchString
     //New Detail view
     PlantDetailsViewController *plantDetailsViewController = (PlantDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantDetailsViewController"];
     
-    plantDetailsViewController.assets = plantImagesList.plantImages;
+    plantDetailsViewController.assets = [self filterAssets:plantImagesList.plantImages];
     plantDetailsViewController.plant = self.selectedPlant;
     [self.navigationController pushViewController:plantDetailsViewController animated:YES];
 
 }
+
+
+-(NSMutableArray*)filterAssets:(NSArray*)assets{
+    
+    NSMutableArray* arrayToReturn = [NSMutableArray array];
+    
+    BOOL isNonHerbariumExists = false;
+    
+    /*
+     Because so many of the plants have dozens of images,
+     we would like to only display certain types. 
+     
+     Priority is to show ImageKindText != “Herbarium Specimen”.
+     
+     If that doesn’t return any results, then 
+     show ImageKindText =“Herbarium Specimen”.
+     
+     In both cases, only display a maximum of the first 7 images. 
+     Show non-herbarium specimen, if non-herbarium not present then
+     */
+    
+    for (int i=0; i<assets.count; i++) {
+        PlantImageInfo *plantImageInfo = [assets objectAtIndex:i];
+
+        if (![plantImageInfo.imageKindText isEqualToString:@"Herbarium Specimen"]) {
+            isNonHerbariumExists = true;
+            [arrayToReturn addObject:plantImageInfo];
+        }
+        
+    }
+    
+    if(isNonHerbariumExists)
+    {
+        //we need to check that count is not more then 7
+        if (arrayToReturn.count>7) {
+            //only use first 7 images
+            arrayToReturn = [[arrayToReturn subarrayWithRange:NSMakeRange(0, 7)] mutableCopy];
+        }
+    }
+    else
+    {
+        for (int i=0; i<assets.count; i++) {
+            PlantImageInfo *plantImageInfo = [assets objectAtIndex:i];
+            if ([plantImageInfo.imageKindText isEqualToString:@"Herbarium Specimen"]) {
+                isNonHerbariumExists = true;
+                [arrayToReturn addObject:plantImageInfo];
+            }
+        }
+    }
+    
+    //only use first 7 images from the incoming list
+    if (arrayToReturn.count > 7) {
+        arrayToReturn = [[arrayToReturn subarrayWithRange:NSMakeRange(0, 7)] mutableCopy];
+    }
+    
+    return arrayToReturn;
+}
+
 
 - (void)plantImagesFetchFailed:(NSString *)errorMessage
 {
