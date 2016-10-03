@@ -80,7 +80,7 @@
         [self.mapView selectAnnotation:self.point animated:YES];
     }
     ///////////////////////////////////////////////////////////////////
-
+    
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveAddressNotification:) name:@"MBDidReceiveAddressNotification" object:nil];
@@ -104,15 +104,21 @@
     locationSearchTable.handleMapSearchDelegate = self;
     
     
-    UIImage *closeImage = [UIImage imageNamed:@"close"];
-    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    closeBtn.bounds = CGRectMake( 0, 0, 30, 30 );
-    [closeBtn setImage:closeImage forState:UIControlStateNormal];
-    [closeBtn addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
-    closeBtn.layer.borderColor = [[UIColor clearColor] CGColor];
-    UIBarButtonItem *closeBtnItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
-    self.navigationItem.leftBarButtonItem = closeBtnItem;
+//    UIImage *closeImage = [UIImage imageNamed:@"close"];
+//    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    closeBtn.bounds = CGRectMake( 0, 0, 30, 30 );
+//    [closeBtn setImage:closeImage forState:UIControlStateNormal];
+//    [closeBtn addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
+//    closeBtn.layer.borderColor = [[UIColor clearColor] CGColor];
+//    UIBarButtonItem *closeBtnItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
+//    
+    
+    UIBarButtonItem *cancelButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeAction:)];
+    
+    self.navigationItem.leftBarButtonItem = cancelButton;
 }
+
+
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
@@ -216,7 +222,7 @@
         [annotationView setNeedsDisplay];
         
         
-        [annotationView setCenterOffset:CGPointMake(0, -80)];
+        [annotationView setCenterOffset:CGPointMake(0, -60)];
         // Move the display position of MapView.
         
         if ( self.isSafeToChangeCenterCoordinates ){
@@ -451,6 +457,23 @@
     [self.mapView selectAnnotation:self.searchPoint animated:YES];
 }
 
+- (IBAction)toggleLocation:(id)sender {
+    
+    CLLocationCoordinate2D coordinate = self.mapView.userLocation.location.coordinate;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 800, 800);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [self.mapView removeOverlays:self.mapView.overlays];
+    
+    [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
+    
+    [self.point setCoordinate:coordinate];
+    self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",coordinate.latitude,coordinate.longitude];
+    
+    [self.mapView addAnnotation:self.point];
+    [self.mapView selectAnnotation:self.point animated:YES];
+}
 
 
 @end
