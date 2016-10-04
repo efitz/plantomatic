@@ -28,8 +28,6 @@
 
 @property (strong, nonatomic) PlantPageViewController* plantPageViewController;
 
-@property (strong, nonatomic) IBOutlet UILabel *countLbl;
-
 
 @end
 
@@ -45,7 +43,18 @@
     
     [self.pageControl addTarget:self action:@selector(didChangePageControlValue) forControlEvents:UIControlEventValueChanged];
     
-    self.countLbl.text = [[NSString alloc] initWithFormat:@"%d of %lu", 1, (unsigned long)self.assets.count];
+    if (self.assets.count == 1) {
+        self.pageControl.hidden = true;
+        
+        for (UIScrollView *view in self.plantPageViewController.view.subviews) {
+            
+            if ([view isKindOfClass:[UIScrollView class]]) {
+                
+                view.scrollEnabled = NO;
+            }
+        }
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -212,8 +221,6 @@
              didUpdatePageIndex:(int)index
 {
     self.pageControl.currentPage = index;
-    self.countLbl.text = [[NSString alloc] initWithFormat:@"%d of %lu", index+1, (unsigned long)self.pageControl.numberOfPages];
-
 }
 
 
