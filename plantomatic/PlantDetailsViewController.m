@@ -44,7 +44,7 @@
     [self.pageControl addTarget:self action:@selector(didChangePageControlValue) forControlEvents:UIControlEventValueChanged];
     
     if (self.assets.count == 1) {
-        self.pageControl.hidden = true;
+//        self.pageControl.hidden = true;
         
         for (UIScrollView *view in self.plantPageViewController.view.subviews) {
             
@@ -78,7 +78,9 @@
 
 -(void) didChangePageControlValue
 {
-    [self.plantPageViewController scrollToViewController:(int)self.pageControl.currentPage];
+     if (self.assets.count > 1) {
+         [self.plantPageViewController scrollToViewController:(int)self.pageControl.currentPage];
+     }
 }
 
 

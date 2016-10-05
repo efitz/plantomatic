@@ -94,7 +94,6 @@
     UISearchBar* searchBar = self.resultSearchController.searchBar;
     [searchBar sizeToFit];
     searchBar.placeholder = @"Search for places";
-//    self.navigationItem.titleView = self.resultSearchController.searchBar;
     [self.searchView addSubview:self.resultSearchController.searchBar];
     self.resultSearchController.hidesNavigationBarDuringPresentation = false;
     self.resultSearchController.dimsBackgroundDuringPresentation = true;
@@ -102,16 +101,6 @@
     self.definesPresentationContext = true;
     locationSearchTable.mapView = self.mapView;
     locationSearchTable.handleMapSearchDelegate = self;
-    
-    
-//    UIImage *closeImage = [UIImage imageNamed:@"close"];
-//    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    closeBtn.bounds = CGRectMake( 0, 0, 30, 30 );
-//    [closeBtn setImage:closeImage forState:UIControlStateNormal];
-//    [closeBtn addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
-//    closeBtn.layer.borderColor = [[UIColor clearColor] CGColor];
-//    UIBarButtonItem *closeBtnItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
-//    
     
     UIBarButtonItem *cancelButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeAction:)];
     
@@ -390,45 +379,14 @@
 
 - (IBAction)closeAction:(id)sender {
     // create an alert controller with action sheet appearance
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"PlantOMatic" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     
-    // create the actions handled by each button
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"Use GPS location" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"Use GPS location");
-        
-        [self dismissViewControllerAnimated:true completion:^{
-            //dont do anything here
-            [Utility removeUserSelectedLocation];
+    [self dismissViewControllerAnimated:true completion:^{
+        if ([Utility isUserHaveSelectedAnyLocation]==false)
+        {
+            //Refresh only when GPS current location is selected.
             [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_NOTIFICATION object:nil];
-        }];
-        
+        }
     }];
-
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"Close Map without any action" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"Close Map without any action");
-        
-        [self dismissViewControllerAnimated:true completion:^{
-            if ([Utility isUserHaveSelectedAnyLocation]==false)
-            {
-                //Refresh only when GPS current location is selected.
-                [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_NOTIFICATION object:nil];
-            }
-        }];
-        
-    }];
-
-    
-    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"Cancel");
-    }];
-    
-    // add actions to our sheet
-    [actionSheet addAction:action1];
-    [actionSheet addAction:action2];
-    [actionSheet addAction:action3];
-    
-    // bring up the action sheet
-    [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
 
