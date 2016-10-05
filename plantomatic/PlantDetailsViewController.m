@@ -43,6 +43,12 @@
     
     [self.pageControl addTarget:self action:@selector(didChangePageControlValue) forControlEvents:UIControlEventValueChanged];
     
+    
+    if (self.assets == nil) {
+        self.pageControl.hidden = true;
+        self.plantPageViewController.view.userInteractionEnabled = false;
+    }
+    
     if (self.assets.count == 1) {
 //        self.pageControl.hidden = true;
         
@@ -54,6 +60,7 @@
             }
         }
     }
+    
     
 }
 

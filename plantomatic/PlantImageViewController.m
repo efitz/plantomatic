@@ -23,15 +23,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSURL *theURL =[NSURL URLWithString:self.plantImageInfo.detailJpgUrl];
-    NSString* copyright =[NSString stringWithFormat:@"© %@",self.plantImageInfo.copyright];
-
-    self.copyrightLbl.text = copyright;
-    UIImage* placeHolderImage = [Utility imageWithColor:[UIColor clearColor]];
-    [self.imgView setImageWithURL:theURL placeholderImage:placeHolderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        //do nothing here
-    }];
-
+    
+    if (self.plantImageInfo == nil) {
+        self.imgView.image = [UIImage imageNamed:@"no_image_available"];
+        self.copyrightLbl.text = @"";
+        self.imgView.layer.borderWidth = 1;
+        self.imgView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    }
+    else
+    {
+        
+        NSURL *theURL =[NSURL URLWithString:self.plantImageInfo.detailJpgUrl];
+        NSString* copyright =[NSString stringWithFormat:@"© %@",self.plantImageInfo.copyright];
+        
+        self.copyrightLbl.text = copyright;
+        UIImage* placeHolderImage = [Utility imageWithColor:[UIColor clearColor]];
+        [self.imgView setImageWithURL:theURL placeholderImage:placeHolderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+            //do nothing here
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

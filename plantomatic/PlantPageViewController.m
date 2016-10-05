@@ -45,6 +45,10 @@
             [_orderedViewControllers addObject:[self newViewControllerWithImageUrl:plantImageInfo]];
         }
         
+        if (self.assets == nil) {
+            [_orderedViewControllers addObject:[self newViewControllerWithImageUrl:nil]];
+        }
+        
     }
     
     return _orderedViewControllers;

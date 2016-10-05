@@ -651,7 +651,14 @@
     }
     else
     {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+        PlantDetailsViewController *plantDetailsViewController = (PlantDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantDetailsViewController"];
+        
+        plantDetailsViewController.assets = nil;
+        plantDetailsViewController.plant = plant;
+        [self.navigationController pushViewController:plantDetailsViewController animated:YES];
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
