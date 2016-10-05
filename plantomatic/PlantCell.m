@@ -31,7 +31,7 @@
 //third column
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *thirdColumnWidthConstriant;
+//@property (strong, nonatomic) IBOutlet NSLayoutConstraint *thirdColumnWidthConstriant;
 
 @end
 
@@ -228,12 +228,12 @@
     
     if ([plant.isImageAvailabe isEqualToString:@"TRUE"]) {
         self.imgView.hidden=NO;
-        self.thirdColumnWidthConstriant.constant=30;
+//        self.thirdColumnWidthConstriant.constant=30;
     }
     else
     {
         self.imgView.hidden=YES;
-        self.thirdColumnWidthConstriant.constant=0;
+//        self.thirdColumnWidthConstriant.constant=0;
     }
     
 }
