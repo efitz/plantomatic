@@ -207,23 +207,33 @@
     
     //parse out the json data
     NSError* error;
-    NSArray* array = [NSJSONSerialization
+    NSObject* object = [NSJSONSerialization
                           JSONObjectWithData:responseData //1
                           
                           options:kNilOptions
                           error:&error];
 
-    NSDictionary* dict=[array objectAtIndex:0u];
-    
-    /*
-     [{"Error":"No names were found"}]
-     */
-    
-    if (dict != nil)
-    {
-        NSString *error = [Utility getStringValueWithDict:dict key:@"Error"];
-        isSuccessful =error==nil||[error isEqualToString:@""]?YES:NO;
+    if ([object isKindOfClass:[NSDictionary class] ]){
+        isSuccessful = true;
     }
+    else
+    {
+        NSArray* array = (NSArray*)object;
+        
+        NSDictionary* dict=[array objectAtIndex:0u];
+        
+        /*
+         [{"Error":"No names were found"}]
+         */
+        
+        if (dict != nil)
+        {
+            NSString *error = [Utility getStringValueWithDict:dict key:@"Error"];
+            isSuccessful =error==nil||[error isEqualToString:@""]?YES:NO;
+        }
+        
+    }
+    
     
     return isSuccessful;
 }

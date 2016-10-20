@@ -10,8 +10,12 @@
 #import "SpeciesFamily.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PlantPageViewController.h"
+#import "plantomatic-swift.h"
+#import "PlantImagesService.h"
+#import "Utility.h"
+#import "Constants.h"
 
-@interface PlantDetailsViewController ()<PlantPageViewControllerDelegate>
+@interface PlantDetailsViewController ()<PlantPageViewControllerDelegate,PlantImagesServiceDelegate>
 
 
 //First column
@@ -28,6 +32,11 @@
 
 @property (strong, nonatomic) PlantPageViewController* plantPageViewController;
 
+@property (strong, nonatomic) IBOutlet ReadMoreTextView *introTxtView;
+@property (strong, nonatomic) IBOutlet ReadMoreTextView *descTxtView;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (strong, nonatomic) PlantImagesService *plantImagesService;
 
 @end
 
@@ -62,6 +71,38 @@
     }
     
     
+    UIColor* color = [[UIColor alloc] initWithRed:65.0/255.0 green:149.0/255.0 blue:221.0/255.0 alpha:1.0];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:color
+                                                                forKey:NSForegroundColorAttributeName];
+    NSAttributedString *trimText = [[NSAttributedString alloc] initWithString:@"Read More" attributes:attrsDictionary];
+    
+    self.introTxtView.trimText = nil;
+    self.introTxtView.attributedTrimText = trimText;
+    self.introTxtView.text = @"Loading introduction ...";
+    
+    self.descTxtView.trimText = nil;
+    self.descTxtView.attributedTrimText = trimText;
+    self.descTxtView.text = @"Loading description ...";
+    
+    PlantImagesService *plantImagesService = [[PlantImagesService alloc] initServiceWithDelegate:self];
+    self.plantImagesService = plantImagesService;
+    
+    [self.plantImagesService fetchIntroductionForPlant:self.plant];
+    [self.plantImagesService fetchDescriptionForPlant:self.plant];
+
+    
+
+}
+
+-(void) viewDidLayoutSubviews{
+    CGRect contentRect = CGRectZero;
+    for (UIView *view in self.scrollView.subviews) {
+        contentRect = CGRectUnion(contentRect, view.frame);
+    }
+    
+    contentRect.size.height += 46;
+    
+    self.scrollView.contentSize = contentRect.size;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -232,5 +273,194 @@
     self.pageControl.currentPage = index;
 }
 
+
+#pragma mark - PlantImagesServiceDelegate Methods
+
+
+- (void)introductionFetchOperationSucceed:(NSString*)introduction
+                          isOnlyWithGenus:(BOOL)isOnlyWithGenus
+{
+    UIColor* color = [[UIColor alloc] initWithRed:65.0/255.0 green:149.0/255.0 blue:221.0/255.0 alpha:1.0];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:color
+                                                                forKey:NSForegroundColorAttributeName];
+    NSAttributedString *trimText = [[NSAttributedString alloc] initWithString:@"Read More" attributes:attrsDictionary];
+    
+    self.introTxtView.trimText = nil;
+    self.introTxtView.attributedTrimText = trimText;
+
+    
+    //////////////
+    
+    UIFont* boldFont = [UIFont boldSystemFontOfSize:15.0];
+    UIFont* italicFont = [UIFont italicSystemFontOfSize:15.0];
+    UIFont* normalFont = [UIFont systemFontOfSize:15.0];
+
+    UIColor* grayColor = [UIColor darkGrayColor];
+    UIColor* blackColor = [UIColor blackColor];
+
+    
+    NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:@""];
+    NSString* introductionTitleString = @"Introduction";
+    long stringLength = introductionTitleString.length;
+    
+    NSMutableAttributedString* attStringToAdd = [[NSMutableAttributedString alloc] initWithString:introductionTitleString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:blackColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    [attString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
+    
+    
+
+    
+    if (isOnlyWithGenus)
+    {
+        //[Utility showAlert:@"Plant Introduction Found with G:" message:introduction];
+        
+        NSString* genusString = [NSString stringWithFormat:@"Genus: %@\n",self.plant.genus];
+        stringLength = genusString.length;
+        
+        attStringToAdd = [[NSMutableAttributedString alloc] initWithString:genusString];
+        [attStringToAdd addAttribute:NSFontAttributeName value:italicFont range:NSMakeRange(0, stringLength)];
+        [attStringToAdd addAttribute:NSForegroundColorAttributeName value:grayColor range:NSMakeRange(0, stringLength)];
+        
+        [attString appendAttributedString:attStringToAdd];
+    }
+    else
+    {
+       // [Utility showAlert:@"Plant Introduction Found with G+S:" message:introduction];
+    }
+    
+    
+    stringLength = introduction.length;
+    attStringToAdd = [[NSMutableAttributedString alloc] initWithString:introduction];
+    [attStringToAdd addAttribute:NSFontAttributeName value:normalFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:blackColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    
+    self.introTxtView.attributedText = attString;
+
+    
+}
+
+
+- (void)introductionFetchOperationFail:(NSString *)errorMessage
+{
+//    [Utility showAlert:@"Plant Introduction Failure:" message:errorMessage];
+    
+    UIFont* boldFont = [UIFont boldSystemFontOfSize:15.0];
+    UIFont* italicFont = [UIFont italicSystemFontOfSize:15.0];
+    UIColor* grayColor = [UIColor darkGrayColor];
+    UIColor* blackColor = [UIColor blackColor];
+
+    NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:@""];
+    NSString* introductionTitleString = @"Introduction";
+    long stringLength = introductionTitleString.length;
+    NSMutableAttributedString* attStringToAdd = [[NSMutableAttributedString alloc] initWithString:introductionTitleString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:blackColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    [attString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
+    
+    NSString* genusString = NO_INTRODUCTION_FOUND_MSG;
+    stringLength = genusString.length;
+    attStringToAdd = [[NSMutableAttributedString alloc] initWithString:genusString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:italicFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:grayColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    
+    self.introTxtView.attributedText = attString;
+}
+
+
+//-(void) fetchDescriptionForPlant:(SpeciesFamily*) plant;
+- (void)descriptionFetchOperationSucceed:(NSString*)description
+                         isOnlyWithGenus:(BOOL)isOnlyWithGenus
+{
+    UIColor* color = [[UIColor alloc] initWithRed:65.0/255.0 green:149.0/255.0 blue:221.0/255.0 alpha:1.0];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:color
+                                                                forKey:NSForegroundColorAttributeName];
+    NSAttributedString *trimText = [[NSAttributedString alloc] initWithString:@"Read More" attributes:attrsDictionary];
+    
+    self.descTxtView.trimText = nil;
+    self.descTxtView.attributedTrimText = trimText;
+    
+    
+    //////////////
+    
+    UIFont* boldFont = [UIFont boldSystemFontOfSize:15.0];
+    UIFont* italicFont = [UIFont italicSystemFontOfSize:15.0];
+    UIFont* normalFont = [UIFont systemFontOfSize:15.0];
+    
+    UIColor* grayColor = [UIColor darkGrayColor];
+    UIColor* blackColor = [UIColor blackColor];
+    
+    
+    NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:@""];
+    NSString* introductionTitleString = @"Description";
+    long stringLength = introductionTitleString.length;
+    
+    NSMutableAttributedString* attStringToAdd = [[NSMutableAttributedString alloc] initWithString:introductionTitleString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:blackColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    [attString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
+    
+    
+    
+    
+    if (isOnlyWithGenus)
+    {
+        //[Utility showAlert:@"Plant Introduction Found with G:" message:introduction];
+        
+        NSString* genusString = [NSString stringWithFormat:@"Genus: %@\n",self.plant.genus];
+        stringLength = genusString.length;
+        
+        attStringToAdd = [[NSMutableAttributedString alloc] initWithString:genusString];
+        [attStringToAdd addAttribute:NSFontAttributeName value:italicFont range:NSMakeRange(0, stringLength)];
+        [attStringToAdd addAttribute:NSForegroundColorAttributeName value:grayColor range:NSMakeRange(0, stringLength)];
+        
+        [attString appendAttributedString:attStringToAdd];
+    }
+    else
+    {
+        // [Utility showAlert:@"Plant Introduction Found with G+S:" message:introduction];
+    }
+    
+    
+    stringLength = description.length;
+    attStringToAdd = [[NSMutableAttributedString alloc] initWithString:description];
+    [attStringToAdd addAttribute:NSFontAttributeName value:normalFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:blackColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    
+    self.descTxtView.attributedText = attString;
+
+}
+
+- (void)descriptionFetchOperationFail:(NSString *)errorMessage
+{
+    UIFont* boldFont = [UIFont boldSystemFontOfSize:15.0];
+    UIFont* italicFont = [UIFont italicSystemFontOfSize:15.0];
+    UIColor* grayColor = [UIColor darkGrayColor];
+    UIColor* blackColor = [UIColor blackColor];
+    
+    NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:@""];
+    NSString* introductionTitleString = @"Description";
+    long stringLength = introductionTitleString.length;
+    NSMutableAttributedString* attStringToAdd = [[NSMutableAttributedString alloc] initWithString:introductionTitleString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:blackColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    [attString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
+    
+    NSString* genusString = NO_DESCRIPTION_FOUND_MSG;
+    stringLength = genusString.length;
+    attStringToAdd = [[NSMutableAttributedString alloc] initWithString:genusString];
+    [attStringToAdd addAttribute:NSFontAttributeName value:italicFont range:NSMakeRange(0, stringLength)];
+    [attStringToAdd addAttribute:NSForegroundColorAttributeName value:grayColor range:NSMakeRange(0, stringLength)];
+    [attString appendAttributedString:attStringToAdd];
+    
+    self.descTxtView.attributedText = attString;
+}
 
 @end

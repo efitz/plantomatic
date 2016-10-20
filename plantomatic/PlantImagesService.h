@@ -9,6 +9,7 @@
 #import "GenericService.h"
 
 @class PlantImagesList;
+@class SpeciesFamily;
 
 @interface PlantImagesService : GenericService
 
@@ -17,6 +18,14 @@
 - (void)fetchPlantImagesListForGenus:(NSString*)genus
                              species:(NSString*)species;
 
+//
+
+
+-(void) fetchIntroductionForPlant:(SpeciesFamily*) plant;
+
+-(void) fetchDescriptionForPlant:(SpeciesFamily*) plant;
+
+
 @end
 
 
@@ -24,5 +33,20 @@
 
 - (void)plantImagesFetchSucceed:(PlantImagesList *)plantImagesList;
 - (void)plantImagesFetchFailed:(NSString *)errorMessage;
+
+//////
+//-(void) fetchIntroductionForPlant:(SpeciesFamily*) plant;
+- (void)introductionFetchOperationSucceed:(NSString*)introduction
+                          isOnlyWithGenus:(BOOL)isOnlyWithGenus;
+
+- (void)introductionFetchOperationFail:(NSString *)errorMessage;
+
+//-(void) fetchDescriptionForPlant:(SpeciesFamily*) plant;
+- (void)descriptionFetchOperationSucceed:(NSString*)description
+                          isOnlyWithGenus:(BOOL)isOnlyWithGenus;
+
+- (void)descriptionFetchOperationFail:(NSString *)errorMessage;
+
+
 
 @end

@@ -123,6 +123,20 @@
     return value;
 }
 
++ (NSArray *)getArrayValueWithDict:(NSDictionary *)dict key:(NSString *)key
+{
+    // NSObject * obj = [dict valueForKey:key];
+    NSArray *value = [dict valueForKey:key];
+    // Value was not an array (could have been a string). Set it to nil.
+    if (![value isKindOfClass:[NSArray class]])
+    {
+        DLog(@"Error parsing into array key: %@ value: %@", key, [dict valueForKey:key]);
+        value = nil;
+    }
+    
+    return value;
+}
+
 #pragma mark Web Related Utilities
 // Consider moving this into a NSString+URLEncoding.h object
 + (NSString *)urlEncodeValue:(NSString *)value usingEncoding:(NSStringEncoding)encoding
@@ -140,6 +154,19 @@
                                                                                  CFStringConvertNSStringEncodingToEncoding(encoding)));
 }
 
++ (NSDictionary *)getDictionaryValueWithDict:(NSDictionary *)dict key:(NSString *)key
+{
+    // NSObject * obj = [dict valueForKey:key];
+    NSDictionary *value = [dict valueForKey:key];
+    // Value was not an array (could have been a string). Set it to nil.
+    if (![value isKindOfClass:[NSDictionary class]])
+    {
+        DLog(@"Error parsing into dictionary key: %@ value: %@", key, [dict valueForKey:key]);
+        value = nil;
+    }
+    
+    return value;
+}
 
 + (int)getIntValueWithDict:(NSDictionary *)dict key:(NSString *)key;
 {

@@ -65,6 +65,7 @@
 		4163993F1A9B3F2F00F92BF1 /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163993C1A9B3F2F00F92BF1 /* welcome@2x.png */; };
 		41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41802D1418CF575600E41641 /* MBProgressHUD.m */; };
 		418280FD1A9220090003B45B /* SelectFamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */; };
+		4189A2F01DB0ECC9000730D4 /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4189A2EF1DB0ECC9000730D4 /* ReadMoreTextView.swift */; };
 		418BBB1C1D75E79B0099F564 /* CalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB171D75E79B0099F564 /* CalloutAnnotation.m */; };
 		418BBB1D1D75E79B0099F564 /* CalloutAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB191D75E79B0099F564 /* CalloutAnnotationView.m */; };
 		418BBB1E1D75E79B0099F564 /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB1B1D75E79B0099F564 /* PinAnnotation.m */; };
@@ -345,6 +346,7 @@
 		41802D1418CF575600E41641 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		418280FB1A9220090003B45B /* SelectFamilyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFamilyTableViewController.h; sourceTree = "<group>"; };
 		418280FC1A9220090003B45B /* SelectFamilyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFamilyTableViewController.m; sourceTree = "<group>"; };
+		4189A2EF1DB0ECC9000730D4 /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
 		418BBB161D75E79B0099F564 /* CalloutAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotation.h; sourceTree = "<group>"; };
 		418BBB171D75E79B0099F564 /* CalloutAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotation.m; sourceTree = "<group>"; };
 		418BBB181D75E79B0099F564 /* CalloutAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotationView.h; sourceTree = "<group>"; };
@@ -1253,6 +1255,7 @@
 				41E36A8E1A94D08B007BEE03 /* SortOrderTableViewCell.m */,
 				41E402711A9F7277006E443B /* FilterHeaderTableViewCell.h */,
 				41E402721A9F7277006E443B /* FilterHeaderTableViewCell.m */,
+				4189A2EF1DB0ECC9000730D4 /* ReadMoreTextView.swift */,
 				F766358D189DA10300B0A594 /* Images.xcassets */,
 				41B7974B18EACAA8009F54E2 /* WebService Operation */,
 				41B9EE2C18BF873C00F7B9A1 /* LocationService */,
@@ -1618,6 +1621,7 @@
 				418D10421D58D10D001AEEFB /* PlantomaticAnnotation.m in Sources */,
 				41E612E01ABC6730006B6470 /* MPNSNumberToCGFloatValueTransformer.m in Sources */,
 				F7663586189DA10300B0A594 /* AppDelegate.m in Sources */,
+				4189A2F01DB0ECC9000730D4 /* ReadMoreTextView.swift in Sources */,
 				41E612E61ABC6730006B6470 /* MPPassThroughValueTransformer.m in Sources */,
 				41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */,
 				41B7975B18EACFBD009F54E2 /* Reachability.m in Sources */,
@@ -1739,7 +1743,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				COPY_PHASE_STRIP = NO;
-				DEFINES_MODULE = NO;
+				DEFINES_MODULE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1760,6 +1764,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_MODULE_NAME = plantomatic;
 				PROVISIONING_PROFILE = "9209b29b-e835-4ca0-b9d7-02d7867c9f8e";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -1786,7 +1791,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Umair Shah (BZB8CBM3M9)";
 				COPY_PHASE_STRIP = YES;
-				DEFINES_MODULE = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1800,6 +1805,7 @@
 					"/Applications/Xcode\\ 5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_MODULE_NAME = plantomatic;
 				PROVISIONING_PROFILE = "9209b29b-e835-4ca0-b9d7-02d7867c9f8e";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1843,6 +1849,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "plantomatic/plantomatic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1883,6 +1890,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "plantomatic/plantomatic-Bridging-Header.h";
+				SWIFT_VERSION = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;

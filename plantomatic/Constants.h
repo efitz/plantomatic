@@ -57,6 +57,10 @@ typedef enum
 #define NAME_ID_KEY @"NameId"
 
 
+#define NO_INTRODUCTION_FOUND_MSG @"Introduction not available."
+#define NO_DESCRIPTION_FOUND_MSG @"Description not available."
+
+
 /*
  http://services.tropicos.org/Name/Search?name=poa+annua&type=scientificname&apikey=2e8b6fdc-3a67-401d-8564-793700526367&format=json
  
@@ -71,9 +75,44 @@ typedef enum
 //[plantId]
 #define URL_TO_FETCH_IMAGES_LIST_FOR_PLANT_ID [NSString stringWithFormat:@"%@/Name/%%d/Images?apikey=2e8b6fdc-3a67-401d-8564-793700526367&format=json", API_BASE_URL]
 
+
+/////////////////////////////////////////////
+
+//Request: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Acer_saccharinum&exsectionformat=plain
+
+//[Genus+Species]
+#define URL_TO_FETCH_PLANT_INTRO_USING_GENUS_SPECIES_URL @"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=%@_%@&exsectionformat=plain"
+
+
+//[Genus+Species]
+#define URL_TO_FETCH_PLANT_INTRO_USING_GENUS_URL @"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=%@&exsectionformat=plain"
+
+// https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=1&titles=Acer_saccharinum&format=json
+
+#define URL_TO_FETCH_PLANT_DESC_USING_GENUS_SPECIES_URL @"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=%@_%@&format=json&prop=extracts&exlimit=1&explaintext"
+
+#define URL_TO_FETCH_PLANT_DESC_USING_GENUS_URL @"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=%@&format=json&prop=extracts&exlimit=1&explaintext"
+
+
+
+
+///////////////////////////////////////////
+
+
+
+
+
+
 #define REFRESH_NOTIFICATION @"REFRESH_NOTIFICATION"
 
 #define REFRESH_FAMILY_FILTER_CELL_NOTIFICATION @"REFRESH_FAMILY_FILTER_CELL_NOTIFICATION"
+
+
+
+
+
+
+
 
 
 

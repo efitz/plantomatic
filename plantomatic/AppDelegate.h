@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ConversionTestViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "plantomatic-swift.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
