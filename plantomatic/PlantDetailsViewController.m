@@ -38,6 +38,9 @@
 
 @property (strong, nonatomic) PlantImagesService *plantImagesService;
 
+@property (strong, nonatomic) NSString *wikipediaPageUrl;
+
+
 @end
 
 @implementation PlantDetailsViewController
@@ -87,6 +90,7 @@
     PlantImagesService *plantImagesService = [[PlantImagesService alloc] initServiceWithDelegate:self];
     self.plantImagesService = plantImagesService;
     
+    self.wikipediaPageUrl = nil;
     [self.plantImagesService fetchIntroductionForPlant:self.plant];
     [self.plantImagesService fetchDescriptionForPlant:self.plant];
 
@@ -258,6 +262,14 @@
     
     self.commonNameLbl.attributedText=attString;
 }
+
+- (IBAction)wikipediaAction:(id)sender {
+    
+    if (self.wikipediaPageUrl!=nil) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.wikipediaPageUrl]];
+    }
+}
+
 
 #pragma mark - PlantPageViewControllerDelegate Methods
 
@@ -462,5 +474,18 @@
     
     self.descTxtView.attributedText = attString;
 }
+
+- (void)pageUrlOperationSuccess:(NSString *)pageUrl
+{
+    self.wikipediaPageUrl = pageUrl;
+}
+
+- (void)pageUrlOperationFail:(NSString *)errorMessage
+{
+    self.wikipediaPageUrl = nil;
+}
+
+
+
 
 @end

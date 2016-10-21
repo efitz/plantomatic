@@ -165,6 +165,72 @@
 }
 
 
+-(NSString*) getPageIdFromResponseString:(NSString*)jsonResponse {
+    
+    NSData *data = [jsonResponse dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSString* pageIdKey = nil;
+    
+    if (dict != nil)
+    {
+        NSDictionary *queryDict = [Utility getDictionaryValueWithDict:dict key:@"query"];
+        
+        if (queryDict!=nil) {
+            NSDictionary *pagesDict = [Utility getDictionaryValueWithDict:queryDict key:@"pages"];
+            
+            if (pagesDict!=nil) {
+                NSArray* keysArray = [pagesDict allKeys];
+                
+                pageIdKey = [keysArray objectAtIndex:0U];
+                
+                if ([pageIdKey isEqualToString:@"-1"]) {
+                    pageIdKey = nil;
+                }
+            }
+        }
+    }
+    
+    return pageIdKey;
+}
+
+
+-(NSString*) getPageUrlFromResponseString:(NSString*)jsonResponse {
+    
+    NSData *data = [jsonResponse dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSString* pageUrlToReturn = nil;
+    
+    if (dict != nil)
+    {
+        NSDictionary *queryDict = [Utility getDictionaryValueWithDict:dict key:@"query"];
+        
+        if (queryDict!=nil) {
+            NSDictionary *pagesDict = [Utility getDictionaryValueWithDict:queryDict key:@"pages"];
+            
+            if (pagesDict!=nil) {
+                NSArray* keysArray = [pagesDict allKeys];
+                
+                NSString* pageIdKey = [keysArray objectAtIndex:0U];
+                
+                if (![pageIdKey isEqualToString:@"-1"]) {
+                    NSDictionary *pageUrlDict = [Utility getDictionaryValueWithDict:pagesDict key:pageIdKey];
+                    
+                    if (pageUrlDict!=nil) {
+                        pageUrlToReturn = [Utility getStringValueWithDict:pageUrlDict key:@"fullurl"];
+                        if (pageUrlToReturn.length == 0) {
+                            pageUrlToReturn = nil;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    return pageUrlToReturn;
+}
+
 
 -(NSString*) getPlantDescriptionFromResponseString:(NSString*)jsonResponse {
     
@@ -302,8 +368,13 @@
 
     if (plantIntroduction!=nil)
     {
+        //Fetch the Page URL
+        NSString* pageId = [self getPageIdFromResponseString:jsonResponse];
+        [self getPageUrlFromPageId:pageId];
+
         [self.delegate introductionFetchOperationSucceed:plantIntroduction
                                          isOnlyWithGenus:false];
+        
     }
     else
     {
@@ -333,6 +404,10 @@
     
     if (plantIntroduction!=nil)
     {
+        //Fetch the Page URL
+        NSString* pageId = [self getPageIdFromResponseString:jsonResponse];
+        [self getPageUrlFromPageId:pageId];
+
         [self.delegate introductionFetchOperationSucceed:plantIntroduction
                                          isOnlyWithGenus:true];
     }
@@ -430,6 +505,52 @@
         [self.delegate descriptionFetchOperationFail:errorMessage];
     }
 }
+
+////////////////////////////////////////////////
+
+
+-(void)getPageUrlFromPageId:(NSString*)pageId {
+    
+    if ([InternetDetector isNetAvailable])
+    {
+        // //[Genus+Species]
+        NSString *url = [NSString stringWithFormat:URL_TO_FETCH_PLANT_PAGE_URL, pageId];
+        APIOperation *operation = [[APIOperation alloc] initWithUrl:url method:HTTP_REQUEST_METHOD_GET params:nil delegate:self successAction:@selector(pageUrlOperationSuccess:) andFailAction:@selector(pageUrlOperationFail:)];
+        [[self retrieverOperationQueue] addOperation:operation];
+    }
+    else
+    {
+        [self pageUrlOperationFail:NO_INTERNET_MSG];
+    }
+    
+    
+}
+
+
+- (void)pageUrlOperationSuccess:(NSString *)jsonResponse
+{
+    NSString* pageUrl = [self getPageUrlFromResponseString:jsonResponse];
+    
+    if (pageUrl!=nil)
+    {
+        [self.delegate pageUrlOperationSuccess:pageUrl];
+    }
+    else
+    {
+        [self.delegate pageUrlOperationFail:nil];
+    }
+}
+
+
+
+- (void)pageUrlOperationFail:(NSString *)errorMessage;
+{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pageUrlOperationFail:)])
+    {
+        [self.delegate pageUrlOperationFail:errorMessage];
+    }
+}
+
 
 
 @end

@@ -48,5 +48,10 @@
 - (void)descriptionFetchOperationFail:(NSString *)errorMessage;
 
 
+////
+- (void)pageUrlOperationSuccess:(NSString *)pageUrl;
+- (void)pageUrlOperationFail:(NSString *)errorMessage;
+
+
 
 @end

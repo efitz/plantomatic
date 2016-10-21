@@ -96,6 +96,9 @@ typedef enum
 
 
 
+#define URL_TO_FETCH_PLANT_PAGE_URL @"https://en.wikipedia.org/w/api.php?action=query&prop=info&pageids=%@&inprop=url&format=json"
+
+
 ///////////////////////////////////////////
 
 
