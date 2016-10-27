@@ -1192,7 +1192,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="zo7-V7-gcr"/>
                                         </constraints>
-                                        <state key="normal" image="reload.png">
+                                        <state key="normal" image="location_active">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2757,7 +2757,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <image name="location_active" width="30" height="30"/>
         <image name="logos.png" width="793" height="157"/>
         <image name="map" width="213" height="378"/>
-        <image name="reload.png" width="25" height="25"/>
         <image name="right_arrow" width="206" height="384"/>
         <image name="welcome" width="213" height="378"/>
         <image name="wikipedia_available" width="120" height="120"/>
