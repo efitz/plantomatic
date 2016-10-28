@@ -193,7 +193,19 @@
 */
     [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor colorWithRed:168/255.0 green:204/255.0 blue:251/255.0 alpha:1]];
     
-    [self populatePlantsWrapper];
+    
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if (appDelegate.isComingFromWelcome)
+    {
+        [self showMapViewForLocation];
+    }
+    else
+    {
+        [self populatePlantsWrapper];
+    }
+
+    
     
     [self hidePicker];
     
@@ -220,6 +232,12 @@
     btnLayer.borderColor=[[UIColor blackColor] CGColor];
 
     
+}
+
+
+-(void)showMapViewForLocation
+{
+    [self performSegueWithIdentifier:@"showMap" sender:nil];
 }
 
 
@@ -493,6 +511,7 @@
     }
     
     [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning

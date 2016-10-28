@@ -13,6 +13,7 @@
 #import "Utility.h"
 #import "PinAnnotation.h"
 #import "CalloutAnnotationView.h"
+#import "AppDelegate.h"
 
 @interface CustomMapVIewController()<UIGestureRecognizerDelegate,MKMapViewDelegate,HandleMapSearch, CalloutAnnotationViewDelegate>
 
@@ -264,6 +265,10 @@
 - (void)goButtonClicked:(CalloutAnnotation*)annotation
 {
     [self dismissViewControllerAnimated:true completion:^{
+        
+        AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.isComingFromWelcome = false;
+        
         [Utility setUserSelectedLocation:annotation.coordinate];
         [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_NOTIFICATION object:nil];
     }];
@@ -381,9 +386,13 @@
     // create an alert controller with action sheet appearance
     
     [self dismissViewControllerAnimated:true completion:^{
-        if ([Utility isUserHaveSelectedAnyLocation]==false)
+        
+        AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        if ([Utility isUserHaveSelectedAnyLocation]==false || appDelegate.isComingFromWelcome ==true)
         {
             //Refresh only when GPS current location is selected.
+            appDelegate.isComingFromWelcome =false;
             [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_NOTIFICATION object:nil];
         }
     }];

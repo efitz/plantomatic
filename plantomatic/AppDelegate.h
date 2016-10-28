@@ -20,6 +20,8 @@
 @property (nonatomic,strong) NSString *databasePath;
 
 @property (nonatomic,strong)CLLocation* currentLocation;
+@property (nonatomic,readwrite)BOOL isComingFromWelcome;
+
 
 -(void) createAndCheckDatabase;
 -(void) getLocationUpdates;

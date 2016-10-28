@@ -202,7 +202,7 @@ class ReadMoreTextView: UITextView {
     
     private func pointInTrimTextRange(point: CGPoint) -> Bool {
         let offset = CGPointMake(textContainerInset.left, textContainerInset.top)
-        var boundingRect = layoutManager.boundingRectForCharacterRange(trimTextRange(), inTextContainer: textContainer, textContainerOffset: offset)
+        let boundingRect = layoutManager.boundingRectForCharacterRange(trimTextRange(), inTextContainer: textContainer, textContainerOffset: offset)
         return CGRectContainsPoint(boundingRect, point)
     }
     

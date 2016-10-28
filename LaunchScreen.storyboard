@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="atd-Hp-Xq2">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="atd-Hp-Xq2">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,12 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="dPw-cM-Gyy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gcp-49-Dp1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="CMy-Or-4Pf">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="CMy-Or-4Pf">
+                                <frame key="frameInset" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CMy-Or-4Pf" secondAttribute="height" multiplier="20:39" id="7ZZ-OU-cvs"/>
                                 </constraints>
@@ -37,9 +37,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="AZ6-ZR-wjJ">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="AZ6-ZR-wjJ">
+                                <frame key="frameInset" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AZ6-ZR-wjJ" secondAttribute="height" multiplier="20:39" id="xEd-BM-kzp"/>
                                 </constraints>
@@ -54,9 +53,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="emg-8e-8u6">
-                                <rect key="frame" x="0.0" y="20" width="297" height="580"/>
-                                <animations/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="emg-8e-8u6">
+                                <frame key="frameInset" minY="20" width="297" height="580"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="emg-8e-8u6" secondAttribute="height" multiplier="20:39" id="aEw-6F-okj"/>
                                 </constraints>
@@ -72,8 +70,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.81568634510000004" green="0.83137261870000001" blue="0.82352948189999997" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.77462458610534668" green="0.79344582557678223" blue="0.7834312915802002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dPw-cM-Gyy" firstAttribute="bottom" secondItem="emg-8e-8u6" secondAttribute="bottom" id="35A-1E-5wI"/>
                             <constraint firstItem="dPw-cM-Gyy" firstAttribute="bottom" secondItem="AZ6-ZR-wjJ" secondAttribute="bottom" id="5WV-th-jrG"/>

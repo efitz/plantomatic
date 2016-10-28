@@ -64,6 +64,8 @@
     doneBtnLayer.borderWidth=1;
     doneBtnLayer.borderColor=[[UIColor whiteColor] CGColor];
     
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.isComingFromWelcome = true;
     
 }
 
