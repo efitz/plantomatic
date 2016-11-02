@@ -20,13 +20,17 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) PinAnnotation *point;
-@property (strong, nonatomic) PinAnnotation *searchPoint;
+//@property (strong, nonatomic) PinAnnotation *searchPoint;
 @property (strong, nonatomic) UISearchController *resultSearchController;
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
 
 @property (readwrite, nonatomic) BOOL isFirstTime;
 @property (readwrite, nonatomic) BOOL isSafeToChangeCenterCoordinates;
 @property (strong, nonatomic) IBOutlet UIView *searchView;
+
+@property (strong, nonatomic) IBOutlet CalloutAnnotationView *calloutAnnotationView;
+
+//CalloutAnnotationView
 
 @end
 
@@ -35,6 +39,8 @@
 - (void)viewDidLoad
 {
     self.title = @"Choose location"; //Plants of the Americas
+    
+    self.calloutAnnotationView = nil;
     
     // attach long press gesture to collectionView
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self
@@ -58,8 +64,6 @@
     [self.locationManager requestWhenInUseAuthorization];
     self.point = [[PinAnnotation alloc] init];
     self.point.title = @"";
-    self.searchPoint = [[PinAnnotation alloc] init];
-    self.searchPoint.title = @"";
     
     self.isFirstTime = true;
     self.isSafeToChangeCenterCoordinates = true;
@@ -69,8 +73,16 @@
 
     if ([Utility isUserHaveSelectedAnyLocation]==true)
     {
+        
+        
         CLLocation* currentLocation = [Utility getCurrentLocation];
 
+        
+        //Set the region for new point
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 800, 800);
+        [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+
+        
         [self getPlacemarkFromLocation:currentLocation];
         
         [self.point setCoordinate:currentLocation.coordinate];
@@ -78,6 +90,7 @@
         
         
         [self.mapView addAnnotation:self.point];
+        [self.mapView setRegion:region animated:YES];
         [self.mapView selectAnnotation:self.point animated:YES];
     }
     ///////////////////////////////////////////////////////////////////
@@ -113,19 +126,53 @@
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+//        CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+//        CLLocationCoordinate2D touchMapCoordinate =
+//        [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+//        [self.mapView removeAnnotations:self.mapView.annotations];
+//        [self.mapView removeOverlays:self.mapView.overlays];
+        
+//        [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]];
+//        
+//        [self.point setCoordinate:touchMapCoordinate];
+//        self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
+//        
+//        [self.mapView addAnnotation:self.point];
+//        [self.mapView selectAnnotation:self.point animated:YES];
+        
+        
+        /////////////////////////
+        
         CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
         CLLocationCoordinate2D touchMapCoordinate =
         [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-        [self.mapView removeAnnotations:self.mapView.annotations];
-        [self.mapView removeOverlays:self.mapView.overlays];
+
+        //Remove previous annotations
+        NSMutableArray * annotationsToRemove = [ self.mapView.annotations mutableCopy ] ;
+        [ annotationsToRemove removeObject:self.mapView.userLocation ] ;
+        [ self.mapView removeAnnotations:annotationsToRemove ] ;
         
+        //Remove any previous callout view (view with location and go button)
+        [self.calloutAnnotationView removeFromSuperview];
+
+        //Set the region for new point
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(touchMapCoordinate, 800, 800);
+        [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+        
+        //Set the point details
+        self.point = [[PinAnnotation alloc] init];
+        self.point.coordinate = touchMapCoordinate;
+        self.point.address = self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
+        
+        //Add the point to map
+        [self.mapView addAnnotation:self.point];
+        [self.mapView setRegion:region animated:YES];
+        [self.mapView selectAnnotation:self.point animated:YES];
+        
+        //Get the address for that location
         [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude]];
         
-        [self.point setCoordinate:touchMapCoordinate];
-        self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
         
-        [self.mapView addAnnotation:self.point];
-        [self.mapView selectAnnotation:self.point animated:YES];
     }
 }
 
@@ -140,23 +187,23 @@
     else
     {
         //Area that contains all the locations
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(mapView.userLocation.coordinate);
-        MKMapRect zoomRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
-        for (id <MKAnnotation> annotation in mapView.annotations)
-        {
-            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
-            zoomRect = MKMapRectUnion(zoomRect, pointRect);
-        }
-        
-        double inset = -zoomRect.size.width * 1.0;
-        zoomRect = MKMapRectInset(zoomRect, inset, inset);
-        
-        self.isSafeToChangeCenterCoordinates = false;
-
-        [self.mapView setVisibleMapRect:MKMapRectInset(zoomRect, inset, inset) animated:YES];
-        
-        self.isSafeToChangeCenterCoordinates = true;
+//        MKMapPoint annotationPoint = MKMapPointForCoordinate(mapView.userLocation.coordinate);
+//        MKMapRect zoomRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+//        for (id <MKAnnotation> annotation in mapView.annotations)
+//        {
+//            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+//            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+//            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+//        }
+//        
+//        double inset = -zoomRect.size.width * 1.0;
+//        zoomRect = MKMapRectInset(zoomRect, inset, inset);
+//        
+//        self.isSafeToChangeCenterCoordinates = false;
+//
+//        [self.mapView setVisibleMapRect:MKMapRectInset(zoomRect, inset, inset) animated:YES];
+//        
+//        self.isSafeToChangeCenterCoordinates = true;
     }
 }
 
@@ -199,17 +246,19 @@
     } else if ([annotation isKindOfClass:[CalloutAnnotation class]]) {
         // Callout annotation.
         identifier = @"Callout";
-        annotationView = (CalloutAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+//        annotationView = (CalloutAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         
-        if (annotationView == nil) {
-            annotationView = [[CalloutAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        if (self.calloutAnnotationView == nil) {
+            self.calloutAnnotationView = [[CalloutAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
         }
         
+        annotationView = self.calloutAnnotationView;
+
         CalloutAnnotation *calloutAnnotation = (CalloutAnnotation *)annotation;
         
         ((CalloutAnnotationView *)annotationView).title = calloutAnnotation.title;
         ((CalloutAnnotationView *)annotationView).delegate = self;
-        [annotationView setNeedsDisplay];
+        [self.calloutAnnotationView setNeedsDisplay];
         
         
         [annotationView setCenterOffset:CGPointMake(0, -60)];
@@ -372,8 +421,6 @@
     self.point.address = address;
     self.point.calloutAnnotation.title = [[NSString alloc] initWithFormat:@"%@",self.point.address];
 
-
-    
     CalloutAnnotationView* annotationView = (CalloutAnnotationView*)[self.mapView viewForAnnotation:self.point.calloutAnnotation];
     annotationView.titleLabel.text = self.point.calloutAnnotation.title;
 
@@ -403,43 +450,60 @@
 - (void)dropPinZoomIn:(MKPlacemark *)placemark
               address:(NSString*)address
 {
+    //Remove previous annotations
+    NSMutableArray * annotationsToRemove = [ self.mapView.annotations mutableCopy ] ;
+    [ annotationsToRemove removeObject:self.mapView.userLocation ] ;
+    [ self.mapView removeAnnotations:annotationsToRemove ] ;
+    
+    //Remove any previous callout view (view with location and go button)
+    [self.calloutAnnotationView removeFromSuperview];
+
+    //Set the region for new point
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 800, 800);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
-    self.searchPoint.coordinate = placemark.coordinate;
-    
-    [self.mapView removeAnnotation:self.searchPoint.calloutAnnotation];
-    self.point.calloutAnnotation = nil;
-    [self.mapView removeAnnotation:self.searchPoint];
+    //Set the point details
+    self.point = [[PinAnnotation alloc] init];
+    self.point.coordinate = placemark.coordinate;
+    self.point.address = address;
 
-    self.searchPoint.address = address;
-
-    [self.mapView removeAnnotation:self.point.calloutAnnotation];
-    self.point.calloutAnnotation = nil;
-
-    
-    
-    [self.mapView addAnnotation:self.searchPoint];
+    //Add the point to map
+    [self.mapView addAnnotation:self.point];
     [self.mapView setRegion:region animated:YES];
-    [self.mapView selectAnnotation:self.searchPoint animated:YES];
+    [self.mapView selectAnnotation:self.point animated:YES];
+    
+    //Get the address for that location
+    [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:placemark.coordinate.latitude longitude:placemark.coordinate.longitude]];
 }
 
-- (IBAction)toggleLocation:(id)sender {
+- (IBAction)toggleLocation:(id)sender
+{
+    //Remove previous annotations
+    NSMutableArray * annotationsToRemove = [ self.mapView.annotations mutableCopy ] ;
+    [ annotationsToRemove removeObject:self.mapView.userLocation ] ;
+    [ self.mapView removeAnnotations:annotationsToRemove ] ;
     
+    //Remove any previous callout view (view with location and go button)
+    [self.calloutAnnotationView removeFromSuperview];
+
+    //Set the region for new point
     CLLocationCoordinate2D coordinate = self.mapView.userLocation.location.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 800, 800);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
-    [self.mapView removeAnnotations:self.mapView.annotations];
-    [self.mapView removeOverlays:self.mapView.overlays];
-    
-    [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
-    
+    //Set the point details
+    self.point = [[PinAnnotation alloc] init];
     [self.point setCoordinate:coordinate];
     self.point.address = [NSString stringWithFormat:@"latitude:%.02f longitude:%.02f",coordinate.latitude,coordinate.longitude];
     
+    
+    //Add the point to map
     [self.mapView addAnnotation:self.point];
+    [self.mapView setRegion:region animated:YES];
     [self.mapView selectAnnotation:self.point animated:YES];
+    
+    //Get the address for that location
+    [self getPlacemarkFromLocation:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
 }
 
 

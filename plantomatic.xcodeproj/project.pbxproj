@@ -1473,7 +1473,7 @@
 				ORGANIZATIONNAME = "Ocotea Technologies, LLC";
 				TargetAttributes = {
 					F7663571189DA10300B0A594 = {
-						DevelopmentTeam = JTJPJ8CB4V;
+						DevelopmentTeam = G9CJYTK52B;
 						LastSwiftMigration = 0800;
 					};
 					F7663592189DA10400B0A594 = {
@@ -1903,7 +1903,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = plantomatic;
-				PROVISIONING_PROFILE = "430fd4bd-196c-4817-8dba-6f5b32a584eb";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -1945,7 +1945,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_MODULE_NAME = plantomatic;
-				PROVISIONING_PROFILE = "430fd4bd-196c-4817-8dba-6f5b32a584eb";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -1960,7 +1960,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JTJPJ8CB4V;
+				DEVELOPMENT_TEAM = G9CJYTK52B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1977,7 +1977,7 @@
 					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = "plantomatic/plantomatic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2005,7 +2005,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JTJPJ8CB4V;
+				DEVELOPMENT_TEAM = G9CJYTK52B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2022,7 +2022,7 @@
 					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = "plantomatic/plantomatic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

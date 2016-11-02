@@ -95,6 +95,8 @@
 
 @property (strong, nonatomic) SpeciesFamily *selectedPlant;
 
+@property(nonatomic, readwrite) long totalAvialblePlantsCount;
+
 
 @end
 
@@ -118,6 +120,7 @@
     if([Utility isiOS7])
         self.edgesForExtendedLayout = UIRectEdgeNone;
 
+    self.totalAvialblePlantsCount = 0;
     self.isSearchOn=NO;
     self.plantsSearchResultArray=[NSMutableArray array];
     
@@ -445,6 +448,8 @@
 		}
 	}
 
+    [self calculateTotalAvailablePlants];
+    
 //    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
     self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plants.count];
     
@@ -457,11 +462,74 @@
 }
 
 
+
+-(void)calculateTotalAvailablePlants
+{
+    FMDBDataAccess *db = [[FMDBDataAccess alloc] init];
+    
+    CLLocation *currentLocation=[Utility getCurrentLocation];
+    
+    if (currentLocation==nil)
+    {
+        //Happens in iOS8 first time after app launch get current location nil
+        //so calling it again with delay of half second
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSelector:@selector(updateHeaderHint) withObject:nil afterDelay:0.5];
+        });
+        
+        return;
+    }
+    
+    double lat1=currentLocation.coordinate.latitude, lon1=currentLocation.coordinate.longitude;
+    double lat, lon;
+    //Need to convert the input coordinates into radians
+    lat = DEGREES_TO_RADIANS(lat1);
+    lon = DEGREES_TO_RADIANS(lon1);
+    
+    //Initiate the destination projection using the  Lambert Equal Area projection with proper offsets
+    projPJ dst_prj = pj_init_plus("+proj=laea +lat_0=15 +lon_0=-80 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0");
+    
+    //Initiate the source projection
+    projPJ src_prj = pj_init_plus("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs");
+    
+    //To transform the data
+    pj_transform(src_prj, dst_prj, 1, 1, &lon, &lat, NULL);
+    double X=0,Y=0,resolution=100000, corner_x=-5261554, corner_y=7165012;
+    
+    X = floor((lon - corner_x)/resolution + 1); //units are in meters so we need to convert output 100kM grid
+    Y = floor(((lat - corner_y)/resolution * -1) + 1);
+    
+    /*
+     Here is test data with example input and output
+     1) 42.337302, -71.227067 column 61, row 42, 2117
+     2) 43.478256, -110.763924 column 28, row 38, 2263 species
+     3) 26.363909, -80.131706 column 53, row 60, 1087
+     4) 32.243065, -110.927750 column 24, row 50, 3704 species
+     */
+    
+    
+    //if outside of the US set the grid to Tuscon, AZ
+    if (-1*lon1 > 170 || -1*lon1 < 58) {
+        Y=50;
+        X=24;
+    }
+    
+    
+    NSMutableArray* totalAvialblePlants=[db getPlantsForY:Y andX:X];
+    
+    self.totalAvialblePlantsCount = [totalAvialblePlants count];
+    
+    
+}
+
+
 -(NSMutableAttributedString*) getCountStringUsingCount:(long) count {
     
     NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:@""];
 
-    NSString* countString = [NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
+    NSString* countString = [NSString stringWithFormat:@"%lu of %lu species",(unsigned long)self.plants.count, self.totalAvialblePlantsCount];
+
     long stringLength = countString.length;
     UIFont* font = [UIFont systemFontOfSize:20];
     UIColor* color = [[UIColor alloc] initWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0];

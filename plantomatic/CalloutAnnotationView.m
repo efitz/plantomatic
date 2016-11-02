@@ -44,9 +44,17 @@
       [self.goButton addTarget:self action:@selector(goButtonClicked) forControlEvents:UIControlEventTouchUpInside];
       self.goButton.backgroundColor = [UIColor colorWithRed:65.0/255.0 green:159.0/255.0 blue:221.0/255.0 alpha:1.0];
       [self addSubview:self.goButton];
-
   }
+    
+    
+    
   return self;
+}
+
+
+-(void)dealloc
+{
+    NSLog(@"dealloc calloutantotationView");
 }
 
 

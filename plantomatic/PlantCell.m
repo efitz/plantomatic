@@ -167,6 +167,10 @@
     NSString* genusSpecies=[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species];
     NSString* family=plant.family;
     
+    if (commonName==nil) {
+        commonName = @"";
+    }
+    
     NSInteger commonNameLength=[commonName length];
     NSInteger genusSpeciesLength=[genusSpecies length];
     NSInteger familyLength=[family length];
