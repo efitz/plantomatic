@@ -17,7 +17,6 @@
 #import "AppDelegate.h"
 #import "PlantImagesService.h"
 #import "PlantImagesList.h"
-#import "PlantsCollectionViewController.h"
 #import "PlantDetailsViewController.h"
 
 @interface NSString(MyCustomSorting)
@@ -66,14 +65,11 @@
 
 @end
 
-@interface PlantsViewController ()<PlantImagesServiceDelegate,UIActionSheetDelegate>
+@interface PlantsViewController ()<PlantImagesServiceDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *plantsCountLbl;
 @property (strong, nonatomic) IBOutlet UIButton *sortOrderBtn;
-@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
-@property (strong, nonatomic) IBOutlet UIControl *pickerControl;
-@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) IBOutlet UIButton *criteriaSortBtn;
 
 
@@ -127,8 +123,6 @@
     [self.navigationController.navigationBar setHidden:NO];
     self.navigationItem.hidesBackButton = YES;
     
-    self.pickerControl.hidden=YES;
-    self.toolbar.hidden=YES;
     
     NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
                             valueForKey:@"sortOrder"];
@@ -152,50 +146,7 @@
         
     }
     
-    /*
-    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
-                           valueForKey:@"sortCriteria"];
-
-    
-    if (sortOrder==nil) {
-        [[NSUserDefaults standardUserDefaults]
-         setObject:[NSNumber numberWithInteger:0] forKey:@"sortCriteria"];
-        
-        [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
-        
-        [self.sortOrderBtn setImage:[UIImage imageNamed:@"up.png"] forState:UIControlStateNormal];
-        
-        self.pickerViewSelectedIndex=0;
-    }
-    else
-    {
-        
-        switch (sortCriteria.integerValue) {
-            case FilterByValueFamily:
-                [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
-                break;
-                
-            case FilterByValueGenus:
-                [self.criteriaSortBtn setTitle:@"Genus" forState:UIControlStateNormal];
-                break;
-                
-            case FilterByValueClassification:
-                [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
-                break;
-            case FilterByValueHabit:
-                [self.criteriaSortBtn setTitle:@"Habit" forState:UIControlStateNormal];
-                break;
-
-                
-            default:
-                break;
-        }
-    }
-
-    self.pickerViewSelectedIndex=(int)sortCriteria.integerValue;
-*/
     [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor colorWithRed:168/255.0 green:204/255.0 blue:251/255.0 alpha:1]];
-    
     
     AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -209,17 +160,12 @@
     }
 
     
-    
-    [self hidePicker];
-    
-    
     PlantImagesService *plantImagesService = [[PlantImagesService alloc] initServiceWithDelegate:self];
     self.plantImagesService = plantImagesService;
 
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(refreshResults:) name:REFRESH_NOTIFICATION object:nil];
-
     
     //sortOrderBtn
     CALayer *btnLayer = [self.criteriaSortBtn layer];
@@ -228,13 +174,10 @@
     btnLayer.borderWidth=1;
     btnLayer.borderColor=[[UIColor whiteColor] CGColor];
     
-    
     btnLayer =[self.searchView layer];
     [btnLayer setMasksToBounds:YES];
     btnLayer.borderWidth=1;
     btnLayer.borderColor=[[UIColor blackColor] CGColor];
-
-    
 }
 
 
@@ -244,39 +187,9 @@
 }
 
 
--(void) showPicker
-{
-    self.pickerControl.hidden=NO;
-    self.toolbar.hidden=NO;
-    [self.pickerView selectRow:self.pickerViewSelectedIndex inComponent:0 animated:YES];
-}
-
-
--(void) hidePicker
-{
-    self.pickerControl.hidden=YES;
-    self.toolbar.hidden=YES;
-    
-    //[self hideSearchBar];
-
-//    if (self.pickerViewSelectedIndex==FilterByValueClassification) {
-//        self.searchDisplayController.searchBar.userInteractionEnabled=NO;
-//        self.searchDisplayController.searchBar.placeholder=@"Search Not Allowed.";
-//    }
-//    else
-//    {
-//        self.searchDisplayController.searchBar.userInteractionEnabled=YES;
-//        self.searchDisplayController.searchBar.placeholder=@"Search";
-//
-//    }
-}
-
 
 -(void) populatePlants
 {
-    NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
-                           valueForKey:@"sortOrder"];
-    
     self.plants = [[NSMutableArray alloc] init];
     
     FMDBDataAccess *db = [[FMDBDataAccess alloc] init];
@@ -322,12 +235,6 @@
 	 4) 32.243065, -110.927750 column 24, row 50, 3704 species
 	 */
 
-    
-    
-    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
-                              valueForKey:@"sortCriteria"];
-    
-    
     //self.plants = [db getPlantsForY:lat andX:lon andFilterByValue:sortCriteria.integerValue isInAscendingOrder:sortOrder.boolValue];
 
 	//if outside of the US set the grid to Tuscon, AZ
@@ -394,41 +301,6 @@
             }
         }
         
-        
-        
-        /*
-        switch (sortCriteria.integerValue) {
-            case FilterByValueFamily:
-                //Family
-                // get the element's initial letter
-                firstLetter = [plant.family substringToIndex:1];
-                
-                break;
-            case FilterByValueGenus:
-                //Genus
-                // get the element's initial letter
-                firstLetter = [plant.genus substringToIndex:1];
-                
-                break;
-            case FilterByValueClassification:
-                //Classification
-                firstLetter = [plant.classification substringToIndex:1];
-                
-                
-                break;
-            case FilterByValueHabit:
-                //Classification
-                firstLetter = [plant.habit substringToIndex:1];
-                
-                
-                break;
-                
-            default:
-                //Family
-                
-                break;
-        }
-*/
         NSMutableArray *existingArray;
         
         if ([firstLetter isEqualToString:@"-"]) {
@@ -473,11 +345,6 @@
     {
         //Happens in iOS8 first time after app launch get current location nil
         //so calling it again with delay of half second
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSelector:@selector(updateHeaderHint) withObject:nil afterDelay:0.5];
-        });
-        
         return;
     }
     
@@ -572,7 +439,7 @@
 {
     self.navigationController.navigationBar.topItem.title = @"Plant-O-Matic";
     
-    if ([self.searchDisplayController.searchBar.text length] == 0 && self.isSearchOn==NO)
+    if (self.isSearchOn==NO)
     {
         self.plantsSearchResultArray = [NSMutableArray array];
         self.plantsSearchResultDictionary = [NSMutableDictionary dictionary];
@@ -633,14 +500,6 @@
     NSArray* sortedNamesArray = nil;
     if(self.isSearchOn){
         sortedNamesArray = [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
-
-//        if (isSortOrderAscending.boolValue==NO)
-//        {
-//            //descending order
-//            sortedNamesArray=[sortedNamesArray reversedArray];
-//        }
-
-        
     } else {
         sortedNamesArray = [[self.plantsResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
 
@@ -686,14 +545,6 @@
     
     if(self.isSearchOn){
         sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
-        
-//        if (isSortOrderAscending.boolValue==NO)
-//        {
-//            //descending order
-//            sortedNamesArray=[sortedNamesArray reversedArray];
-//        }
-  
-        
         indexKeyArray=[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:section]];
         
     } else {
@@ -745,17 +596,12 @@
         plantDetailsViewController.assets = nil;
         plantDetailsViewController.plant = plant;
         [self.navigationController pushViewController:plantDetailsViewController animated:YES];
-//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
 
 -(SpeciesFamily*)getPlantForIndexPath:(NSIndexPath *)indexPath
 {
-    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
-                              valueForKey:@"sortCriteria"];
-    
-    
     NSString* sortKeyName=@"family";
     
     NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
@@ -796,43 +642,7 @@
             sortKeyName = @"commonName";
         }
     }
-    
 
-    
-    
-    /*
-    switch (sortCriteria.integerValue) {
-        case FilterByValueFamily:
-            //Family
-            sortKeyName=@"family";
-            
-            break;
-        case FilterByValueGenus:
-            //Genus
-            sortKeyName=@"genus";
-            
-            
-            break;
-        case FilterByValueClassification:
-            //Classification
-            sortKeyName=@"classification";
-            
-            break;
-        case FilterByValueHabit:
-            //Classification
-            sortKeyName=@"habit";
-            
-            break;
-            
-        default:
-            //Family
-            sortKeyName=@"family";
-            
-            break;
-    }
-    */
-    
-    
     NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
                            valueForKey:@"sortOrder"];
     
@@ -861,14 +671,7 @@
     NSMutableArray* indexKeyArray=nil;
     if(self.isSearchOn){
         sortedNamesArray= [[self.plantsSearchResultDictionary allKeys] sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
-        
-//        if (sortOrder.boolValue==NO) {
-//            sortedNamesArray=[sortedNamesArray reversedArray];
-//        }
-        
         indexKeyArray=[[self.plantsSearchResultDictionary objectForKey:[sortedNamesArray objectAtIndex:indexPath.section]] mutableCopy];
-        
-        //indexKeyArray=[indexKeyArray sortedArrayUsingSelector:@selector(customCaseInsensitiveCompare:)];
         
         NSSortDescriptor * firstDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:sortOrderAsending selector:@selector(customCaseInsensitiveCompare:)];
         
@@ -901,95 +704,6 @@
 }
 
 
-
-
-- (IBAction)showSortOptions:(id)sender {
-   
-    //[self showPicker];
-    
-    UIActionSheet* actionSheet=[[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Family",@"Genus",@"Major Group",@"Habit", nil];
-	actionSheet.title = @"Sort by:";
-    [actionSheet showInView:self.view];
-    
-    //[Utility showAlert:@"" message:@"Under Contstruction..."];
-}
-
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"%d",(int)buttonIndex);
-    
-    if (buttonIndex==4) {
-        return;
-    }
-    else
-    {
-        /*
-        self.pickerViewSelectedIndex =(int)buttonIndex;
-        [[NSUserDefaults standardUserDefaults]
-         setObject:[NSNumber numberWithInteger:self.pickerViewSelectedIndex] forKey:@"sortCriteria"];
-        
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        switch (self.pickerViewSelectedIndex) {
-            case FilterByValueFamily:
-                [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
-                
-                break;
-            case FilterByValueGenus:
-                [self.criteriaSortBtn setTitle:@"Genus" forState:UIControlStateNormal];
-                break;
-            case FilterByValueClassification:
-                [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
-                break;
-            case FilterByValueHabit:
-                [self.criteriaSortBtn setTitle:@"Habit" forState:UIControlStateNormal];
-                break;
-                
-                
-            default:
-                break;
-        }*/
-        
-        self.searchBar.text=@"";
-        self.isSearchOn=NO;    
-        [self populatePlantsWrapper];
-    }
- 
-
-}
-
-
-
-
-- (IBAction)toggleSortOrder:(id)sender {
-    
-    NSNumber *sortOrder = [[NSUserDefaults standardUserDefaults]
-                           valueForKey:@"sortOrder"];
-    
-    if (sortOrder.boolValue) {
-        [[NSUserDefaults standardUserDefaults]
-         setObject:[NSNumber numberWithBool:NO] forKey:@"sortOrder"];
-        
-        [self.sortOrderBtn setImage:[UIImage imageNamed:@"down.png"] forState:UIControlStateNormal];
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults]
-         setObject:[NSNumber numberWithBool:YES] forKey:@"sortOrder"];
-        
-        [self.sortOrderBtn setImage:[UIImage imageNamed:@"up.png"] forState:UIControlStateNormal];
-        
-    }
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-   
-
-    [self populatePlantsWrapper];
-}
-
-
 -(void)populatePlantsWrapper
 {
     
@@ -1008,13 +722,6 @@
     });
 }
     
-
-- (void)hudWasHidden {
-    // Remove HUD from screen
-    
-    // add here the code you may need
-    
-}
 
 - (IBAction)refreshResults:(id)sender {
     [self populatePlantsWrapper];
@@ -1064,94 +771,6 @@
     self.pickerViewSelectedIndex = (int)row;
 }
 
-- (IBAction)hidePickerAction:(id)sender {
-    
-    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
-                              valueForKey:@"sortCriteria"];
-    
-    self.pickerViewSelectedIndex =(int)sortCriteria.integerValue;
-    
-    [self hidePicker];
-}
-
-- (IBAction)doneAction:(id)sender {
-    [self hidePicker];
-    
-    /*
-    self.pickerViewSelectedIndex=(int)[self.pickerView selectedRowInComponent:0];
-    
-    [[NSUserDefaults standardUserDefaults]
-     setObject:[NSNumber numberWithInteger:self.pickerViewSelectedIndex] forKey:@"sortCriteria"];
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    switch (self.pickerViewSelectedIndex) {
-        case FilterByValueFamily:
-            [self.criteriaSortBtn setTitle:@"Family" forState:UIControlStateNormal];
-
-            break;
-        case FilterByValueGenus:
-            [self.criteriaSortBtn setTitle:@"Genus" forState:UIControlStateNormal];
-            break;
-        case FilterByValueClassification:
-            [self.criteriaSortBtn setTitle:@"Major Group" forState:UIControlStateNormal];
-            break;
-        case FilterByValueHabit:
-            [self.criteriaSortBtn setTitle:@"Habit" forState:UIControlStateNormal];
-            break;
-
-            
-        default:
-            break;
-    }*/
-
-    self.searchBar.text=@"";
-    self.isSearchOn=NO;    
-    [self populatePlantsWrapper];
-}
-
-
-- (void)hideSearchBar {
-    
-    // scroll search bar out of sight
-    CGRect newBounds = self.tableView.bounds;
-    if (self.tableView.bounds.origin.y < 44) {
-        newBounds.origin.y = newBounds.origin.y + self.searchDisplayController.searchBar.bounds.size.height;
-        self.tableView.bounds = newBounds;
-    }
-    // new for iOS 7
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:0 animated:YES];
-}
-
-#pragma mark -
-#pragma mark UISearchDisplayController Delegate Methods
-- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
-    self.isSearchOn=YES;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.tableView reloadData];
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self handleSearchForTerm:searchString];
-    
-    return YES;
-}
-
-- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
-{
-    self.isSearchOn=NO;
-    
-    [self.tableView reloadData];
- }
-
-- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
-{
-    tableView.rowHeight = 130.0f; // or some other height
-}
-
-
 #pragma mark -
 #pragma mark Search Method
 
@@ -1166,67 +785,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [[self plantsSearchResultArray] removeAllObjects];
     for (SpeciesFamily *plant in [self plants])
     {
-        /*
-        switch (self.pickerViewSelectedIndex)
-        {
-            case FilterByValueFamily:
-                //Search in Family
-                if ([trimmedsearchString length]>0) {
-                    
-                    if ([[plant family] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
-                    {
-                        //add plant
-                        [self.plantsSearchResultArray addObject:plant];
-                    }
-                }
-                break;
-                
-            case FilterByValueGenus:
-                //Search in Genus
-                if ([trimmedsearchString length]>0) {
-                    
-                    if ([[plant genus] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
-                    {
-                        //add plant
-                        [self.plantsSearchResultArray addObject:plant];
-                    }
-                }
-                break;
-
-                
-            case FilterByValueClassification:
-                //Search in Genus
-                if ([trimmedsearchString length]>0) {
-                    
-                    if ([[plant classification] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
-                    {
-                        //add plant
-                        [self.plantsSearchResultArray addObject:plant];
-                    }
-                }
-                break;
-                
-            case FilterByValueHabit:
-                //Search in Genus
-                if ([trimmedsearchString length]>0) {
-                    
-                    if ([[plant habit] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
-                    {
-                        //add plant
-                        [self.plantsSearchResultArray addObject:plant];
-                    }
-                }
-                break;
-
-
-                
-                
-            default:
-                break;
-        }*/
-        
-        
-        
         if ([trimmedsearchString length]>0) {
             
             if ([[plant family] rangeOfString:trimmedsearchString options:NSCaseInsensitiveSearch].location != NSNotFound)
@@ -1268,52 +826,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
         }
     }
     
-    
-    
-    
-    NSNumber *sortCriteria = [[NSUserDefaults standardUserDefaults]
-                              valueForKey:@"sortCriteria"];
-    
-    
     self.plantsSearchResultDictionary=[NSMutableDictionary dictionary];
 	for (SpeciesFamily *plant in self.plantsSearchResultArray)
 	{
-        
         NSString *firstLetter =[plant.family substringToIndex:1];
-        
-//        switch (sortCriteria.integerValue) {
-//            case FilterByValueFamily:
-//                //Family
-//                // get the element's initial letter
-//                firstLetter = [plant.family substringToIndex:1];
-//
-//                
-//                break;
-//            case FilterByValueGenus:
-//                //Genus
-//                // get the element's initial letter
-//                firstLetter = [plant.genus substringToIndex:1];
-//                
-//                
-//                break;
-//            case FilterByValueClassification:
-//                //Classification
-//                firstLetter = [plant.classification substringToIndex:1];
-//                
-//                break;
-//            case FilterByValueHabit:
-//                //Classification
-//                firstLetter = [plant.habit substringToIndex:1];
-//                
-//                break;
-//                
-//            default:
-//                //Family
-//                
-//                break;
-//        }
-        
-        
         NSMutableArray* sortColumnsSelected=[[[NSUserDefaults standardUserDefaults] objectForKey:@"sortColumns"] mutableCopy];
         
         if ([sortColumnsSelected count]==0) {
@@ -1352,15 +868,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
             }
         }
 
-        
-        
         NSMutableArray *existingArray;
-        
         
         if ([firstLetter isEqualToString:@"-"]) {
             firstLetter=@"-";
         }
-        
         
         // if an array already exists in the name index dictionary
         // simply add the element to it, otherwise create an array
@@ -1373,49 +885,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
             [self.plantsSearchResultDictionary setObject:tempArray forKey:[firstLetter uppercaseString]];
             [tempArray addObject:plant];
         }
-
-        
-
 	}
-
-    
-    
 }
-
-/*
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar                     // called when text starts editing
-{
-    self.isSearchOn=YES;
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    [self handleSearchForTerm:searchBar.text];
-    [self.tableView reloadData];
-
-}
-
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-// called when keyboard search button pressed
-{
-    [self handleSearchForTerm:searchBar.text];
-    [self.tableView reloadData];
-    [searchBar resignFirstResponder];
-    self.isSearchOn=NO;
-
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
-{
-    
-}
-*/
 
 - (void)handleSearch:(NSString *)searchText {
     NSString *trimmedsearchString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -1423,22 +894,14 @@ shouldReloadTableForSearchString:(NSString *)searchString
     if (trimmedsearchString.length==0) {
         self.isSearchOn=NO;
         [self.tableView reloadData];
-        
-//        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plants.count];
-        
         self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plants.count];
-
     }
     else
     {
         self.isSearchOn=YES;
         [self handleSearchForTerm:searchText];
         [self.tableView reloadData];
-        
-//        self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu species",(unsigned long)self.plantsSearchResultArray.count];
-        
         self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plantsSearchResultArray.count];
-
     }
 
 }
@@ -1474,11 +937,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [self.tableView reloadData];
     searchBar.text=@"";
     [searchBar resignFirstResponder]; // if you want the keyboard to go away
-    
-//    self.plantsCountLbl.text =[NSString stringWithFormat:@"Total: %lu  species",(unsigned long)self.plants.count];
-
     self.plantsCountLbl.attributedText = [self getCountStringUsingCount:(unsigned long)self.plants.count];
-
 }
 
 #pragma mark -
@@ -1488,22 +947,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-
-    
-    //Old implmentation
-//    PlantsCollectionViewController *plantsCollectionViewController = (PlantsCollectionViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantsCollectionViewController"];
-//    
-//    plantsCollectionViewController.assets=plantImagesList.plantImages;
-//    
-//    [self.navigationController pushViewController:plantsCollectionViewController animated:YES];
-    
     //New Detail view
     PlantDetailsViewController *plantDetailsViewController = (PlantDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PlantDetailsViewController"];
     
     plantDetailsViewController.assets = [self filterAssets:plantImagesList.plantImages];
     plantDetailsViewController.plant = self.selectedPlant;
     [self.navigationController pushViewController:plantDetailsViewController animated:YES];
-
 }
 
 

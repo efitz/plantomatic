@@ -21,6 +21,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -49,10 +50,7 @@
                                       valueForKey:@"isImageAvailable"];
         [self.isAvaiableSwitch setOn:isImageAvailable.boolValue];
     }
-    
-    
 }
-
 
 - (IBAction)valueChangeAction:(id)sender
 {
@@ -73,7 +71,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
 
 }
-
 
 
 @end

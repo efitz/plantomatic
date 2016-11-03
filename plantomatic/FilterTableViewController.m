@@ -32,33 +32,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     [self setTitle:@"Filters"];
-    
-//    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleBordered target:self action:@selector(searchAction)];
-
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
 
     [self createSearchActionButton];
-    
-//    [self.tableView registerClass:[FilterCollectionViewTableViewCell class] forCellReuseIdentifier:@"FilterCollectionViewTableViewCell"];
 
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(refreshFamilyFilterCell) name:REFRESH_FAMILY_FILTER_CELL_NOTIFICATION object:nil];
-
-    
 }
 
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [self performSelectorInBackground:@selector(updateHeaderHint) withObject:nil];
-//    [self updateHeaderHint];
 }
 
 
@@ -373,19 +359,9 @@
 
 -(void)refreshFamilyFilterCell
 {
-//    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-//    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-    
-//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
-
-    
-//    [self.sectionHeaderCell updateCellWithAvailablePlants:9 andTotalPlants:1000];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
-    
-
 }
 
 
@@ -426,23 +402,10 @@
             self.sectionHeaderCell = [tableView dequeueReusableCellWithIdentifier:@"FilterHeaderTableViewCell"];
         }
         
-//        if ([Utility isAppUsingDefaultSettings]) {
-//            filterHeaderTableViewCell=nil;
-//        }
-//        else
-//        {
             filterHeaderTableViewCell=self.sectionHeaderCell;
-//        }
     }
-//    else
-//    {
-//         filterHeaderTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"SectionHeaderCell"];
-//    }
 
     [self performSelectorInBackground:@selector(updateHeaderHint) withObject:nil];
-
-//    [self updateHeaderHint];
-
     
     return filterHeaderTableViewCell;
 }
@@ -558,19 +521,12 @@
 }
 
 
-
-
 -(CGFloat) FilterCellHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger numberOfItems=11;
     
-//    if (indexPath.row==0) {
-//        numberOfItems=[[self getGrowthForms] count];
-//    }
-    
     if (indexPath.row==1) {
         numberOfItems=13;
-//        numberOfItems=[[self getFlowerColors] count];
     }
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];

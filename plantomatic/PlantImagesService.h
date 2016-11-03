@@ -31,25 +31,31 @@
 
 @protocol PlantImagesServiceDelegate <NSObject>
 
+@optional
 - (void)plantImagesFetchSucceed:(PlantImagesList *)plantImagesList;
+@optional
 - (void)plantImagesFetchFailed:(NSString *)errorMessage;
 
 //////
 //-(void) fetchIntroductionForPlant:(SpeciesFamily*) plant;
+@optional
 - (void)introductionFetchOperationSucceed:(NSString*)introduction
                           isOnlyWithGenus:(BOOL)isOnlyWithGenus;
-
+@optional
 - (void)introductionFetchOperationFail:(NSString *)errorMessage;
 
 //-(void) fetchDescriptionForPlant:(SpeciesFamily*) plant;
+@optional
 - (void)descriptionFetchOperationSucceed:(NSString*)description
                           isOnlyWithGenus:(BOOL)isOnlyWithGenus;
-
+@optional
 - (void)descriptionFetchOperationFail:(NSString *)errorMessage;
 
 
 ////
+@optional
 - (void)pageUrlOperationSuccess:(NSString *)pageUrl;
+@optional
 - (void)pageUrlOperationFail:(NSString *)errorMessage;
 
 

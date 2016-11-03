@@ -40,11 +40,7 @@
         self.titleString=@"Unknown";
 
     }
-    
     self.filterLbl.text=self.titleString;
-
-
-   
     
     if (isSelected)
     {
@@ -61,7 +57,6 @@
         self.filterLbl.font=[UIFont systemFontOfSize:12];
         self.filterLbl.textColor=[UIColor grayColor];
     }
-    
 }
 
 

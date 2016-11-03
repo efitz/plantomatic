@@ -14,15 +14,12 @@
 {
     NSMutableArray* _orderedViewControllers;
 }
-@property (strong, nonatomic) NSMutableArray* orderedViewControllers;
 
+@property (strong, nonatomic) NSMutableArray* orderedViewControllers;
 
 @end
 
-
-
 @implementation PlantPageViewController
-
 
 -(UIViewController*)newViewControllerWithImageUrl:(PlantImageInfo*)plantImageInfo{
  
@@ -75,8 +72,6 @@
     }
 }
 
-
-
 /**
  Scrolls to the given 'viewController' page.
  
@@ -96,10 +91,7 @@
             [welf notifyTutorialDelegateOfNewIndex];
         }];
     });
-
-    
 }
-
 
 /**
  Notifies '_tutorialDelegate' that the current page index was updated.

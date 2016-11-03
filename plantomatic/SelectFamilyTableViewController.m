@@ -23,12 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     if (self.isForFamilyValues==NO) {
         [self setTitle:@"Select Sort By"];
     }
@@ -37,7 +31,6 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    
     if (self.isForFamilyValues) {
         [self loadFamilyValues];
     }
@@ -45,10 +38,8 @@
     {
         [self loadSortColumnValues];
     }
-    
 
     [self.tableView reloadData];
-
 }
 
 -(void) loadFamilyValues

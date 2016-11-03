@@ -86,15 +86,8 @@
 {
     if (!self.isPreviouslyAuthorized) {
         [self performSegueWithIdentifier:@"showDetail" sender:self];
-        
-//        [[NSUserDefaults standardUserDefaults]
-//         setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
-
-
-
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -118,10 +111,6 @@
         {
             [appDelegate getLocationUpdates];
             returnValue=NO;
-            
-//            [[NSUserDefaults standardUserDefaults]
-//             setObject:[NSNumber numberWithBool:YES] forKey:@"isNeedToShowWelcome"];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
         }
         else if([CLLocationManager locationServicesEnabled]==NO ||
            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
@@ -133,25 +122,12 @@
             
             [Utility showAlert:@"" message:@"Plantomatic will not work with out Location Services. To use this app, please go to Settings and enabled Location Services"];
             returnValue=NO;
-            
-//            [[NSUserDefaults standardUserDefaults]
-//             setObject:[NSNumber numberWithBool:YES] forKey:@"isNeedToShowWelcome"];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-
         }
         else if([CLLocationManager locationServicesEnabled]==YES && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
         {
             //The condition for ios8 to work with location manager            
             //kCLAuthorizationStatusAuthorizedWhenInUse
             [appDelegate getLocationUpdates];
-        }
-        
-        else
-        {
-//            [[NSUserDefaults standardUserDefaults]
-//             setObject:[NSNumber numberWithBool:NO] forKey:@"isNeedToShowWelcome"];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-
         }
     }
     

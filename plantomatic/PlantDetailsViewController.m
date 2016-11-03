@@ -199,14 +199,10 @@
         [self.classificationLbl setText:plant.classification];
     }
     
-    
-    
     [self.habitLbl setText:[NSString stringWithFormat:@"%@ ",plant.habit]];
     
     
-    
     //First column
-    
     //ChunkFive 18
     //system italic 18
     //system bold 14
@@ -215,7 +211,6 @@
     UIFont *italicSystemFont=[UIFont italicSystemFontOfSize:18];
     UIFont *boldSystemFont=[UIFont boldSystemFontOfSize:14];
     UIColor *fontColor=[UIColor blackColor];
-    
     
     NSString* commonName=plant.commonName;
     NSString* genusSpecies=[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species];
@@ -300,9 +295,7 @@
     self.introTxtView.trimText = nil;
     self.introTxtView.attributedTrimText = trimText;
 
-    
     //////////////
-    
     UIFont* boldFont = [UIFont boldSystemFontOfSize:15.0];
     UIFont* italicFont = [UIFont italicSystemFontOfSize:15.0];
     UIFont* normalFont = [UIFont systemFontOfSize:15.0];
@@ -321,13 +314,8 @@
     [attString appendAttributedString:attStringToAdd];
     [attString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
     
-    
-
-    
     if (isOnlyWithGenus)
     {
-        //[Utility showAlert:@"Plant Introduction Found with G:" message:introduction];
-        
         NSString* genusString = [NSString stringWithFormat:@"Genus: %@\n",self.plant.genus];
         stringLength = genusString.length;
         
@@ -337,28 +325,18 @@
         
         [attString appendAttributedString:attStringToAdd];
     }
-    else
-    {
-       // [Utility showAlert:@"Plant Introduction Found with G+S:" message:introduction];
-    }
-    
     
     stringLength = introduction.length;
     attStringToAdd = [[NSMutableAttributedString alloc] initWithString:introduction];
     [attStringToAdd addAttribute:NSFontAttributeName value:normalFont range:NSMakeRange(0, stringLength)];
     [attStringToAdd addAttribute:NSForegroundColorAttributeName value:blackColor range:NSMakeRange(0, stringLength)];
     [attString appendAttributedString:attStringToAdd];
-    
     self.introTxtView.attributedText = attString;
-
-    
 }
 
 
 - (void)introductionFetchOperationFail:(NSString *)errorMessage
 {
-//    [Utility showAlert:@"Plant Introduction Failure:" message:errorMessage];
-    
     UIFont* boldFont = [UIFont boldSystemFontOfSize:15.0];
     UIFont* italicFont = [UIFont italicSystemFontOfSize:15.0];
     UIColor* grayColor = [UIColor darkGrayColor];
@@ -383,8 +361,6 @@
     self.introTxtView.attributedText = attString;
 }
 
-
-//-(void) fetchDescriptionForPlant:(SpeciesFamily*) plant;
 - (void)descriptionFetchOperationSucceed:(NSString*)description
                          isOnlyWithGenus:(BOOL)isOnlyWithGenus
 {
@@ -396,9 +372,7 @@
     self.descTxtView.trimText = nil;
     self.descTxtView.attributedTrimText = trimText;
     
-    
     //////////////
-    
     UIFont* boldFont = [UIFont boldSystemFontOfSize:15.0];
     UIFont* italicFont = [UIFont italicSystemFontOfSize:15.0];
     UIFont* normalFont = [UIFont systemFontOfSize:15.0];
@@ -417,13 +391,8 @@
     [attString appendAttributedString:attStringToAdd];
     [attString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"]];
     
-    
-    
-    
     if (isOnlyWithGenus)
     {
-        //[Utility showAlert:@"Plant Introduction Found with G:" message:introduction];
-        
         NSString* genusString = [NSString stringWithFormat:@"Genus: %@\n",self.plant.genus];
         stringLength = genusString.length;
         
@@ -433,11 +402,6 @@
         
         [attString appendAttributedString:attStringToAdd];
     }
-    else
-    {
-        // [Utility showAlert:@"Plant Introduction Found with G+S:" message:introduction];
-    }
-    
     
     stringLength = description.length;
     attStringToAdd = [[NSMutableAttributedString alloc] initWithString:description];
@@ -446,7 +410,6 @@
     [attString appendAttributedString:attStringToAdd];
     
     self.descTxtView.attributedText = attString;
-
 }
 
 - (void)descriptionFetchOperationFail:(NSString *)errorMessage

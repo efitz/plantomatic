@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) PinAnnotation *point;
-//@property (strong, nonatomic) PinAnnotation *searchPoint;
 @property (strong, nonatomic) UISearchController *resultSearchController;
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
 
@@ -29,8 +28,6 @@
 @property (strong, nonatomic) IBOutlet UIView *searchView;
 
 @property (strong, nonatomic) IBOutlet CalloutAnnotationView *calloutAnnotationView;
-
-//CalloutAnnotationView
 
 @end
 

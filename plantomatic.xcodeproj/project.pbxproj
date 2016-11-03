@@ -161,8 +161,6 @@
 		418BBB1C1D75E79B0099F564 /* CalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB171D75E79B0099F564 /* CalloutAnnotation.m */; };
 		418BBB1D1D75E79B0099F564 /* CalloutAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB191D75E79B0099F564 /* CalloutAnnotationView.m */; };
 		418BBB1E1D75E79B0099F564 /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418BBB1B1D75E79B0099F564 /* PinAnnotation.m */; };
-		418D103F1D58C50D001AEEFB /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D103E1D58C50D001AEEFB /* CustomCalloutView.m */; };
-		418D10421D58D10D001AEEFB /* PlantomaticAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */; };
 		4198D3E51D6467AE00939058 /* PlantDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198D3E41D6467AE00939058 /* PlantDetailsViewController.m */; };
 		4198D3EF1D64B7FA00939058 /* PlantPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198D3EE1D64B7FA00939058 /* PlantPageViewController.m */; };
 		4198D3F21D64FEAD00939058 /* PlantImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198D3F11D64FEAD00939058 /* PlantImageViewController.m */; };
@@ -179,10 +177,6 @@
 		41B8D6AB18EC3BA900CE6D4A /* CInterpolator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6A318EC3BA900CE6D4A /* CInterpolator.mm */; };
 		41B8D6AC18EC3BA900CE6D4A /* Interpolator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6A418EC3BA900CE6D4A /* Interpolator.cpp */; };
 		41B8D6AD18EC3BA900CE6D4A /* CReflectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6A718EC3BA900CE6D4A /* CReflectionView.m */; };
-		41B8D6B218EC3BD600CE6D4A /* PlantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6AF18EC3BD600CE6D4A /* PlantCollectionViewCell.m */; };
-		41B8D6B318EC3BD600CE6D4A /* PlantsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D6B118EC3BD600CE6D4A /* PlantsCollectionViewController.m */; };
-		41B8D78C18EC3C3F00CE6D4A /* CCoverflowTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B8D78918EC3C3F00CE6D4A /* CCoverflowTitleView.xib */; };
-		41B8D78D18EC3C3F00CE6D4A /* CCoverflowTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B8D78B18EC3C3F00CE6D4A /* CCoverflowTitleView.m */; };
 		41B8D79518EC4F6700CE6D4A /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B8D79418EC4F6700CE6D4A /* SDWebImage.framework */; };
 		41B8D79718EC4F9B00CE6D4A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B8D79618EC4F9B00CE6D4A /* ImageIO.framework */; };
 		41B8D79918EC561000CE6D4A /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B8D79818EC561000CE6D4A /* Placeholder.png */; };
@@ -232,7 +226,6 @@
 		41D194F61AC5991A009FB4F1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F51AC5991A009FB4F1 /* CoreData.framework */; };
 		41D194F81AC5993B009FB4F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D194F71AC5993B009FB4F1 /* libz.dylib */; };
 		41D4D2E11A849C3F005C9801 /* welcome_view.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41D4D2E01A849C3F005C9801 /* welcome_view.PNG */; };
-		41DD43B11D58F10200A29EDF /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DD43B01D58F10200A29EDF /* CustomCalloutView.xib */; };
 		41E301021ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E301001ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png */; };
 		41E301031ACD5BAE00D3DDCF /* Bryophyte@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E301011ACD5BAE00D3DDCF /* Bryophyte@2x.png */; };
 		41E36A8A1A94A4F2007BEE03 /* splash-screen-gradiant.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */; };
@@ -540,10 +533,6 @@
 		418BBB191D75E79B0099F564 /* CalloutAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotationView.m; sourceTree = "<group>"; };
 		418BBB1A1D75E79B0099F564 /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
 		418BBB1B1D75E79B0099F564 /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
-		418D103D1D58C50D001AEEFB /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
-		418D103E1D58C50D001AEEFB /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
-		418D10401D58D10D001AEEFB /* PlantomaticAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantomaticAnnotation.h; sourceTree = "<group>"; };
-		418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantomaticAnnotation.m; sourceTree = "<group>"; };
 		4198D3E31D6467AE00939058 /* PlantDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantDetailsViewController.h; sourceTree = "<group>"; };
 		4198D3E41D6467AE00939058 /* PlantDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantDetailsViewController.m; sourceTree = "<group>"; };
 		4198D3ED1D64B7FA00939058 /* PlantPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantPageViewController.h; sourceTree = "<group>"; };
@@ -575,13 +564,6 @@
 		41B8D6A518EC3BA900CE6D4A /* Interpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpolator.h; sourceTree = "<group>"; };
 		41B8D6A618EC3BA900CE6D4A /* CReflectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CReflectionView.h; sourceTree = "<group>"; };
 		41B8D6A718EC3BA900CE6D4A /* CReflectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CReflectionView.m; sourceTree = "<group>"; };
-		41B8D6AE18EC3BD600CE6D4A /* PlantCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantCollectionViewCell.h; sourceTree = "<group>"; };
-		41B8D6AF18EC3BD600CE6D4A /* PlantCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantCollectionViewCell.m; sourceTree = "<group>"; };
-		41B8D6B018EC3BD600CE6D4A /* PlantsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantsCollectionViewController.h; sourceTree = "<group>"; };
-		41B8D6B118EC3BD600CE6D4A /* PlantsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantsCollectionViewController.m; sourceTree = "<group>"; };
-		41B8D78918EC3C3F00CE6D4A /* CCoverflowTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCoverflowTitleView.xib; sourceTree = "<group>"; };
-		41B8D78A18EC3C3F00CE6D4A /* CCoverflowTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCoverflowTitleView.h; sourceTree = "<group>"; };
-		41B8D78B18EC3C3F00CE6D4A /* CCoverflowTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCoverflowTitleView.m; sourceTree = "<group>"; };
 		41B8D79418EC4F6700CE6D4A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		41B8D79618EC4F9B00CE6D4A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		41B8D79818EC561000CE6D4A /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
@@ -645,7 +627,6 @@
 		41D194F51AC5991A009FB4F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		41D194F71AC5993B009FB4F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		41D4D2E01A849C3F005C9801 /* welcome_view.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_view.PNG; sourceTree = "<group>"; };
-		41DD43B01D58F10200A29EDF /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		41E301001ACD5BAE00D3DDCF /* Bryophyte-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte-selected@2x.png"; sourceTree = "<group>"; };
 		41E301011ACD5BAE00D3DDCF /* Bryophyte@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bryophyte@2x.png"; sourceTree = "<group>"; };
 		41E36A871A94A4F2007BEE03 /* splash-screen-gradiant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen-gradiant.png"; sourceTree = "<group>"; };
@@ -1031,18 +1012,6 @@
 			name = CusomCallOut;
 			sourceTree = "<group>";
 		};
-		418D103A1D58C4C2001AEEFB /* Custom Callout (will remove when done) */ = {
-			isa = PBXGroup;
-			children = (
-				41DD43B01D58F10200A29EDF /* CustomCalloutView.xib */,
-				418D103D1D58C50D001AEEFB /* CustomCalloutView.h */,
-				418D103E1D58C50D001AEEFB /* CustomCalloutView.m */,
-				418D10401D58D10D001AEEFB /* PlantomaticAnnotation.h */,
-				418D10411D58D10D001AEEFB /* PlantomaticAnnotation.m */,
-			);
-			name = "Custom Callout (will remove when done)";
-			sourceTree = "<group>";
-		};
 		4198D3E21D64674C00939058 /* Plant Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1269,7 +1238,6 @@
 			isa = PBXGroup;
 			children = (
 				418BBB151D75E6940099F564 /* CusomCallOut */,
-				418D103A1D58C4C2001AEEFB /* Custom Callout (will remove when done) */,
 				41EBF2901D54CF5E007E98CE /* CustomMapVIewController.h */,
 				41EBF2911D54CF5E007E98CE /* CustomMapVIewController.m */,
 				41E6998D1D59EC110028D3F2 /* LocationSearchTableViewController.h */,
@@ -1343,16 +1311,9 @@
 				41B9EE1D18BF5B1B00F7B9A1 /* InfoViewController.m */,
 				F766358A189DA10300B0A594 /* ConversionTestViewController.h */,
 				F766358B189DA10300B0A594 /* ConversionTestViewController.m */,
-				41B8D6AE18EC3BD600CE6D4A /* PlantCollectionViewCell.h */,
-				41B8D6AF18EC3BD600CE6D4A /* PlantCollectionViewCell.m */,
-				41B8D6B018EC3BD600CE6D4A /* PlantsCollectionViewController.h */,
-				41B8D6B118EC3BD600CE6D4A /* PlantsCollectionViewController.m */,
 				41B8D79A18EC5CA700CE6D4A /* ScrollImageViewController.h */,
 				41B8D79B18EC5CA700CE6D4A /* ScrollImageViewController.m */,
 				41B8D79C18EC5CA700CE6D4A /* ScrollImageViewController.xib */,
-				41B8D78918EC3C3F00CE6D4A /* CCoverflowTitleView.xib */,
-				41B8D78A18EC3C3F00CE6D4A /* CCoverflowTitleView.h */,
-				41B8D78B18EC3C3F00CE6D4A /* CCoverflowTitleView.m */,
 				4111D97F1A88ED51009AAB20 /* FilterTableViewController.h */,
 				4111D9801A88ED51009AAB20 /* FilterTableViewController.m */,
 				41C8FA1E1A89F8D1009F1F75 /* FilterCollectionViewTableViewCell.h */,
@@ -1524,7 +1485,6 @@
 			files = (
 				416399251A9B3E3200F92BF1 /* Pink@2x.png in Resources */,
 				41BA4E7C18C9ED9900C34D8F /* Bryophytes_classification.png in Resources */,
-				41DD43B11D58F10200A29EDF /* CustomCalloutView.xib in Resources */,
 				F7EC11D018CFF934001FD603 /* Icon@2x.png in Resources */,
 				41891EC21DC23A2B0046DFFF /* MPNotification~iphonelandscape.storyboard in Resources */,
 				F766358E189DA10300B0A594 /* Images.xcassets in Resources */,
@@ -1552,7 +1512,6 @@
 				41C4BC7518D1B1140043D894 /* UAsci_logo_college.png in Resources */,
 				416399201A9B3E3200F92BF1 /* Orange-selected@2x.png in Resources */,
 				41BFBC911A84F21600143452 /* logo.png in Resources */,
-				41B8D78C18EC3C3F00CE6D4A /* CCoverflowTitleView.xib in Resources */,
 				4163992F1A9B3E3200F92BF1 /* Unknown-Flower@2x.png in Resources */,
 				4163993E1A9B3F2F00F92BF1 /* map@2x.png in Resources */,
 				4163990C1A9B3E3200F92BF1 /* Black-selected@2x.png in Resources */,
@@ -1724,7 +1683,6 @@
 				41891EA71DC23A2B0046DFFF /* MPABTestDesignerClearResponseMessage.m in Sources */,
 				41B8D6AD18EC3BA900CE6D4A /* CReflectionView.m in Sources */,
 				41891ED81DC23A2B0046DFFF /* MPTweakStore.m in Sources */,
-				41B8D78D18EC3C3F00CE6D4A /* CCoverflowTitleView.m in Sources */,
 				41891EBD1DC23A2B0046DFFF /* MPEventBinding.m in Sources */,
 				41891EBE1DC23A2B0046DFFF /* MPNetwork.m in Sources */,
 				418BBB1D1D75E79B0099F564 /* CalloutAnnotationView.m in Sources */,
@@ -1747,7 +1705,6 @@
 				41891EC41DC23A2B0046DFFF /* MPNSAttributedStringToNSDictionaryValueTransformer.m in Sources */,
 				41891ED71DC23A2B0046DFFF /* MPTweakInline.m in Sources */,
 				41891ED31DC23A2B0046DFFF /* MPSurveyQuestionViewController.m in Sources */,
-				418D10421D58D10D001AEEFB /* PlantomaticAnnotation.m in Sources */,
 				F7663586189DA10300B0A594 /* AppDelegate.m in Sources */,
 				4189A2F01DB0ECC9000730D4 /* ReadMoreTextView.swift in Sources */,
 				41802D1518CF575600E41641 /* MBProgressHUD.m in Sources */,
@@ -1773,7 +1730,6 @@
 				41891EE11DC23A2B0046DFFF /* MPWebSocket.m in Sources */,
 				41891EBA1DC23A2B0046DFFF /* MPDesignerEventBindingResponseMesssage.m in Sources */,
 				41891EC61DC23A2B0046DFFF /* MPObjectIdentityProvider.m in Sources */,
-				41B8D6B318EC3BD600CE6D4A /* PlantsCollectionViewController.m in Sources */,
 				41891EAB1DC23A2B0046DFFF /* MPABTestDesignerDisconnectMessage.m in Sources */,
 				41B7975318EACD65009F54E2 /* GenericService.m in Sources */,
 				4198D3EF1D64B7FA00939058 /* PlantPageViewController.m in Sources */,
@@ -1785,7 +1741,6 @@
 				41891EAE1DC23A2B0046DFFF /* MPABTestDesignerTweakRequestMessage.m in Sources */,
 				41891EDF1DC23A2B0046DFFF /* MPUITableViewBinding.m in Sources */,
 				41B8D79D18EC5CA700CE6D4A /* ScrollImageViewController.m in Sources */,
-				418D103F1D58C50D001AEEFB /* CustomCalloutView.m in Sources */,
 				41891EAA1DC23A2B0046DFFF /* MPABTestDesignerDeviceInfoResponseMessage.m in Sources */,
 				41891EB81DC23A2B0046DFFF /* MPClassDescription.m in Sources */,
 				41891EB41DC23A2B0046DFFF /* MPCGColorRefToNSStringValueTransformer.m in Sources */,
@@ -1797,7 +1752,6 @@
 				41891EA01DC23A2B0046DFFF /* MixpanelExceptionHandler.m in Sources */,
 				41B9EE1118BF4AC200F7B9A1 /* SpeciesFamily.m in Sources */,
 				41891EE71DC23A2B0046DFFF /* UIColor+MPColor.m in Sources */,
-				41B8D6B218EC3BD600CE6D4A /* PlantCollectionViewCell.m in Sources */,
 				41891EB51DC23A2B0046DFFF /* MPCGPointToNSDictionaryValueTransformer.m in Sources */,
 				41891ECB1DC23A2B0046DFFF /* MPPassThroughValueTransformer.m in Sources */,
 				41891EB31DC23A2B0046DFFF /* MPCGAffineTransformToNSDictionaryValueTransformer.m in Sources */,

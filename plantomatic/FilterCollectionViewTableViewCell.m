@@ -34,6 +34,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -101,19 +102,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.filterValuesDictionary allKeys].count ;
-    
-//    NSInteger count=0;
-//    
-//    if (self.isForGrowthForm)
-//    {
-//        count=[[self getGrowthForms] count];//GROWTH_FORM;
-//    }
-//    else
-//    {
-//        count=[[self getFlowerColors] count];//FLOWER_COLORS;
-//    }
-//    
-//    return count;
 }
 
 
@@ -123,17 +111,15 @@
     
     NSLog(@"Cell Frame : %@", NSStringFromCGRect(cell.frame));
     
-//    NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-
     NSArray* keysArray=nil;
     
     if (self.isForGrowthForm)
     {
-        keysArray=GROWTH_FORM;//[self getGrowthForms];
+        keysArray=GROWTH_FORM;
     }
     else
     {
-        keysArray=FLOWER_COLORS;//[self getFlowerColors];
+        keysArray=FLOWER_COLORS;
     }
     
     NSString* key=[keysArray objectAtIndex:indexPath.row];
@@ -229,19 +215,15 @@
 {
     NSLog(@"This is Something IndexPath : %@", [indexPath description]);
     
-//    NSDictionary *filterDic = [self.filterValuesArray objectAtIndex:indexPath.row];
-    
-//    NSArray* keysArray=[[self.filterValuesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    
     NSArray* keysArray=nil;
     
     if (self.isForGrowthForm)
     {
-        keysArray=GROWTH_FORM;//[self getGrowthForms];
+        keysArray=GROWTH_FORM;
     }
     else
     {
-        keysArray=FLOWER_COLORS;//[self getFlowerColors];
+        keysArray=FLOWER_COLORS;
     }
     
     NSString* key=[keysArray objectAtIndex:indexPath.row];
@@ -252,7 +234,6 @@
     [self.filterValuesDictionary setValue:dictionary forKey:key];
     
     [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"familiesSelected"];
-//    [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"sortColumns"];
     
     if (self.isForGrowthForm)
     {

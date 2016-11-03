@@ -11,11 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface PlantCell ()
-
-
-
-
-
 //First column
 @property (strong, nonatomic) IBOutlet UIView *colorView;
 @property (strong, nonatomic) IBOutlet UIImageView *flowerColorImgView;
@@ -30,8 +25,6 @@
 
 //third column
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
-
-//@property (strong, nonatomic) IBOutlet NSLayoutConstraint *thirdColumnWidthConstriant;
 
 @end
 
@@ -55,34 +48,15 @@
 
 -(void) awakeFromNib
 {
+    [super awakeFromNib];
+    //This is not working with formula we have placed half value for making circle i.e 17
 }
 
 -(void) updateWithSpeciesFamily:(SpeciesFamily*)plant
 {
-    /*
-    [[self titleLbl] setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
-    [[self familyLbl] setText:[NSString stringWithFormat:@"%@ ",plant.family]];
-    [[self classificationLbl] setText:[NSString stringWithFormat:@"%@ ",plant.classification]];
-    [[self habitLbl] setText:[NSString stringWithFormat:@"%@ ",plant.habit]];
-    
-    
-    NSString* imageName=[NSString stringWithFormat:@"%@_classification.png", plant.classification];
-    [self.imgView setImage:[UIImage imageNamed:imageName]];
-    self.imgView.contentMode=UIViewContentModeScaleAspectFit;
-    
-    
-    if ([plant.isImageAvailabe isEqualToString:@"TRUE"]) {
-        [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    }
-    else
-    {
-        [self setAccessoryType:UITableViewCellAccessoryNone];
-    }
-*/
     if ([plant.isImageAvailabe isEqualToString:@"FALSE"]) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
-    
     
     //First column
     
@@ -145,14 +119,11 @@
         [self.classificationLbl setText:plant.classification];
     }
     
-    
-    
     [self.habitLbl setText:[NSString stringWithFormat:@"%@ ",plant.habit]];
 
     
     
     //second column
-    
     //ChunkFive 18
     //system italic 18
     //system bold 14
@@ -209,37 +180,17 @@
     [attString appendAttributedString:simpleCr];
     [attString appendAttributedString:cr];
     [attString appendAttributedString:familyattributedString];
-
-
-    
-//    NSInteger strLength = [attString length];
-//    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-//    [style setLineHeightMultiple:0.92];
-//    [attString addAttribute:NSParagraphStyleAttributeName
-//                      value:style
-//                      range:NSMakeRange(0, strLength)];
-    
     self.commonNameLbl.attributedText=attString;
-    
-    
-    
-//    [self.commonNameLbl setText:plant.commonName];
-//    [self.genusSpeciesLbl setText:[NSString stringWithFormat:@"%@ %@",plant.genus,plant.species]];
-//    [self.familyLbl setText:[NSString stringWithFormat:@"%@ ",plant.family]];
-   
     
     //third column
     
     if ([plant.isImageAvailabe isEqualToString:@"TRUE"]) {
         self.imgView.hidden=NO;
-//        self.thirdColumnWidthConstriant.constant=30;
     }
     else
     {
         self.imgView.hidden=YES;
-//        self.thirdColumnWidthConstriant.constant=0;
     }
-    
 }
 
 
