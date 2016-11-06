@@ -413,11 +413,21 @@
     
     if ([Utility isUserHaveSelectedAnyLocation]) {
         // Using user selected location.
-        locationString = @"(Using User Selected Location)";
+        if (self.plants.count != self.totalAvialblePlantsCount) {
+            locationString = @"(Selected Location & Filters)";
+        }
+        else {
+            locationString = @"(From Selected Location)";
+        }
     }
     else {
         // Using current GPS location location.
-        locationString = @"(Using GPS Location)";
+        if (self.plants.count != self.totalAvialblePlantsCount) {
+            locationString = @"(Device Location & Filters)";
+        }
+        else {
+            locationString = @"(From Device Location)";
+        }
     }
     
     stringLength = locationString.length;

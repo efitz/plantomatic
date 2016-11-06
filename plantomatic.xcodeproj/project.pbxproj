@@ -1434,7 +1434,7 @@
 				ORGANIZATIONNAME = "Ocotea Technologies, LLC";
 				TargetAttributes = {
 					F7663571189DA10300B0A594 = {
-						DevelopmentTeam = G9CJYTK52B;
+						DevelopmentTeam = X73ZD9C8U2;
 						LastSwiftMigration = 0800;
 					};
 					F7663592189DA10400B0A594 = {
@@ -1914,7 +1914,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = G9CJYTK52B;
+				DEVELOPMENT_TEAM = X73ZD9C8U2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1959,7 +1959,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = G9CJYTK52B;
+				DEVELOPMENT_TEAM = X73ZD9C8U2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
